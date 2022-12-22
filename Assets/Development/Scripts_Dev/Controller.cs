@@ -9,14 +9,12 @@ public class Controller : MonoBehaviour
 {
 
     Rigidbody rb;
-    [SerializeField] Animator anim;
-    [SerializeField] Image playerImage;
-    //public InputMaster controls;
+    //[SerializeField] Animator anim;
+    public InputMaster controls;
     public CharacterController characterController;
     public List<KeyControl> slot;
 
     //Movement vars
-    public bool fourDirectionMovement;
     public bool running = false;
     public float curSpeed;
     public int direction = 1;
@@ -50,10 +48,10 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         //Sets controls to a new input master
-        //controls = new InputMaster();
+        controls = new InputMaster();
 
         //You must enable an action before it is used
-        //controls.FindAction("Movement").Enable();
+        controls.FindAction("Movement").Enable();
     }
 
     // Update is called once per frame
@@ -64,10 +62,13 @@ public class Controller : MonoBehaviour
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
         
         //Sets the direction int in the animator controller
-        anim.SetInteger("Direction", direction);
+        //anim.SetInteger("Direction", direction);
 
         //Movement
         Movement();
+
+        //Moves based on the movement vector
+        characterController.Move(movement * Time.deltaTime);
 
         //If you don't need the character grounded then get rid of this part.
         isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
@@ -104,15 +105,15 @@ public class Controller : MonoBehaviour
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
         //Gets movement input data and turns it into a vector2 to apply towards the characters movement animation
-        //Vector2 moveInput = controls.Player.Movement.ReadValue<Vector2>();
+        Vector2 moveInput = controls.Player.Movement.ReadValue<Vector2>();
 
         //8 directional movement
-        //movement = new Vector3(moveInput.x, verticalVel, moveInput.y) * (curSpeed * 100) * Time.deltaTime;
+        movement = new Vector3(moveInput.x, verticalVel, moveInput.y) * (curSpeed * 100) * Time.deltaTime;
 
         //Makes sure the animation variables match the movement inputs
         //anim.SetFloat("xAxis", moveInput.x);
         //anim.SetFloat("yAxis", moveInput.y);
-        anim.SetBool("Running", running);
+        //anim.SetBool("Running", running);
 
         //Uses input data to determine direction.
         /*
@@ -125,7 +126,7 @@ public class Controller : MonoBehaviour
          * Up + Left = (-1, 1)
          * Down + Left = (-1, -1)
         */
-        /*
+        
         if (moveInput == new Vector2(0, 1))
         {
             direction = 3;
@@ -152,6 +153,6 @@ public class Controller : MonoBehaviour
         {
             running = true;
         }
-        */
+        
     }
 }
