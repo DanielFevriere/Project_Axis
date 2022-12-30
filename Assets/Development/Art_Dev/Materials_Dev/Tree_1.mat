@@ -23,7 +23,8 @@ Material:
   m_Name: Tree_1
   m_Shader: {fileID: -6465566751694194690, guid: 999c59e2e4c700c4a9734fb6ec963830,
     type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ADDITIONAL_LIGHTS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -34,6 +35,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AOTex:
+        m_Texture: {fileID: 2800000, guid: b15e5db9c77e39a45a6f18fffc0acf96, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 2b525bd7f8b62f54a9b8ff0c2e8fbf56, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -104,8 +109,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ADDITIONAL_LIGHTS: 1
     - _AlphaClip: 1
-    - _AmbientOcclusion: 0.1
+    - _AlphaCutoff: 0.305
+    - _AmbientOcclusion: 0.62
     - _Blend: 0
     - _BlendOp: 0
     - _BumpScale: 1
@@ -122,12 +129,13 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
+    - _NormalStrength: 0.56
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.071
+    - _Smoothness: 0.259
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
