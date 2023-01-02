@@ -68,7 +68,7 @@ public class Controller : MonoBehaviour
         Movement();
 
         //Moves based on the movement vector
-        characterController.Move(movement * Time.deltaTime);
+        characterController.Move(movement * Time.fixedDeltaTime);
 
         //If you don't need the character grounded then get rid of this part.
         isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
