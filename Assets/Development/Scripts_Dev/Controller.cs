@@ -71,7 +71,7 @@ public class Controller : MonoBehaviour
         characterController.Move(movement * Time.fixedDeltaTime);
 
         //If you don't need the character grounded then get rid of this part.
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.01f, GroundLayer);
 
         //If you are on the ground, velocity 0, and you arent falling
         if (isGrounded)
