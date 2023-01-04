@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
-
     Rigidbody rb;
     //[SerializeField] Animator anim;
     public InputMaster controls;
@@ -37,7 +36,6 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
         //Fetching character controller
         characterController = GetComponent<CharacterController>();
 
@@ -53,14 +51,13 @@ public class Controller : MonoBehaviour
         //You must enable an action before it is used
         controls.FindAction("Movement").Enable();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    //Called when the Gamemanager is in a certain state
+    public void HandleUpdate()
     {
-
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
-        
+
         //Sets the direction int in the animator controller
         //anim.SetInteger("Direction", direction);
 

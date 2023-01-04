@@ -11,8 +11,6 @@ public class AIFollow : MonoBehaviour
 
     public LayerMask whatIsPlayer;
 
-    //Patrolling
-
     //States
     public float sightRange;
     public bool playerInSightRange;
@@ -34,7 +32,6 @@ public class AIFollow : MonoBehaviour
     //Chases Player
     void ChasePlayer()
     {
-        //Vector3 distanceToPlayer = transform.position - player.position;
         agent.SetDestination(player.position);
     }
 }
