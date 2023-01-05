@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,14 +35,32 @@ public class GameManager : MonoBehaviour
     public List<GameObject> partyMembers;
 
     GameState state;
+    public GameState CurrentState { get { return state;} }
+
+    // subscribe and unsubscribe events that should happen in other systems when a state change occurs here
+    public event Action OnStateChange; 
+    public event Action OnPartyLeaderChange;
+
+    [Header("Debug")]
+    public bool isDebugging = true;
 
     private void Awake()
     {
         state = GameState.FreeRoam;
     }
 
+    // Todo: This should tell the game to enter a default state upon launch (for now)
+    private void Start()
+    {
+        ChangeState(GameState.FreeRoam);
+    }
+
     private void Update()
     {
+        /* Anthony: Okay so this part down here that sets the party leader and enabling/disabling
+         *  player/ai controllers doesn't need to be called every frame, we just need to do it once
+         *  whenever the game enters FreeRoam/Battle states.
+         */
         //The first party member in the list of party members is the current leader
         partyLeader = partyMembers[0];
         currentController = partyLeader.GetComponent<Controller>();
@@ -51,6 +70,7 @@ public class GameManager : MonoBehaviour
 
         if (state == GameState.FreeRoam)
         {
+            /* Anthony: same as above */
             //Makes sure each non leader party member is following the party leader
             foreach(GameObject p in partyMembers)
             {
@@ -61,9 +81,11 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-
             worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
             virtualCamera.Follow = partyLeader.transform;
+
+            /* Anthony: only this should be called here, we only want to keep things that require updates every frame
+             * within Update functions, everything else should ideally be event-based instead */
             currentController.HandleUpdate();
         }
         else if (state == GameState.Battle)
@@ -74,6 +96,54 @@ public class GameManager : MonoBehaviour
         {
 
         }
+
+        // Debug purposes
+        DebugUpdate();
+    }
+
+    public void ChangeState(GameState nextState)
+    {
+        // If the requested state is the same, do nothing
+        //      should probably throw a warning also
+        if (nextState == state)
+        {
+            Debug.LogWarning("SAME STATE change detected! State: " + state.ToString());
+            return;
+        }
+
+        // Exit current state
+        switch (state)
+        {
+            case GameState.FreeRoam:
+
+                break;
+            case GameState.Battle:
+
+                break;
+            case GameState.Dialog:
+
+                break;
+        }
+
+        // Set next state
+        state = nextState;
+
+        // Enter next state
+        switch (nextState)
+        {
+            case GameState.FreeRoam:
+                Enter_FreeRoam();
+                break;
+            case GameState.Battle:
+                Enter_Battle();
+                break;
+            case GameState.Dialog:
+
+                break;
+        }
+
+        // Invoke OnStateChange event to broadcast to all listeners
+        OnStateChange?.Invoke();
     }
 
     //Swaps control between party members
@@ -83,5 +153,58 @@ public class GameManager : MonoBehaviour
         partyMembers[0] = partyMembers[1];
         partyMembers[1] = partyMembers[2];
         partyMembers[2] = partyLeader;
+
+        /* Anthony: bruh, instead of swapping like this, keep an INDEX variable that
+         * points to the current party leader, then just cycle that variable when ever we need to swap character
+         *  index = index + 1
+         *  if (index > partyMembers.Length()) { index = 0; }
+         *  partyLeader = ...
+         */
+
+        OnPartyLeaderChange?.Invoke();
+    }
+
+    #region Enter States
+    void Enter_FreeRoam()
+    {
+        // Todo: Check if partyMembers is empty, if empty then add in party members
+
+        // Todo: Initialize/Set party leader here
+
+    }
+
+    void Enter_Battle()
+    {
+
+    }
+    #endregion
+
+    #region Exit States
+
+    #endregion
+
+    void DebugUpdate()
+    {
+        if (!isDebugging) { return; }
+
+        // State change key (P)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameState nextState = GameState.FreeRoam;
+            switch (state)
+            {
+                case GameState.FreeRoam:
+                    nextState = GameState.Battle;
+                    break;
+                case GameState.Battle:
+                    nextState = GameState.Dialog;
+                    break;
+                case GameState.Dialog:
+                    nextState = GameState.FreeRoam;
+                    break;
+            }
+
+            ChangeState(nextState);
+        }
     }
 }

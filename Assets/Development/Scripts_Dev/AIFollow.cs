@@ -22,6 +22,12 @@ public class AIFollow : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.partyLeader == null)
+        {
+            Debug.LogError(name + " " + "has no party leader assigned! Skipping follow logic.");
+            return;
+        }
+
         player = GameManager.Instance.partyLeader.transform;
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
