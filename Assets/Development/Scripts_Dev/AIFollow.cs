@@ -17,12 +17,12 @@ public class AIFollow : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Character").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
+        player = GameManager.Instance.partyLeader.transform;
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
         //Chases player if theyre in range

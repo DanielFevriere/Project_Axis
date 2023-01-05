@@ -9,6 +9,8 @@ public class Controller : MonoBehaviour
 {
     Rigidbody rb;
     //[SerializeField] Animator anim;
+    public string characterName;
+    public bool isControlling;
     public InputMaster controls;
     public CharacterController characterController;
     public List<KeyControl> slot;
@@ -51,10 +53,21 @@ public class Controller : MonoBehaviour
         //You must enable an action before it is used
         controls.FindAction("Movement").Enable();
     }
-    
-    //Called when the Gamemanager is in a certain state
+
+    //Always called every frame
+    private void Update()
+    {
+        
+    }
+
+    //Constantly called when the Gamemanager is in a certain state
     public void HandleUpdate()
     {
+        //This is the character thats being controlled
+        isControlling = true;
+
+        GetComponent<AIFollow>().enabled = false;
+
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
@@ -67,16 +80,16 @@ public class Controller : MonoBehaviour
         //Moves based on the movement vector
         characterController.Move(movement * Time.fixedDeltaTime);
 
-        //If you don't need the character grounded then get rid of this part.
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.01f, GroundLayer);
+        //GroundCheck
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
 
         //If you are on the ground, velocity 0, and you arent falling
         if (isGrounded)
         {
-            //verticalVel = -gravity * Time.deltaTime;
             verticalVel = 0;
             isFalling = false; //makes sure falling is false
         }
+        //Otherwise, fall
         else
         {
             isFalling = true;
@@ -94,6 +107,12 @@ public class Controller : MonoBehaviour
         {
             verticalVel = jumpPower;
             isGrounded = false;
+        }
+        
+        if (kb.eKey.wasReleasedThisFrame)
+        {
+            Debug.Log("Swapped");
+            GameManager.Instance.SwapCharacter();
         }
     }
 
