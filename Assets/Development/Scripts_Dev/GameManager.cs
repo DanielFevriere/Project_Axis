@@ -57,17 +57,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        /* Anthony: Okay so this part down here that sets the party leader and enabling/disabling
-         *  player/ai controllers doesn't need to be called every frame, we just need to do it once
-         *  whenever the game enters FreeRoam/Battle states.
-         */
-        //The first party member in the list of party members is the current leader
-        partyLeader = partyMembers[0];
-        currentController = partyLeader.GetComponent<Controller>();
-        partyLeader.GetComponent<Controller>().enabled = true;
-        partyLeader.GetComponent<AIFollow>().enabled = false;
-
-
         if (state == GameState.FreeRoam)
         {
             /* Anthony: same as above */
@@ -146,6 +135,15 @@ public class GameManager : MonoBehaviour
         OnStateChange?.Invoke();
     }
 
+    public void SetPartyLeader()
+    {
+        //The first party member in the list of party members is the current leader
+        partyLeader = partyMembers[0];
+        currentController = partyLeader.GetComponent<Controller>();
+        partyLeader.GetComponent<Controller>().enabled = true;
+        partyLeader.GetComponent<AIFollow>().enabled = false;
+    }
+
     //Swaps control between party members
     public void SwapCharacter()
     {
@@ -161,6 +159,7 @@ public class GameManager : MonoBehaviour
          *  partyLeader = ...
          */
 
+        SetPartyLeader();
         OnPartyLeaderChange?.Invoke();
     }
 
@@ -170,12 +169,16 @@ public class GameManager : MonoBehaviour
         // Todo: Check if partyMembers is empty, if empty then add in party members
 
         // Todo: Initialize/Set party leader here
-
+        SetPartyLeader();
     }
 
     void Enter_Battle()
     {
-
+        foreach(GameObject p in partyMembers)
+        {
+            partyLeader.GetComponent<Controller>().enabled = false;
+            partyLeader.GetComponent<AIFollow>().enabled = false;
+        }
     }
     #endregion
 

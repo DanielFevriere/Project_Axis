@@ -45,6 +45,7 @@ public class UiManager : MonoBehaviour
 
     public void DEBUG_SetCurrentPartyLeader()
     {
+        GameManager.Instance.SetPartyLeader();
         if (GameManager.Instance.partyLeader != null)
         {
             Debug.partyLeaderText.text = "Party Leader: " + GameManager.Instance.partyLeader.name;
