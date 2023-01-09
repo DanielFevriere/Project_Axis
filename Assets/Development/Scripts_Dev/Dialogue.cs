@@ -5,10 +5,16 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
+    [SerializeField] string name;
     [SerializeField] List<string> lines;
+
+    public string Name
+    {
+        get { return name; }
+    }
 
     public List<string> Lines
     {
-        get { return Lines; }
+        get { return lines; }
     }
 }

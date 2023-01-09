@@ -1156,6 +1156,10 @@ MonoBehaviour:
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
+  dialogue:
+    name: Gabriel
+    lines:
+    - Lets finish this fast.
 --- !u!143 &124267047
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1564,7 +1568,7 @@ GameObject:
   - component: {fileID: 163640489}
   - component: {fileID: 163640488}
   m_Layer: 5
-  m_Name: CharacterName
+  m_Name: DialogueName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2286,6 +2290,10 @@ MonoBehaviour:
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
+  dialogue:
+    name: Raphael
+    lines:
+    - Don't be too hasty.
 --- !u!1 &286548962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 177a360e7c5e152498f68d1a6182df2a,
@@ -3749,9 +3757,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7165f49373a970448c7db3277c0eb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
-  dialogueText: {fileID: 0}
-  lettersPerSecond: 0
+  dialogueBox: {fileID: 1347759691}
+  dialogueName: {fileID: 163640488}
+  dialogueText: {fileID: 563896229}
+  lettersPerSecond: 45
 --- !u!1 &419270929
 GameObject:
   m_ObjectHideFlags: 0
@@ -15287,7 +15296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1347759692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28264,6 +28273,10 @@ MonoBehaviour:
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
+  dialogue:
+    name: Michael
+    lines:
+    - Who's gonna stop us?
 --- !u!1001 &2052708677
 PrefabInstance:
   m_ObjectHideFlags: 0

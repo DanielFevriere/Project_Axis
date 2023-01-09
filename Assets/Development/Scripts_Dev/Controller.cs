@@ -34,6 +34,8 @@ public class Controller : MonoBehaviour
 
     public Vector3 movement;
 
+    [SerializeField] Dialogue dialogue;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -119,7 +121,7 @@ public class Controller : MonoBehaviour
         //Interact function
         if(kb.fKey.wasReleasedThisFrame)
         {
-            Interact();
+            SayQuote();
         }
     }
 
@@ -179,8 +181,8 @@ public class Controller : MonoBehaviour
         
     }
 
-    public void Interact()
+    public void SayQuote()
     {
-
+        DialogueManager.Instance.ShowDialogue(dialogue);
     }
 }

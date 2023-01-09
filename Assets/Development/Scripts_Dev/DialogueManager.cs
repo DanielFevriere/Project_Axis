@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] GameObject dialogueBox;
-    [SerializeField] Text dialogueText;
+    [SerializeField] TMP_Text dialogueName;
+    [SerializeField] TMP_Text dialogueText;
     [SerializeField] int lettersPerSecond;
 
+    public static DialogueManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void ShowDialogue(Dialogue dialogue)
     {
         dialogueBox.SetActive(true);
+        dialogueName.text = dialogue.Name;
         StartCoroutine(TypeDialogue(dialogue.Lines[0]));
     }
 
