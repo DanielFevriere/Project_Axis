@@ -109,10 +109,17 @@ public class Controller : MonoBehaviour
             isGrounded = false;
         }
         
+        //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
         {
             Debug.Log("Swapped");
             GameManager.Instance.SwapCharacter();
+        }
+
+        //Interact function
+        if(kb.fKey.wasReleasedThisFrame)
+        {
+            Interact();
         }
     }
 
@@ -170,5 +177,10 @@ public class Controller : MonoBehaviour
             running = true;
         }
         
+    }
+
+    public void Interact()
+    {
+
     }
 }
