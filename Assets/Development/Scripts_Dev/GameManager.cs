@@ -83,7 +83,11 @@ public class GameManager : MonoBehaviour
         }
         else if (state == GameState.Dialog)
         {
-
+            foreach (GameObject p in partyMembers)
+            {
+                p.GetComponent<Controller>().enabled = false;
+                p.GetComponent<AIFollow>().enabled = false;
+            }
         }
 
         // Debug purposes
