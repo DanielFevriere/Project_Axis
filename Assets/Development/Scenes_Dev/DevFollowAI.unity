@@ -651,6 +651,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 508044191}
+  - {fileID: 2104442480}
   m_Father: {fileID: 1470611558}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -19.309, y: 32.15, z: 27.749}
@@ -1160,6 +1161,7 @@ MonoBehaviour:
     name: Gabriel
     lines:
     - Lets finish this fast.
+    - We got better things to do.
 --- !u!143 &124267047
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2294,6 +2296,7 @@ MonoBehaviour:
     name: Raphael
     lines:
     - Don't be too hasty.
+    - We don't know whats up ahead.
 --- !u!1 &286548962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 177a360e7c5e152498f68d1a6182df2a,
@@ -28277,6 +28280,7 @@ MonoBehaviour:
     name: Michael
     lines:
     - Who's gonna stop us?
+    - I don't see any problems here.
 --- !u!1001 &2052708677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28640,6 +28644,71 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9131450490898793179, guid: 177a360e7c5e152498f68d1a6182df2a, type: 3}
+--- !u!1 &2104442478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104442480}
+  - component: {fileID: 2104442479}
+  - component: {fileID: 2104442481}
+  m_Layer: 0
+  m_Name: DialogueZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2104442479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104442478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2104442480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104442478}
+  m_LocalRotation: {x: 0.09098992, y: -0.30364895, z: -0.27224147, w: 0.9085168}
+  m_LocalPosition: {x: 0.10940577, y: 0.19575906, z: -0.08036718}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 77760349}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2104442481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104442478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7b15de303cd3f4e992095f1ba6f1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Light
+    lines:
+    - Hello Gabriel.
+    - Why are your friends naked?
+    - Did your creator not design them yet?
+    - '*sigh* What a lazy fool.'
 --- !u!43 &2112050616
 Mesh:
   m_ObjectHideFlags: 0

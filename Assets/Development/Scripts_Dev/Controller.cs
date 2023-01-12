@@ -118,8 +118,8 @@ public class Controller : MonoBehaviour
             GameManager.Instance.SwapCharacter();
         }
 
-        //Interact function
-        if(kb.fKey.wasReleasedThisFrame)
+        //Quote test function
+        if(kb.lKey.wasReleasedThisFrame)
         {
             SayQuote();
         }
@@ -183,6 +183,6 @@ public class Controller : MonoBehaviour
 
     public void SayQuote()
     {
-        DialogueManager.Instance.ShowDialogue(dialogue);
+        StartCoroutine(DialogueManager.Instance.ShowDialogue(dialogue));
     }
 }

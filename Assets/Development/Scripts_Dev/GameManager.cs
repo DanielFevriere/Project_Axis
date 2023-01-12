@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //States the game can be in
-public enum GameState { FreeRoam, Battle, Dialog }
+public enum GameState { FreeRoam, Battle, Dialogue }
 
 public class GameManager : MonoBehaviour
 {
@@ -53,6 +53,21 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeState(GameState.FreeRoam);
+
+        //Goes to dialogue state when dialogue is open
+        DialogueManager.Instance.OnShowDialogue += () =>
+        {
+            ChangeState(GameState.Dialogue);
+        };
+
+        //Goes to freeroam state when dialogue is closed
+        DialogueManager.Instance.OnCloseDialogue += () =>
+        {
+            if(state == GameState.Dialogue)
+            {
+                ChangeState(GameState.FreeRoam);
+            }
+        };
     }
 
     private void Update()
@@ -81,13 +96,14 @@ public class GameManager : MonoBehaviour
         {
 
         }
-        else if (state == GameState.Dialog)
+        else if (state == GameState.Dialogue)
         {
             foreach (GameObject p in partyMembers)
             {
                 p.GetComponent<Controller>().enabled = false;
                 p.GetComponent<AIFollow>().enabled = false;
             }
+            DialogueManager.Instance.HandleUpdate();
         }
 
         // Debug purposes
@@ -113,7 +129,7 @@ public class GameManager : MonoBehaviour
             case GameState.Battle:
 
                 break;
-            case GameState.Dialog:
+            case GameState.Dialogue:
 
                 break;
         }
@@ -130,7 +146,7 @@ public class GameManager : MonoBehaviour
             case GameState.Battle:
                 Enter_Battle();
                 break;
-            case GameState.Dialog:
+            case GameState.Dialogue:
 
                 break;
         }
@@ -204,9 +220,9 @@ public class GameManager : MonoBehaviour
                     nextState = GameState.Battle;
                     break;
                 case GameState.Battle:
-                    nextState = GameState.Dialog;
+                    nextState = GameState.Dialogue;
                     break;
-                case GameState.Dialog:
+                case GameState.Dialogue:
                     nextState = GameState.FreeRoam;
                     break;
             }
