@@ -6,15 +6,15 @@ using UnityEngine;
 public class Dialogue
 {
     [SerializeField] string name;
-    [SerializeField] List<string> lines;
+    [SerializeField] string line;
 
     public string Name
     {
         get { return name; }
     }
 
-    public List<string> Lines
+    public string Line
     {
-        get { return lines; }
+        get { return line; }
     }
 }

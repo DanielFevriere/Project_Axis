@@ -16,8 +16,8 @@ public class DialogueManager : MonoBehaviour
     public event Action OnShowDialogue;
     public event Action OnCloseDialogue;
 
-    Dialogue dialogue;
-    int currentLine = 0;
+    Conversation shownConversation;
+    int currentDialogue = 0;
     bool isTyping = false;
 
     public static DialogueManager Instance { get; private set; }
@@ -35,38 +35,40 @@ public class DialogueManager : MonoBehaviour
         //If the dialogue key is pressed and its not already typing out a dialogue
         if (kb.fKey.wasReleasedThisFrame && !isTyping)
         {
-            currentLine++;
-            if(currentLine < dialogue.Lines.Count)
+            currentDialogue++;
+            if(currentDialogue < shownConversation.Dialogues.Count)
             {
-                StartCoroutine(TypeDialogue(dialogue.Lines[currentLine]));
+                StartCoroutine(TypeLine(shownConversation.Dialogues[currentDialogue]));
             }
             else
             {
-                currentLine = 0;
+                isTyping = false;
+                currentDialogue = 0;
                 dialogueBox.SetActive(false);
                 OnCloseDialogue.Invoke();
             }
         }
     }
 
-    public IEnumerator ShowDialogue(Dialogue dialogue)
+    public IEnumerator ShowConversation(Conversation convo)
     {
         yield return new WaitForEndOfFrame();
 
         OnShowDialogue.Invoke();
-        this.dialogue = dialogue;
-
+        shownConversation = convo;
 
         dialogueBox.SetActive(true);
-        dialogueName.text = dialogue.Name;
-        StartCoroutine(TypeDialogue(dialogue.Lines[0]));
+
+        dialogueName.text = convo.Dialogues[0].Name;
+        StartCoroutine(TypeLine(convo.Dialogues[0]));
     }
 
-    public IEnumerator TypeDialogue(string line)
+    public IEnumerator TypeLine(Dialogue dialogue)
     {
         isTyping = true;
+        dialogueName.text = dialogue.Name;
         dialogueText.text = "";
-        foreach(var letter in line.ToCharArray())
+        foreach(var letter in dialogue.Line.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);

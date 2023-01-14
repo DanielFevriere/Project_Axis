@@ -34,7 +34,7 @@ public class Controller : MonoBehaviour
 
     public Vector3 movement;
 
-    [SerializeField] Dialogue dialogue;
+    [SerializeField] Conversation convo;
 
 
     // Start is called before the first frame update
@@ -183,6 +183,6 @@ public class Controller : MonoBehaviour
 
     public void SayQuote()
     {
-        StartCoroutine(DialogueManager.Instance.ShowDialogue(dialogue));
+        StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
     }
 }

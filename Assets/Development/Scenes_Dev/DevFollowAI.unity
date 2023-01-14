@@ -1157,11 +1157,7 @@ MonoBehaviour:
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
-  dialogue:
-    name: Gabriel
-    lines:
-    - Lets finish this fast.
-    - We got better things to do.
+  convo: {fileID: 11400000, guid: 072794f7c58a3f148a99d6fa8b8b33c1, type: 2}
 --- !u!143 &124267047
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2292,11 +2288,7 @@ MonoBehaviour:
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
-  dialogue:
-    name: Raphael
-    lines:
-    - Don't be too hasty.
-    - We don't know whats up ahead.
+  convo: {fileID: 11400000, guid: 8aae3c18d070b954e87207a1f3309bea, type: 2}
 --- !u!1 &286548962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 177a360e7c5e152498f68d1a6182df2a,
@@ -28276,11 +28268,7 @@ MonoBehaviour:
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
-  dialogue:
-    name: Michael
-    lines:
-    - Who's gonna stop us?
-    - I don't see any problems here.
+  convo: {fileID: 11400000, guid: c6d38fc71a90d6a46b24ec7f08fdf7bf, type: 2}
 --- !u!1001 &2052708677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28656,7 +28644,7 @@ GameObject:
   - component: {fileID: 2104442479}
   - component: {fileID: 2104442481}
   m_Layer: 0
-  m_Name: DialogueZone
+  m_Name: ConversationZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28702,13 +28690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7b15de303cd3f4e992095f1ba6f1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Light
-    lines:
-    - Hello Gabriel.
-    - Why are your friends naked?
-    - Did your creator not design them yet?
-    - '*sigh* What a lazy fool.'
+  firstConvo: {fileID: 11400000, guid: de528b4f41ead104d8abd876255d3bf1, type: 2}
+  repeatConvo: {fileID: 11400000, guid: 8e937c5aa3e5ee24388bed1c78264d4d, type: 2}
 --- !u!43 &2112050616
 Mesh:
   m_ObjectHideFlags: 0

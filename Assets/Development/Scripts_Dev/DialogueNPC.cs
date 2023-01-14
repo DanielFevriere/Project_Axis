@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class DialogueNPC : MonoBehaviour
 {
-    [SerializeField] Dialogue dialogue;
+    bool previouslyTalkedTo = false;
+
+    [SerializeField] Conversation firstConvo;
+    [SerializeField] Conversation repeatConvo;
     
     void Update()
     {
@@ -21,7 +24,9 @@ public class DialogueNPC : MonoBehaviour
         {
             GameManager.Instance.ChangeState(GameState.Dialogue);
 
-            StartCoroutine(DialogueManager.Instance.ShowDialogue(dialogue));
+            //Shows a differnt conversation if you have already talked to it
+            StartCoroutine(DialogueManager.Instance.ShowConversation(previouslyTalkedTo ? repeatConvo : firstConvo));
+            previouslyTalkedTo = true;
         }
 
     }
