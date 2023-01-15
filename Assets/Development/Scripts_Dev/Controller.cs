@@ -18,7 +18,8 @@ public class Controller : MonoBehaviour
     //Movement vars
     public bool running = false;
     public float curSpeed;
-    public int direction = 1;
+    public FacingDirection direction = FacingDirection.Down;
+    public Vector2 facingVector;
     public int jumpPower;
 
     //Ground Detection
@@ -36,6 +37,7 @@ public class Controller : MonoBehaviour
 
     [SerializeField] Conversation convo;
 
+    public PlayerWeapon playerWeapon;
 
     // Start is called before the first frame update
     void Awake()
@@ -54,6 +56,8 @@ public class Controller : MonoBehaviour
 
         //You must enable an action before it is used
         controls.FindAction("Movement").Enable();
+
+        playerWeapon = GetComponentInChildren<PlayerWeapon>();
     }
 
     //Always called every frame
@@ -154,19 +158,23 @@ public class Controller : MonoBehaviour
         
         if (moveInput == new Vector2(0, 1))
         {
-            direction = 3;
+            direction = FacingDirection.Up;
+            facingVector = Vector2.up;
         }
         else if (moveInput == new Vector2(0, -1))
         {
-            direction = 1;
+            direction = FacingDirection.Down;
+            facingVector = Vector2.down;
         }
         else if (moveInput == new Vector2(-1, 0))
         {
-            direction = 4;
+            direction = FacingDirection.Left;
+            facingVector = Vector2.left;
         }
         else if (moveInput == new Vector2(1, 0))
         {
-            direction = 2;
+            direction = FacingDirection.Right;
+            facingVector = Vector2.right;
         }
 
         //If there is no move input, you are not running, otherwise, you are
@@ -178,11 +186,24 @@ public class Controller : MonoBehaviour
         {
             running = true;
         }
-        
+
+        // Rotate weapon
+        if (playerWeapon != null)
+        {
+            playerWeapon.UpdateWeaponRotation(direction);
+        }
     }
 
     public void SayQuote()
     {
         StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
     }
+}
+
+public enum FacingDirection
+{
+    Left = 0,
+    Right,
+    Up,
+    Down
 }
