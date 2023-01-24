@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: TestConvo1
   m_EditorClassIdentifier: 
   Dialogues:
-  - name: ???
+  - nameID: Cube
+    displayName: ???
     line: Hello Gabriel, my name is Cube.
-  - name: Gabriel
+  - nameID: Gabriel
+    displayName: Gabe
     line: Hello Cube, where am I?
-  - name: Cube
+  - nameID: Cube
+    displayName: Cube
     line: Firstly, why are your friends naked? Did your creator not design them yet?
-  - name: Gabriel
+  - nameID: Gabriel
+    displayName: Gabe
     line: I actually don't know. Wait... what do you mean creator?

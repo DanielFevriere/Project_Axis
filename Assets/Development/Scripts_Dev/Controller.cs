@@ -196,7 +196,7 @@ public class Controller : MonoBehaviour
 
     public void SayQuote()
     {
-        StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
+        StartCoroutine(DialogueManager.Instance.ShowConversation(convo, name));
     }
 }
 

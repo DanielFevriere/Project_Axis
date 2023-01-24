@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: MikeConvo
   m_EditorClassIdentifier: 
   Dialogues:
-  - name: Michael
+  - nameID: Michael
+    displayName: Michael
     line: Wanna hear a joke?
-  - name: Gabriel & Raphael
+  - nameID: Michael
+    displayName: Michael
     line: Not really.
-  - name: Michael
+  - nameID: Michael
+    displayName: Michael
     line: Oh...

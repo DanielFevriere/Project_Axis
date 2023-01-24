@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: GabeConvo
   m_EditorClassIdentifier: 
   Dialogues:
-  - name: Gabriel
+  - nameID: Gabriel
+    displayName: Gabriel
     line: Lets keep moving.
-  - name: Gabriel
+  - nameID: Gabriel
+    displayName: Gabriel
     line: We can do better.

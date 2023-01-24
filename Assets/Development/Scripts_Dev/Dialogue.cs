@@ -5,12 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    [SerializeField] string name;
+    [SerializeField] string nameID;
+    [SerializeField] string displayName;
     [SerializeField] string line;
 
-    public string Name
+    public string NameID
     {
-        get { return name; }
+        get { return nameID; }
+    }
+
+    public string DisplayName
+    {
+        get { return displayName; }
     }
 
     public string Line

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: RaphConvo
   m_EditorClassIdentifier: 
   Dialogues:
-  - name: Raphael
+  - nameID: Raphael
+    displayName: Raph
     line: Keep a close eye out.
-  - name: Raphael
+  - nameID: Raphael
+    displayName: Raph
     line: We don't know what could hit us.
