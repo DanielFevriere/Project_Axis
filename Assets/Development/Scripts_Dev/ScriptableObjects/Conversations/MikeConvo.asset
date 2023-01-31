@@ -16,8 +16,8 @@ MonoBehaviour:
   - nameID: Michael
     displayName: Michael
     line: Wanna hear a joke?
-  - nameID: Michael
-    displayName: Michael
+  - nameID: Gabriel
+    displayName: Gabriel
     line: Not really.
   - nameID: Michael
     displayName: Michael
