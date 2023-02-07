@@ -9105,7 +9105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &458351566
 Transform:
   m_ObjectHideFlags: 0
@@ -28907,6 +28907,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61382599b315a934ca5b0ff9ac5928d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageStaggerDuration: 0.5
+  takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedBlendCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.0060022105
+      outSlope: -0.0060022105
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2651827
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.8706887
+      outSlope: -2.8706887
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.039561033
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2025954787
 GameObject:
   m_ObjectHideFlags: 0

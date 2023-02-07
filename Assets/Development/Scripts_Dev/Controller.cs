@@ -127,6 +127,15 @@ public class Controller : MonoBehaviour
         {
             SayQuote();
         }
+
+        // Attack input
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            if (playerWeapon != null)
+            {
+                playerWeapon.Attack();
+            }
+        }
     }
 
     public void Movement()

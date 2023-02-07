@@ -24,14 +24,14 @@ public class PlayerWeapon : MonoBehaviour
 
     void Update()
     {
-        Attack();
     }
 
-    void Attack()
+    public void Attack()
     {
         Vector3 start = weaponStart.position;
         Vector3 end = weaponEnd.position;
 
+        // Currently only checks overlap for a single frame
         Collider[] collidedObjects = Physics.OverlapCapsule(start, end, weaponRadius, hitMask);
 
         foreach (var c in collidedObjects)
