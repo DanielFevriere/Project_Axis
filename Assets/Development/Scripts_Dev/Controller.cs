@@ -63,7 +63,7 @@ public class Controller : MonoBehaviour
     //Always called every frame
     private void Update()
     {
-        
+    
     }
 
     //Constantly called when the Gamemanager is in a certain state

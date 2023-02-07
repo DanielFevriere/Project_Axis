@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IDamageable
             StopCoroutine(TakeDamageCoroutine);
         }
 
+        // Take damage
         TakeDamageCoroutine = Coroutine_TakeDamage();
         StartCoroutine(TakeDamageCoroutine);
     }
