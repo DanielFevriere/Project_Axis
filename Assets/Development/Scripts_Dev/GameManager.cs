@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 //States the game can be in
 public enum GameState { FreeRoam, Battle, Dialogue }
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
                 {
                     p.GetComponent<Controller>().enabled = false;
                     p.GetComponent<AIFollow>().enabled = true;
+                    p.GetComponent<NavMeshAgent>().enabled = true;
                 }
             }
 
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
             {
                 p.GetComponent<Controller>().enabled = false;
                 p.GetComponent<AIFollow>().enabled = false;
+                p.GetComponent<NavMeshAgent>().enabled = false;
             }
             DialogueManager.Instance.HandleUpdate();
         }
@@ -162,6 +165,7 @@ public class GameManager : MonoBehaviour
         currentController = partyLeader.GetComponent<Controller>();
         partyLeader.GetComponent<Controller>().enabled = true;
         partyLeader.GetComponent<AIFollow>().enabled = false;
+        partyLeader.GetComponent<NavMeshAgent>().enabled = false;
     }
 
     //Swaps control between party members

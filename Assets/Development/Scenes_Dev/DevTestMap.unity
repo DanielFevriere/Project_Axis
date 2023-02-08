@@ -3995,7 +3995,7 @@ PrefabInstance:
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
@@ -9135,7 +9135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &458351566
 Transform:
   m_ObjectHideFlags: 0
@@ -10421,6 +10421,18 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &542740317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 370143671435429160, guid: f3dd57876aee48842848a00d1a37001a,
+    type: 3}
+  m_PrefabInstance: {fileID: 951111343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a9ddea59d9c4d81c129dd86c158c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563896227
 GameObject:
   m_ObjectHideFlags: 0
@@ -12414,8 +12426,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798685923}
-  m_LocalRotation: {x: 0.34201387, y: -0.005666429, z: 0.0020624113, w: 0.93967557}
-  m_LocalPosition: {x: 0.6039077, y: 5.1423, z: -6.4879103}
+  m_LocalRotation: {x: 0.2588144, y: -0.0058246176, z: 0.001560702, w: 0.9659083}
+  m_LocalPosition: {x: 0.6135538, y: 4.000001, z: -7.2876987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13218,6 +13230,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -13375,15 +13402,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966032535}
-  m_LocalRotation: {x: 0.34201387, y: -0.005666429, z: 0.0020624113, w: 0.93967557}
-  m_LocalPosition: {x: 0.6039077, y: 5.1423, z: -6.4879103}
+  m_LocalRotation: {x: 0.2588144, y: -0.0058246176, z: 0.001560702, w: 0.9659083}
+  m_LocalPosition: {x: 0.6135538, y: 4.000001, z: -7.2876987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 10695489}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 40, y: -0.691, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: -0.691, z: 0}
 --- !u!1001 &991282200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14325,7 +14352,7 @@ PrefabInstance:
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
@@ -26339,7 +26366,7 @@ PrefabInstance:
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7362692036643650606, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
@@ -30073,7 +30100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7b15de303cd3f4e992095f1ba6f1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 0}
+  speaker: {fileID: 542740317}
   firstConvo: {fileID: 11400000, guid: de528b4f41ead104d8abd876255d3bf1, type: 2}
   repeatConvo: {fileID: 11400000, guid: 8e937c5aa3e5ee24388bed1c78264d4d, type: 2}
 --- !u!43 &2112050616
