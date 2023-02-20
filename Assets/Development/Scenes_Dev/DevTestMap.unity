@@ -4968,6 +4968,7 @@ GameObject:
   - component: {fileID: 124267047}
   - component: {fileID: 124267049}
   - component: {fileID: 124267048}
+  - component: {fileID: 124267050}
   m_Layer: 9
   m_Name: Gabriel
   m_TagString: Untagged
@@ -5009,10 +5010,11 @@ MonoBehaviour:
   isControlling: 0
   characterController: {fileID: 124267047}
   running: 0
+  dashing: 0
   curSpeed: 3
   direction: 1
   facingVector: {x: 0, y: 0}
-  jumpPower: 2
+  dashPower: 0
   maxSlopeAngle: 45
   onSlope: 0
   GroundLayer:
@@ -5085,6 +5087,21 @@ MonoBehaviour:
     m_Bits: 512
   sightRange: 5
   playerInSightRange: 0
+--- !u!114 &124267050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124267044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230093d815828fd47ab58b35fe7f205b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashing: 0
+  dashSpeed: 5
+  dashTime: 0.1
 --- !u!1 &140673452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5870,7 +5887,8 @@ GameObject:
   - component: {fileID: 264501066}
   - component: {fileID: 264501065}
   - component: {fileID: 264501064}
-  m_Layer: 0
+  - component: {fileID: 264501068}
+  m_Layer: 9
   m_Name: Raphael
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5969,10 +5987,11 @@ MonoBehaviour:
   isControlling: 0
   characterController: {fileID: 124267047}
   running: 0
+  dashing: 0
   curSpeed: 3
   direction: 1
   facingVector: {x: 0, y: 0}
-  jumpPower: 2
+  dashPower: 0
   maxSlopeAngle: 45
   onSlope: 0
   GroundLayer:
@@ -5986,6 +6005,21 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   convo: {fileID: 11400000, guid: 8aae3c18d070b954e87207a1f3309bea, type: 2}
   playerWeapon: {fileID: 0}
+--- !u!114 &264501068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230093d815828fd47ab58b35fe7f205b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashing: 0
+  dashSpeed: 5
+  dashTime: 0.1
 --- !u!43 &264823394
 Mesh:
   m_ObjectHideFlags: 0
@@ -6604,6 +6638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904906281612667969, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3dd57876aee48842848a00d1a37001a, type: 3}
@@ -13619,7 +13658,7 @@ GameObject:
   - component: {fileID: 831746194}
   - component: {fileID: 831746193}
   - component: {fileID: 831746195}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14489,7 +14528,7 @@ GameObject:
   - component: {fileID: 1031969242}
   - component: {fileID: 1031969241}
   - component: {fileID: 1031969240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24546,6 +24585,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8904906281612667969, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3dd57876aee48842848a00d1a37001a, type: 3}
 --- !u!1 &1859559335
@@ -25653,7 +25697,8 @@ GameObject:
   - component: {fileID: 2049805600}
   - component: {fileID: 2049805598}
   - component: {fileID: 2049805597}
-  m_Layer: 0
+  - component: {fileID: 2049805602}
+  m_Layer: 9
   m_Name: Michael
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25752,10 +25797,11 @@ MonoBehaviour:
   isControlling: 0
   characterController: {fileID: 124267047}
   running: 0
+  dashing: 0
   curSpeed: 3
   direction: 1
   facingVector: {x: 0, y: 0}
-  jumpPower: 2
+  dashPower: 0
   maxSlopeAngle: 45
   onSlope: 0
   GroundLayer:
@@ -25769,6 +25815,21 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   convo: {fileID: 11400000, guid: c6d38fc71a90d6a46b24ec7f08fdf7bf, type: 2}
   playerWeapon: {fileID: 0}
+--- !u!114 &2049805602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049805596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230093d815828fd47ab58b35fe7f205b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashing: 0
+  dashSpeed: 5
+  dashTime: 0.1
 --- !u!1 &2090265864
 GameObject:
   m_ObjectHideFlags: 0

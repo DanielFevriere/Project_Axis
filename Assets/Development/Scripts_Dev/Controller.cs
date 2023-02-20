@@ -17,10 +17,11 @@ public class Controller : MonoBehaviour
 
     //Movement vars
     public bool running = false;
+    public bool dashing = false;
     public float curSpeed;
     public FacingDirection direction = FacingDirection.Down;
     public Vector2 facingVector;
-    public int jumpPower;
+    public int dashPower;
 
     //Slope vars
     public float maxSlopeAngle = 45;
@@ -85,9 +86,11 @@ public class Controller : MonoBehaviour
         //Sets the direction int in the animator controller
         //anim.SetInteger("Direction", direction);
 
-        //Movement
-        Movement();
 
+
+        //Sets movement data
+        Movement();
+        
         //Checks to see if on slope
         CheckSlope();
 
@@ -125,12 +128,7 @@ public class Controller : MonoBehaviour
             verticalVel = terminalVel;
         }
 
-        //Change verticle velocity if space was pressed this frame and grounded
-        if (kb.spaceKey.isPressed && isGrounded)
-        {
-            verticalVel = jumpPower;
-            isGrounded = false;
-        }
+
         
         //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
@@ -156,25 +154,8 @@ public class Controller : MonoBehaviour
     }
 
     /// <summary>
-    /// Checks to see if you are on a slope
+    /// Checks movement input data
     /// </summary>
-    void CheckSlope()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, 0.75f))
-        {
-            float Angle = Vector3.Angle(Vector3.up, SlopeHit.normal);
-            onSlope = Angle < maxSlopeAngle && Angle != 0;
-        }
-    }
-
-    /// <summary>
-    /// Vector3 generated based on the movement on a slope
-    /// </summary>
-    Vector3 GetSlopeMoveDirection()
-    {
-        return Vector3.ProjectOnPlane(movement, SlopeHit.normal);
-    }
-
     public void Movement()
     {
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
@@ -238,6 +219,26 @@ public class Controller : MonoBehaviour
         {
             playerWeapon.UpdateWeaponRotation(direction);
         }
+    }
+
+    /// <summary>
+    /// Checks to see if you are on a slope
+    /// </summary>
+    void CheckSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, 0.75f))
+        {
+            float Angle = Vector3.Angle(Vector3.up, SlopeHit.normal);
+            onSlope = Angle < maxSlopeAngle && Angle != 0;
+        }
+    }
+
+    /// <summary>
+    /// Vector3 generated based on the movement on a slope
+    /// </summary>
+    Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(movement, SlopeHit.normal);
     }
 
     public void SayQuote()
