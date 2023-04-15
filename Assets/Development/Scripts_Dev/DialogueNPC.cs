@@ -7,7 +7,6 @@ public class DialogueNPC : MonoBehaviour
 {
     bool previouslyTalkedTo = false;
 
-    [SerializeField] Speaker speaker;
     [SerializeField] Conversation firstConvo;
     [SerializeField] Conversation repeatConvo;
 
@@ -20,14 +19,14 @@ public class DialogueNPC : MonoBehaviour
         {
             GameManager.Instance.ChangeState(GameState.Dialogue);
 
-            //Shows a differnt conversation if you have already talked to it
+            //Shows a different conversation if you have already talked to it
             if(previouslyTalkedTo)
             {
-                StartCoroutine(DialogueManager.Instance.ShowConversation(repeatConvo, speaker.nameID));
+                StartCoroutine(DialogueManager.Instance.ShowConversation(repeatConvo));
             }
             else
             {
-                StartCoroutine(DialogueManager.Instance.ShowConversation(firstConvo, speaker.nameID));
+                StartCoroutine(DialogueManager.Instance.ShowConversation(firstConvo));
                 previouslyTalkedTo = true;
             }
 

@@ -8,77 +8,57 @@ using UnityEngine.InputSystem.Controls;
 public class AbilityHolder : MonoBehaviour
 {
     public Key dashKey;
-    public Key attackKey;
     public Key signatureKey;
 
-    KeyControl dashKeyControl;
-    KeyControl attackKeyControl;
-    KeyControl signatureKeyControl;
+    public List<ButtonControl> buttonList = new List<ButtonControl>();
+
+    ButtonControl attackControl;
+    KeyControl dashControl;
+    KeyControl signatureControl;
 
     //List of ability scripts on the gameobject
     public List<Ability> abilityList;
 
-    public Ability dashAbility;
     public Ability attackAbility;
+    public Ability dashAbility;
     public Ability signatureAbility;
 
-    //Fetches the keyboard input system
+    //Fetches the keyboard/mouse input system
     Keyboard kb;
+    Mouse mouse;
 
     // Start is called before the first frame update
     void Start()
     {
         kb = InputSystem.GetDevice<Keyboard>();
-        dashKeyControl = kb.FindKeyOnCurrentKeyboardLayout(dashKey.ToString());
-        attackKeyControl = kb.FindKeyOnCurrentKeyboardLayout(attackKey.ToString());
-        signatureKeyControl = kb.FindKeyOnCurrentKeyboardLayout(signatureKey.ToString());
+        mouse = InputSystem.GetDevice<Mouse>();
 
+        attackControl = mouse.leftButton;
+        dashControl = kb.FindKeyOnCurrentKeyboardLayout(dashKey.ToString());
+        signatureControl = kb.FindKeyOnCurrentKeyboardLayout(signatureKey.ToString());
         //Adds all available abilities into the list
         foreach (Ability a in gameObject.GetComponents<Ability>())
         {
             abilityList.Add(a);
         }
 
-        dashAbility = FindAbility("Dash");
+        //Declares abilities
         attackAbility = FindAbility("Attack");
+        dashAbility = FindAbility("Dash");
         signatureAbility = FindAbility("Signature");
+
+
+        //Adds all available controls into the list
+        buttonList.Add(attackControl);
+        buttonList.Add(dashControl);
+        buttonList.Add(signatureControl);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dashKeyControl.wasPressedThisFrame && !dashAbility.onCooldown && dashAbility.enabled)
-        {
-            dashAbility.Activate();
-            DOTween.Sequence()
-                .AppendInterval(dashAbility.cooldownTime)
-                .AppendCallback(() =>
-                {
-                    dashAbility.onCooldown = false;
-                });
-        }
 
-        if (attackKeyControl.wasPressedThisFrame && !attackAbility.onCooldown && attackAbility.enabled)
-        {
-            attackAbility.Activate();
-            DOTween.Sequence()
-                .AppendInterval(attackAbility.cooldownTime)
-                .AppendCallback(() =>
-                {
-                    attackAbility.onCooldown = false;
-                });
-        }
-
-        if (signatureKeyControl.wasPressedThisFrame && !signatureAbility.onCooldown && signatureAbility.enabled)
-        {
-            signatureAbility.Activate();
-            DOTween.Sequence()
-                .AppendInterval(signatureAbility.cooldownTime)
-                .AppendCallback(() =>
-                {
-                    signatureAbility.onCooldown = false;
-                });
-        }
+            ButtonCheck();
     }
 
     /// <summary>
@@ -98,5 +78,37 @@ public class AbilityHolder : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void ButtonCheck()
+    {
+        for (int i = 0; i < abilityList.Count - 1; i++)
+        {
+            if (buttonList[i].wasPressedThisFrame && !abilityList[i].onCooldown && !abilityList[i].inUse && abilityList[i].enabled)
+            {
+                abilityList[i].inUse = true;
+                ActivateAbility(abilityList[i]);
+            }
+        }
+    }
+
+    public void ActivateAbility(Ability a)
+    {
+        DOTween.Sequence()
+                    .AppendCallback(() =>
+                    {
+                        a.Activate();
+                    })
+                    .AppendInterval(a.abilityTime)
+                    .AppendCallback(() =>
+                    {
+                        a.inUse = false;
+                        a.onCooldown = true;
+                    })
+                    .AppendInterval(a.cooldownTime)
+                    .AppendCallback(() =>
+                    {
+                        a.onCooldown = false;
+                    });
     }
 }

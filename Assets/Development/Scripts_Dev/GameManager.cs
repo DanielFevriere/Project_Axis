@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 //States the game can be in
-public enum GameState { FreeRoam, Battle, Dialogue }
+public enum GameState { FreeRoam, Battle, Dialogue, Cutscene }
 
 public class GameManager : MonoBehaviour
 {
@@ -58,10 +58,13 @@ public class GameManager : MonoBehaviour
         //Goes to dialogue state when dialogue is open
         DialogueManager.Instance.OnShowDialogue += () =>
         {
-            ChangeState(GameState.Dialogue);
+            if(state != GameState.Cutscene)
+            {
+                ChangeState(GameState.Dialogue);
+            }
         };
 
-        //Goes to freeroam state when dialogue is closed
+        //Goes to freeroam state when dialogue is closed in a regular dialogue, 
         DialogueManager.Instance.OnCloseDialogue += () =>
         {
             if(state == GameState.Dialogue)
@@ -108,6 +111,17 @@ public class GameManager : MonoBehaviour
             }
             DialogueManager.Instance.HandleUpdate();
         }
+        else if (state == GameState.Cutscene)
+        {
+            virtualCamera.Follow = null;
+            foreach (GameObject p in partyMembers)
+            {
+                p.GetComponent<Controller>().enabled = false;
+                p.GetComponent<AIFollow>().enabled = false;
+                p.GetComponent<NavMeshAgent>().enabled = false;
+            }
+            DialogueManager.Instance.HandleUpdate();
+        }
 
         // Debug purposes
         DebugUpdate();
@@ -135,6 +149,9 @@ public class GameManager : MonoBehaviour
             case GameState.Dialogue:
 
                 break;
+            case GameState.Cutscene:
+
+                break;
         }
 
         // Set next state
@@ -150,7 +167,10 @@ public class GameManager : MonoBehaviour
                 Enter_Battle();
                 break;
             case GameState.Dialogue:
-
+                Enter_Dialogue();
+                break;
+            case GameState.Cutscene:
+                Enter_Cutscene();
                 break;
         }
 
@@ -204,6 +224,16 @@ public class GameManager : MonoBehaviour
             partyLeader.GetComponent<AIFollow>().enabled = false;
         }
     }
+
+    void Enter_Dialogue()
+    {
+
+    }
+
+    void Enter_Cutscene()
+    {
+
+    }
     #endregion
 
     #region Exit States
@@ -227,6 +257,9 @@ public class GameManager : MonoBehaviour
                     nextState = GameState.Dialogue;
                     break;
                 case GameState.Dialogue:
+                    nextState = GameState.Cutscene;
+                    break;
+                case GameState.Cutscene:
                     nextState = GameState.FreeRoam;
                     break;
             }

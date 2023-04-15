@@ -24,6 +24,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void Update()
     {
+
     }
 
     public void Attack()

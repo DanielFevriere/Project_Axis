@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     public event Action OnShowDialogue;
     public event Action OnCloseDialogue;
 
-    Conversation shownConversation;
+    public Conversation shownConversation;
     int currentDialogue = 0;
     bool isTyping = false;
 
@@ -57,7 +57,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ShowConversation(Conversation convo, string NameID)
+    public void StartConvo(Conversation convo)
+    {
+        StartCoroutine(ShowConversation(convo));
+    }
+
+    public IEnumerator ShowConversation(Conversation convo)
     {
         yield return new WaitForEndOfFrame();
 

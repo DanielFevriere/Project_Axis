@@ -7,9 +7,7 @@ public class Dash : Ability
 {
     Controller moveScript;
 
-    public bool dashing;
     public float dashSpeed;
-    public float dashTime;
 
     void Start()
     {
@@ -24,13 +22,12 @@ public class Dash : Ability
     IEnumerator DashAbility()
     {
         float startTime = Time.time;
+        Vector3 movement = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
 
-        while (Time.time < startTime + dashTime)
+        while (Time.time < startTime + abilityTime)
         {
-            moveScript.characterController.Move(moveScript.movement * dashSpeed * Time.fixedDeltaTime);
+            moveScript.characterController.Move(movement * dashSpeed * Time.fixedDeltaTime);
             yield return null;
         }
-
-        onCooldown = true;
     }
 }

@@ -11,6 +11,5 @@ public class Signature : Ability
     }
     public override void Activate()
     {
-        onCooldown = true;
     }
 }

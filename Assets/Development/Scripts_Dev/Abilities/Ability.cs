@@ -6,6 +6,8 @@ public class Ability : MonoBehaviour
 {
     public bool enabled;
     public string name;
+    public bool inUse;
+    public float abilityTime;
     public bool onCooldown;
     public float cooldownTime;
 

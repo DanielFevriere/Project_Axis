@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     //[SerializeField] Animator anim;
     public string characterName;
     public bool isControlling;
@@ -94,16 +94,20 @@ public class Controller : MonoBehaviour
         //Checks to see if on slope
         CheckSlope();
 
-        //Moves based on if the player is on a slope or not
-        if (onSlope)
+        //If the player is not attacking
+        if(!GetComponentInChildren<AbilityHolder>().attackAbility.inUse)
         {
-            //mMoves based on the slope vector
-            characterController.Move(GetSlopeMoveDirection() * Time.fixedDeltaTime);
-        }
-        else
-        {
-            //Moves based on the movement vector
-            characterController.Move(movement * Time.fixedDeltaTime);
+            //Moves based on if the player is on a slope or not
+            if (onSlope)
+            {
+                //mMoves based on the slope vector
+                characterController.Move(GetSlopeMoveDirection() * Time.fixedDeltaTime);
+            }
+            else
+            {
+                //Moves based on the movement vector
+                characterController.Move(movement * Time.fixedDeltaTime);
+            }
         }
 
         //GroundCheck
@@ -140,16 +144,8 @@ public class Controller : MonoBehaviour
         //Quote test function
         if(kb.lKey.wasReleasedThisFrame)
         {
-            SayQuote();
-        }
-
-        // Attack input
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            if (playerWeapon != null)
-            {
-                playerWeapon.Attack();
-            }
+            CutsceneManager.Instance.StartCutscene();
+            //SayQuote();
         }
     }
 
@@ -182,26 +178,55 @@ public class Controller : MonoBehaviour
          * Up + Left = (-1, 1)
          * Down + Left = (-1, -1)
         */
-        
+        //(0,1)
         if (moveInput == new Vector2(0, 1))
         {
             direction = FacingDirection.Up;
-            facingVector = Vector2.up;
+            facingVector = new Vector2(0, 1);
         }
+        //(0,-1)
         else if (moveInput == new Vector2(0, -1))
         {
             direction = FacingDirection.Down;
-            facingVector = Vector2.down;
+            facingVector = new Vector2(0, -1);
         }
+        //(-1,0)
         else if (moveInput == new Vector2(-1, 0))
         {
             direction = FacingDirection.Left;
-            facingVector = Vector2.left;
+            facingVector = new Vector2(-1, 0);
         }
+        //(1,0)
         else if (moveInput == new Vector2(1, 0))
         {
             direction = FacingDirection.Right;
-            facingVector = Vector2.right;
+            facingVector = new Vector2(1, 0);
+        }
+        //Diagonals
+        //(1,1)
+        else if (moveInput.x > 0 && moveInput.y > 0)
+        {
+            direction = FacingDirection.UpRight;
+            facingVector = new Vector2(1, 1);
+        }
+        //(1, -1)
+        else if (moveInput.x > 0 && moveInput.y < 0)
+        {
+            direction = FacingDirection.DownRight;
+            facingVector = new Vector2(1, -1);
+        }
+        //(-1, 1)
+        else if (moveInput.x < 0 && moveInput.y > 0)
+        {
+            direction = FacingDirection.UpLeft;
+            facingVector = new Vector2(-1, 1);
+
+        }
+        //(-1, -1)
+        else if (moveInput.x < 0 && moveInput.y < 0)
+        {
+            direction = FacingDirection.DownLeft;
+            facingVector = new Vector2(-1, -1);
         }
 
         //If there is no move input, you are not running, otherwise, you are
@@ -243,14 +268,41 @@ public class Controller : MonoBehaviour
 
     public void SayQuote()
     {
-        StartCoroutine(DialogueManager.Instance.ShowConversation(convo, name));
+        StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
+    }
+    public Vector2 ReturnDir()
+    {
+        switch (direction)
+        {
+            case FacingDirection.Up:
+                return new Vector2(0, 1);
+            case FacingDirection.Down:
+                return new Vector2(0, -1);
+            case FacingDirection.Left:
+                return new Vector2(-1, 0);
+            case FacingDirection.Right:
+                return new Vector2(1, 0);
+            case FacingDirection.UpRight:
+                return new Vector2(1, 1);
+            case FacingDirection.UpLeft:
+                return new Vector2(1, -1);
+            case FacingDirection.DownRight:
+                return new Vector2(-1, 1);
+            case FacingDirection.DownLeft:
+                return new Vector2(-1, -1);
+        }
+        return new Vector2(0,0);
     }
 }
 
 public enum FacingDirection
 {
-    Left = 0,
+    Left,
     Right,
     Up,
-    Down
+    Down,
+    UpRight,
+    DownRight,
+    UpLeft,
+    DownLeft
 }
