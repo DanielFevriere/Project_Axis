@@ -27,6 +27,8 @@ public class AbilityHolder : MonoBehaviour
     Keyboard kb;
     Mouse mouse;
 
+    public Sequence abilitySequence;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,8 +59,7 @@ public class AbilityHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-            ButtonCheck();
+        ButtonCheck();
     }
 
     /// <summary>
@@ -84,7 +85,7 @@ public class AbilityHolder : MonoBehaviour
     {
         for (int i = 0; i < abilityList.Count - 1; i++)
         {
-            if (buttonList[i].wasPressedThisFrame && !abilityList[i].onCooldown && !abilityList[i].inUse && abilityList[i].enabled)
+            if (buttonList[i].wasPressedThisFrame && !abilityList[i].onCooldown && abilityList[i].enabled)
             {
                 abilityList[i].inUse = true;
                 ActivateAbility(abilityList[i]);
@@ -92,23 +93,9 @@ public class AbilityHolder : MonoBehaviour
         }
     }
 
+
     public void ActivateAbility(Ability a)
     {
-        DOTween.Sequence()
-                    .AppendCallback(() =>
-                    {
-                        a.Activate();
-                    })
-                    .AppendInterval(a.abilityTime)
-                    .AppendCallback(() =>
-                    {
-                        a.inUse = false;
-                        a.onCooldown = true;
-                    })
-                    .AppendInterval(a.cooldownTime)
-                    .AppendCallback(() =>
-                    {
-                        a.onCooldown = false;
-                    });
+        a.Activate();
     }
 }

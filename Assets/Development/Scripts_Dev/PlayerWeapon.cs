@@ -15,16 +15,23 @@ public class PlayerWeapon : MonoBehaviour
     // Layer mask for things we want weapon to hit
     [SerializeField] LayerMask hitMask;
 
+    //The games camera
+    [SerializeField] Camera cam;
+    //The current position of the mouse
+    Vector3 mousePos;
+
     #endregion
 
     void Start()
     {
+        //Sets the camera variable to the camera that is mainly being used.
+        cam = Camera.main;
+
         player = GetComponentInParent<Controller>();
     }
 
     void Update()
     {
-
     }
 
     public void Attack()
@@ -51,22 +58,17 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
-    public void UpdateWeaponRotation(FacingDirection direction)
+    public void UpdateWeaponRotation()
     {
-        switch (direction)
+
+        Ray camera = cam.ScreenPointToRay(Input.mousePosition);
+        Plane ground = new Plane(Vector3.up, Vector3.zero);
+        float length;
+
+        if (ground.Raycast(camera, out length))
         {
-            case FacingDirection.Left:
-                transform.localRotation = Quaternion.Euler(0, 90, 0);
-                break;
-            case FacingDirection.Right:
-                transform.localRotation = Quaternion.Euler(0, 270, 0);
-                break;
-            case FacingDirection.Up:
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-                break;
-            case FacingDirection.Down:
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-                break;
+            Vector3 look = camera.GetPoint(length);
+            transform.LookAt(new Vector3(look.x, transform.position.y, look.z));
         }
     }
 

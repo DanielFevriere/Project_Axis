@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gabriel_idle_front
+  m_Name: Gabriel_idle_right
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 93b5e282b3c5a2c45b9cd64e3b70074c, type: 3}
+      value: {fileID: 21300000, guid: bf6a00e1f41fc9b4a8618f9707c518a5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 93b5e282b3c5a2c45b9cd64e3b70074c, type: 3}
+    - {fileID: 21300000, guid: bf6a00e1f41fc9b4a8618f9707c518a5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

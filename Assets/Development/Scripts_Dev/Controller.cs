@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class Controller : MonoBehaviour
 {
     public Rigidbody rb;
-    //[SerializeField] Animator anim;
+    [SerializeField] Animator anim;
     public string characterName;
     public bool isControlling;
     public InputMaster controls;
@@ -21,7 +21,6 @@ public class Controller : MonoBehaviour
     public float curSpeed;
     public FacingDirection direction = FacingDirection.Down;
     public Vector2 facingVector;
-    public int dashPower;
 
     //Slope vars
     public float maxSlopeAngle = 45;
@@ -84,7 +83,9 @@ public class Controller : MonoBehaviour
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
         //Sets the direction int in the animator controller
-        //anim.SetInteger("Direction", direction);
+        anim.SetFloat("xAxis", facingVector.x);
+        anim.SetFloat("yAxis", facingVector.y);
+        anim.SetBool("walking", running);
 
 
 
@@ -108,6 +109,12 @@ public class Controller : MonoBehaviour
                 //Moves based on the movement vector
                 characterController.Move(movement * Time.fixedDeltaTime);
             }
+        }
+
+        // Rotate weapon
+        if (playerWeapon != null)
+        {
+            playerWeapon.UpdateWeaponRotation();
         }
 
         //GroundCheck
@@ -239,11 +246,7 @@ public class Controller : MonoBehaviour
             running = true;
         }
 
-        // Rotate weapon
-        if (playerWeapon != null)
-        {
-            playerWeapon.UpdateWeaponRotation(direction);
-        }
+
     }
 
     /// <summary>
