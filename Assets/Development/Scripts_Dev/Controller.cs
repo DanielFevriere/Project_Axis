@@ -14,6 +14,7 @@ public class Controller : MonoBehaviour
     public InputMaster controls;
     public CharacterController characterController;
     public List<KeyControl> slot;
+    public bool attacking = false;
 
     //Movement vars
     public bool running = false;
@@ -87,7 +88,8 @@ public class Controller : MonoBehaviour
         anim.SetFloat("yAxis", facingVector.y);
         anim.SetBool("walking", running);
 
-
+        //Sets anims for attacking
+        anim.SetBool("attacking", attacking);
 
         //Sets movement data
         Movement();
@@ -98,6 +100,8 @@ public class Controller : MonoBehaviour
         //If the player is not attacking
         if(!GetComponentInChildren<AbilityHolder>().attackAbility.inUse)
         {
+            attacking = false;
+
             //Moves based on if the player is on a slope or not
             if (onSlope)
             {
@@ -110,6 +114,11 @@ public class Controller : MonoBehaviour
                 characterController.Move(movement * Time.fixedDeltaTime);
             }
         }
+        else
+        {
+            attacking = true;
+        }
+
 
         // Rotate weapon
         if (playerWeapon != null)
