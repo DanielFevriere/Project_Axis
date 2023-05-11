@@ -17,9 +17,12 @@ public class Controller : MonoBehaviour
     public bool attacking = false;
 
     //Movement vars
+    public bool moving = false;
     public bool running = false;
     public bool dashing = false;
     public float curSpeed;
+    public float walkSpeed;
+    public float runSpeed;
     public FacingDirection direction = FacingDirection.Down;
     public Vector2 facingVector;
 
@@ -86,7 +89,8 @@ public class Controller : MonoBehaviour
         //Sets the direction int in the animator controller
         anim.SetFloat("xAxis", facingVector.x);
         anim.SetFloat("yAxis", facingVector.y);
-        anim.SetBool("walking", running);
+        anim.SetBool("moving", moving);
+        anim.SetBool("running", running);
 
         //Sets anims for attacking
         anim.SetBool("attacking", attacking);
@@ -148,7 +152,15 @@ public class Controller : MonoBehaviour
             verticalVel = terminalVel;
         }
 
-
+        //Sprinting
+        if(kb.leftShiftKey.isPressed)
+        {
+            running = true;
+        }
+        else
+        {
+            running = false;
+        }
         
         //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
@@ -174,6 +186,9 @@ public class Controller : MonoBehaviour
 
         //Gets movement input data and turns it into a vector2 to apply towards the characters movement animation
         Vector2 moveInput = controls.Player.Movement.ReadValue<Vector2>();
+
+        //Sets speed depending on if walking or running
+        curSpeed = running ? runSpeed : walkSpeed;
 
         //8 directional movement
         movement = new Vector3(moveInput.x, verticalVel, moveInput.y) * (curSpeed * 100) * Time.deltaTime;
@@ -248,11 +263,11 @@ public class Controller : MonoBehaviour
         //If there is no move input, you are not running, otherwise, you are
         if (moveInput == new Vector2(0, 0))
         {
-            running = false;
+            moving = false;
         }
         else
         {
-            running = true;
+            moving = true;
         }
 
 
