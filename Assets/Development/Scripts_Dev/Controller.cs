@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class Controller : MonoBehaviour
 {
     public Rigidbody rb;
-    [SerializeField] Animator anim;
+    public Animator anim;
     public string characterName;
     public bool isControlling;
     public InputMaster controls;
@@ -92,8 +92,7 @@ public class Controller : MonoBehaviour
         anim.SetBool("moving", moving);
         anim.SetBool("running", running);
 
-        //Sets anims for attacking
-        anim.SetBool("attacking", attacking);
+        //Sets anims for attacking;
 
         //Sets movement data
         Movement();
@@ -109,7 +108,7 @@ public class Controller : MonoBehaviour
             //Moves based on if the player is on a slope or not
             if (onSlope)
             {
-                //mMoves based on the slope vector
+                //Moves based on the slope vector
                 characterController.Move(GetSlopeMoveDirection() * Time.fixedDeltaTime);
             }
             else

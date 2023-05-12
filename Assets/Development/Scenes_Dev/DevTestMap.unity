@@ -4802,6 +4802,7 @@ GameObject:
   - component: {fileID: 124267045}
   - component: {fileID: 124267046}
   - component: {fileID: 124267047}
+  - component: {fileID: 124267050}
   - component: {fileID: 124267049}
   - component: {fileID: 124267048}
   m_Layer: 9
@@ -4928,6 +4929,22 @@ MonoBehaviour:
     m_Bits: 512
   sightRange: 5
   playerInSightRange: 0
+--- !u!54 &124267050
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124267044}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &140673452
 GameObject:
   m_ObjectHideFlags: 0
@@ -11783,7 +11800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponStart: {fileID: 2090265865}
   weaponEnd: {fileID: 533042526}
-  weaponRadius: 0.5
+  weaponRadius: 1
   hitMask:
     serializedVersion: 2
     m_Bits: 1024

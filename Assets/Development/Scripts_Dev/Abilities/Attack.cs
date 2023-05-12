@@ -58,6 +58,10 @@ public class Attack : Ability
             hitCount++;
             comboTimer = hitCount == 3 ? abilityTime : comboTime;
             moveScript.playerWeapon.Attack();
+
+            //Activates attack animation
+            moveScript.anim.SetTrigger("attack");
+
             StartCoroutine(PushForward());
         }
     }
