@@ -8,6 +8,7 @@ public class PlayerWeapon : MonoBehaviour
     #region Properties
     Controller player;
 
+    public float weaponKnockback;
     public Transform weaponStart;
     public Transform weaponEnd;
     [SerializeField] float weaponRadius;
@@ -54,7 +55,7 @@ public class PlayerWeapon : MonoBehaviour
                 Knockback knockbackComponent = c.GetComponent<Knockback>();
                 if (knockbackComponent != null)
                 {
-                    knockbackComponent.ApplyKnockback(player.gameObject.transform);
+                    knockbackComponent.ApplyKnockback(player.gameObject.transform, weaponKnockback);
                 }
             }
         }

@@ -9,12 +9,12 @@ public class Knockback : MonoBehaviour
     // Rigid body 
     [SerializeField] bool useRigidBody;
     [SerializeField] Rigidbody rigidBody;
-    [SerializeField] float knockbackStrength = 10, knockbackDuration = 0.15f;
+    [SerializeField] float knockbackDuration = 0.15f;
 
     public UnityEvent OnBegin, OnComplete; 
     #endregion
 
-    public void ApplyKnockback(Transform source)
+    public void ApplyKnockback(Transform source, float knockbackStrength)
     {
         // Stop all previous knocking back coroutines
         StopAllCoroutines();
@@ -27,6 +27,10 @@ public class Knockback : MonoBehaviour
         dir.y = 0;
         // Turn on rigidbody and physics control for knockback
         rigidBody.isKinematic = false;
+
+        //Resets velocity before adding a new force (problem: if its knocked back again too soon, it will nullify the force)
+        //rigidBody.velocity = Vector3.zero; 
+
         // Add force to rigid body for knockback
         rigidBody.AddForce(dir * knockbackStrength, ForceMode.Impulse);
         //print(dir);

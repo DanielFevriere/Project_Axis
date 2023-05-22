@@ -18,6 +18,7 @@ public class Attack : Ability
     public int hitCount = 0;
 
     public Transform atkTransform;
+    public GameObject visual;
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class Attack : Ability
     public override void Deactivate()
     {
         base.Deactivate();
+        visual.SetActive(false);
         comboTimer = comboTime;
         hitCount = 0;
         inCombo = false;
@@ -63,24 +65,10 @@ public class Attack : Ability
 
             //Activates attack animation
             moveScript.anim.SetTrigger("attack");
+            visual.SetActive(true);
 
-            GetComponentInParent<Knockback>().ApplyKnockback(atkTransform);
-
-            //StartCoroutine(PushForward());
-        }
-    }
-
-    IEnumerator PushForward()
-    {
-        float startTime = Time.time;
-        Vector3 movement = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
-
-        while (Time.time < startTime + abilityTime)
-        {
-            //moveScript.characterController.Move(Vector3.zero);
-
-            moveScript.characterController.Move(movement * attackForce * Time.fixedDeltaTime);
-            yield return null;
+            //Adds force
+            GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, attackForce);
         }
     }
 }

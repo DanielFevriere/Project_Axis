@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KnockbackOnTouch : MonoBehaviour
 {
-
+    public float knockbackAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class KnockbackOnTouch : MonoBehaviour
         Knockback knockbackComponent = other.GetComponent<Knockback>();
         if (knockbackComponent != null)
         {
-            knockbackComponent.ApplyKnockback(gameObject.transform);
+            knockbackComponent.ApplyKnockback(gameObject.transform, knockbackAmount);
             
         }
     }
