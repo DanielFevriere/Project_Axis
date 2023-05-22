@@ -15,10 +15,9 @@ public class KnockbackOnTouch : MonoBehaviour
     {
         // Knocks back if the collider has a component to knock them back
         Knockback knockbackComponent = other.GetComponent<Knockback>();
-        if (knockbackComponent != null)
+        if (knockbackComponent != null && other.tag == "Player")
         {
             knockbackComponent.ApplyKnockback(gameObject.transform, knockbackAmount);
-            
         }
     }
 }

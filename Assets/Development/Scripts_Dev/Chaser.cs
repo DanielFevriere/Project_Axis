@@ -51,6 +51,11 @@ public class Chaser : MonoBehaviour
         targetInChaseRange = Physics.CheckSphere(transform.position, sightRange, targetLayer);
         targetInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetLayer);
 
+        //Automatically always facing player
+        Vector3 targetDirection = target.position - transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 15 * Time.deltaTime);
+
         //State Changes based on if target is in chasing or attack range
         if (targetInChaseRange)
         {
@@ -103,6 +108,7 @@ public class Chaser : MonoBehaviour
     //Chases Target
     void ChaseTarget()
     {
+
         agent.SetDestination(target.position);
         agent.isStopped = false;
     }
