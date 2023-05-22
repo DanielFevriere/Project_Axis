@@ -20,6 +20,8 @@ public class PlayerWeapon : MonoBehaviour
     //The current position of the mouse
     Vector3 mousePos;
 
+    public float yawRotation;
+
     #endregion
 
     void Start()
@@ -60,7 +62,6 @@ public class PlayerWeapon : MonoBehaviour
 
     public void UpdateWeaponRotation()
     {
-
         Ray camera = cam.ScreenPointToRay(Input.mousePosition);
         Plane ground = new Plane(Vector3.up, Vector3.zero);
         float length;
@@ -69,6 +70,10 @@ public class PlayerWeapon : MonoBehaviour
         {
             Vector3 look = camera.GetPoint(length);
             transform.LookAt(new Vector3(look.x, transform.position.y, look.z));
+
+            // Find Yaw rotation angle and update animator based on that
+            Quaternion aimRotation = transform.rotation;
+            yawRotation = aimRotation.eulerAngles.y;
         }
     }
 

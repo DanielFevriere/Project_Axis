@@ -11877,6 +11877,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   cam: {fileID: 0}
+  yawRotation: 0
 --- !u!1 &508044190
 GameObject:
   m_ObjectHideFlags: 0
@@ -25815,7 +25816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2009296342
 Transform:
   m_ObjectHideFlags: 0
