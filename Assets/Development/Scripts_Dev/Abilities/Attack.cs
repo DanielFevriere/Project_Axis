@@ -17,6 +17,8 @@ public class Attack : Ability
     public float comboTimer;
     public int hitCount = 0;
 
+    public Transform atkTransform;
+
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
@@ -62,7 +64,9 @@ public class Attack : Ability
             //Activates attack animation
             moveScript.anim.SetTrigger("attack");
 
-            StartCoroutine(PushForward());
+            GetComponentInParent<Knockback>().ApplyKnockback(atkTransform);
+
+            //StartCoroutine(PushForward());
         }
     }
 
