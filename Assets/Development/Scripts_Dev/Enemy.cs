@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,17 @@ public class Enemy : MonoBehaviour, IDamageable
     #region Properties
     SpriteRenderer spriteRenderer;
     Material material;
+
+    //Ground Detection + Gravity
+    RaycastHit GroundHit;
+    public LayerMask GroundLayer;
+    public bool isGrounded;
+    public bool isFalling;
+    public float gravity;
+    public float verticalVel;
+    public float terminalVel;
+
+
 
     [Range(0f, 1f)] public float damageStaggerDuration = 0.5f;
     [ColorUsageAttribute(true, true)] public Color takeDamageColor = new Color(1, 0, 0);
@@ -27,6 +39,7 @@ public class Enemy : MonoBehaviour, IDamageable
         // Take damage
         TakeDamageCoroutine = Coroutine_TakeDamage();
         StartCoroutine(TakeDamageCoroutine);
+        GetComponent<Stats>().ModifyStat(Stat.HP, 1);
     }
 
     // Start is called before the first frame update
@@ -42,7 +55,32 @@ public class Enemy : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        
+        if (GetComponent<Stats>().currentStats[0] <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        //GroundCheck
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
+
+        //If you are on the ground, velocity 0, and you arent falling
+        if (isGrounded)
+        {
+            verticalVel = 0;
+            isFalling = false; //makes sure falling is false
+        }
+        //Otherwise, fall
+        else
+        {
+            isFalling = true;
+            verticalVel -= gravity * Time.deltaTime;
+        }
+
+        //If your falling speed reaches terminal velocity, it cant go past it
+        if (verticalVel <= terminalVel)
+        {
+            verticalVel = terminalVel;
+        }
     }
 
     #region Take Damage
@@ -65,6 +103,16 @@ public class Enemy : MonoBehaviour, IDamageable
 
             yield return null;
         }
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Sequence()
+            .AppendInterval(0.1f)
+            .AppendCallback(() =>
+            {
+                EncounterManager.Instance.UpdateEnemyCount();
+            });
     }
 
     #endregion

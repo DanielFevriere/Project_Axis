@@ -165,13 +165,13 @@ public class Controller : MonoBehaviour
         if (kb.eKey.wasReleasedThisFrame)
         {
             Debug.Log("Swapped");
-            GameManager.Instance.SwapCharacter();
+            //GameManager.Instance.SwapCharacter(); needs to be updated before being re-enabled
         }
 
         //Quote test function
         if (kb.lKey.wasReleasedThisFrame)
         {
-            CutsceneManager.Instance.StartCutscene();
+            //CutsceneManager.Instance.StartCutscene(); needs to be updated before being re enabled
             //SayQuote();
         }
     }

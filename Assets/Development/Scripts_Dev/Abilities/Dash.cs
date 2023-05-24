@@ -19,6 +19,11 @@ public class Dash : Ability
         StartCoroutine(DashAbility());
     }
 
+    public override void Deactivate()
+    {
+        base.Deactivate();
+    }
+
     IEnumerator DashAbility()
     {
         float startTime = Time.time;
@@ -29,5 +34,7 @@ public class Dash : Ability
             moveScript.characterController.Move(movement * dashSpeed * Time.fixedDeltaTime);
             yield return null;
         }
+
+        Deactivate();
     }
 }

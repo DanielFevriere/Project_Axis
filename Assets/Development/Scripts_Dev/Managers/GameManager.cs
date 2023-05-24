@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Debug purposes
-        DebugUpdate();
+        //DebugUpdate(); 
     }
 
     public void ChangeState(GameState nextState)

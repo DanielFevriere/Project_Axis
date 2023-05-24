@@ -5,32 +5,50 @@ using UnityEngine.InputSystem;
 
 public class DialogueNPC : MonoBehaviour
 {
+    bool inTalkingDistance = false;
     bool previouslyTalkedTo = false;
 
     [SerializeField] Conversation firstConvo;
     [SerializeField] Conversation repeatConvo;
 
-    void OnTriggerStay(Collider other)
+    private void Update()
     {
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
-        if (GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasReleasedThisFrame)
+        if(inTalkingDistance && GameManager.Instance.CurrentState != GameState.Dialogue)
         {
-            GameManager.Instance.ChangeState(GameState.Dialogue);
-
-            //Shows a different conversation if you have already talked to it
-            if(previouslyTalkedTo)
+            if (GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
             {
-                StartCoroutine(DialogueManager.Instance.ShowConversation(repeatConvo));
-            }
-            else
-            {
-                StartCoroutine(DialogueManager.Instance.ShowConversation(firstConvo));
-                previouslyTalkedTo = true;
-            }
+                GameManager.Instance.ChangeState(GameState.Dialogue);
 
+                //Shows a different conversation if you have already talked to it
+                if (previouslyTalkedTo)
+                {
+                    StartCoroutine(DialogueManager.Instance.ShowConversation(repeatConvo));
+                }
+                else
+                {
+                    StartCoroutine(DialogueManager.Instance.ShowConversation(firstConvo));
+                    previouslyTalkedTo = true;
+                }
+
+            }
         }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        inTalkingDistance = true;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        inTalkingDistance = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        inTalkingDistance = false;
     }
 }

@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 218013169817873692}
   - component: {fileID: 218013169817873691}
   - component: {fileID: 218013169817873690}
+  - component: {fileID: 8283982503405979801}
   m_Layer: 10
   m_Name: Chaser
   m_TagString: Untagged
@@ -163,6 +164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61382599b315a934ca5b0ff9ac5928d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  isGrounded: 0
+  isFalling: 0
+  gravity: 10
+  verticalVel: 0
+  terminalVel: -9.8
   damageStaggerDuration: 0.5
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
   damagedBlendCurve:
@@ -316,7 +325,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3
+  m_Speed: 4
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
@@ -356,6 +365,19 @@ MonoBehaviour:
   attackBox: {fileID: 218013169199962941}
   attackTime: 0.1
   attackCoolDown: 0.9
+--- !u!114 &8283982503405979801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218013169817873682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d436d5da0080445b60b49198329217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStats: 1e000000
 --- !u!1 &218013170669014303
 GameObject:
   m_ObjectHideFlags: 0

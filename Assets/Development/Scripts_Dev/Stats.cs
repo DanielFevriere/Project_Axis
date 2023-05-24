@@ -13,6 +13,10 @@ public class Stats : MonoBehaviour
     [Tooltip("Shows the stats")]
     public int[] currentStats = new int[(int)Stat.COUNT];
 
+    public void ModifyStat(Stat StatToModify, int Amount)
+    {
+        currentStats[(int)StatToModify] -= Amount;
+    }
 }
 
 
