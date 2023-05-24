@@ -6501,7 +6501,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 001fb1fc26086fb4cabe0f58ccf79cde, type: 2}
+  - {fileID: 2100000, guid: 9f0268cf6ec136a47a8a271421297f10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6937,7 +6937,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 001fb1fc26086fb4cabe0f58ccf79cde, type: 2}
+  - {fileID: 2100000, guid: 9f0268cf6ec136a47a8a271421297f10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14571,6 +14571,7 @@ GameObject:
   - component: {fileID: 798685925}
   - component: {fileID: 798685924}
   - component: {fileID: 798685929}
+  - component: {fileID: 798685930}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14636,7 +14637,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 1
+  m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -14680,7 +14681,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 0.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14727,6 +14728,29 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 384
+--- !u!114 &798685930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798685923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 100
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &810620865
 GameObject:
   m_ObjectHideFlags: 0
@@ -14780,7 +14804,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 001fb1fc26086fb4cabe0f58ccf79cde, type: 2}
+  - {fileID: 2100000, guid: 9f0268cf6ec136a47a8a271421297f10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15540,7 +15564,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 001fb1fc26086fb4cabe0f58ccf79cde, type: 2}
+  - {fileID: 2100000, guid: 9f0268cf6ec136a47a8a271421297f10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17197,7 +17221,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 001fb1fc26086fb4cabe0f58ccf79cde, type: 2}
+  - {fileID: 2100000, guid: 9f0268cf6ec136a47a8a271421297f10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27526,7 +27550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
   m_DownSamplingRate: 1
-  m_Softness: 0.975
+  m_Softness: 0.764
   m_Alpha: 1
   m_IgnoreParent: 0
   m_PartOfParent: 0
@@ -27545,7 +27569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.019607844}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29175,8 +29199,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.91194963, g: 0.95503974, b: 1, a: 1}
-  m_Intensity: 0.94
+  m_Color: {r: 1, g: 0.98112667, b: 0.9137255, a: 1}
+  m_Intensity: 1.21
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -30330,7 +30354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 001fb1fc26086fb4cabe0f58ccf79cde, type: 2}
+  - {fileID: 2100000, guid: 9f0268cf6ec136a47a8a271421297f10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
