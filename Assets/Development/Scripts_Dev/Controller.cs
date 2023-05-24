@@ -72,7 +72,7 @@ public class Controller : MonoBehaviour
     //Always called every frame
     private void Update()
     {
-    
+
     }
 
     //Constantly called when the Gamemanager is in a certain state
@@ -96,12 +96,12 @@ public class Controller : MonoBehaviour
 
         //Sets movement data
         Movement();
-        
+
         //Checks to see if on slope
         CheckSlope();
 
         //If the player is not attacking
-        if(!GetComponentInChildren<AbilityHolder>().attackAbility.inUse)
+        if (!GetComponentInChildren<AbilityHolder>().attackAbility.inUse)
         {
             attacking = false;
 
@@ -152,7 +152,7 @@ public class Controller : MonoBehaviour
         }
 
         //Sprinting
-        if(kb.leftShiftKey.isPressed)
+        if (kb.leftShiftKey.isPressed)
         {
             running = true;
         }
@@ -160,7 +160,7 @@ public class Controller : MonoBehaviour
         {
             running = false;
         }
-        
+
         //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
         {
@@ -169,7 +169,7 @@ public class Controller : MonoBehaviour
         }
 
         //Quote test function
-        if(kb.lKey.wasReleasedThisFrame)
+        if (kb.lKey.wasReleasedThisFrame)
         {
             CutsceneManager.Instance.StartCutscene();
             //SayQuote();
@@ -350,18 +350,28 @@ public class Controller : MonoBehaviour
             case FacingDirection.DownLeft:
                 return new Vector2(-1, -1);
         }
-        return new Vector2(0,0);
+        return new Vector2(0, 0);
     }
-}
 
-public enum FacingDirection
-{
-    Left,
-    Right,
-    Up,
-    Down,
-    UpRight,
-    DownRight,
-    UpLeft,
-    DownLeft
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            // Reactivate the character controller and deactivate the Rigidbody
+            characterController.enabled = true;
+            rb.velocity = Vector3.zero;
+        }
+    }
+
+    public enum FacingDirection
+    {
+        Left,
+        Right,
+        Up,
+        Down,
+        UpRight,
+        DownRight,
+        UpLeft,
+        DownLeft
+    }
 }
