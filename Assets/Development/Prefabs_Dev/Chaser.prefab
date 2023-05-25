@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bb200e696a1be46823fec58cc42618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackAmount: 14
+  knockbackAmount: 7
 --- !u!1 &218013169817873682
 GameObject:
   m_ObjectHideFlags: 0

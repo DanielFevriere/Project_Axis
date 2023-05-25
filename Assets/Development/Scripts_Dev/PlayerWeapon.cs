@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
@@ -78,12 +78,12 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    /*
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         DrawWireCapsule(weaponStart.position, weaponEnd.position, weaponRadius, 0, Color.red);
     }
-
     #region Gizmos helper
 #if UNITY_EDITOR
     public static void DrawWireCapsule(Vector3 _pos, Vector3 _pos2, float _radius, float _height, Color _color = default)
@@ -120,5 +120,6 @@ public class PlayerWeapon : MonoBehaviour
     }
 #endif
     #endregion
+    */
 }
 

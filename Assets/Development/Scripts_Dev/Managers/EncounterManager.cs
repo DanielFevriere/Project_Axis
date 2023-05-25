@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,9 +28,6 @@ public class EncounterManager : MonoBehaviour
     public int amountOfEnemiesToSpawn;
     public GameObject TriggerZone;
     public List<GameObject> EnemiesRemaining;
-
-    // subscribe and unsubscribe events that should happen in other systems when a state change occurs here
-    public event Action OnEnemyDestroyed;
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +70,7 @@ public class EncounterManager : MonoBehaviour
     {
         for (int i = 0; i < amountOfEnemiesToSpawn; i++)
         {
-            EnemiesRemaining.Add(Instantiate(Enemy, new Vector3(UnityEngine.Random.Range(-transform.localScale.x, transform.localScale.x), 0f, UnityEngine.Random.Range(-transform.localScale.z, transform.localScale.z)), Quaternion.identity));
+            EnemiesRemaining.Add(Instantiate(Enemy, new Vector3(Random.Range(-transform.localScale.x, transform.localScale.x), 0f, Random.Range(-transform.localScale.z, transform.localScale.z)), Quaternion.identity));
         }
     }
 
