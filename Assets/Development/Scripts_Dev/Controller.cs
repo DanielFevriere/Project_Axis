@@ -110,11 +110,13 @@ public class Controller : MonoBehaviour
             {
                 //Moves based on the slope vector
                 characterController.Move(GetSlopeMoveDirection() * Time.fixedDeltaTime);
+                gravity = 0;
             }
             else
             {
                 //Moves based on the movement vector
                 characterController.Move(movement * Time.fixedDeltaTime);
+                gravity = 10;
             }
         }
         else
@@ -142,6 +144,7 @@ public class Controller : MonoBehaviour
         else
         {
             isFalling = true;
+            gravity = 10;
             verticalVel -= gravity * Time.deltaTime;
         }
 
