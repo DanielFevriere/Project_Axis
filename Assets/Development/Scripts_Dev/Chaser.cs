@@ -26,7 +26,7 @@ public class Chaser : MonoBehaviour
     public bool targetInAttackRange = false;
 
     //Attacking Vars
-    public bool attacking = false;
+    public bool inAttack = false;
     public bool onCooldown = false;
     public GameObject attackBox;
     public GameObject warningBox;
@@ -91,7 +91,7 @@ public class Chaser : MonoBehaviour
 
             //Attacks Target if theyre in range
             case ChaserState.Attacking:
-                if(!onCooldown)
+                if(!onCooldown && !inAttack)
                 {
                     AttackTarget();
                 }
@@ -118,7 +118,7 @@ public class Chaser : MonoBehaviour
     //Attacks Target
     void AttackTarget()
     {
-        attacking = true;
+        inAttack = true;
 
         DOTween.Sequence()
         //Turns on warning box
@@ -130,6 +130,7 @@ public class Chaser : MonoBehaviour
         //Turns on Attack box, turns off warning box
         .AppendCallback(() =>
         {
+            warningBox.SetActive(false);
             attackBox.SetActive(true);
             onCooldown = true;
         })
@@ -137,6 +138,7 @@ public class Chaser : MonoBehaviour
         .AppendInterval(attackTime)
         .AppendCallback(() =>
         {
+            inAttack = false;
             attackBox.SetActive(false);
             onCooldown = true;
         })
