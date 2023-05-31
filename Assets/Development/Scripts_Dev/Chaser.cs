@@ -29,6 +29,8 @@ public class Chaser : MonoBehaviour
     public bool attacking = false;
     public bool onCooldown = false;
     public GameObject attackBox;
+    public GameObject warningBox;
+    public float attackWindupTime;
     public float attackTime;
     public float attackCoolDown;
 
@@ -116,10 +118,22 @@ public class Chaser : MonoBehaviour
     //Attacks Target
     void AttackTarget()
     {
-        attackBox.SetActive(true);
         attacking = true;
 
         DOTween.Sequence()
+        //Turns on warning box
+        .AppendCallback(() =>
+        {
+            warningBox.SetActive(true);
+        })
+        .AppendInterval(attackWindupTime)
+        //Turns on Attack box, turns off warning box
+        .AppendCallback(() =>
+        {
+            attackBox.SetActive(true);
+            onCooldown = true;
+        })
+        //Turns off Attack box, goes on cooldown
         .AppendInterval(attackTime)
         .AppendCallback(() =>
         {
@@ -127,6 +141,7 @@ public class Chaser : MonoBehaviour
             onCooldown = true;
         })
         .AppendInterval(attackCoolDown)
+        //Goes off cooldown
         .AppendCallback(() =>
         {
             onCooldown = false;
