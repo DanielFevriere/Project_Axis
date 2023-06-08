@@ -48,6 +48,7 @@ public class EncounterManager : MonoBehaviour
 
     public void StartEncounter()
     {
+        GameManager.Instance.ChangeState(GameState.Battle);
         encounterActive = true;
         Barrier.SetActive(true);
         TriggerZone.SetActive(false);
@@ -56,6 +57,7 @@ public class EncounterManager : MonoBehaviour
 
     void EndEncounter()
     {
+        GameManager.Instance.ChangeState(GameState.FreeRoam);
         encounterActive = false;
         Barrier.SetActive(false);
         DOTween.Sequence()

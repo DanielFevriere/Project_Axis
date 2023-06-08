@@ -99,7 +99,23 @@ public class GameManager : MonoBehaviour
         }
         else if (state == GameState.Battle)
         {
+            foreach (GameObject p in partyMembers)
+            {
+                if (p != partyLeader)
+                {
+                    p.GetComponent<Controller>().enabled = false;
+                    p.GetComponent<AIFollow>().enabled = true;
+                    p.GetComponent<NavMeshAgent>().enabled = true;
+                }
+            }
 
+            worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
+            virtualCamera.Follow = partyLeader.transform;
+
+            /* Anthony: only this should be called here, we only want to keep things that require updates every frame
+             * within Update functions, everything else should ideally be event-based instead */
+            currentController.inBattle = true;
+            currentController.HandleUpdate();
         }
         else if (state == GameState.Dialogue)
         {
@@ -144,7 +160,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameState.Battle:
-
+                Exit_Battle();
                 break;
             case GameState.Dialogue:
 
@@ -237,6 +253,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Exit States
+
+    void Exit_Battle()
+    {
+        currentController.inBattle = false;
+        currentController.running = false;
+    }
 
     #endregion
 

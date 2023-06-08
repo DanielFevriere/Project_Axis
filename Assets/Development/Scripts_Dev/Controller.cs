@@ -15,6 +15,7 @@ public class Controller : MonoBehaviour
     public CharacterController characterController;
     public List<KeyControl> slot;
     public bool attacking = false;
+    public bool inBattle = false;
 
     //Movement vars
     public bool moving = false;
@@ -153,22 +154,30 @@ public class Controller : MonoBehaviour
         {
             verticalVel = terminalVel;
         }
-
-        //Sprinting
-        if (kb.leftShiftKey.isPressed)
+        
+        //Automatic Sprinting in combat
+        if(inBattle)
         {
             running = true;
         }
         else
         {
-            running = false;
+            //Manual sprinting out of combat
+            if (kb.leftShiftKey.isPressed)
+            {
+                running = true;
+            }
+            else
+            {
+                running = false;
+            }
         }
 
         //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
         {
             Debug.Log("Swapped");
-            //GameManager.Instance.SwapCharacter(); needs to be updated before being re-enabled
+            GameManager.Instance.SwapCharacter(); //needs to be updated before being re-enabled
         }
 
         //Quote test function
