@@ -186,6 +186,10 @@ public class Controller : MonoBehaviour
             //CutsceneManager.Instance.StartCutscene(); needs to be updated before being re enabled
             //SayQuote();
         }
+
+
+        // Debug stuff
+        DebugUpdate();
     }
 
     /// <summary>
@@ -386,4 +390,17 @@ public class Controller : MonoBehaviour
         UpLeft,
         DownLeft
     }
+
+
+    #region Debug Stuff
+    void DebugUpdate()
+    {
+        Keyboard kb = InputSystem.GetDevice<Keyboard>();
+
+        if (kb.tKey.wasPressedThisFrame)
+        {
+            UiManager.Instance.Debug.ToggleVisibility();
+        }
+    }
+    #endregion
 }

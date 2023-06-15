@@ -61,6 +61,14 @@ public class UiManager : MonoBehaviour
 [System.Serializable]
 public class UiDebug
 {
+    public GameObject debugUiContainer;
     public TMPro.TMP_Text gameStateText;
     public TMPro.TMP_Text partyLeaderText;
+
+    bool isVisible = true;
+    public void ToggleVisibility()
+    {
+        isVisible = !isVisible;
+        debugUiContainer.SetActive(isVisible);
+    }
 }

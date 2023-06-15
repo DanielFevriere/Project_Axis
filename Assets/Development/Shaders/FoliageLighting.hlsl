@@ -60,7 +60,10 @@ float3 FoliageLightHandling(FoliageLightingData d, Light light)
 
     float3 radiance = light.color * (light.distanceAttenuation * light.shadowAttenuation);
 
-    float diffuse = saturate(dot(d.normalWS, light.direction));
+    float3 lightDir = light.direction;
+    // Make it so light always point from camera
+    lightDir.z = abs(lightDir.z);
+    float diffuse = saturate(dot(d.normalWS, lightDir));
     float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));
     float specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
 
