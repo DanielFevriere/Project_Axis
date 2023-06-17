@@ -48,7 +48,6 @@ public class AudioManager : MonoBehaviour
     #region Functions
     private void Start()
     {
-
         // Load all audio assets from AudioLibrary
         for (int i = 0; i < AudioLibrary.sounds.Count; i++)
         {
@@ -62,7 +61,7 @@ public class AudioManager : MonoBehaviour
                 GameObject so = new GameObject("sound_" + s.id);
                 so.transform.SetParent(SoundsContainer);
                 // Set sound properties
-                soundToAdd.source = s.source;
+                soundToAdd= s;
                 soundToAdd.SetAudioSource(so.AddComponent<AudioSource>());
                 // Add to dictionary
                 AllSounds.Add(s.id, soundToAdd);
@@ -81,7 +80,7 @@ public class AudioManager : MonoBehaviour
 
         // OnSceneLoad stuff
         // UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneLoaded;
-        PlayBgm("bgm_dead", 0.0f, 2.0f);
+        PlayBgm("defiance", 0.0f, 2.0f);
     }
 
     // Music
@@ -167,7 +166,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                soundToPlay.source.PlayOneShot(soundToPlay.clip);
+                soundToPlay.source.PlayOneShot(soundToPlay.clip, GetSFXVolume());
             }
         }
     }

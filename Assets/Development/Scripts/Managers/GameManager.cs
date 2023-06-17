@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Controller currentController;
     [SerializeField] Camera worldCamera;
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
+    public CinemachineVirtualCamera currentCamera;
+    [SerializeField] CinemachineVirtualCamera highCamera;
+    [SerializeField] CinemachineVirtualCamera lowCamera;
     public GameObject partyLeader;
     public List<GameObject> partyMembers;
 
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         state = GameState.FreeRoam;
+        ChangeState(GameState.FreeRoam);
     }
 
     // Todo: This should tell the game to enter a default state upon launch (for now)
@@ -91,7 +94,7 @@ public class GameManager : MonoBehaviour
             }
 
             worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
-            virtualCamera.Follow = partyLeader.transform;
+            currentCamera.Follow = partyLeader.transform;
 
             /* Anthony: only this should be called here, we only want to keep things that require updates every frame
              * within Update functions, everything else should ideally be event-based instead */
@@ -110,12 +113,15 @@ public class GameManager : MonoBehaviour
             }
 
             worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
-            virtualCamera.Follow = partyLeader.transform;
+            currentCamera.Follow = partyLeader.transform;
 
             /* Anthony: only this should be called here, we only want to keep things that require updates every frame
              * within Update functions, everything else should ideally be event-based instead */
             currentController.inBattle = true;
             currentController.HandleUpdate();
+
+            //Handles the update for the Ability holder as well
+            currentController.GetComponentInChildren<AbilityHolder>().HandleUpdate();
         }
         else if (state == GameState.Dialogue)
         {
@@ -129,7 +135,7 @@ public class GameManager : MonoBehaviour
         }
         else if (state == GameState.Cutscene)
         {
-            virtualCamera.Follow = null;
+            currentCamera.Follow = null;
             foreach (GameObject p in partyMembers)
             {
                 p.GetComponent<Controller>().enabled = false;
@@ -226,6 +232,12 @@ public class GameManager : MonoBehaviour
     #region Enter States
     void Enter_FreeRoam()
     {
+        AudioManager.Instance.PlayBgm("defiance", 0.0f, 2.0f);
+
+        highCamera.gameObject.SetActive(false);
+        lowCamera.gameObject.SetActive(true);
+        currentCamera = lowCamera;
+
         // Todo: Check if partyMembers is empty, if empty then add in party members
 
         // Todo: Initialize/Set party leader here
@@ -234,7 +246,13 @@ public class GameManager : MonoBehaviour
 
     void Enter_Battle()
     {
-        foreach(GameObject p in partyMembers)
+        AudioManager.Instance.PlayBgm("ghoul", 0.0f, 2.0f);
+
+        lowCamera.gameObject.SetActive(false);
+        highCamera.gameObject.SetActive(true);
+        currentCamera = highCamera;
+
+        foreach (GameObject p in partyMembers)
         {
             partyLeader.GetComponent<Controller>().enabled = false;
             partyLeader.GetComponent<AIFollow>().enabled = false;

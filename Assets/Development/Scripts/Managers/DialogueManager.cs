@@ -97,6 +97,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach(var letter in dialogue.Line.ToCharArray())
         {
+            AudioManager.Instance.PlaySound("beep");
             dialogueText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }

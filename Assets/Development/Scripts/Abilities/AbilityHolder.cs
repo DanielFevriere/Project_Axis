@@ -59,6 +59,10 @@ public class AbilityHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void HandleUpdate()
+    {
         ButtonCheck();
     }
 
