@@ -93,8 +93,12 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
-            currentCamera.Follow = partyLeader.transform;
+            if (partyLeader != null)
+            {
+                worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
+                currentCamera.Follow = partyLeader.transform;
+            }
+           
 
             /* Anthony: only this should be called here, we only want to keep things that require updates every frame
              * within Update functions, everything else should ideally be event-based instead */
