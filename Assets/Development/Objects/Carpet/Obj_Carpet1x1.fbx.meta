@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0587b2b138d9c2f48ace6a6151bf194e
+guid: 37c247c22f820994b8670be07e701726
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: LavaLamp_Glass
-    second: {fileID: 2100000, guid: 44919aba73c9556428dd766c02d59d76, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LavaLamp_Liquid
-    second: {fileID: 2100000, guid: e2197f02313774b4a83da2398ae2c073, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LavaLamp_Metal
-    second: {fileID: 2100000, guid: b1413d3bc6ab62e4bbb5e0e251579650, type: 2}
+      name: M_Carpet
+    second: {fileID: 2100000, guid: b360e441175390241884d5c5bae27558, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -36,6 +36,8 @@ public class UiManager : MonoBehaviour
         // first run
         DEBUG_SetCurrentState();
         DEBUG_SetCurrentPartyLeader();
+
+        Debug.ToggleVisibility();
     }
 
     public void DEBUG_SetCurrentState()
