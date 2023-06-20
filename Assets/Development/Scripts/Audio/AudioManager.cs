@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     public static GameObject audioManager;
 
+    public string MapBgm;
+
     private void Awake()
     {
         audioManager = GameObject.Find("AudioManager");
@@ -80,7 +82,14 @@ public class AudioManager : MonoBehaviour
 
         // OnSceneLoad stuff
         // UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneLoaded;
-        PlayBgm("defiance", 0.0f, 2.0f);
+        if (MapBgm.Length > 0)
+        {
+            PlayBgm(MapBgm, 0.0f, 2.0f);
+        }
+        else
+        {
+            PlayBgm("defiance", 0.0f, 2.0f);
+        }
     }
 
     // Music
@@ -97,6 +106,8 @@ public class AudioManager : MonoBehaviour
     {
         if (music.Track == null) { return; }
 
+        MusicSource.loop = music.Looping;
+
         // Stop/Fade out current track
         StartCoroutine(CrossFadeMusic(music, fadeOutDuration, fadeInDuration));
     }
@@ -107,7 +118,7 @@ public class AudioManager : MonoBehaviour
         float t = 0;
         if (MusicSource.isPlaying)
         {
-              float startVolume = MusicSource.volume;
+            float startVolume = MusicSource.volume;
             while (t < fadeOutDuration)
             {
                 yield return null;

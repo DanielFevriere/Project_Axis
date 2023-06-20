@@ -37,3 +37,9 @@ MonoBehaviour:
     UseLoopPoints: 0
     LoopStart: 0
     LoopEnd: 0
+  - ID: dead
+    Track: {fileID: 8300000, guid: fd006e6ada7c1464d91fa3bfb96d1d1c, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0

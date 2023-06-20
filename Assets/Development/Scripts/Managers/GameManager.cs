@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
     #region Enter States
     void Enter_FreeRoam()
     {
-        AudioManager.Instance.PlayBgm("defiance", 0.0f, 2.0f);
+        AudioManager.Instance.PlayBgm("dead", 0.0f, 2.0f);
 
         highCamera.gameObject.SetActive(false);
         lowCamera.gameObject.SetActive(true);
