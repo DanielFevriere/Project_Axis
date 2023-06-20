@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d812a6e0e8595f6459d639d2f3b943c7, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: 
+  sounds:
+  - id: beep
+    clip: {fileID: 8300000, guid: 835169f02be4b2a4f9f4001403042aa0, type: 3}
+    volume: 0.5
+    pitch: 0.05
+    source: {fileID: 0}
+  music:
+  - ID: rain
+    Track: {fileID: 8300000, guid: bb3bb6c606cd7994d81521aa35852235, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0
+  - ID: defiance
+    Track: {fileID: 8300000, guid: 014bac78b2973db4a84d3a5920aa3450, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0
+  - ID: ghouls
+    Track: {fileID: 8300000, guid: c93c52c03924562438266a4318cad357, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0
+  - ID: dead
+    Track: {fileID: 8300000, guid: fd006e6ada7c1464d91fa3bfb96d1d1c, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0
