@@ -87,7 +87,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.343
+    m_Value: 0.371
   smoothness:
     m_OverrideState: 1
     m_Value: 0.421
@@ -162,7 +162,7 @@ MonoBehaviour:
     m_Value: {r: 0.36320752, g: 0.8601554, b: 1, a: 1}
   highlights:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
   balance:
     m_OverrideState: 1
     m_Value: 69.6
