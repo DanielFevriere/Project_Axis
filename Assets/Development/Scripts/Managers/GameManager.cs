@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 //States the game can be in
-public enum GameState { FreeRoam, Battle, Dialogue, Cutscene }
+public enum GameState { FreeRoam, Battle, Dialogue, Cutscene, Freeze }
 
 public class GameManager : MonoBehaviour
 {
@@ -178,6 +178,9 @@ public class GameManager : MonoBehaviour
             case GameState.Cutscene:
 
                 break;
+            case GameState.Freeze:
+                currentController.anim.speed = 1f;
+                break;
         }
 
         // Set next state
@@ -197,6 +200,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Cutscene:
                 Enter_Cutscene();
+                break;
+            case GameState.Freeze:
+                currentController.anim.speed = 0f;
                 break;
         }
 
@@ -283,6 +289,37 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Camera Controller
+    public void ToggleCameraConfiner(bool ConfinderMode)
+    {
+        CinemachineConfiner confiner = currentCamera.GetComponent<CinemachineConfiner>();
+        if (confiner != null)
+        {
+            confiner.enabled = ConfinderMode;
+        }
+    }
+
+    public void SetCameraConfiner(BoxCollider NewConfiner)
+    {
+        CinemachineConfiner confiner = currentCamera.GetComponent<CinemachineConfiner>();
+        if (confiner != null)
+        {
+            if (NewConfiner != null)
+            {
+                confiner.m_BoundingVolume = NewConfiner;
+            }
+            else
+            {
+                // Clears confiner
+                confiner.m_BoundingVolume = null;
+                confiner.enabled = false;
+            }
+        }
+    }
+
+
+    #endregion Camera Controller
 
     void DebugUpdate()
     {

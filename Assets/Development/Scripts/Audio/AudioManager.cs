@@ -44,6 +44,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource MusicSource;
     Dictionary<string, Sound> AllSounds = new Dictionary<string, Sound>();
     Dictionary<string, MusicAsset> AllMusic = new Dictionary<string, MusicAsset>();
+
+    string CurrentPlayingMusic = "";
     #endregion
 
 
@@ -118,6 +120,9 @@ public class AudioManager : MonoBehaviour
         float t = 0;
         if (MusicSource.isPlaying)
         {
+            // Skip if the same song is playing
+            if (CurrentPlayingMusic == nextSong.ID) { yield break; }
+
             float startVolume = MusicSource.volume;
             while (t < fadeOutDuration)
             {
@@ -130,6 +135,7 @@ public class AudioManager : MonoBehaviour
 
         // Set next song
         MusicSource.clip = nextSong.Track;
+        CurrentPlayingMusic = nextSong.ID;
         if (nextSong.Looping)
         {
             MusicSource.loop = true;
