@@ -292,7 +292,7 @@ public class Controller : MonoBehaviour
             {
                 // Remap 0,360 to -180,180
                 float yaw = playerWeapon.yawRotation > 180.0f ? playerWeapon.yawRotation - 360 : playerWeapon.yawRotation;
-                Debug.Log("Current yaw: " + yaw);
+                //Debug.Log("Current yaw: " + yaw);
                 // Up
                 if (yaw > -45.0f && yaw < 45.0f)
                 {

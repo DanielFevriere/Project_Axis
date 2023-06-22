@@ -5,7 +5,7 @@ using UnityEngine;
 public enum TriggerType
 {
     Teleport,
-
+    AreaChange,
 
     COUNT
 }
