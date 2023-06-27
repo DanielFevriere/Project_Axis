@@ -43,6 +43,7 @@ public class AreaTrigger : MonoBehaviour
         switch (TriggerType)
         {
             case TriggerType.Teleport:
+                UiManager.Instance.PlayBlackScreenEffect();
                 StartCoroutine(TeleportCoroutine(other.GetComponent<Controller>()));
                 break;
             case TriggerType.AreaChange:

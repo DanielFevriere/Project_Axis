@@ -288,34 +288,38 @@ public class Controller : MonoBehaviour
         // Override rotation based on aim if not moving or attacking
         if (!moving || attacking)
         {
-            if (playerWeapon != null)
+            //Mouse based player rotation only in combat
+            if(GameManager.Instance.CurrentState == GameState.Battle)
             {
-                // Remap 0,360 to -180,180
-                float yaw = playerWeapon.yawRotation > 180.0f ? playerWeapon.yawRotation - 360 : playerWeapon.yawRotation;
-                //Debug.Log("Current yaw: " + yaw);
-                // Up
-                if (yaw > -45.0f && yaw < 45.0f)
+                if (playerWeapon != null)
                 {
-                    direction = FacingDirection.Up;
-                    facingVector = new Vector2(0, 1);
-                }
-                // Right
-                else if (yaw >= 45.0f && yaw <= 135.0f)
-                {
-                    direction = FacingDirection.Right;
-                    facingVector = new Vector2(1, 0);
-                }
-                // Down
-                else if (yaw > 135.0f || yaw < -135.0f)
-                {
-                    direction = FacingDirection.Down;
-                    facingVector = new Vector2(0, -1);
-                }
-                // Left
-                else
-                {
-                    direction = FacingDirection.Left;
-                    facingVector = new Vector2(-1, 0);
+                    // Remap 0,360 to -180,180
+                    float yaw = playerWeapon.yawRotation > 180.0f ? playerWeapon.yawRotation - 360 : playerWeapon.yawRotation;
+                    //Debug.Log("Current yaw: " + yaw);
+                    // Up
+                    if (yaw > -45.0f && yaw < 45.0f)
+                    {
+                        direction = FacingDirection.Up;
+                        facingVector = new Vector2(0, 1);
+                    }
+                    // Right
+                    else if (yaw >= 45.0f && yaw <= 135.0f)
+                    {
+                        direction = FacingDirection.Right;
+                        facingVector = new Vector2(1, 0);
+                    }
+                    // Down
+                    else if (yaw > 135.0f || yaw < -135.0f)
+                    {
+                        direction = FacingDirection.Down;
+                        facingVector = new Vector2(0, -1);
+                    }
+                    // Left
+                    else
+                    {
+                        direction = FacingDirection.Left;
+                        facingVector = new Vector2(-1, 0);
+                    }
                 }
             }
         }

@@ -26,6 +26,7 @@ public class UiManager : MonoBehaviour
     #region Sub components
     [Header("Debugger")]
     public UiDebug Debug;
+    public Animator BlackScreenAnimator;
     #endregion
 
     private void Start()
@@ -57,6 +58,10 @@ public class UiManager : MonoBehaviour
 
         Debug.partyLeaderText.text = "Party Leader NOT FOUND!";
         Debug.partyLeaderText.color = Color.red;
+    }
+    public void PlayBlackScreenEffect()
+    {
+        BlackScreenAnimator.SetTrigger("Fade");
     }
 }
 
