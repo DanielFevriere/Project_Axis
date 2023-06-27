@@ -21,7 +21,11 @@ MonoBehaviour:
     line: Hello Cube, where am I?
   - nameID: Cube
     displayName: Cube
-    line: Firstly, why are your friends naked? Did your creator not design them yet?
+    line: You are improving. Your creators world is expanding. Do you know what awaits
+      you?
   - nameID: Gabriel
     displayName: Gabe
     line: I actually don't know. Wait... what do you mean creator?
+  - nameID: Cube
+    displayName: Cube
+    line: I have been told to stop talking.

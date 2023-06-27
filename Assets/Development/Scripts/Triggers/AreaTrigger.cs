@@ -61,7 +61,7 @@ public class AreaTrigger : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.Freeze);
         GameManager.Instance.ToggleCameraConfiner(false);
         PlayerController.gameObject.transform.position = TeleportTriggerParams.Destination.position;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         GameManager.Instance.ChangeState(GameState.FreeRoam);
         GameManager.Instance.SetCameraConfiner(TeleportTriggerParams.NewCameraConfiner);
         GameManager.Instance.ToggleCameraConfiner(true);
