@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        partyLeader = partyMembers[0];
         state = GameState.FreeRoam;
         ChangeState(GameState.FreeRoam);
     }
@@ -88,7 +89,8 @@ public class GameManager : MonoBehaviour
                 if(p != partyLeader)
                 {
                     p.GetComponent<Controller>().enabled = false;
-                    p.GetComponent<AIFollow>().enabled = true;
+                    p.GetComponent<AllyAI>().enabled = true;
+                    p.GetComponent<AIChase>().enabled = true;
                     p.GetComponent<NavMeshAgent>().enabled = true;
                 }
             }
@@ -111,7 +113,8 @@ public class GameManager : MonoBehaviour
                 if (p != partyLeader)
                 {
                     p.GetComponent<Controller>().enabled = false;
-                    p.GetComponent<AIFollow>().enabled = true;
+                    p.GetComponent<AllyAI>().enabled = true;
+                    p.GetComponent<AIChase>().enabled = true;
                     p.GetComponent<NavMeshAgent>().enabled = true;
                 }
             }
@@ -132,7 +135,8 @@ public class GameManager : MonoBehaviour
             foreach (GameObject p in partyMembers)
             {
                 p.GetComponent<Controller>().enabled = false;
-                p.GetComponent<AIFollow>().enabled = false;
+                p.GetComponent<AllyAI>().enabled = false;
+                p.GetComponent<AIChase>().enabled = false;
                 p.GetComponent<NavMeshAgent>().enabled = false;
             }
             DialogueManager.Instance.HandleUpdate();
@@ -143,7 +147,8 @@ public class GameManager : MonoBehaviour
             foreach (GameObject p in partyMembers)
             {
                 p.GetComponent<Controller>().enabled = false;
-                p.GetComponent<AIFollow>().enabled = false;
+                p.GetComponent<AllyAI>().enabled = false;
+                p.GetComponent<AIChase>().enabled = false;
                 p.GetComponent<NavMeshAgent>().enabled = false;
             }
             DialogueManager.Instance.HandleUpdate();
@@ -216,7 +221,8 @@ public class GameManager : MonoBehaviour
         partyLeader = partyMembers[0];
         currentController = partyLeader.GetComponent<Controller>();
         partyLeader.GetComponent<Controller>().enabled = true;
-        partyLeader.GetComponent<AIFollow>().enabled = false;
+        partyLeader.GetComponent<AllyAI>().enabled = false;
+        partyLeader.GetComponent<AIChase>().enabled = false;
         partyLeader.GetComponent<NavMeshAgent>().enabled = false;
     }
 
@@ -265,7 +271,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject p in partyMembers)
         {
             partyLeader.GetComponent<Controller>().enabled = false;
-            partyLeader.GetComponent<AIFollow>().enabled = false;
+            partyLeader.GetComponent<AIChase>().enabled = false;
         }
     }
 

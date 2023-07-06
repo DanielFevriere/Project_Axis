@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIFollow : MonoBehaviour
+public class AIChase : AIAction
 {
     public NavMeshAgent agent;
 
@@ -13,18 +13,13 @@ public class AIFollow : MonoBehaviour
 
     public Animator anim;
 
-    public LayerMask whatIsPlayer;
-
-    //States
-    public float sightRange;
-    public bool playerInSightRange;
-
     bool moving = false;
     bool running = false;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        partyLeader = GameManager.Instance.partyLeader;
     }
 
     private void Update()
@@ -34,13 +29,6 @@ public class AIFollow : MonoBehaviour
             Debug.LogError(name + " " + "has no party leader assigned! Skipping follow logic.");
             return;
         }
-
-        partyLeader = GameManager.Instance.partyLeader;
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-
-        //Chases player if theyre in range
-        if (playerInSightRange) ChasePlayer();
-
         if(agent.velocity.x == 0 && agent.velocity.y == 0)
         {
             moving = false;
@@ -71,8 +59,10 @@ public class AIFollow : MonoBehaviour
     }
 
     //Chases Player
-    void ChasePlayer()
+    public override void PerformAction()
     {
+        partyLeader = GameManager.Instance.partyLeader;
+
         agent.SetDestination(partyLeader.transform.position);
     }
 }

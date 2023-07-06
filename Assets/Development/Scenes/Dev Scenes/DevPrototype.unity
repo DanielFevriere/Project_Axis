@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 124267046}
   - component: {fileID: 124267047}
   - component: {fileID: 124267050}
+  - component: {fileID: 124267054}
   - component: {fileID: 124267049}
   - component: {fileID: 124267048}
   - component: {fileID: 124267051}
@@ -954,16 +955,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a560ea9339614fa4fd8d7458740ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  favorability: 100
   agent: {fileID: 0}
   partyLeader: {fileID: 0}
   walkSpeed: 3
   runSpeed: 6
   anim: {fileID: 1410304676}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  sightRange: 5
-  playerInSightRange: 0
 --- !u!54 &124267050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1076,6 +1074,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStats: 0a000000
+--- !u!114 &124267054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124267044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9c5c6e7b64f74e8b1b69f44c04e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfActions:
+  - {fileID: 124267049}
+  availableActions: []
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerInSightRange: 0
+  sightRange: 10
+  currentState: 0
 --- !u!1 &140673452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DontDestroyOnLoad: 1
+  MapBgm: 
   MasterVolume: 1
   MusicVolume: 1
   SoundVolume: 0.2
@@ -1942,8 +1962,10 @@ GameObject:
   - component: {fileID: 264501067}
   - component: {fileID: 264501066}
   - component: {fileID: 264501068}
+  - component: {fileID: 264501069}
   - component: {fileID: 264501065}
   - component: {fileID: 264501064}
+  - component: {fileID: 264501070}
   m_Layer: 9
   m_Name: Raphael
   m_TagString: Player
@@ -2004,16 +2026,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a560ea9339614fa4fd8d7458740ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  favorability: 100
   agent: {fileID: 0}
   partyLeader: {fileID: 0}
   walkSpeed: 3
   runSpeed: 6
   anim: {fileID: 831746196}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  sightRange: 5
-  playerInSightRange: 0
 --- !u!143 &264501066
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2088,6 +2107,96 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &264501069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9c5c6e7b64f74e8b1b69f44c04e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfActions:
+  - {fileID: 264501065}
+  availableActions: []
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerInSightRange: 0
+  sightRange: 10
+  currentState: 0
+--- !u!114 &264501070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2c4011492e4e64aa73962a98908bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useRigidBody: 1
+  rigidBody: {fileID: 264501068}
+  knockbackDuration: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 264501068}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: WakeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264501067}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 264501068}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: Sleep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264501067}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &267050301
 GameObject:
   m_ObjectHideFlags: 0
@@ -13905,6 +14014,7 @@ MonoBehaviour:
     debugUiContainer: {fileID: 0}
     gameStateText: {fileID: 1121849956}
     partyLeaderText: {fileID: 1571479382}
+  BlackScreenAnimator: {fileID: 0}
 --- !u!4 &567637754
 Transform:
   m_ObjectHideFlags: 0
@@ -15806,7 +15916,6 @@ GameObject:
   - component: {fileID: 831746192}
   - component: {fileID: 831746194}
   - component: {fileID: 831746193}
-  - component: {fileID: 831746195}
   - component: {fileID: 831746196}
   m_Layer: 9
   m_Name: Graphics
@@ -15895,28 +16004,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &831746195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831746191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9a560ea9339614fa4fd8d7458740ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  partyLeader: {fileID: 0}
-  walkSpeed: 0
-  runSpeed: 0
-  anim: {fileID: 0}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  sightRange: 0
-  playerInSightRange: 0
 --- !u!95 &831746196
 Animator:
   serializedVersion: 4
@@ -17746,7 +17833,6 @@ GameObject:
   - component: {fileID: 1031969239}
   - component: {fileID: 1031969242}
   - component: {fileID: 1031969241}
-  - component: {fileID: 1031969240}
   - component: {fileID: 1031969243}
   m_Layer: 9
   m_Name: Graphics
@@ -17770,28 +17856,6 @@ Transform:
   m_Father: {fileID: 2049805599}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1031969240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031969238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9a560ea9339614fa4fd8d7458740ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  partyLeader: {fileID: 0}
-  walkSpeed: 0
-  runSpeed: 0
-  anim: {fileID: 0}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  sightRange: 0
-  playerInSightRange: 0
 --- !u!114 &1031969241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30995,7 +31059,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh171466
+  m_Name: pb_Mesh30996
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32839,8 +32903,10 @@ GameObject:
   - component: {fileID: 2049805601}
   - component: {fileID: 2049805600}
   - component: {fileID: 2049805602}
+  - component: {fileID: 2049805603}
   - component: {fileID: 2049805598}
   - component: {fileID: 2049805597}
+  - component: {fileID: 2049805604}
   m_Layer: 9
   m_Name: Michael
   m_TagString: Player
@@ -32882,16 +32948,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a560ea9339614fa4fd8d7458740ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  favorability: 100
   agent: {fileID: 0}
   partyLeader: {fileID: 0}
   walkSpeed: 3
   runSpeed: 6
   anim: {fileID: 1031969243}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  sightRange: 5
-  playerInSightRange: 0
 --- !u!4 &2049805599
 Transform:
   m_ObjectHideFlags: 0
@@ -32985,6 +33048,96 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &2049805603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049805596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9c5c6e7b64f74e8b1b69f44c04e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfActions:
+  - {fileID: 2049805598}
+  availableActions: []
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerInSightRange: 0
+  sightRange: 10
+  currentState: 0
+--- !u!114 &2049805604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049805596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2c4011492e4e64aa73962a98908bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useRigidBody: 1
+  rigidBody: {fileID: 2049805602}
+  knockbackDuration: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2049805602}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: WakeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2049805600}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2049805602}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: Sleep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2049805600}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!43 &2074011941
 Mesh:
   m_ObjectHideFlags: 0
