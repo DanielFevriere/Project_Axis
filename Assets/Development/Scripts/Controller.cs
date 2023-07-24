@@ -184,7 +184,7 @@ public class Controller : MonoBehaviour
         if (kb.lKey.wasReleasedThisFrame)
         {
             //CutsceneManager.Instance.StartCutscene(); needs to be updated before being re enabled
-            //SayQuote();
+            SayQuote();
         }
 
 
