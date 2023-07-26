@@ -70,6 +70,8 @@ namespace TilemapTerrainTools
 
         private Vector3 prefabObjectPosition;
         private static bool snapObjectToGrid;
+
+        private static bool deleting;
         
         #region Properties
 
@@ -97,10 +99,11 @@ namespace TilemapTerrainTools
             if (tilemap != null)
             {
                 tilemap.ReinitializeContainers();
+                tilemap.InitializeCurrentLayer();
             }
             
             // Initialize
-            propLevel = serializedObject.FindProperty("groundLevel");
+            propLevel = serializedObject.FindProperty("LayerIndex");
             propBrushSize = serializedObject.FindProperty("brushSize");
 
             propPrefab = serializedObject.FindProperty("prefab");
@@ -144,11 +147,12 @@ namespace TilemapTerrainTools
 
                 DrawCursor();
             
+                bool holdingShift = (Event.current.modifiers & EventModifiers.Shift) != 0;
                 // Try to spawn tile (left mouse button)
                 if ((e.type == EventType.MouseDrag || e.type == EventType.MouseDown) &&
                     e.button == 0)
                 {
-                    RequestSpawn();
+                    RequestSpawnOrDelete(holdingShift || deleting);
                     
                     Repaint();
                     // Consume event
@@ -192,7 +196,9 @@ namespace TilemapTerrainTools
                     GUILayout.FlexibleSpace();
                 }
                 
-                GUILayout.Space(5);
+                GUILayout.Space(3);
+                deleting = EditorGUILayout.Toggle("Delete", deleting);
+                GUILayout.Space(2);
                 // Draw based on category
                 switch (selectedCategory)
                 {
@@ -210,10 +216,12 @@ namespace TilemapTerrainTools
             
             // Level & tile size
             EditorGUILayout.IntSlider(propBrushSize, 1, 3, new GUIContent("Brush Size"));
+            
+            EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(propLevel, new GUIContent("Level"));
             propLevel.intValue = propLevel.intValue.AtLeast(0);
+            // Adjust ground plane
             ground.SetNormalAndPosition(Vector3.up, new Vector3(0, propLevel.intValue, 0));
-            
             GUILayout.Label("Mouse world position: " + mouseWorld);
 
             // Functionality buttons
@@ -360,7 +368,7 @@ namespace TilemapTerrainTools
             }
         }
 
-        void RequestSpawnTiles(Vector3 cursorWorldPos, int brushSize)
+        void RequestSpawnOrDeleteTiles(Vector3 cursorWorldPos, int brushSize, bool delete = false)
         {
             List<Vector3> tilePositions = new List<Vector3>();
 
@@ -374,59 +382,66 @@ namespace TilemapTerrainTools
 
             for (int i = 0; i < tilePositions.Count; i++)
             {
-                TrySpawnTile(tilePositions[i]);
+                TrySpawnOrDeleteTile(tilePositions[i], delete);
             }
         }
         
-        void TrySpawnTile(Vector3 position)
+        void TrySpawnOrDeleteTile(Vector3 position, bool delete = false)
         {
             if (prefab == null)
             {
                 return;
             }
             
-            Debug.Log("Spawning a tile at: " + mouseWorld);
-
             // Try to get container
-            Transform currentLayerContainer = TryGetContainer();
+            TilemapLayer currentLayer = TryGetContainer();
+            // Set new current layer
+            tilemap.InitializeCurrentLayer();
             
             // Tile spawning
-            bool spawnNewTile = true;
+            bool detectedTile = true;
             Vector3 heightOffset = Vector3.up * 0.1f;
             // Raycast downward to check for existing tiles,
             if (Physics.Raycast(position + heightOffset, Vector3.down, out RaycastHit hit, 0.2f))
             {
-                spawnNewTile = false;
+                detectedTile = false;
             }
 
-            if (currentLayerContainer == null)
-            {
-                Debug.LogError("No valid container for tile, skipping spawn...");
-                return;
-            }
-            
             // Spawn tile
-            if (spawnNewTile)
+            if (detectedTile)
             {
-                GameObject spawnedTile = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
-                Undo.RegisterCreatedObjectUndo(spawnedTile, "Spawn Tile");
-                spawnedTile.transform.position = position;
-                Undo.SetTransformParent(spawnedTile.transform, currentLayerContainer.transform, "Set tile's parent to container");
-                Undo.RegisterFullObjectHierarchyUndo(currentLayerContainer.GameObject(), "Update layer container");
-                Undo.SetCurrentGroupName("Create and set parent for new tile");
+                if (!delete)
+                {
+                    GameObject spawnedTile = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+                    TileObject tile = spawnedTile.GetComponent<TileObject>();
+                    Undo.RegisterCreatedObjectUndo(spawnedTile, "Spawn Tile");
+                    spawnedTile.transform.position = position;
+                    Undo.SetTransformParent(spawnedTile.transform, currentLayer.transform, "Set tile's parent to container");
+                    Undo.RegisterFullObjectHierarchyUndo(currentLayer.gameObject, "Update layer container");
+                    Undo.SetCurrentGroupName("Create and set parent for new tile");
+                    
+                    // Save tile and set neighbors
+                    Vector2Int tileCoords = new Vector2Int((int)position.x, (int)position.z);
+                    tilemap.AddTile(tileCoords, tile, currentLayer);
+                }   
             }
             // If we detected a previous tile, update the prefab
             else
             {
                 Debug.Log("Detected: " + hit.transform.gameObject);
+                if (delete)
+                {
+                    Vector2Int tileCoords = new Vector2Int((int)position.x, (int)position.z);
+                    tilemap.DeleteTile(tileCoords);
+                }
             }
         }
 
-        Transform TryGetContainer()
+        TilemapLayer TryGetContainer()
         {
-            int layer = tilemap.groundLevel;
+            int layer = tilemap.LayerIndex;
 
-            TilemapTerrainLayer tilemapLayer;
+            TilemapLayer tilemapLayer;
             bool layerIndexCheck = tilemap.Containers.TryGetValue(layer, out tilemapLayer);
             bool createNewLayer = !layerIndexCheck || tilemapLayer == null;
             
@@ -435,7 +450,7 @@ namespace TilemapTerrainTools
             {
                 // New container and layer
                 GameObject newContainer = new GameObject("Layer " + layer);
-                TilemapTerrainLayer newTilemapLayer = newContainer.AddComponent<TilemapTerrainLayer>();
+                TilemapLayer newTilemapLayer = newContainer.AddComponent<TilemapLayer>();
                 newTilemapLayer.layerIndex = layer;
                 if (layerIndexCheck)
                 {
@@ -448,13 +463,13 @@ namespace TilemapTerrainTools
                 Undo.RegisterCreatedObjectUndo(newContainer, "Create new container");
                 Undo.SetTransformParent(newContainer.transform, tilemap.transform, "Set parent to tilemap");
                 Undo.RegisterFullObjectHierarchyUndo(tilemap.GameObject(), "Update tilemap hierarchy");
-                return newContainer.transform;
+                return newTilemapLayer;
             }
             else
             {
                 // We still need to check container
                 Debug.Log("Container: " + tilemapLayer);
-                return tilemapLayer.transform;
+                return tilemapLayer;
             }
             
             return default;
@@ -468,7 +483,7 @@ namespace TilemapTerrainTools
             }
             
             // Try to get container
-            Transform currentLayerContainer = TryGetContainer();
+            TilemapLayer currentLayerContainer = TryGetContainer();
             
             // Spawn prefab
             GameObject spawnedObject = (GameObject)PrefabUtility.InstantiatePrefab(selectedPrefab);
@@ -478,12 +493,12 @@ namespace TilemapTerrainTools
             Undo.SetTransformParent(spawnedObject.transform, currentLayerContainer.transform, "Set tile's parent to container");
         }
         
-        void RequestSpawn()
+        void RequestSpawnOrDelete(bool delete = false)
         {
             switch (selectedCategory)
             {
                 case TilemapTool.SpawnTile:
-                    RequestSpawnTiles(mouseWorld, propBrushSize.intValue);
+                    RequestSpawnOrDeleteTiles(mouseWorld, propBrushSize.intValue, delete);
                     break;
                 case TilemapTool.Trees:
                     TrySpawnObject(prefabObjectPosition);
