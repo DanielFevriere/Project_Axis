@@ -158,6 +158,13 @@ namespace TilemapTerrainTools
                     if (tile != null)
                         DestroyImmediate(tile.gameObject);
                 }
+
+                // Reinitializes ALL tiles
+                Vector2Int[] tileCoords = CurrentLayer.Keys.ToArray();
+                foreach (var p in tileCoords)
+                {
+                    CurrentLayer[p].Initialize(p, CurrentLayer);
+                }
             }
         }
     }
