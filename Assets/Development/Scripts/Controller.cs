@@ -133,7 +133,12 @@ public class Controller : MonoBehaviour
         }
 
         //GroundCheck
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.2f, GroundLayer);
+
+        if(onSlope)
+        {
+            isGrounded = true;
+        }
 
         //If you are on the ground, velocity 0, and you arent falling
         if (isGrounded)
@@ -330,7 +335,7 @@ public class Controller : MonoBehaviour
     /// </summary>
     void CheckSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, 0.75f))
+        if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, 3f))
         {
             float Angle = Vector3.Angle(Vector3.up, SlopeHit.normal);
             onSlope = Angle < maxSlopeAngle && Angle != 0;
