@@ -72,7 +72,7 @@ public class EncounterManager : MonoBehaviour
     {
         for (int i = 0; i < amountOfEnemiesToSpawn; i++)
         {
-            EnemiesRemaining.Add(Instantiate(Enemy, new Vector3(Random.Range(-transform.position.x, transform.position.x), 0f, Random.Range(-transform.position.z, transform.position.z)), Quaternion.identity));
+            EnemiesRemaining.Add(Instantiate(Enemy,transform.position, Quaternion.identity));
         }
     }
 
