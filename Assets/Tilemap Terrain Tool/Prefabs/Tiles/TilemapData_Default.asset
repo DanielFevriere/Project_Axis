@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07e6778179cb8741a384588002c19b7, type: 3}
+  m_Name: TilemapData_Default
+  m_EditorClassIdentifier: 
+  prefabs:
+    SinglePiece: {fileID: 8599252851636045495, guid: d8d34bfccc3c1c145ac390f4ea6b11b9, type: 3}
+    TripleEdge: {fileID: 8599252851636045495, guid: 2dd62c4a622195f4bb97c4ae2c4bd1bb, type: 3}
+    DoubleEdge: {fileID: 8599252851636045495, guid: 36ddabd8f40610f429309fcf56389181, type: 3}
+    SingleEdge: {fileID: 8599252851636045495, guid: 59e9254ddfe2d454d9ef8121569d08cd, type: 3}
+    Top: {fileID: 8599252851636045495, guid: adad05ddfe5cc074fbdcd1b6d061863c, type: 3}
+    Corner: {fileID: 8599252851636045495, guid: 49bb4a3d43654e04082db0debac83b7e, type: 3}
+  baseMaterial: {fileID: 2100000, guid: 29c2e8d261c18cf4c85b36e8ee1d9c83, type: 2}
+  blendMaterial: {fileID: 2100000, guid: 3d9a8b1c33f52d144a93ac408c98bf70, type: 2}

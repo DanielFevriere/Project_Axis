@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5606637998345878342}
   m_Layer: 0
   m_Name: Tile_TripleEdge
-  m_TagString: Untagged
+  m_TagString: Tilemap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

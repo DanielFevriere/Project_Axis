@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ExtensionMethods
+public static class AnthonyExtensionMethods
 {
     // Extension method
     //  needs to be in static class and static function

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5606637998345878342}
   m_Layer: 0
   m_Name: Tile_Top
-  m_TagString: Untagged
+  m_TagString: Tilemap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8599252851636045495}
-  m_Mesh: {fileID: -462981019419857548, guid: a88946c55c2e46d40bbd08b37a34cee5, type: 3}
+  m_Mesh: {fileID: 282665186597767424, guid: a88946c55c2e46d40bbd08b37a34cee5, type: 3}
 --- !u!23 &6241807802727532054
 MeshRenderer:
   m_ObjectHideFlags: 0
