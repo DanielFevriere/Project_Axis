@@ -117,14 +117,14 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SideScale: 0.5
+    - _SideScale: 1
     - _Smoothness: 0.14
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _TopScale: 0.5
-    - _VerticalGradient: 1
+    - _VerticalGradient: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
