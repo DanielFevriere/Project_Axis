@@ -13,6 +13,7 @@ public class AllyAI : MonoBehaviour
     [Header("Data")]
     //Used data
     public LayerMask whatIsPlayer;
+    public LayerMask whatIsEnemy;
     public bool playerInSightRange;
     public float sightRange;
 
