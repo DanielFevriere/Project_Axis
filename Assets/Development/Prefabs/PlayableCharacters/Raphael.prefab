@@ -433,6 +433,8 @@ GameObject:
   - component: {fileID: 6467951414501729076}
   - component: {fileID: 6467951414501729077}
   - component: {fileID: 6467951414501729073}
+  - component: {fileID: 3864291743591347878}
+  - component: {fileID: 4626496550026971824}
   - component: {fileID: 6467951414501729072}
   - component: {fileID: 6467951414501729078}
   m_Layer: 9
@@ -547,14 +549,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b9c5c6e7b64f74e8b1b69f44c04e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listOfActions:
+  freeRoamActions:
   - {fileID: 6467951414501729073}
+  combatActions:
+  - {fileID: 3864291743591347878}
+  - {fileID: 4626496550026971824}
   availableActions: []
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 1024
   playerInSightRange: 0
-  sightRange: 10
+  enemyInSightRange: 0
+  enemyInAttackRange: 0
+  sightRange: 100
+  attackRange: 1
+  walkSpeed: 5
+  runSpeed: 10
   currentState: 0
 --- !u!114 &6467951414501729073
 MonoBehaviour:
@@ -569,11 +582,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   favorability: 100
-  agent: {fileID: 0}
   partyLeader: {fileID: 0}
-  walkSpeed: 3
-  runSpeed: 6
   anim: {fileID: 6467951413791876332}
+--- !u!114 &3864291743591347878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467951414501729084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e0eae0c8a30a842a97e42247586db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  favorability: 100
+  target: {fileID: 0}
+  anim: {fileID: 6467951413791876332}
+--- !u!114 &4626496550026971824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467951414501729084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff9409e6b94f3d4f9e7ed31e69487ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  favorability: 100
+  target: {fileID: 0}
+  abilityHolder: {fileID: 6467951413196368502}
 --- !u!195 &6467951414501729072
 NavMeshAgent:
   m_ObjectHideFlags: 0

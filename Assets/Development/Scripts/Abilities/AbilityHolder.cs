@@ -91,7 +91,6 @@ public class AbilityHolder : MonoBehaviour
         {
             if (buttonList[i].wasPressedThisFrame && !abilityList[i].onCooldown && abilityList[i].enabled)
             {
-                abilityList[i].inUse = true;
                 ActivateAbility(abilityList[i]);
             }
         }
@@ -100,6 +99,7 @@ public class AbilityHolder : MonoBehaviour
 
     public void ActivateAbility(Ability a)
     {
+        a.inUse = true;
         a.Activate();
     }
 }

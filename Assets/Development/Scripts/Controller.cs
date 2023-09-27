@@ -82,7 +82,7 @@ public class Controller : MonoBehaviour
         //This is the character thats being controlled
         isControlling = true;
 
-        GetComponent<AIChase>().enabled = false;
+        GetComponent<AIChasePlayer>().enabled = false;
 
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();

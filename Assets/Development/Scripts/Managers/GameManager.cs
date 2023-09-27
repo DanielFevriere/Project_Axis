@@ -89,9 +89,18 @@ public class GameManager : MonoBehaviour
                 if(p != partyLeader)
                 {
                     p.GetComponent<Controller>().enabled = false;
-                    p.GetComponent<AllyAI>().enabled = true;
-                    p.GetComponent<AIChase>().enabled = true;
                     p.GetComponent<NavMeshAgent>().enabled = true;
+
+                    foreach(AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                    {
+                        a.enabled = true;
+                    }
+                    foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                    {
+                        a.enabled = true;
+                    }
+
+                    p.GetComponent<AllyAIBrain>().enabled = true;
                 }
             }
 
@@ -113,9 +122,17 @@ public class GameManager : MonoBehaviour
                 if (p != partyLeader)
                 {
                     p.GetComponent<Controller>().enabled = false;
-                    p.GetComponent<AllyAI>().enabled = true;
-                    p.GetComponent<AIChase>().enabled = true;
                     p.GetComponent<NavMeshAgent>().enabled = true;
+
+                    p.GetComponent<AllyAIBrain>().enabled = true;
+                    foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                    {
+                        a.enabled = true;
+                    }
+                    foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                    {
+                        a.enabled = true;
+                    }
                 }
             }
 
@@ -135,9 +152,18 @@ public class GameManager : MonoBehaviour
             foreach (GameObject p in partyMembers)
             {
                 p.GetComponent<Controller>().enabled = false;
-                p.GetComponent<AllyAI>().enabled = false;
-                p.GetComponent<AIChase>().enabled = false;
                 p.GetComponent<NavMeshAgent>().enabled = false;
+
+                foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                {
+                    a.enabled = false;
+                }
+                foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                {
+                    a.enabled = false;
+                }
+
+                p.GetComponent<AllyAIBrain>().enabled = false;
             }
             DialogueManager.Instance.HandleUpdate();
         }
@@ -147,9 +173,18 @@ public class GameManager : MonoBehaviour
             foreach (GameObject p in partyMembers)
             {
                 p.GetComponent<Controller>().enabled = false;
-                p.GetComponent<AllyAI>().enabled = false;
-                p.GetComponent<AIChase>().enabled = false;
                 p.GetComponent<NavMeshAgent>().enabled = false;
+
+                foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                {
+                    a.enabled = false;
+                }
+                foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                {
+                    a.enabled = false;
+                }
+
+                p.GetComponent<AllyAIBrain>().enabled = false;
             }
             DialogueManager.Instance.HandleUpdate();
         }
@@ -221,9 +256,18 @@ public class GameManager : MonoBehaviour
         partyLeader = partyMembers[0];
         currentController = partyLeader.GetComponent<Controller>();
         partyLeader.GetComponent<Controller>().enabled = true;
-        partyLeader.GetComponent<AllyAI>().enabled = false;
-        partyLeader.GetComponent<AIChase>().enabled = false;
         partyLeader.GetComponent<NavMeshAgent>().enabled = false;
+
+        foreach (AIAction a in partyLeader.GetComponent<AllyAIBrain>().freeRoamActions)
+        {
+            a.enabled = false;
+        }
+        foreach (AIAction a in partyLeader.GetComponent<AllyAIBrain>().combatActions)
+        {
+            a.enabled = false;
+        }
+
+        partyLeader.GetComponent<AllyAIBrain>().enabled = false;
     }
 
     //Swaps control between party members
@@ -262,16 +306,21 @@ public class GameManager : MonoBehaviour
 
     void Enter_Battle()
     {
+        //Background music test
         AudioManager.Instance.PlayBgm("ghoul", 0.0f, 2.0f);
 
+        //Swaps the camera to the battle camera
         lowCamera.gameObject.SetActive(false);
         highCamera.gameObject.SetActive(true);
         currentCamera = highCamera;
 
+        //Teleports each party member to the party leader upon entering the battle state
         foreach (GameObject p in partyMembers)
         {
-            partyLeader.GetComponent<Controller>().enabled = false;
-            partyLeader.GetComponent<AIChase>().enabled = false;
+            if(p != partyLeader)
+            {
+                p.transform.position = partyLeader.transform.position;
+            }
         }
     }
 
