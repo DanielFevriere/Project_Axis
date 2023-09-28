@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public List<Quest> activeQuests;
-    public static QuestManager Instance { get; private set; }
-
-    // Start is called before the first frame update
-    void Awake()
+    #region Global static reference
+    private static QuestManager instance;
+    public static QuestManager Instance
     {
-        Instance = this;
+        get
+        {
+            if (instance != null)
+            {
+                return instance;
+            }
+            else
+            {
+                instance = FindObjectOfType<QuestManager>();
+                return instance;
+            }
+        }
     }
+    #endregion
+
+    public List<Quest> activeQuests;
 
     //Accepts the quest passed in through the function
     public void AcceptQuest(Quest targetQuest)

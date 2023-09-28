@@ -8,6 +8,25 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    #region Global static reference
+    private static DialogueManager instance;
+    public static DialogueManager Instance
+    {
+        get
+        {
+            if (instance != null)
+            {
+                return instance;
+            }
+            else
+            {
+                instance = FindObjectOfType<DialogueManager>();
+                return instance;
+            }
+        }
+    }
+    #endregion
+
     [SerializeField] GameObject dialogueBox;
     [SerializeField] TMP_Text dialogueName;
     [SerializeField] TMP_Text dialogueText;
@@ -22,11 +41,9 @@ public class DialogueManager : MonoBehaviour
     int currentDialogue = 0;
     bool isTyping = false;
 
-    public static DialogueManager Instance { get; private set; }
 
     private void Awake()
     {
-        Instance = this;
         listOfSpeakers = new List<Speaker>();
     }
 
