@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
+  m_Name: Main2
+  m_EditorClassIdentifier: 
+  questTitle: Slight Delay
+  questDescription: The student ranked #50 at Imperium Academy stands in your way
+    of getting to the main arena and insists you face him first.
+  questObjective: Defeat the #50th ranked academy student in a spar
+  questReward: {fileID: 0}
+  conditions: []

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
+  m_Name: Main6
+  m_EditorClassIdentifier: 
+  questTitle: Triple Threat
+  questDescription: "Michael got on the bad side of Ma, Cody, and Thomas and he\u2019s
+    getting attacked! Help him win his battle."
+  questObjective: Defeat Ma Kyung, Cody Pierce, and Thomas Smeggle
+  questReward: {fileID: 0}
+  conditions: []

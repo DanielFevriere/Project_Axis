@@ -10,6 +10,7 @@ public class DialogueNPC : MonoBehaviour
 
     [SerializeField] Conversation firstConvo;
     [SerializeField] Conversation repeatConvo;
+    [SerializeField] Quest talkingQuest;
 
     private void Update()
     {
@@ -20,17 +21,20 @@ public class DialogueNPC : MonoBehaviour
         {
             if (GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
             {
+                //Changes the games state to dialogue
                 GameManager.Instance.ChangeState(GameState.Dialogue);
 
-                //Shows a different conversation if you have already talked to it
+                //Shows a different conversation if you have a lready talked to it
                 if (previouslyTalkedTo)
                 {
                     StartCoroutine(DialogueManager.Instance.ShowConversation(repeatConvo));
+                    QuestManager.Instance.FinishQuest(talkingQuest);
                 }
                 else
                 {
                     StartCoroutine(DialogueManager.Instance.ShowConversation(firstConvo));
                     previouslyTalkedTo = true;
+                    QuestManager.Instance.AcceptQuest(talkingQuest);
                 }
 
             }
@@ -40,6 +44,7 @@ public class DialogueNPC : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         inTalkingDistance = true;
+
     }
 
     void OnTriggerStay(Collider other)

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
+  m_Name: Main14
+  m_EditorClassIdentifier: 
+  questTitle: A Dark Encounter
+  questDescription: "Strange, shadowy entities have surrounded the trio. It\u2019s
+    kill or be killed!"
+  questObjective: Kill the shadow beasts
+  questReward: {fileID: 0}
+  conditions: []

@@ -26,8 +26,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        listOfSpeakers = new List<Speaker>();
         Instance = this;
+        listOfSpeakers = new List<Speaker>();
     }
 
     public void HandleUpdate()
