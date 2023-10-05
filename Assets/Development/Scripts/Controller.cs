@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +26,8 @@ public class Controller : MonoBehaviour
     public float runSpeed;
     public FacingDirection direction = FacingDirection.Down;
     public Vector2 facingVector;
-
+    [SerializeField] float groundCheckDistance = 0.08f;
+    
     //Slope vars
     public float maxSlopeAngle = 45;
     public bool onSlope;
@@ -133,7 +134,7 @@ public class Controller : MonoBehaviour
         }
 
         //GroundCheck
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.2f, GroundLayer);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, groundCheckDistance, GroundLayer);
 
         if(onSlope)
         {

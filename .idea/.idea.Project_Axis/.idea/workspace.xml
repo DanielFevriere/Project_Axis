@@ -9,8 +9,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Development/Scripts/SnapObjectsToGridTool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Scripts/Stats/StatsProfile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tilemap Terrain Tool/Scripts/Editor/TilemapTerrainEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Tilemap Terrain Tool/Scripts/ExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tilemap Terrain Tool/Scripts/TilemapTerrain.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -70,6 +70,7 @@
       <updated>1690318200271</updated>
       <workItem from="1690318213562" duration="982000" />
       <workItem from="1690405847070" duration="896000" />
+      <workItem from="1696522796048" duration="1977000" />
     </task>
     <servers />
   </component>
