@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cee17d5309b034dac21ee381df6280, type: 3}
+  m_Name: Cube
+  m_EditorClassIdentifier: 
+  characterName: Cube
+  gabeLocked: 0
+  mikeLocked: 0
+  raphLocked: 0
+  gabeLevel: 0
+  mikeLevel: 0
+  raphLevel: 0
+  gabeProgression: []
+  mikeProgression: []
+  raphProgression: []
+  gabeSupportConvos:
+  - {fileID: 11400000, guid: 69f9093beca79054a844c9a07389204c, type: 2}
+  - {fileID: 11400000, guid: c795df4b24bbc364aad953759c9a28b5, type: 2}
+  - {fileID: 11400000, guid: bfc0c999ef4d32d4f9085023ba48c772, type: 2}
+  mikeSupportConvos:
+  - {fileID: 11400000, guid: 9da398e550e4e6d49af12249b162e3e8, type: 2}
+  - {fileID: 11400000, guid: 0ad8e7d1cbb608b4a81e6d3ad63d9c02, type: 2}
+  - {fileID: 11400000, guid: 0745809f4a3332a40bef7f196edfc241, type: 2}
+  raphSupportConvos:
+  - {fileID: 11400000, guid: 0720497451aca4a4cad664fcf45da8d2, type: 2}
+  - {fileID: 11400000, guid: 06e8cb20d6f332348a1fa2e5966de894, type: 2}
+  - {fileID: 11400000, guid: 4911dba097bf97e4a9c830a668e7bb85, type: 2}
+  gabeRewards: []
+  mikeRewards: []
+  raphRewards: []

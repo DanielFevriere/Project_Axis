@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: Cube_Gabe_S1
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - nameID: Cube
+    displayName: Cube
+    line: Why do you keep trying to talk to me Gabriel?
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Just call me gabe
+  - nameID: Cube
+    displayName: Cube
+    line: Thank you for helping me test, Gabe.
+  - nameID: Gabriel
+    displayName: Gabe
+    line: ...what?

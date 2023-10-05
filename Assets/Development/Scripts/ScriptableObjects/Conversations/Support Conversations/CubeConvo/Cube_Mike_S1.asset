@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: Cube_Mike_S1
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - nameID: Michael
+    displayName: Michael
+    line: What are you??
+  - nameID: Cube
+    displayName: Cube
+    line: Cube. Nice to meet you Michael.
+  - nameID: Michael
+    displayName: Mike
+    line: Just call me Mike.
+  - nameID: Michael
+    displayName: Mike
+    line: Looks like I'll be here for a while.
