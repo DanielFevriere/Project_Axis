@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Nodes/AbilityNode")]
+
 public class AbilityNode : Node
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Ability ability;
 
-    // Update is called once per frame
-    void Update()
+    public override void AcquireNode(GameObject character)
     {
-        
+        character.GetComponentInChildren<AbilityHolder>().abilityList.Add(ability);
     }
 }

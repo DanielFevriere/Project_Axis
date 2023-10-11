@@ -15,7 +15,7 @@ public class Quest : ScriptableObject
     public bool isComplete; // is the quest complete?
 
     public RewardGiver questReward; //The reward for the quest
-    public List<QuestCondition> conditions; //The conditions for this quest
+    public List<Condition> conditions; //The conditions for this quest
 
     public void StartQuest()
     {

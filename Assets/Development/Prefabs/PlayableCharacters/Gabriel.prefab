@@ -342,6 +342,7 @@ MonoBehaviour:
   runSpeed: 3
   direction: 1
   facingVector: {x: 0, y: 0}
+  groundCheckDistance: 0.08
   maxSlopeAngle: 45
   onSlope: 0
   GroundLayer:
@@ -401,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b9c5c6e7b64f74e8b1b69f44c04e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerThink: 0
   freeRoamActions:
   - {fileID: 3647407617906402982}
   combatActions:
@@ -583,6 +585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d436d5da0080445b60b49198329217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsProfile: {fileID: 11400000, guid: 739ce12bbdcff904195fda0865dcc716, type: 2}
+  StartingLV: 0
+  StartingEXP: 0
   currentStats: 0a000000
 --- !u!1 &3647407618113532907
 GameObject:

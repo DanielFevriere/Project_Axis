@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Nodes/StatNode")]
 public class StatNode : Node
 {
-    // Start is called before the first frame update
-    void Start()
+    public Stat stat;
+    public int increaseAmount;
+
+    public override void AcquireNode(GameObject character)
     {
-        
+        character.GetComponent<Stats>().ModifyStat(stat, increaseAmount);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override bool UnlockRequirements()
     {
-        
+        return false;
     }
 }

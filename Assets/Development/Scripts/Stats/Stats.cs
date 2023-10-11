@@ -59,16 +59,29 @@ public class Stats : MonoBehaviour
         SetStat(Stat.SP, GetStat(Stat.MaxSP));
     }
 
+    /// <summary>
+    /// If you want to decrease a stat, the amount should be negative
+    /// </summary>
+    /// <param name="StatToModify"></param>
+    /// <param name="Amount"></param>
     public void ModifyStat(Stat StatToModify, int Amount)
     {
-        currentStats[(int)StatToModify] -= Amount;
+        currentStats[(int)StatToModify] += Amount;
     }
-
+    /// <summary>
+    /// Sets a stat to the passed in value
+    /// </summary>
+    /// <param name="StatToSet"></param>
+    /// <param name="Value"></param>
     public void SetStat(Stat StatToSet, int Value)
     {
         currentStats[(int)StatToSet] = Value;
     }
-
+    /// <summary>
+    /// Returns an int of the passed in stat
+    /// </summary>
+    /// <param name="StatToGet"></param>
+    /// <returns></returns>
     public int GetStat(Stat StatToGet)
     {
         return currentStats[(int)StatToGet];

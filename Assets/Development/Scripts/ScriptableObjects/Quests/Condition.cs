@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class QuestCondition
+public class Condition
 {
     [SerializeField] string conditionName;
     [SerializeField] bool locked;

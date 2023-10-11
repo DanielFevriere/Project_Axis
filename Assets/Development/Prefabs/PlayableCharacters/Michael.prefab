@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 6174778481908601528}
   - component: {fileID: 5745596687102131927}
   - component: {fileID: 5745596687102131950}
+  - component: {fileID: 1268571199668914516}
   m_Layer: 9
   m_Name: Michael
   m_TagString: Player
@@ -406,6 +407,7 @@ MonoBehaviour:
   runSpeed: 3
   direction: 1
   facingVector: {x: 0, y: 0}
+  groundCheckDistance: 0.08
   maxSlopeAngle: 45
   onSlope: 0
   GroundLayer:
@@ -465,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b9c5c6e7b64f74e8b1b69f44c04e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerThink: 0
   freeRoamActions:
   - {fileID: 5745596687102131924}
   combatActions:
@@ -621,6 +624,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1268571199668914516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745596687102131926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d436d5da0080445b60b49198329217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsProfile: {fileID: 11400000, guid: 3383530e125c792439164f4c4dfadc4b, type: 2}
+  StartingLV: 0
+  StartingEXP: 0
+  currentStats: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &5745596687135282905
 GameObject:
   m_ObjectHideFlags: 0

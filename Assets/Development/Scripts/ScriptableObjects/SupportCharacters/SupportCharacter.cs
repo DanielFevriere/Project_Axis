@@ -19,9 +19,9 @@ public class SupportCharacter : ScriptableObject
     public int raphLevel = 0;
 
     //Character support conditions
-    public List<QuestCondition> gabeProgression;
-    public List<QuestCondition> mikeProgression;
-    public List<QuestCondition> raphProgression;
+    public List<Condition> gabeProgression;
+    public List<Condition> mikeProgression;
+    public List<Condition> raphProgression;
 
     //List of convos for each support level
     public List<Conversation> gabeSupportConvos;
