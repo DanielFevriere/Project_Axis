@@ -495,6 +495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d436d5da0080445b60b49198329217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsProfile: {fileID: 11400000, guid: c4086dc0b934f6a499bc3ea9d4797962, type: 2}
+  StartingLV: 1
+  StartingEXP: 1
+  StartingHP: 10
   currentStats: 05000000
 --- !u!1 &218013170669014303
 GameObject:

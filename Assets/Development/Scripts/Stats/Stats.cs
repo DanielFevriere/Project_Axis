@@ -26,6 +26,7 @@ public class Stats : MonoBehaviour
 
         public int StartingLV;
         public int StartingEXP;
+    public int StartingHP;
         
         // Current stats of the unit
         [Tooltip("Shows the stats")]
@@ -44,7 +45,8 @@ public class Stats : MonoBehaviour
         // Set level and exp
         LV = StartingLV;
         currentStats[(int)Stat.EXP] = StartingEXP;
-        
+        currentStats[(int)Stat.HP] = StartingEXP;
+
         // Load base stats example
         for (int i = (int)Stat.MaxHP; i < (int)Stat.COUNT; i++)
         {

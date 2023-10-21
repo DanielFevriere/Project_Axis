@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 8d0423ff6ef7afc4182190935b3c35fb
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark_Gray_Floor_Stone.001
+    second: {fileID: 2100000, guid: 98fe687766f5c684c803f740d4cc0c25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontColor.001
+    second: {fileID: 2100000, guid: 20cffcd56d0a5e54ab0ec4cc71ebc334, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_Door_Lining.001
+    second: {fileID: 2100000, guid: 40cd5247a6697e64e880f4c126a30bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gray_Concrete_Floor.001
+    second: {fileID: 2100000, guid: ecda3936a83599a48a98210790d42414, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gray_Large_Stone.001
+    second: {fileID: 2100000, guid: 5864da94dcd6d624c9e89c224c6c3eda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gray_Smooth_Stone.001
+    second: {fileID: 2100000, guid: 4ac585155256cd7498d576a704511e87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green_Rock_Door.001
+    second: {fileID: 2100000, guid: 75d0ce293541be24988987daa783e488, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Large_Gray_Green_Stone_(Wall).001
+    second: {fileID: 2100000, guid: 8f2b14a9c359c6b45b1703c59ddfbdd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_Gray_Concrete_Blocking.001
+    second: {fileID: 2100000, guid: 8aea32770bd17ac4e8629ef6e503aa5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_Gray_Smooth_Stone.001
+    second: {fileID: 2100000, guid: f865f621682cb4a478cf817da62a03b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_Gray_Stone.001
+    second: {fileID: 2100000, guid: e4ef5a4f3fd78634086e52ac1054ad44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Locker.001
+    second: {fileID: 2100000, guid: a069c361ddc9d7b4ab93ce95a8eee095, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material17.001
+    second: {fileID: 2100000, guid: 152efb5c86c83f34a9be76f7ac9d5efc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rugged_Black_Stone#1.001
+    second: {fileID: 2100000, guid: 0a32a0f7663e11d49bf0d13062c01e03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rugged_Black_Stone.001
+    second: {fileID: 2100000, guid: 66ebd541d5749f24780834e1c761d084, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rustic_Rock_on_Collumn.001
+    second: {fileID: 2100000, guid: c836b22da8074bf4497a04d3dbdd1844, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shadow_Light_Dray_Smooth_Stone.001
+    second: {fileID: 2100000, guid: 77b99c8299d7eca4e8a4c32ad1c852f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Translucent_Black_Railling_Glass.001
+    second: {fileID: 2100000, guid: eb63d085b74e5ce49aba2825106070fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water_Dark_Blue_2.001
+    second: {fileID: 2100000, guid: 95a9ce5233d350642a67e29f1075cc4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_Pane_Glass.001
+    second: {fileID: 2100000, guid: 814d7709ddb370a4fa02a1192aff12a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Carrera_Marble].001'
+    second: {fileID: 2100000, guid: a5cee0c69f28a2e40841d5b364541897, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Chris_Hair].001'
+    second: {fileID: 2100000, guid: 254c43e79abdcdd498435d5505ace00f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Chris_Pants].001'
+    second: {fileID: 2100000, guid: a9d15032f338a834da5cdc6de1fbbe7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Chris_Shirt].001'
+    second: {fileID: 2100000, guid: 7a3975cf69e1de141addf4e273b6795b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Chris_Shoe].001'
+    second: {fileID: 2100000, guid: 19de4de2d71f18b48bcf86a2754cee7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Chris_Shoe_Sole].001'
+    second: {fileID: 2100000, guid: f4f695eb1f92b6d4bb4c3890915f1927, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Chris_Skin].001'
+    second: {fileID: 2100000, guid: ec1118af3f9a46849a4c3ff5263c329f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_A06].001'
+    second: {fileID: 2100000, guid: 6aa9dbaacc9a97a4cba7af5394526e10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_E05].001'
+    second: {fileID: 2100000, guid: a5e0895c6f1d76c48b6289ad1a09501d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_M00].001'
+    second: {fileID: 2100000, guid: 0157e22f2e278d946a4f0627eb708985, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_M06].001'
+    second: {fileID: 2100000, guid: 0dbae3f104b392448afa0190f9c6e751, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_M07].001'
+    second: {fileID: 2100000, guid: 3f9cd5e0d4ade3a48ae9566ee59541a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_M08].001'
+    second: {fileID: 2100000, guid: d047267320c373b48a22156f99e9fa2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_M09].001'
+    second: {fileID: 2100000, guid: dee496140afaa544ea1b56057f84876d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Stone_Brushed_Khaki].001'
+    second: {fileID: 2100000, guid: 8f2161dbb6e133943bb355c73fbc3ed7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Translucent_Glass_Corrugated].001'
+    second: {fileID: 2100000, guid: 28a4babe3327f354580f690787ec16f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Translucent_Glass_Safety]1.001'
+    second: {fileID: 2100000, guid: 87994c5bdb8b51c40a3e8f864fb2e043, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

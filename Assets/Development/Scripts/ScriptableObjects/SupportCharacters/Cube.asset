@@ -16,9 +16,9 @@ MonoBehaviour:
   gabeLocked: 0
   mikeLocked: 0
   raphLocked: 0
-  gabeLevel: 0
-  mikeLevel: 0
-  raphLevel: 0
+  gabeLevel: 2
+  mikeLevel: 1
+  raphLevel: 1
   gabeProgression: []
   mikeProgression: []
   raphProgression: []
