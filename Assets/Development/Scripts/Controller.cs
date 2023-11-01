@@ -194,6 +194,9 @@ public class Controller : MonoBehaviour
         }
 
 
+        //Open Menu
+        OpenMenu();
+
         // Debug stuff
         DebugUpdate();
     }
@@ -401,6 +404,20 @@ public class Controller : MonoBehaviour
         DownLeft
     }
 
+    /// <summary>
+    /// Opens Menu
+    /// </summary>
+    void OpenMenu()
+    {
+        Keyboard kb = InputSystem.GetDevice<Keyboard>();
+
+        if (kb.escapeKey.wasPressedThisFrame)
+        {
+            UiManager.Instance.Hud.ToggleVisibility();
+            UiManager.Instance.Menu.ToggleVisibility();
+            UiManager.Instance.SwitchToTab("Character");
+        }
+    }
 
     #region Debug Stuff
     void DebugUpdate()

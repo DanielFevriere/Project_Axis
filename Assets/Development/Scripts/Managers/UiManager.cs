@@ -30,20 +30,24 @@ public class UiManager : MonoBehaviour
     public GameHUD Hud;
     [Header("Game Menu")]
     public GameMenu Menu;
+
+    [Header("Game Menu Tabs")]
+    public List<GameTab> gameTabs;
+
     [Header("Character")]
-    public CharacterTab CharacterTab;
+    public GameTab CharacterTab;
     [Header("Inventory")]
-    public InventoryTab InventoryTab;
+    public GameTab InventoryTab;
     [Header("Skills")]
-    public SkillsTab SkillsTab;
+    public GameTab SkillsTab;
     [Header("Quests")]
-    public QuestsTab QuestsTab;
+    public GameTab QuestsTab;
     [Header("Bonds")]
-    public BondsTab BondsTab;
+    public GameTab BondsTab;
     [Header("Evolution Atlas")]
-    public EvolutionAtlasTab EvolutionAtlasTab;
+    public GameTab EvolutionAtlasTab;
     [Header("Settings")]
-    public SettingsTab SettingsTab;
+    public GameTab SettingsTab;
 
 
     public Animator BlackScreenAnimator;
@@ -60,6 +64,16 @@ public class UiManager : MonoBehaviour
         DEBUG_SetCurrentPartyLeader();
 
         Debug.ToggleVisibility();
+
+        Hud.ToggleVisibility();
+
+        gameTabs.Add(CharacterTab);
+        gameTabs.Add(InventoryTab);
+        gameTabs.Add(SkillsTab);
+        gameTabs.Add(QuestsTab);
+        gameTabs.Add(BondsTab);
+        gameTabs.Add(EvolutionAtlasTab);
+        gameTabs.Add(SettingsTab);
     }
 
     public void DEBUG_SetCurrentState()
@@ -84,6 +98,36 @@ public class UiManager : MonoBehaviour
     {
         BlackScreenAnimator.SetTrigger("Fade");
     }
+
+    public void SwitchToTab(string tabName)
+    {
+        foreach(GameTab g in gameTabs)
+        {
+            if(g.name != tabName)
+            {
+                g.isVisible = true;
+            }
+            else
+            {
+                g.isVisible = false;
+            }
+            g.ToggleVisibility();
+        }
+    }
+}
+
+[System.Serializable]
+public class GameTab
+{
+    public string name;
+    public GameObject tabContainer;
+    public bool isVisible = false;
+
+    public void ToggleVisibility()
+    {
+        isVisible = !isVisible;
+        tabContainer.SetActive(isVisible);
+    }
 }
 
 [System.Serializable]
@@ -106,7 +150,7 @@ public class GameHUD
 {
     public GameObject gameHudContainer;
 
-    bool isVisible = true;
+    bool isVisible = false;
     public void ToggleVisibility()
     {
         isVisible = !isVisible;
@@ -119,7 +163,8 @@ public class GameMenu
 {
     public GameObject gameMenuContainer;
 
-    bool isVisible = true;
+    bool isVisible = false;
+    
     public void ToggleVisibility()
     {
         isVisible = !isVisible;
@@ -128,93 +173,57 @@ public class GameMenu
 }
 
 [System.Serializable]
-public class CharacterTab
+public class CharacterTab : GameTab
 {
     public GameObject characterTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        characterTabContainer.SetActive(isVisible);
-    }
 }
 
-
 [System.Serializable]
-public class InventoryTab
+public class InventoryTab : GameTab
 {
     public GameObject inventoryTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        inventoryTabContainer.SetActive(isVisible);
-    }
 }
 
 [System.Serializable]
-public class SkillsTab
+public class SkillsTab : GameTab
 {
     public GameObject skillsTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        skillsTabContainer.SetActive(isVisible);
-    }
 }
 
 [System.Serializable]
-public class QuestsTab
+public class QuestsTab : GameTab
 {
     public GameObject questsTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        questsTabContainer.SetActive(isVisible);
-    }
 }
 
 [System.Serializable]
-public class BondsTab
+public class BondsTab : GameTab
 {
     public GameObject bondsTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        bondsTabContainer.SetActive(isVisible);
-    }
 }
 
 [System.Serializable]
-public class EvolutionAtlasTab
+public class EvolutionAtlasTab : GameTab
 {
     public GameObject evolutionAtlasTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        evolutionAtlasTabContainer.SetActive(isVisible);
-    }
 }
 
 [System.Serializable]
-public class SettingsTab
+public class SettingsTab : GameTab
 {
     public GameObject settingsTabContainer;
 
     bool isVisible = true;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        settingsTabContainer.SetActive(isVisible);
-    }
 }
