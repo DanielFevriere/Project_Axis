@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class SettingsTab : GameTab
 {
-    public GameObject settingsTabContainer;
 }

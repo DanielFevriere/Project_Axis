@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class SkillsTab : GameTab
 {
-    public GameObject skillsTabContainer;
 }

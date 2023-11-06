@@ -2,30 +2,90 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterTab : GameTab
 {
-    public Image currentImage;
+    public int characterIndex = 0;
 
-    public Image gabeImage;
-    public Image mikeImage;
-    public Image raphImage;
+    public TMP_Text currentCharacterName;
+    public Image currentCharacterImage;
+
+    public Sprite gabeImage;
+    public Sprite mikeImage;
+    public Sprite raphImage;
+
+    public TMP_Text hpText;
+    public TMP_Text spText;
+    public TMP_Text atkText;
+    public TMP_Text defText;
+    public TMP_Text spdText;
+
+    public string itemNameText;
+    public string itemNameDescription;
 
     public void Refresh()
     {
-        string partyLeaderName = GameManager.Instance.partyLeader.GetComponent<Controller>().characterName;
+        UpdateCharacterDisplay();
+        UpdateStatDisplay();
+    }
 
-        if(partyLeaderName == "Gabriel")
+    void UpdateCharacterDisplay()
+    {
+        string characterName = GameManager.Instance.partyMembers[characterIndex].GetComponent<Controller>().characterName;
+
+        currentCharacterName.text = characterName;
+
+        if (characterName == "Gabriel")
         {
-            currentImage = gabeImage;
+            currentCharacterImage.sprite = gabeImage;
         }
-        else if(partyLeaderName == "Michael")
+        else if (characterName == "Michael")
         {
-            currentImage = mikeImage;
+            currentCharacterImage.sprite = mikeImage;
         }
-        else if(partyLeaderName == "Raphael")
+        else if (characterName == "Raphael")
         {
-            currentImage = raphImage;
+            currentCharacterImage.sprite = raphImage;
         }
+    }
+
+    void UpdateStatDisplay()
+    {
+        Stats c = GameManager.Instance.partyMembers[characterIndex].GetComponent<Stats>();
+        hpText.text = c.GetStat(Stat.HP).ToString();
+        spText.text = c.GetStat(Stat.SP).ToString();
+        atkText.text = c.GetStat(Stat.ATK).ToString();
+        defText.text = c.GetStat(Stat.DEF).ToString();
+        spdText.text = c.GetStat(Stat.SPD).ToString();
+    }
+
+    public void NextCharacter()
+    {
+        //If you are at the end of the partymembers list, set the index to 0, otherwise increase
+        if(characterIndex == GameManager.Instance.partyMembers.Count)
+        {
+            characterIndex = 0;
+        }
+        else
+        {
+            characterIndex++;
+        }
+        Refresh();
+    }
+
+    public void PreviousCharacter()
+    {
+        //If you are at the beginning of the partymembers list, set the index to the final position, otherwise decrease
+
+        if (characterIndex == 0)
+        {
+            characterIndex = GameManager.Instance.partyMembers.Count;
+        }
+        else
+        {
+            characterIndex--;
+        }
+        Refresh();
     }
 }

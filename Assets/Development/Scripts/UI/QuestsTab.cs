@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class QuestsTab : GameTab
 {
-    public GameObject questsTabContainer;
 }
 

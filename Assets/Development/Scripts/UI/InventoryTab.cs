@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class InventoryTab : GameTab
 {
-    public GameObject inventoryTabContainer;
 }

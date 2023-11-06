@@ -6,7 +6,6 @@ using UnityEngine;
 public enum Stat
 {
     LV,
-    EXP,
     MaxHP,
     HP,
     MaxSP,
@@ -21,15 +20,18 @@ public enum Stat
 public class Stats : MonoBehaviour
 {
     #region Properties
-        // Stats profile this unit will use
-        public StatsProfile statsProfile;
+    // Stats profile this unit will use
+    public StatsProfile statsProfile;
 
-        public int StartingLV;
-        public int StartingEXP;
     public int StartingHP;
-        
-        // Current stats of the unit
-        [Tooltip("Shows the stats")]
+    public int StartingSP;
+    public int StartingATK;
+    public int StartingDEF;
+    public int StartingSPD;
+
+
+    // Current stats of the unit
+    [Tooltip("Shows the stats")]
         public int[] currentStats = new int[(int)Stat.COUNT];
 
         public int LV
@@ -42,10 +44,12 @@ public class Stats : MonoBehaviour
 
     void Start()
     {
-        // Set level and exp
-        LV = StartingLV;
-        currentStats[(int)Stat.EXP] = StartingEXP;
-        currentStats[(int)Stat.HP] = StartingEXP;
+        // Set stats
+        currentStats[(int)Stat.HP] = StartingHP;
+        currentStats[(int)Stat.SP] = StartingSP;
+        currentStats[(int)Stat.ATK] = StartingATK;
+        currentStats[(int)Stat.DEF] = StartingDEF;
+        currentStats[(int)Stat.SPD] = StartingSPD;
 
         // Load base stats example
         for (int i = (int)Stat.MaxHP; i < (int)Stat.COUNT; i++)

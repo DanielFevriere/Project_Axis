@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class EvolutionAtlasTab : GameTab
 {
-    public GameObject evolutionAtlasTabContainer;
 }
