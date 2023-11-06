@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -103,7 +104,7 @@ public class UiManager : MonoBehaviour
     {
         foreach(GameTab g in gameTabs)
         {
-            if(g.name != tabName)
+            if(g.tabName != tabName)
             {
                 g.isVisible = true;
             }
@@ -113,20 +114,6 @@ public class UiManager : MonoBehaviour
             }
             g.ToggleVisibility();
         }
-    }
-}
-
-[System.Serializable]
-public class GameTab
-{
-    public string name;
-    public GameObject tabContainer;
-    public bool isVisible = false;
-
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        tabContainer.SetActive(isVisible);
     }
 }
 
@@ -170,60 +157,4 @@ public class GameMenu
         isVisible = !isVisible;
         gameMenuContainer.SetActive(isVisible);
     }
-}
-
-[System.Serializable]
-public class CharacterTab : GameTab
-{
-    public GameObject characterTabContainer;
-
-    bool isVisible = true;
-}
-
-[System.Serializable]
-public class InventoryTab : GameTab
-{
-    public GameObject inventoryTabContainer;
-
-    bool isVisible = true;
-}
-
-[System.Serializable]
-public class SkillsTab : GameTab
-{
-    public GameObject skillsTabContainer;
-
-    bool isVisible = true;
-}
-
-[System.Serializable]
-public class QuestsTab : GameTab
-{
-    public GameObject questsTabContainer;
-
-    bool isVisible = true;
-}
-
-[System.Serializable]
-public class BondsTab : GameTab
-{
-    public GameObject bondsTabContainer;
-
-    bool isVisible = true;
-}
-
-[System.Serializable]
-public class EvolutionAtlasTab : GameTab
-{
-    public GameObject evolutionAtlasTabContainer;
-
-    bool isVisible = true;
-}
-
-[System.Serializable]
-public class SettingsTab : GameTab
-{
-    public GameObject settingsTabContainer;
-
-    bool isVisible = true;
 }

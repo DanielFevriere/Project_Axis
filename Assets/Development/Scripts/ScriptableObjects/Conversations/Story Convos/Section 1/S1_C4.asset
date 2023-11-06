@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: S1_C4
+  m_EditorClassIdentifier: 
+  Dialogues:
+  - nameID: Raphael
+    displayName: Raphael
+    line: "Wait. Well it can\u2019t be helped. "
+  - nameID: Raphael
+    displayName: Raphael
+    line: "Gabriel, you don\u2019t want to miss your sparring match with Kage. He
+      won\u2019t be satisfied until you fight him."
+  - nameID: Michael
+    displayName: Michael
+    line: "Yeah man c\u2019mon! You don\u2019t get a chance to see two top ranked
+      students fight often! Up and at em\u2019!"
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: 'Ok, ok. Let me get myself together. '

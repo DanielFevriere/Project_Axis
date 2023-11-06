@@ -13223,6 +13223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334036332}
+  - component: {fileID: 334036333}
   m_Layer: 5
   m_Name: BondsTab
   m_TagString: Untagged
@@ -13256,6 +13257,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &334036333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334036331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28328cdaecc69f40b595c3115a5450e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: Bonds
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  bondsTabContainer: {fileID: 0}
 --- !u!1 &338268650
 GameObject:
   m_ObjectHideFlags: 0
@@ -14121,6 +14138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 382199587}
+  - component: {fileID: 382199588}
   m_Layer: 5
   m_Name: QuestsTab
   m_TagString: Untagged
@@ -14151,6 +14169,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &382199588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382199586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad4161a5a42581478243e0b6a26629e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: Quests
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  questsTabContainer: {fileID: 0}
 --- !u!1 &389329488
 GameObject:
   m_ObjectHideFlags: 0
@@ -22730,34 +22764,13 @@ MonoBehaviour:
   Menu:
     gameMenuContainer: {fileID: 1520429592}
   gameTabs: []
-  CharacterTab:
-    name: Character
-    tabContainer: {fileID: 1727364500}
-    isVisible: 0
-  InventoryTab:
-    name: Inventory
-    tabContainer: {fileID: 1679113397}
-    isVisible: 0
-  SkillsTab:
-    name: Skills
-    tabContainer: {fileID: 751938986}
-    isVisible: 0
-  QuestsTab:
-    name: Quests
-    tabContainer: {fileID: 382199586}
-    isVisible: 0
-  BondsTab:
-    name: Bonds
-    tabContainer: {fileID: 334036331}
-    isVisible: 0
-  EvolutionAtlasTab:
-    name: EvolutionAtlas
-    tabContainer: {fileID: 1351061262}
-    isVisible: 0
-  SettingsTab:
-    name: Settings
-    tabContainer: {fileID: 816512386}
-    isVisible: 0
+  CharacterTab: {fileID: 0}
+  InventoryTab: {fileID: 0}
+  SkillsTab: {fileID: 0}
+  QuestsTab: {fileID: 0}
+  BondsTab: {fileID: 0}
+  EvolutionAtlasTab: {fileID: 0}
+  SettingsTab: {fileID: 0}
   BlackScreenAnimator: {fileID: 0}
 --- !u!4 &567637754
 Transform:
@@ -25095,7 +25108,7 @@ RectTransform:
   m_GameObject: {fileID: 665777882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2097009951}
@@ -25103,8 +25116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -76, y: -126}
-  m_SizeDelta: {x: 165, y: 200}
+  m_AnchoredPosition: {x: -55, y: -102}
+  m_SizeDelta: {x: 200, y: 250}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &665777884
 MonoBehaviour:
@@ -27130,6 +27143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 751938987}
+  - component: {fileID: 751938988}
   m_Layer: 5
   m_Name: SkillsTab
   m_TagString: Untagged
@@ -27164,6 +27178,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &751938988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751938986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11318cb07dd78248ad8aae14fb7e44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: Skills
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  skillsTabContainer: {fileID: 0}
 --- !u!1 &753260882
 GameObject:
   m_ObjectHideFlags: 0
@@ -29730,6 +29760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 816512387}
+  - component: {fileID: 816512388}
   m_Layer: 5
   m_Name: SettingsTab
   m_TagString: Untagged
@@ -29763,6 +29794,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &816512388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816512386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ab3d32e31ae894a8dc81d1453b7115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: Settings
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  settingsTabContainer: {fileID: 0}
 --- !u!1 &818187974
 GameObject:
   m_ObjectHideFlags: 0
@@ -43684,6 +43731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351061263}
+  - component: {fileID: 1351061264}
   m_Layer: 5
   m_Name: EvolutionAtlasTab
   m_TagString: Untagged
@@ -43720,6 +43768,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1351061264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351061262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f066000364864db42a9c91674c1e1178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: EvolutionAtlas
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  evolutionAtlasTabContainer: {fileID: 0}
 --- !u!1 &1352407716
 GameObject:
   m_ObjectHideFlags: 0
@@ -47868,7 +47932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59141,6 +59205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679113398}
+  - component: {fileID: 1679113399}
   m_Layer: 5
   m_Name: InventoryTab
   m_TagString: Untagged
@@ -59175,6 +59240,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1679113399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679113397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45d8f04f3601144bbc628289898beb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: Inventory
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  inventoryTabContainer: {fileID: 0}
 --- !u!1 &1684636369
 GameObject:
   m_ObjectHideFlags: 0
@@ -59568,13 +59649,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1727364501}
+  - component: {fileID: 1727364502}
   m_Layer: 5
   m_Name: CharacterTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1727364501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59601,6 +59683,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1727364502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727364500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea35ba4430d152c409f20d60167ef7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabName: Character
+  tabContainer: {fileID: 0}
+  isVisible: 0
+  characterImage: {fileID: 665777884}
 --- !u!1 &1734663162
 GameObject:
   m_ObjectHideFlags: 0
@@ -59992,7 +60090,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33406
+  m_Name: pb_Mesh33416
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -69410,7 +69508,7 @@ GameObject:
   - component: {fileID: 2081613989}
   - component: {fileID: 2081613990}
   m_Layer: 5
-  m_Name: AtlasButton
+  m_Name: EvolutionAtlasButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
