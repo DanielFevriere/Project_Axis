@@ -15,6 +15,7 @@ public class CharacterTab : GameTab
     public Sprite mikeImage;
     public Sprite raphImage;
 
+    public TMP_Text veniText;
     public TMP_Text hpText;
     public TMP_Text spText;
     public TMP_Text atkText;
@@ -26,6 +27,7 @@ public class CharacterTab : GameTab
 
     public void Refresh()
     {
+        veniText.text = "Veni: " + GameManager.Instance.veni.ToString();
         UpdateCharacterDisplay();
         UpdateStatDisplay();
     }

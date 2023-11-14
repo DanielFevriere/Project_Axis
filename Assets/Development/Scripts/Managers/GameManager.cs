@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera lowCamera;
     public GameObject partyLeader;
     public List<GameObject> partyMembers;
+    public int veni;
 
     GameState state;
     public GameState CurrentState { get { return state;} }
