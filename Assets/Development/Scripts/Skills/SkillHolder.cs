@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class AbilityHolder : MonoBehaviour
+public class SkillHolder : MonoBehaviour
 {
     public Key dashKey;
     public Key signatureKey;
@@ -17,11 +17,11 @@ public class AbilityHolder : MonoBehaviour
     KeyControl signatureControl;
 
     //List of ability scripts on the gameobject
-    public List<Ability> abilityList;
+    public List<Skill> skillList;
 
-    public Ability attackAbility;
-    public Ability dashAbility;
-    public Ability signatureAbility;
+    public Skill attackSkill;
+    public Skill dashSkill;
+    public Skill signatureSkill;
 
     //Fetches the keyboard/mouse input system
     Keyboard kb;
@@ -39,15 +39,15 @@ public class AbilityHolder : MonoBehaviour
         dashControl = kb.FindKeyOnCurrentKeyboardLayout(dashKey.ToString());
         signatureControl = kb.FindKeyOnCurrentKeyboardLayout(signatureKey.ToString());
         //Adds all available abilities into the list
-        foreach (Ability a in gameObject.GetComponents<Ability>())
+        foreach (Skill a in gameObject.GetComponents<Skill>())
         {
-            abilityList.Add(a);
+            skillList.Add(a);
         }
 
         //Declares abilities
-        attackAbility = FindAbility("Attack");
-        dashAbility = FindAbility("Dash");
-        signatureAbility = FindAbility("Signature");
+        attackSkill = FindAbility("Attack");
+        dashSkill = FindAbility("Dash");
+        signatureSkill = FindAbility("Signature");
 
 
         //Adds all available controls into the list
@@ -71,14 +71,14 @@ public class AbilityHolder : MonoBehaviour
     /// </summary>
     /// <param name="abilityName"></param>
     /// <returns></returns>
-    public Ability FindAbility(string abilityName)
+    public Skill FindAbility(string abilityName)
     {
         //Cycles through list of abilities held
-        for (int i = 0; i < abilityList.Count; i++)
+        for (int i = 0; i < skillList.Count; i++)
         {
-            if(abilityList[i].name == abilityName)
+            if(skillList[i].skillName == abilityName)
             {
-                return abilityList[i];
+                return skillList[i];
             }
         }
 
@@ -87,17 +87,17 @@ public class AbilityHolder : MonoBehaviour
 
     public void ButtonCheck()
     {
-        for (int i = 0; i < abilityList.Count - 1; i++)
+        for (int i = 0; i < skillList.Count - 1; i++)
         {
-            if (buttonList[i].wasPressedThisFrame && !abilityList[i].onCooldown && abilityList[i].enabled)
+            if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable)
             {
-                ActivateAbility(abilityList[i]);
+                ActivateAbility(skillList[i]);
             }
         }
     }
 
 
-    public void ActivateAbility(Ability a)
+    public void ActivateAbility(Skill a)
     {
         a.inUse = true;
         a.Activate();

@@ -4426,6 +4426,7 @@ Transform:
   - {fileID: 889167464}
   - {fileID: 1417944260}
   - {fileID: 1172955961}
+  - {fileID: 1276517525}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27604,7 +27605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &751938987
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27647,6 +27648,13 @@ MonoBehaviour:
   tabName: Skills
   tabContainer: {fileID: 751938986}
   isVisible: 0
+  characterIndex: 0
+  skillsPage: 0
+  currentCharacter: {fileID: 0}
+  skillName: {fileID: 0}
+  skillDescription: {fileID: 0}
+  skillIcon1: {fileID: 0}
+  skillIcon2: {fileID: 0}
 --- !u!1 &753260882
 GameObject:
   m_ObjectHideFlags: 0
@@ -41456,6 +41464,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274316579}
   m_CullTransparentMesh: 1
+--- !u!1 &1276517524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1276517525}
+  - component: {fileID: 1276517526}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1276517525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276517524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 144171219}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276517526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276517524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0306878e38c5e47967bc01b887b632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gabrielIndividualSkills: []
+  michaelIndividualSkills: []
+  raphaelIndividualSkills: []
+  teamAbilities: []
 --- !u!1 &1277452259
 GameObject:
   m_ObjectHideFlags: 0
@@ -48585,7 +48641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0

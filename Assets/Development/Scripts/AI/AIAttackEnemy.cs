@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class AIAttackEnemy : AIAction
 {
     public GameObject target;
-    public AbilityHolder abilityHolder;
+    public SkillHolder abilityHolder;
     NavMeshAgent agent;
     AllyAIBrain brain;
 
@@ -25,10 +25,10 @@ public class AIAttackEnemy : AIAction
             target = enemies[Random.Range(0, enemies.Length)];
 
             agent.SetDestination(target.transform.position);
-            abilityHolder.ActivateAbility(abilityHolder.attackAbility);
+            abilityHolder.ActivateAbility(abilityHolder.attackSkill);
 
         DOTween.Sequence()
-            .AppendInterval(abilityHolder.attackAbility.abilityTime)
+            .AppendInterval(abilityHolder.attackSkill.skillTime)
             .AppendCallback(() =>
             {
                 if(brain.enabled)

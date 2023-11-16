@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
             currentController.HandleUpdate();
 
             //Handles the update for the Ability holder as well
-            currentController.GetComponentInChildren<AbilityHolder>().HandleUpdate();
+            currentController.GetComponentInChildren<SkillHolder>().HandleUpdate();
         }
         else if (state == GameState.Dialogue)
         {

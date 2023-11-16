@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Attack : Ability
+public class Attack : Skill
 {
     Controller moveScript;
 
@@ -60,7 +60,7 @@ public class Attack : Ability
         if(hitCount != 3)
         {
             hitCount++;
-            comboTimer = hitCount == 3 ? abilityTime : comboTime;
+            comboTimer = hitCount == 3 ? skillTime : comboTime;
             moveScript.playerWeapon.Attack();
 
             //Activates attack animation

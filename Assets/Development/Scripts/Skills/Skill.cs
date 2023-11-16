@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability : MonoBehaviour
+public class Skill : MonoBehaviour
 {
-    public bool enabled;
-    public string name;
+    //Skill Icon
+    public Sprite icon;
+    public string skillName;
+    public string skillDescription;
+
+    public bool usable;
     public bool inUse;
-    public float abilityTime;
+    public float skillTime;
     public bool onCooldown;
     public float cooldownTime;
 

@@ -4,12 +4,12 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Nodes/AbilityNode")]
 
-public class AbilityNode : Node
+public class SkillNode : Node
 {
-    public Ability ability;
+    public Skill ability;
 
     public override void AcquireNode(GameObject character)
     {
-        character.GetComponentInChildren<AbilityHolder>().abilityList.Add(ability);
+        character.GetComponentInChildren<SkillHolder>().skillList.Add(ability);
     }
 }

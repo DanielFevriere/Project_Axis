@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Dash : Ability
+public class Dash : Skill
 {
     Controller moveScript;
 
@@ -29,7 +29,7 @@ public class Dash : Ability
         float startTime = Time.time;
         Vector3 movement = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
 
-        while (Time.time < startTime + abilityTime)
+        while (Time.time < startTime + skillTime)
         {
             moveScript.characterController.Move(movement * dashSpeed * Time.fixedDeltaTime);
             yield return null;

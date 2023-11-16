@@ -103,7 +103,7 @@ public class Controller : MonoBehaviour
         CheckSlope();
 
         //If the player is not attacking
-        if (!GetComponentInChildren<AbilityHolder>().attackAbility.inUse)
+        if (!GetComponentInChildren<SkillHolder>().attackSkill.inUse)
         {
             attacking = false;
 
