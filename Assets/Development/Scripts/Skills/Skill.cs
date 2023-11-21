@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    //Skill Icon
-    public Sprite icon;
-    public string skillName;
-    public string skillDescription;
-
     public bool usable;
+    public string skillName;
     public bool inUse;
     public float skillTime;
     public bool onCooldown;

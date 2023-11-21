@@ -19,9 +19,9 @@ public class SkillHolder : MonoBehaviour
     //List of ability scripts on the gameobject
     public List<Skill> skillList;
 
-    public Skill attackSkill;
-    public Skill dashSkill;
-    public Skill signatureSkill;
+    public Skill attackAbility;
+    public Skill dashAbility;
+    public Skill signatureAbility;
 
     //Fetches the keyboard/mouse input system
     Keyboard kb;
@@ -45,9 +45,9 @@ public class SkillHolder : MonoBehaviour
         }
 
         //Declares abilities
-        attackSkill = FindAbility("Attack");
-        dashSkill = FindAbility("Dash");
-        signatureSkill = FindAbility("Signature");
+        attackAbility = FindAbility("Attack");
+        dashAbility = FindAbility("Dash");
+        signatureAbility = FindAbility("Signature");
 
 
         //Adds all available controls into the list
