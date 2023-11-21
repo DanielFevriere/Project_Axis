@@ -26,8 +26,8 @@ public class SkillManager : MonoBehaviour
 
     //Individual and Team skill lists
     public List<Skill> gabrielUnlockedSkills;
-    public List<Skill> michaelUnlockedSkills;
-    public List<Skill> raphaelUnlockedSkills;
+    public List<Skill> michaelIndividualSkills;
+    public List<Skill> raphaelIndividualSkills;
     public List<Skill> teamSkills;
 
     public List<Skill> gabrielEquippedSkills;

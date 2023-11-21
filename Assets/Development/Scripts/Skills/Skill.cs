@@ -2,11 +2,14 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Skill : MonoBehaviour
 {
+    public Image skillIcon;
     public bool usable;
     public string skillName;
+    public string skillDescription;
     public bool inUse;
     public float skillTime;
     public bool onCooldown;

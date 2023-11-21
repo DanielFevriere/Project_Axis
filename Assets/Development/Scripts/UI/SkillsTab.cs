@@ -60,16 +60,16 @@ public class SkillsTab : GameTab
                     break;
 
                 case 1:
-                    for (int i = 0; i < skillManager.michaelUnlockedSkills.Count; i++)
+                    for (int i = 0; i < skillManager.michaelIndividualSkills.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.michaelUnlockedSkills[i]);
+                        availableSkillsList.Add(skillManager.michaelIndividualSkills[i]);
                     }
                     break;
 
                 case 2:
-                    for (int i = 0; i < skillManager.raphaelUnlockedSkills.Count; i++)
+                    for (int i = 0; i < skillManager.raphaelIndividualSkills.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.raphaelUnlockedSkills[i]);
+                        availableSkillsList.Add(skillManager.raphaelIndividualSkills[i]);
                     }
                     break;
             }
@@ -88,16 +88,16 @@ public class SkillsTab : GameTab
                     break;
 
                 case 1:
-                    for (int i = 0; i < skillManager.michaelUnlockedSkills.Count; i++)
+                    for (int i = 0; i < skillManager.michaelIndividualSkills.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.michaelUnlockedSkills[i]);
+                        availableSkillsList.Add(skillManager.michaelIndividualSkills[i]);
                     }
                     break;
 
                 case 2:
-                    for (int i = 0; i < skillManager.raphaelUnlockedSkills.Count; i++)
+                    for (int i = 0; i < skillManager.raphaelIndividualSkills.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.raphaelUnlockedSkills[i]);
+                        availableSkillsList.Add(skillManager.raphaelIndividualSkills[i]);
                     }
                     break;
             }
@@ -107,7 +107,7 @@ public class SkillsTab : GameTab
         //Updates names for each skill slot
         for (int i = 0; i < availableSkillIcons.Count; i++)
         {
-            availableSkillIcons[i] = availableSkillsList[i].icon;
+            availableSkillIcons[i] = availableSkillsList[i].skillIcon;
             availableSkillNames[i] = availableSkillsList[i].skillName;
         }
     }
