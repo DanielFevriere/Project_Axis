@@ -8,20 +8,23 @@ using UnityEngine.InputSystem.Controls;
 public class SkillHolder : MonoBehaviour
 {
     public Key dashKey;
-    public Key signatureKey;
+    public Key signature1Key;
+    public Key signature2Key;
 
     public List<ButtonControl> buttonList = new List<ButtonControl>();
 
     ButtonControl attackControl;
     KeyControl dashControl;
-    KeyControl signatureControl;
+    KeyControl signature1Control;
+    KeyControl signature2Control;
 
     //List of ability scripts on the gameobject
     public List<Skill> skillList;
 
-    public Skill attackAbility;
-    public Skill dashAbility;
-    public Skill signatureAbility;
+    public Skill attackSkill;
+    public Skill dashSkill;
+    public Skill signatureSkill1;
+    public Skill signatureSkill2;
 
     //Fetches the keyboard/mouse input system
     Keyboard kb;
@@ -37,7 +40,8 @@ public class SkillHolder : MonoBehaviour
 
         attackControl = mouse.leftButton;
         dashControl = kb.FindKeyOnCurrentKeyboardLayout(dashKey.ToString());
-        signatureControl = kb.FindKeyOnCurrentKeyboardLayout(signatureKey.ToString());
+        signature1Control = kb.FindKeyOnCurrentKeyboardLayout(signature1Key.ToString());
+
         //Adds all available abilities into the list
         foreach (Skill a in gameObject.GetComponents<Skill>())
         {
@@ -45,20 +49,14 @@ public class SkillHolder : MonoBehaviour
         }
 
         //Declares abilities
-        attackAbility = FindAbility("Attack");
-        dashAbility = FindAbility("Dash");
-        signatureAbility = FindAbility("Signature");
-
+        attackSkill = FindSkill("Attack");
+        dashSkill = FindSkill("Dash");
+        signatureSkill1 = FindSkill("Signature");
 
         //Adds all available controls into the list
         buttonList.Add(attackControl);
         buttonList.Add(dashControl);
-        buttonList.Add(signatureControl);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        buttonList.Add(signature1Control);
     }
 
     public void HandleUpdate()
@@ -71,7 +69,7 @@ public class SkillHolder : MonoBehaviour
     /// </summary>
     /// <param name="abilityName"></param>
     /// <returns></returns>
-    public Skill FindAbility(string abilityName)
+    public Skill FindSkill(string abilityName)
     {
         //Cycles through list of abilities held
         for (int i = 0; i < skillList.Count; i++)
@@ -91,15 +89,18 @@ public class SkillHolder : MonoBehaviour
         {
             if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable)
             {
-                ActivateAbility(skillList[i]);
+                ActivateSkill(skillList[i]);
             }
         }
     }
-
-
-    public void ActivateAbility(Skill a)
+    public void ActivateSkill(Skill a)
     {
         a.inUse = true;
         a.Activate();
+    }
+
+    public void EquipSkill(Skill s)
+    {
+        
     }
 }

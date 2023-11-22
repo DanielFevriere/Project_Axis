@@ -86,6 +86,5 @@ public class InventoryTab : GameTab
                 displayItemDescription.text = InventoryManager.keyItemInventory[itemIndex - 1].itemDescription;
                 break;
         }
-
     }
 }

@@ -14469,6 +14469,12 @@ MonoBehaviour:
   tabName: Quests
   tabContainer: {fileID: 382199586}
   isVisible: 0
+  mainQuest: {fileID: 0}
+  sideQuests: []
+  questTitleText: {fileID: 10263851}
+  questDescriptionText: {fileID: 1826747687}
+  questRewardText: {fileID: 519196701}
+  sideQuestNames: []
 --- !u!1 &389329488
 GameObject:
   m_ObjectHideFlags: 0
@@ -15235,6 +15241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415895837}
+  - component: {fileID: 415895838}
   m_Layer: 5
   m_Name: Skill 3
   m_TagString: Untagged
@@ -15265,6 +15272,62 @@ RectTransform:
   m_AnchoredPosition: {x: -283, y: -324}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &415895838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415895836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 751938988}
+        m_TargetAssemblyTypeName: SkillsTab, Assembly-CSharp
+        m_MethodName: DisplaySkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &418079711
 GameObject:
   m_ObjectHideFlags: 0
@@ -27719,7 +27782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751938987
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27762,9 +27825,12 @@ MonoBehaviour:
   tabName: Skills
   tabContainer: {fileID: 751938986}
   isVisible: 0
+  gabeSkillHolder: {fileID: 3647407618021215376}
+  mikeSkillHolder: {fileID: 5745596686463382475}
+  raphSkillHolder: {fileID: 6467951414573241465}
   characterIndex: 0
   skillsPage: 0
-  currentCharacterName: {fileID: 0}
+  currentCharacterName: {fileID: 1308686076}
   currentCharacterImage: {fileID: 674072754}
   gabeImage: {fileID: 21300000, guid: 93b5e282b3c5a2c45b9cd64e3b70074c, type: 3}
   mikeImage: {fileID: 21300000, guid: c5a1bd000bf01c0428afd88eb230187a, type: 3}
@@ -27774,8 +27840,14 @@ MonoBehaviour:
   equippedSkillIcon1: {fileID: 1102200142}
   equippedSkillIcon2: {fileID: 791763428}
   availableSkillsList: []
-  availableSkillIcons: []
-  availableSkillNames: []
+  availableSkillIcons:
+  - {fileID: 1254207521}
+  - {fileID: 1540357976}
+  - {fileID: 673020778}
+  availableSkillNames:
+  - {fileID: 1194262497}
+  - {fileID: 935810222}
+  - {fileID: 2130869449}
 --- !u!1 &753260882
 GameObject:
   m_ObjectHideFlags: 0
@@ -38708,7 +38780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1157828660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46924,6 +46996,18 @@ MonoBehaviour:
           m_StringArgument: Skills
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 751938988}
+        m_TargetAssemblyTypeName: SkillsTab, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1447972960
 GameObject:
   m_ObjectHideFlags: 0
@@ -48835,6 +48919,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1518360012}
+  - component: {fileID: 1518360013}
   m_Layer: 5
   m_Name: Skill 1
   m_TagString: Untagged
@@ -48865,6 +48950,62 @@ RectTransform:
   m_AnchoredPosition: {x: -283, y: -39}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1518360013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518360011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 751938988}
+        m_TargetAssemblyTypeName: SkillsTab, Assembly-CSharp
+        m_MethodName: DisplaySkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1520429592
 GameObject:
   m_ObjectHideFlags: 0
@@ -48880,7 +49021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61298,7 +61439,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33460
+  m_Name: pb_Mesh33502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -63779,6 +63920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1859180509}
+  - component: {fileID: 1859180510}
   m_Layer: 5
   m_Name: Skill 2
   m_TagString: Untagged
@@ -63809,6 +63951,62 @@ RectTransform:
   m_AnchoredPosition: {x: -283, y: -181}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1859180510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859180508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 751938988}
+        m_TargetAssemblyTypeName: SkillsTab, Assembly-CSharp
+        m_MethodName: DisplaySkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1859559335
 GameObject:
   m_ObjectHideFlags: 0
@@ -72087,6 +72285,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gabriel
       objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a,
+        type: 3}
+    - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillName
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillDescription
+      value: test description for dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463889779, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: m_Name
+      value: SkillHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a,
+        type: 3}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillDescription
+      value: test description for attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890063, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 68e5a78013e33f247822a837e55b0ab4,
+        type: 3}
+    - target: {fileID: 3647407618463890063, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillName
+      value: Signature
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890063, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillDescription
+      value: test description for sig
+      objectReference: {fileID: 0}
     - target: {fileID: 4814702871566077335, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -72184,6 +72435,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 964c4cd1d0acdf14db742a6597c1c1f4, type: 3}
+--- !u!114 &3647407618021215376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3647407618463889776, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3647407618021215375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5745596686463382474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72371,8 +72634,73 @@ PrefabInstance:
       propertyPath: m_Name
       value: Michael
       objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814181, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 68e5a78013e33f247822a837e55b0ab4,
+        type: 3}
+    - target: {fileID: 5745596687768814181, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillName
+      value: mikesig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814181, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillDescription
+      value: YEOOOO imma suffer so hard making these abilities
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814183, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: m_Name
+      value: SkillHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8,
+        type: 3}
+    - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillName
+      value: mikedash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillDescription
+      value: im starting to enjoy myself
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a,
+        type: 3}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillName
+      value: mikeattk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillDescription
+      value: YERRRRRR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3badc7c0e91e3f241b2d424ab13fdd79, type: 3}
+--- !u!114 &5745596686463382475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5745596687768814200, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+    type: 3}
+  m_PrefabInstance: {fileID: 5745596686463382474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6467951414573241464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72500,6 +72828,59 @@ PrefabInstance:
       propertyPath: StartingSPD
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368497, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: m_Name
+      value: SkillHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 68e5a78013e33f247822a837e55b0ab4,
+        type: 3}
+    - target: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillName
+      value: siggo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillDescription
+      value: wtf are you typing lol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 71ea7fdd01165d74a82a53aefdd04f7d,
+        type: 3}
+    - target: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillName
+      value: raphdash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillDescription
+      value: speedyboy template desc
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a,
+        type: 3}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillName
+      value: Raphattak
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillDescription
+      value: raph skill desc for atk
+      objectReference: {fileID: 0}
     - target: {fileID: 6467951414501729084, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: m_Name
@@ -72562,3 +72943,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52b5c252cf91bd349adb88c710928e8c, type: 3}
+--- !u!114 &6467951414573241465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6467951413196368502, guid: 52b5c252cf91bd349adb88c710928e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6467951414573241464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

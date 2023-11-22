@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Skill : MonoBehaviour
 {
-    public Image skillIcon;
+    public Sprite skillIcon;
     public bool usable;
     public string skillName;
     public string skillDescription;

@@ -25,10 +25,10 @@ public class AIAttackEnemy : AIAction
             target = enemies[Random.Range(0, enemies.Length)];
 
             agent.SetDestination(target.transform.position);
-            abilityHolder.ActivateAbility(abilityHolder.attackAbility);
+            abilityHolder.ActivateSkill(abilityHolder.attackSkill);
 
         DOTween.Sequence()
-            .AppendInterval(abilityHolder.attackAbility.skillTime)
+            .AppendInterval(abilityHolder.attackSkill.skillTime)
             .AppendCallback(() =>
             {
                 if(brain.enabled)

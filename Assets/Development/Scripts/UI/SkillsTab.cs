@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class SkillsTab : GameTab
 {
-    SkillManager skillManager;
+    public SkillHolder gabeSkillHolder;
+    public SkillHolder mikeSkillHolder;
+    public SkillHolder raphSkillHolder;
 
     public int characterIndex = 0;
     public int skillsPage = 0;
@@ -26,13 +28,7 @@ public class SkillsTab : GameTab
 
     public List<Skill> availableSkillsList;
     public List<Image> availableSkillIcons;
-    public List<string> availableSkillNames;
-
-
-    private void Start()
-    {
-        skillManager = SkillManager.Instance;
-    }
+    public List<TMP_Text> availableSkillNames;
 
     public void Refresh()
     {
@@ -49,67 +45,43 @@ public class SkillsTab : GameTab
         //If its on the team skills page, it just displays the list of team skills instead
         if (skillsPage == 0)
         {
-
             switch (characterIndex)
             {
                 case 0:
-                    for (int i = 0; i < skillManager.gabrielUnlockedSkills.Count; i++)
+                    for (int i = 0; i < gabeSkillHolder.skillList.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.gabrielUnlockedSkills[i]);
+                        availableSkillsList.Add(gabeSkillHolder.skillList[i]);
                     }
                     break;
 
                 case 1:
-                    for (int i = 0; i < skillManager.michaelIndividualSkills.Count; i++)
+                    for (int i = 0; i < mikeSkillHolder.skillList.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.michaelIndividualSkills[i]);
+                        availableSkillsList.Add(mikeSkillHolder.skillList[i]);
                     }
                     break;
 
                 case 2:
-                    for (int i = 0; i < skillManager.raphaelIndividualSkills.Count; i++)
+                    for (int i = 0; i < raphSkillHolder.skillList.Count; i++)
                     {
-                        availableSkillsList.Add(skillManager.raphaelIndividualSkills[i]);
+                        availableSkillsList.Add(raphSkillHolder.skillList[i]);
                     }
                     break;
             }
         }
         else if(skillsPage == 1)
         {
-
-            //If its gabe mike or raph, it adds their list of unlocked individual skills to the list of available skills which will be displayed
-            switch (characterIndex)
-            {
-                case 0:
-                    for (int i = 0; i < skillManager.gabrielUnlockedSkills.Count; i++)
-                    {
-                        availableSkillsList.Add(skillManager.gabrielUnlockedSkills[i]);
-                    }
-                    break;
-
-                case 1:
-                    for (int i = 0; i < skillManager.michaelIndividualSkills.Count; i++)
-                    {
-                        availableSkillsList.Add(skillManager.michaelIndividualSkills[i]);
-                    }
-                    break;
-
-                case 2:
-                    for (int i = 0; i < skillManager.raphaelIndividualSkills.Count; i++)
-                    {
-                        availableSkillsList.Add(skillManager.raphaelIndividualSkills[i]);
-                    }
-                    break;
-            }
-
         }
 
-        //Updates names for each skill slot
+        //Updates names and icons for each skill slot
         for (int i = 0; i < availableSkillIcons.Count; i++)
         {
-            availableSkillIcons[i] = availableSkillsList[i].skillIcon;
-            availableSkillNames[i] = availableSkillsList[i].skillName;
+            availableSkillIcons[i].sprite = availableSkillsList[i].skillIcon;
+            availableSkillNames[i].text = availableSkillsList[i].skillName;
         }
+
+        equippedSkillIcon1.sprite = availableSkillIcons[0].sprite;
+        equippedSkillIcon2.sprite = availableSkillIcons[1].sprite;
     }
 
     void UpdateCharacterDisplay()
@@ -162,5 +134,17 @@ public class SkillsTab : GameTab
             characterIndex--;
         }
         Refresh();
+    }
+
+    public void Activate()
+    {
+        SwitchSkillPage(0);
+    }
+
+
+    public void DisplaySkill(int skillIndex)
+    {
+        skillNameDisplay.text = availableSkillsList[skillIndex].skillName;
+        skillDescriptionDisplay.text = availableSkillsList[skillIndex].skillDescription;
     }
 }
