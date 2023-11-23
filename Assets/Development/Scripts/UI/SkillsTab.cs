@@ -144,7 +144,10 @@ public class SkillsTab : GameTab
 
     public void DisplaySkill(int skillIndex)
     {
-        skillNameDisplay.text = availableSkillsList[skillIndex].skillName;
-        skillDescriptionDisplay.text = availableSkillsList[skillIndex].skillDescription;
+        if(skillIndex < availableSkillsList.Count)
+        {
+            skillNameDisplay.text = availableSkillsList[skillIndex].skillName;
+            skillDescriptionDisplay.text = availableSkillsList[skillIndex].skillDescription;
+        }
     }
 }

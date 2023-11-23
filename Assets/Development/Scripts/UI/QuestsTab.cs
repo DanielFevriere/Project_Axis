@@ -15,22 +15,43 @@ public class QuestsTab : GameTab
     public TMP_Text questDescriptionText;
     public TMP_Text questRewardText;
 
-    public List<string> sideQuestNames;
+    public TMP_Text mainQuestName;
+    public List<TMP_Text> sideQuestNames;
+
+
+    private void Awake()
+    {
+        questManager = QuestManager.Instance;
+    }
 
     public void Refresh()
     {
+        mainQuest = questManager.activeQuests[0];
+
+        sideQuests.Clear();
+
+        for (int i = 1; i < questManager.activeQuests.Count; i++)
+        {
+            UpdateQuestDisplay(i);
+            sideQuests.Add(questManager.activeQuests[i]);
+        }
+
+        //Name of the mainquest is the name of the first quest in the questmanagers active quests list
+        mainQuestName.text = questManager.activeQuests[0].questTitle;
+
         //Names of the sidequest buttons on the side become the sidequest title
         for (int i = 0; i < sideQuestNames.Count; i++)
         {
-            sideQuestNames[i] = sideQuests[i].questTitle;
+            sideQuestNames[i].text = sideQuests[i].questTitle;
         }
     }
 
-    void UpdateQuestDisplay(int questIndex)
+    public void UpdateQuestDisplay(int questIndex)
     {
         questTitleText.text = questManager.activeQuests[questIndex].questTitle;
         questDescriptionText.text = questManager.activeQuests[questIndex].questDescription;
-        questRewardText.text = questManager.activeQuests[questIndex].questReward.rewardName;
+        //uncomment this when u actually bestow rewards
+        //questRewardText.text = questManager.activeQuests[questIndex].questReward.rewardName;
     }
 
 }
