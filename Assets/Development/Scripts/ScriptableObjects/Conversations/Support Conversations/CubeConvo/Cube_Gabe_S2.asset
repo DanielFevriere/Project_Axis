@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
   m_Name: Cube_Gabe_S2
   m_EditorClassIdentifier: 
+  convoTitle: He is still confused
   Dialogues:
   - nameID: Gabriel
     displayName: Gabe

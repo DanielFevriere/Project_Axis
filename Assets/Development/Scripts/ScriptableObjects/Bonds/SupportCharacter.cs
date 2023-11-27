@@ -5,8 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Support Character")]
 public class SupportCharacter : ScriptableObject
 {
-    //Character Name
-    public string characterName; 
+    //Character Name and icon
+    public string characterName;
+    public Sprite characterIcon;
 
     //if the character is locked, it cannot be progressed yet
     public bool gabeLocked;
@@ -32,6 +33,23 @@ public class SupportCharacter : ScriptableObject
     public List<RewardGiver> gabeRewards;
     public List<RewardGiver> mikeRewards;
     public List<RewardGiver> raphRewards;
+
+    //Character Info
+    public string age;
+    public string height;
+    public string favColor;
+    public string goals;
+    public string likes;
+    public string dislikes;
+    public string personality;
+
+    public bool ageLocked;
+    public bool heightLocked;
+    public bool favColorLocked;
+    public bool goalsLocked;
+    public bool likesLocked;
+    public bool dislikesLocked;
+    public bool personalityLocked;
 
     /// <summary>
     /// 

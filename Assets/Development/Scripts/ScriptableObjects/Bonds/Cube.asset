@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Cube
   m_EditorClassIdentifier: 
   characterName: Cube
+  characterIcon: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
   gabeLocked: 0
   mikeLocked: 0
   raphLocked: 0
-  gabeLevel: 2
+  gabeLevel: 1
   mikeLevel: 1
   raphLevel: 1
   gabeProgression: []
@@ -37,3 +38,9 @@ MonoBehaviour:
   gabeRewards: []
   mikeRewards: []
   raphRewards: []
+  age: 
+  height: 
+  bodyType: 
+  likes: 
+  dislikes: 
+  personality: 

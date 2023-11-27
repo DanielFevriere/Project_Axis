@@ -16,5 +16,12 @@ MonoBehaviour:
   questDescription: Once you are done gearing up and exploring Axis, talk to Gaige
     to receive your next mission.
   questObjective: Talk to Gaige Steel.
+  isAccepted: 0
+  isComplete: 0
   questReward: {fileID: 0}
-  conditions: []
+  conditions:
+  - conditionName: 
+    locked: 0
+    accomplished: 0
+    currentProgress: 0
+    requiredProgress: 0
