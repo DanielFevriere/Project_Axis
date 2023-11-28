@@ -9,14 +9,12 @@ public class SkillHolder : MonoBehaviour
 {
     public Key dashKey;
     public Key signature1Key;
-    public Key signature2Key;
 
     public List<ButtonControl> buttonList = new List<ButtonControl>();
 
     ButtonControl attackControl;
     KeyControl dashControl;
     KeyControl signature1Control;
-    KeyControl signature2Control;
 
     //List of ability scripts on the gameobject
     public List<Skill> skillList;
@@ -24,13 +22,10 @@ public class SkillHolder : MonoBehaviour
     public Skill attackSkill;
     public Skill dashSkill;
     public Skill signatureSkill1;
-    public Skill signatureSkill2;
 
     //Fetches the keyboard/mouse input system
     Keyboard kb;
     Mouse mouse;
-
-    public Sequence abilitySequence;
 
     // Start is called before the first frame update
     void Start()

@@ -29,7 +29,16 @@ public class Attack : Skill
         //Combo is no longer on if it hits 0
         if (comboTimer <= 0)
         {
-            Deactivate();
+            //if its already on cooldown, just drop the combo
+            if (onCooldown)
+            {
+                DropCombo();
+            }
+            //otherwise, activate cooldown and drop the combo
+            else
+            {
+                Deactivate();
+            }
         }
         
         if(inCombo)
@@ -69,5 +78,14 @@ public class Attack : Skill
             //Adds force
             GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, attackForce);
         }
+    }
+
+    //Does the same thing as Deactivate without activating the base class
+    public void DropCombo()
+    {
+        visual.SetActive(false);
+        comboTimer = comboTime;
+        hitCount = 0;
+        inCombo = false;
     }
 }

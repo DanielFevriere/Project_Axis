@@ -637,8 +637,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: 3383530e125c792439164f4c4dfadc4b, type: 2}
-  StartingLV: 0
-  StartingEXP: 0
+  StartingHP: 0
+  StartingSP: 0
+  StartingATK: 0
+  StartingDEF: 0
+  StartingSPD: 0
   currentStats: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &5745596687135282905
 GameObject:
@@ -719,11 +722,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashKey: 1
-  signatureKey: 32
-  abilityList: []
-  attackAbility: {fileID: 0}
-  dashAbility: {fileID: 0}
-  signatureAbility: {fileID: 0}
+  signature1Key: 0
+  skillList: []
+  attackSkill: {fileID: 0}
+  dashSkill: {fileID: 0}
+  signatureSkill1: {fileID: 0}
 --- !u!114 &5745596687768814203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,10 +739,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9678daa623a000a428d8b66e3c7c2d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
-  name: Attack
+  skillIcon: {fileID: 0}
+  usable: 1
+  skillName: 
+  skillDescription: 
   inUse: 0
-  abilityTime: 0.2
+  skillTime: 0
   onCooldown: 0
   cooldownTime: 0.2
   attackForce: 2
@@ -761,10 +766,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c58c317d0a0251429e2a3b47674890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
-  name: Dash
+  skillIcon: {fileID: 0}
+  usable: 1
+  skillName: 
+  skillDescription: 
   inUse: 0
-  abilityTime: 0.1
+  skillTime: 0
   onCooldown: 0
   cooldownTime: 0.1
   dashSpeed: 5
@@ -780,10 +787,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
-  name: Signature
+  skillIcon: {fileID: 0}
+  usable: 0
+  skillName: 
+  skillDescription: 
   inUse: 0
-  abilityTime: 3
+  skillTime: 0
   onCooldown: 0
   cooldownTime: 3
 --- !u!1001 &5745596686611519959

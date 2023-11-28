@@ -14,6 +14,20 @@ public class Skill : MonoBehaviour
     public float skillTime;
     public bool onCooldown;
     public float cooldownTime;
+    public float cooldownTimer;
+
+    private void FixedUpdate()
+    {
+        if(onCooldown)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        if(cooldownTimer <= 0)
+        {
+            onCooldown = false;
+        }
+    }
 
     public virtual void Activate()
     {
@@ -23,12 +37,7 @@ public class Skill : MonoBehaviour
     public virtual void Deactivate()
     {
         inUse = false;
+        cooldownTimer = cooldownTime;
         onCooldown = true;
-        DOTween.Sequence()
-            .AppendInterval(cooldownTime)
-            .AppendCallback(() =>
-            {
-                onCooldown = false;
-            });
     }
 }

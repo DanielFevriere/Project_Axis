@@ -13372,7 +13372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &334036332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49622,7 +49622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72764,6 +72764,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gabriel
       objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463889776, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: dashSkill
+      value: 
+      objectReference: {fileID: 3647407618021215378}
+    - target: {fileID: 3647407618463889776, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: attackSkill
+      value: 
+      objectReference: {fileID: 3647407618021215379}
+    - target: {fileID: 3647407618463889776, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: signatureSkill1
+      value: 
+      objectReference: {fileID: 3647407618021215377}
     - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: skillIcon
@@ -72774,6 +72789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: skillName
       value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: skillTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -72798,6 +72818,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
+      propertyPath: skillTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: cooldownTimer
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
       propertyPath: skillDescription
       value: test description for attack
       objectReference: {fileID: 0}
@@ -72816,6 +72846,11 @@ PrefabInstance:
         type: 3}
       propertyPath: skillDescription
       value: test description for sig
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4814702871566077335, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -72924,6 +72959,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3647407618021215377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3647407618463890063, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3647407618021215375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3647407618021215378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3647407618021215375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c58c317d0a0251429e2a3b47674890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3647407618021215379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3647407618021215375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9678daa623a000a428d8b66e3c7c2d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5745596686463382474
@@ -73122,7 +73193,7 @@ PrefabInstance:
     - target: {fileID: 5745596687768814181, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: skillName
-      value: mikesig
+      value: Signature
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687768814181, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -73134,6 +73205,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814200, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: dashSkill
+      value: 
+      objectReference: {fileID: 5745596686463382477}
+    - target: {fileID: 5745596687768814200, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: attackSkill
+      value: 
+      objectReference: {fileID: 5745596686463382478}
+    - target: {fileID: 5745596687768814200, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: signatureSkill1
+      value: 
+      objectReference: {fileID: 5745596686463382476}
     - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: skillIcon
@@ -73143,7 +73229,12 @@ PrefabInstance:
     - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: skillName
-      value: mikedash
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -73159,7 +73250,17 @@ PrefabInstance:
     - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: skillName
-      value: mikeattk
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: skillTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: cooldownTimer
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -73178,6 +73279,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5745596686463382476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5745596687768814181, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+    type: 3}
+  m_PrefabInstance: {fileID: 5745596686463382474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5745596686463382477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5745596687768814202, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+    type: 3}
+  m_PrefabInstance: {fileID: 5745596686463382474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c58c317d0a0251429e2a3b47674890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5745596686463382478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+    type: 3}
+  m_PrefabInstance: {fileID: 5745596686463382474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9678daa623a000a428d8b66e3c7c2d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6467951414573241464
@@ -73321,7 +73458,7 @@ PrefabInstance:
     - target: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: skillName
-      value: siggo
+      value: Signature
       objectReference: {fileID: 0}
     - target: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
@@ -73337,7 +73474,12 @@ PrefabInstance:
     - target: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: skillName
-      value: raphdash
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
@@ -73353,13 +73495,38 @@ PrefabInstance:
     - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: skillName
-      value: Raphattak
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: cooldownTimer
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: skillDescription
       value: raph skill desc for atk
       objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368502, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: dashSkill
+      value: 
+      objectReference: {fileID: 6467951414573241467}
+    - target: {fileID: 6467951413196368502, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: attackSkill
+      value: 
+      objectReference: {fileID: 6467951414573241468}
+    - target: {fileID: 6467951413196368502, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: signatureSkill1
+      value: 
+      objectReference: {fileID: 6467951414573241466}
     - target: {fileID: 6467951414501729084, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: m_Name
@@ -73432,5 +73599,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6467951414573241466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6467951414573241464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6467951414573241467 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6467951413196368500, guid: 52b5c252cf91bd349adb88c710928e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6467951414573241464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c58c317d0a0251429e2a3b47674890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6467951414573241468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6467951414573241464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9678daa623a000a428d8b66e3c7c2d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
