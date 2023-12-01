@@ -28,7 +28,7 @@ public class SkillHolder : MonoBehaviour
     Mouse mouse;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         kb = InputSystem.GetDevice<Keyboard>();
         mouse = InputSystem.GetDevice<Mouse>();
@@ -80,7 +80,7 @@ public class SkillHolder : MonoBehaviour
 
     public void ButtonCheck()
     {
-        for (int i = 0; i < skillList.Count - 1; i++)
+        for (int i = 0; i < skillList.Count; i++)
         {
             if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable)
             {

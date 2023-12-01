@@ -7,6 +7,8 @@ public class BoostStrike : Skill
 {
     Controller moveScript;
 
+    public GameObject visual;
+    public float boostStrikeDamage;
     public float boostStrikeSpeed;
 
     void Start()
@@ -25,10 +27,10 @@ public class BoostStrike : Skill
     }
     IEnumerator BoostStrikeAbility()
     {
-        float startTime = Time.fixedTime;
+        float startTime = Time.time;
         Vector3 movement = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
 
-        while (Time.fixedTime < startTime + skillTime)
+        while (Time.time < startTime + skillTime)
         {
             moveScript.characterController.Move(movement * boostStrikeSpeed * Time.fixedDeltaTime);
             yield return null;
