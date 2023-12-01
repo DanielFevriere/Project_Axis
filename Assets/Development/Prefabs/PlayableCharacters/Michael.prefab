@@ -686,7 +686,6 @@ GameObject:
   - component: {fileID: 5745596687768814200}
   - component: {fileID: 5745596687768814203}
   - component: {fileID: 5745596687768814202}
-  - component: {fileID: 5745596687768814181}
   m_Layer: 9
   m_Name: AbilityHolder
   m_TagString: Untagged
@@ -747,6 +746,7 @@ MonoBehaviour:
   skillTime: 0
   onCooldown: 0
   cooldownTime: 0.2
+  cooldownTimer: 0
   attackForce: 2
   inCombo: 0
   comboTime: 0.2
@@ -774,27 +774,8 @@ MonoBehaviour:
   skillTime: 0
   onCooldown: 0
   cooldownTime: 0.1
+  cooldownTimer: 0
   dashSpeed: 5
---- !u!114 &5745596687768814181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5745596687768814183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillIcon: {fileID: 0}
-  usable: 0
-  skillName: 
-  skillDescription: 
-  inUse: 0
-  skillTime: 0
-  onCooldown: 0
-  cooldownTime: 3
 --- !u!1001 &5745596686611519959
 PrefabInstance:
   m_ObjectHideFlags: 0
