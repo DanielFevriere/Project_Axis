@@ -18,13 +18,25 @@ public class BoostStrike : Skill
 
     public override void Activate()
     {
+        visual.SetActive(true);
+        Hit();
         StartCoroutine(BoostStrikeAbility());
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
+        visual.SetActive(false);
     }
+
+    public void Hit()
+    {
+        //Activates attack animation
+        moveScript.anim.SetTrigger("attack");
+        moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
+    }
+
+
     IEnumerator BoostStrikeAbility()
     {
         float startTime = Time.time;
