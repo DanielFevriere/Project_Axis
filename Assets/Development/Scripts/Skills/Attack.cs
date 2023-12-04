@@ -65,15 +65,15 @@ public class Attack : Skill
 
     public void Hit()
     {
-        if(hitCount != 3)
+        //Activates attack animation
+        moveScript.anim.SetTrigger("attack");
+        visual.SetActive(true);
+
+        if (hitCount != 3)
         {
             hitCount++;
             comboTimer = hitCount == 3 ? skillTime : comboTime;
             moveScript.playerWeapon.Attack();
-
-            //Activates attack animation
-            moveScript.anim.SetTrigger("attack");
-            visual.SetActive(true);
 
             //Adds force
             GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, attackForce);

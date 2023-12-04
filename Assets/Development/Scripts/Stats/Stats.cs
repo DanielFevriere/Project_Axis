@@ -5,9 +5,9 @@ using UnityEngine;
 
 public enum Stat
 {
-    LV,
-    MaxHP,
     HP,
+    MaxHP,
+    LV,
     MaxSP,
     SP,
     ATK,

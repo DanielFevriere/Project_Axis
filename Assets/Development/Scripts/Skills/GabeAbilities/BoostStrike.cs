@@ -18,7 +18,6 @@ public class BoostStrike : Skill
 
     public override void Activate()
     {
-        visual.SetActive(true);
         Hit();
         StartCoroutine(BoostStrikeAbility());
     }
@@ -31,6 +30,7 @@ public class BoostStrike : Skill
 
     public void Hit()
     {
+        visual.SetActive(true);
         //Activates attack animation
         moveScript.anim.SetTrigger("attack");
         moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
@@ -44,6 +44,7 @@ public class BoostStrike : Skill
 
         while (Time.time < startTime + skillTime)
         {
+            moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
             moveScript.characterController.Move(movement * boostStrikeSpeed * Time.fixedDeltaTime);
             yield return null;
         }

@@ -39,7 +39,13 @@ public class Enemy : MonoBehaviour, IDamageable
         // Take damage
         TakeDamageCoroutine = Coroutine_TakeDamage();
         StartCoroutine(TakeDamageCoroutine);
-        GetComponent<Stats>().ModifyStat(Stat.HP, 1);
+        GetComponent<Stats>().ModifyStat(Stat.HP, -1);
+
+        //Checks if dead
+        if (GetComponent<Stats>().currentStats[(int)Stat.HP] <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -55,11 +61,6 @@ public class Enemy : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Stats>().currentStats[0] <= 0)
-        {
-            Destroy(gameObject);
-        }
-
         //GroundCheck
         isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, 0.1f, GroundLayer);
 

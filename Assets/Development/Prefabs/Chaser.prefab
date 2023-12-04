@@ -496,10 +496,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: c4086dc0b934f6a499bc3ea9d4797962, type: 2}
-  StartingLV: 1
-  StartingEXP: 1
-  StartingHP: 10
-  currentStats: 05000000
+  StartingHP: 5
+  StartingSP: 5
+  StartingATK: 5
+  StartingDEF: 5
+  StartingSPD: 5
+  currentStats: 0500000005000000050000000500000005000000050000000500000005000000
 --- !u!1 &218013170669014303
 GameObject:
   m_ObjectHideFlags: 0
