@@ -25,6 +25,7 @@ public class BoostStrike : Skill
     public override void Deactivate()
     {
         base.Deactivate();
+        moveScript.anim.SetTrigger("endskill");
         visual.SetActive(false);
     }
 
@@ -32,7 +33,7 @@ public class BoostStrike : Skill
     {
         visual.SetActive(true);
         //Activates attack animation
-        moveScript.anim.SetTrigger("attack");
+        moveScript.anim.SetTrigger("boost");
         moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
     }
 

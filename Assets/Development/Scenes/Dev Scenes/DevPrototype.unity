@@ -44516,7 +44516,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33530
+  m_Name: pb_Mesh33532
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72866,6 +72866,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
+      propertyPath: skillTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
       propertyPath: cooldownTime
       value: 1
       objectReference: {fileID: 0}
@@ -72873,6 +72878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cooldownTimer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: boostStrikeSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4814702871566077335, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
