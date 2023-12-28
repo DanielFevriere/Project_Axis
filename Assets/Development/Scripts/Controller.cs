@@ -187,12 +187,13 @@ public class Controller : MonoBehaviour
         }
 
         //Quote test function
+        /*
         if (kb.lKey.wasReleasedThisFrame)
         {
             //CutsceneManager.Instance.StartCutscene(); needs to be updated before being re enabled
             SayQuote();
         }
-
+        */
 
         //Open Menu
         OpenMenu();

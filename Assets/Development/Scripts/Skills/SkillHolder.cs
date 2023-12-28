@@ -46,7 +46,7 @@ public class SkillHolder : MonoBehaviour
         //Declares abilities
         attackSkill = FindSkill("Attack");
         dashSkill = FindSkill("Dash");
-        signatureSkill1 = FindSkill("Boost Strike");
+        signatureSkill1 = FindSkill("Iron Sting");
 
         //Adds all available controls into the list
         buttonList.Add(attackControl);
