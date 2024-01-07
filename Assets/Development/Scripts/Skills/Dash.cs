@@ -9,9 +9,16 @@ public class Dash : Skill
 
     public float dashSpeed;
 
+    GameObject owner;
+    public ParticleSystem particle;
+
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
+        if (moveScript)
+        {
+            owner = moveScript.gameObject;
+        }
     }
 
     public override void Activate()
@@ -35,6 +42,27 @@ public class Dash : Skill
             yield return null;
         }
 
+        PlayDashEffect();
+        
         Deactivate();
+    }
+
+    void PlayDashEffect()
+    {
+        // Checks for valid ownership
+        if (!owner)
+        {
+            return;
+        }
+        
+        Vector3 direction = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
+        
+        // Spawns particle based on the unit's facing direction
+        ParticleSystem InstantiatedParticle = Instantiate(particle);
+        InstantiatedParticle.transform.position = owner.transform.position + Vector3.up * 0.65f + direction * 0.5f;
+
+        InstantiatedParticle.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        
+        Destroy(InstantiatedParticle, 1f);
     }
 }
