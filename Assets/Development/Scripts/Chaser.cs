@@ -110,7 +110,6 @@ public class Chaser : MonoBehaviour
     //Chases Target
     void ChaseTarget()
     {
-
         agent.SetDestination(target.position);
         agent.isStopped = false;
     }
@@ -124,6 +123,8 @@ public class Chaser : MonoBehaviour
         //Turns on warning box
         .AppendCallback(() =>
         {
+            agent.isStopped = true;
+            transform.rotation = transform.rotation;
             warningBox.SetActive(true);
         })
         .AppendInterval(attackWindupTime)
