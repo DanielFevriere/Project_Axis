@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIChasePlayer : AIAction
+public class AIChasePartyLeader : AIAction
 {
     public GameObject partyLeader;
 

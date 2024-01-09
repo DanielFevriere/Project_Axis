@@ -241,8 +241,11 @@ GameObject:
   - component: {fileID: 218013169817873694}
   - component: {fileID: 218013169817873692}
   - component: {fileID: 218013169817873691}
-  - component: {fileID: 218013169817873690}
+  - component: {fileID: 6870387059824638207}
   - component: {fileID: 8283982503405979801}
+  - component: {fileID: 2199693262810796302}
+  - component: {fileID: 6337935116045609497}
+  - component: {fileID: 8872758324503487961}
   m_Layer: 10
   m_Name: Chaser
   m_TagString: Enemy
@@ -453,7 +456,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &218013169817873690
+--- !u!114 &6870387059824638207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,27 +465,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 218013169817873682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 733c45dc0027d224ab5ab70d38209896, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a453761b816f34459d6e9751de75aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  agent: {fileID: 0}
+  triggerThink: 0
+  combatActions:
+  - {fileID: 2199693262810796302}
+  - {fileID: 8872758324503487961}
+  - {fileID: 6337935116045609497}
+  availableActions: []
   target: {fileID: 0}
   targetTag: Player
-  targetLayer:
+  whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  playerInSightRange: 0
+  playerInAttackRange: 0
   sightRange: 10
-  targetInChaseRange: 0
   attackRange: 1.5
-  targetInAttackRange: 0
-  inAttack: 0
-  onCooldown: 0
-  attackBox: {fileID: 218013169199962941}
-  warningBox: {fileID: 7294562831906790219}
-  attackWindupTime: 0.3
-  attackTime: 0.1
-  attackCoolDown: 0.9
+  speed: 5
+  currentState: 1
 --- !u!114 &8283982503405979801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +504,51 @@ MonoBehaviour:
   StartingDEF: 5
   StartingSPD: 5
   currentStats: 0500000005000000050000000500000005000000050000000500000005000000
+--- !u!114 &2199693262810796302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218013169817873682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1431746bd750954d8a51011f461e4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  favorability: 0
+--- !u!114 &6337935116045609497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218013169817873682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13e2a44014937e44a363aa72f03fd47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  favorability: 0
+--- !u!114 &8872758324503487961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218013169817873682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8607d20b5c10684fb5d50b7408a059b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  favorability: 0
+  attackBox: {fileID: 218013169199962941}
+  warningBox: {fileID: 7294562831906790219}
+  onCooldown: 0
+  attackWindupTime: 0.3
+  attackTime: 0.1
+  attackCoolDown: 0.9
 --- !u!1 &218013170669014303
 GameObject:
   m_ObjectHideFlags: 0

@@ -139,6 +139,7 @@ public class Chaser : MonoBehaviour
         .AppendInterval(attackTime)
         .AppendCallback(() =>
         {
+
             inAttack = false;
             attackBox.SetActive(false);
             onCooldown = true;
