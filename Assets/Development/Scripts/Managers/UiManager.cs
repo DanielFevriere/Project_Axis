@@ -143,6 +143,19 @@ public class GameHUD
         isVisible = !isVisible;
         gameHudContainer.SetActive(isVisible);
     }
+
+    public List<CharacterCombatStatusPanel> CombatStatusPanels;
+
+    public void SetUpCombatStatusPanelForCharacter(Stats OwnerStats, int index = 0)
+    {
+        if (CombatStatusPanels.Count == 0)
+        {
+            Debug.LogError("CombatStatusPanels unassigned in UI!!");
+            return;
+        }
+
+        CombatStatusPanels[index].SetUpNewOwner(OwnerStats);
+    }
 }
 
 [System.Serializable]

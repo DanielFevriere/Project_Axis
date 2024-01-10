@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour, IDamageable
     IEnumerator TakeDamageCoroutine;
     #endregion
 
-    public void TakeDamage()
+    public void TakeDamage(float DamageTaken)
     {
         Debug.Log(name + " took damage");
 
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour, IDamageable
         // Take damage
         TakeDamageCoroutine = Coroutine_TakeDamage();
         StartCoroutine(TakeDamageCoroutine);
-        GetComponent<Stats>().ModifyStat(Stat.HP, -1);
+        GetComponent<Stats>().ModifyStat(Stat.HP, (int)-DamageTaken);
 
         //Checks if dead
         if (GetComponent<Stats>().currentStats[(int)Stat.HP] <= 0)

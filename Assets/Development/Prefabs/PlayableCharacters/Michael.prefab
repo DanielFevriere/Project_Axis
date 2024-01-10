@@ -638,12 +638,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: 3383530e125c792439164f4c4dfadc4b, type: 2}
-  StartingHP: 0
+  StartingHP: 7
   StartingSP: 0
   StartingATK: 0
   StartingDEF: 0
   StartingSPD: 0
-  currentStats: 000000000000000000000000000000000000000000000000000000000000000000000000
+  currentStats: 070000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &5745596687135282905
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +778,7 @@ MonoBehaviour:
   cooldownTime: 0.1
   cooldownTimer: 0
   dashSpeed: 5
+  particle: {fileID: 0}
 --- !u!114 &4673372487064512942
 MonoBehaviour:
   m_ObjectHideFlags: 0

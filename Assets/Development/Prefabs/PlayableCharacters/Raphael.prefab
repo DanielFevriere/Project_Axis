@@ -104,6 +104,7 @@ MonoBehaviour:
   cooldownTime: 0.1
   cooldownTimer: 0
   dashSpeed: 5
+  particle: {fileID: 0}
 --- !u!114 &6467951413196368499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +147,8 @@ MonoBehaviour:
   onCooldown: 0
   cooldownTime: 5
   cooldownTimer: 5
+  visual: {fileID: 0}
+  boostStrikeDamage: 0
   boostStrikeSpeed: 20
 --- !u!1 &6467951413517797580
 GameObject:
@@ -753,12 +756,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: 3ee6baec695f2cf4c83eacaab0eaa5f8, type: 2}
-  StartingHP: 0
+  StartingHP: 15
   StartingSP: 0
   StartingATK: 0
   StartingDEF: 0
   StartingSPD: 0
-  currentStats: 000000000000000000000000000000000000000000000000000000000000000000000000
+  currentStats: 0f0000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &6467951414503360837
 GameObject:
   m_ObjectHideFlags: 0

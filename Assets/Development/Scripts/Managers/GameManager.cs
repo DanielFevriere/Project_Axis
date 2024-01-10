@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public static int MaxPartySize = 3;
+
     [SerializeField] Controller currentController;
     [SerializeField] Camera worldCamera;
     public CinemachineVirtualCamera currentCamera;
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        partyLeader = partyMembers[0];
+        //partyLeader = partyMembers[0]; //no this is fucking terrible
         state = GameState.FreeRoam;
         ChangeState(GameState.FreeRoam);
     }
@@ -58,6 +60,10 @@ public class GameManager : MonoBehaviour
     // Todo: This should tell the game to enter a default state upon launch (for now)
     private void Start()
     {
+        InitializeParty();
+        
+        SetPartyLeader();
+
         ChangeState(GameState.FreeRoam);
 
         //Goes to dialogue state when dialogue is open
@@ -251,8 +257,41 @@ public class GameManager : MonoBehaviour
         OnStateChange?.Invoke();
     }
 
+    #region Party Management
+
+    // Called in Player awake, adds a new character to party list and initialize all UIs
+    public void TryAddCharacterToPlayerParty(GameObject Character)
+    {
+        if (partyMembers.Count < MaxPartySize &&
+            !partyMembers.Contains(Character))
+        {
+            partyMembers.Add(Character);
+            
+            // Notify UI
+            UiManager.Instance.Hud.SetUpCombatStatusPanelForCharacter(Character.GetComponent<Stats>(), partyMembers.Count - 1);
+        }
+    }
+
+    void InitializeParty()
+    {
+        if (partyMembers.Count > 0)
+        {
+            for (int i = 0; i < partyMembers.Count; i++)
+            {
+                // Notify UI
+                UiManager.Instance.Hud.SetUpCombatStatusPanelForCharacter(partyMembers[i].GetComponent<Stats>(), i);
+            }
+        }
+    }
+    
     public void SetPartyLeader()
     {
+        if (partyMembers.Count == 0)
+        {
+            return;
+            
+        }
+        
         //The first party member in the list of party members is the current leader
         partyLeader = partyMembers[0];
         currentController = partyLeader.GetComponent<Controller>();
@@ -289,6 +328,8 @@ public class GameManager : MonoBehaviour
         SetPartyLeader();
         OnPartyLeaderChange?.Invoke();
     }
+
+    #endregion
 
     #region Enter States
     void Enter_FreeRoam()

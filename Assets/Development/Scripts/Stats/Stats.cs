@@ -32,37 +32,47 @@ public class Stats : MonoBehaviour
 
     // Current stats of the unit
     [Tooltip("Shows the stats")]
-        public int[] currentStats = new int[(int)Stat.COUNT];
+    public int[] currentStats = new int[(int)Stat.COUNT];
 
-        public int LV
-        {
-            get { return currentStats[(int)Stat.LV]; }
-            set { currentStats[(int)Stat.LV] = value; }
-        }
+    public int LV
+    {
+        get { return currentStats[(int)Stat.LV]; }
+        set { currentStats[(int)Stat.LV] = value; }
+    }
+
+    public event Action OnTakeDamage;
+
+    float lastDamageTaken = 0f;
+    void TakeDamageDebug()
+    {
+        Debug.Log(gameObject.name + " took " + lastDamageTaken+ " damage ");
+    }
         
     #endregion
 
     void Start()
     {
         // Set stats
-        currentStats[(int)Stat.HP] = StartingHP;
-        currentStats[(int)Stat.SP] = StartingSP;
+        currentStats[(int)Stat.MaxHP] = StartingHP;
+        currentStats[(int)Stat.MaxSP] = StartingSP;
         currentStats[(int)Stat.ATK] = StartingATK;
         currentStats[(int)Stat.DEF] = StartingDEF;
         currentStats[(int)Stat.SPD] = StartingSPD;
 
         // Load base stats example
-        for (int i = (int)Stat.MaxHP; i < (int)Stat.COUNT; i++)
-        {
-            if (i != (int)Stat.HP || i != (int)Stat.SP)
-            {
-                SetStat((Stat)i, (int)statsProfile.GetStatForLevelFromCurve((Stat)i, LV));
-            }
-        }
+        // for (int i = (int)Stat.MaxHP; i < (int)Stat.COUNT; i++)
+        // {
+        //     if (i != (int)Stat.HP || i != (int)Stat.SP)
+        //     {
+        //         SetStat((Stat)i, (int)statsProfile.GetStatForLevelFromCurve((Stat)i, LV));
+        //     }
+        // }
         
         // Set HP, SP to MaxHP, MaxSP
         SetStat(Stat.HP, GetStat(Stat.MaxHP));
         SetStat(Stat.SP, GetStat(Stat.MaxSP));
+
+        OnTakeDamage += TakeDamageDebug;
     }
 
     /// <summary>
@@ -73,6 +83,12 @@ public class Stats : MonoBehaviour
     public void ModifyStat(Stat StatToModify, int Amount)
     {
         currentStats[(int)StatToModify] += Amount;
+
+        if (StatToModify == Stat.HP && Amount < 0)
+        {
+            lastDamageTaken = -Amount;
+            OnTakeDamage?.Invoke();
+        }
     }
     /// <summary>
     /// Sets a stat to the passed in value

@@ -587,12 +587,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: 739ce12bbdcff904195fda0865dcc716, type: 2}
-  StartingHP: 0
+  StartingHP: 10
   StartingSP: 0
   StartingATK: 0
   StartingDEF: 0
   StartingSPD: 0
-  currentStats: 0000000000000000000000000000000000000000000000000000000000000000
+  currentStats: 0a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
 --- !u!1 &3647407618113532907
 GameObject:
   m_ObjectHideFlags: 0

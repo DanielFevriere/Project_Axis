@@ -57,7 +57,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             if (c.TryGetComponent(out IDamageable enemy))
             {
-                enemy.TakeDamage();
+                enemy.TakeDamage(1);
 
                 // Can knockback
                 Knockback knockbackComponent = c.GetComponent<Knockback>();

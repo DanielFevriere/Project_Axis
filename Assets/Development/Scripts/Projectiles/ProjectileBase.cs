@@ -10,7 +10,8 @@ public class ProjectileBase : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField] float lifeTime = 5f;
-
+    [SerializeField] float damageDealt = 1;
+    
     #endregion Properties
 
     void Awake()
@@ -49,7 +50,10 @@ public class ProjectileBase : MonoBehaviour
         // Deals damage if collided with player
         if (other.tag == "Player")
         {
-            
+            if (other.TryGetComponent(out IDamageable player))
+            {
+                player.TakeDamage(damageDealt);
+            }
         }
         
         // Destroy self if collided with something else

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem;
 
-public class Controller : MonoBehaviour
+public class Controller : MonoBehaviour, IDamageable
 {
     public Rigidbody rb;
     public Animator anim;
@@ -69,6 +69,9 @@ public class Controller : MonoBehaviour
         controls.FindAction("Movement").Enable();
 
         playerWeapon = GetComponentInChildren<PlayerWeapon>();
+        
+        // 
+        GameManager.Instance.TryAddCharacterToPlayerParty(gameObject);
     }
 
     //Always called every frame
@@ -417,6 +420,27 @@ public class Controller : MonoBehaviour
             UiManager.Instance.Hud.ToggleVisibility();
             UiManager.Instance.Menu.ToggleVisibility();
             UiManager.Instance.SwitchToTab("Character");
+        }
+    }
+    
+    public void TakeDamage(float DamageTaken)
+    {
+        Debug.Log(name + " took damage");
+
+        // if (TakeDamageCoroutine != null)
+        // {
+        //     StopCoroutine(TakeDamageCoroutine);
+        // }
+        //
+        // // Take damage
+        // TakeDamageCoroutine = Coroutine_TakeDamage();
+        // StartCoroutine(TakeDamageCoroutine);
+        GetComponent<Stats>().ModifyStat(Stat.HP, (int)-DamageTaken);
+
+        //Checks if dead
+        if (GetComponent<Stats>().currentStats[(int)Stat.HP] <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
