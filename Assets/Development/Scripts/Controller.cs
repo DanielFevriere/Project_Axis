@@ -46,6 +46,8 @@ public class Controller : MonoBehaviour, IDamageable
 
     public Vector3 movement;
 
+    Material material;
+
     [SerializeField] Conversation convo;
 
     public PlayerWeapon playerWeapon;
@@ -70,7 +72,14 @@ public class Controller : MonoBehaviour, IDamageable
 
         playerWeapon = GetComponentInChildren<PlayerWeapon>();
         
-        // 
+        // Render
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            material = spriteRenderer.material;
+        }
+        
+        // Auto-adds player to party if necessary
         GameManager.Instance.TryAddCharacterToPlayerParty(gameObject);
     }
 
@@ -423,18 +432,19 @@ public class Controller : MonoBehaviour, IDamageable
         }
     }
     
+    #region Take Damage
     public void TakeDamage(float DamageTaken)
     {
         Debug.Log(name + " took damage");
 
-        // if (TakeDamageCoroutine != null)
-        // {
-        //     StopCoroutine(TakeDamageCoroutine);
-        // }
-        //
-        // // Take damage
-        // TakeDamageCoroutine = Coroutine_TakeDamage();
-        // StartCoroutine(TakeDamageCoroutine);
+        if (TakeDamageCoroutine != null)
+        {
+            StopCoroutine(TakeDamageCoroutine);
+        }
+        
+        // Take damage
+        TakeDamageCoroutine = Coroutine_TakeDamage();
+        StartCoroutine(TakeDamageCoroutine);
         GetComponent<Stats>().ModifyStat(Stat.HP, (int)-DamageTaken);
 
         //Checks if dead
@@ -443,6 +453,33 @@ public class Controller : MonoBehaviour, IDamageable
             Destroy(gameObject);
         }
     }
+    
+    [Range(0f, 1f)] public float damageStaggerDuration = 0.1f;
+    [ColorUsageAttribute(true, true)] public Color takeDamageColor = new Color(1, 0, 0);
+    [SerializeField] AnimationCurve damagedBlendCurve;
+    IEnumerator TakeDamageCoroutine;
+
+    IEnumerator Coroutine_TakeDamage()
+    {
+        yield return null;
+
+        // Set damaged color on material
+        //material.SetColor("_TakeDamageColor", takeDamageColor);
+
+        float timeElapsed = 0f;
+        while (timeElapsed < damageStaggerDuration)
+        {
+            timeElapsed += Time.deltaTime;
+
+            // Lerp down from damaged color
+            float t = timeElapsed / damageStaggerDuration;
+            float value = damagedBlendCurve.Evaluate(t);
+            material.SetFloat("_DamagedBlend", value);
+
+            yield return null;
+        }
+    }
+    #endregion
 
     #region Debug Stuff
     void DebugUpdate()

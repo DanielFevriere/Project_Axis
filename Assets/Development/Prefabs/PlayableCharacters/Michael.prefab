@@ -422,6 +422,32 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   convo: {fileID: 11400000, guid: c6d38fc71a90d6a46b24ec7f08fdf7bf, type: 2}
   playerWeapon: {fileID: 0}
+  damageStaggerDuration: 0.1
+  takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedBlendCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.0060022105
+      outSlope: -0.0060022105
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2651827
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.8706887
+      outSlope: -2.8706887
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.039561033
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!143 &5745596687102131946
 CharacterController:
   m_ObjectHideFlags: 0
