@@ -24,6 +24,9 @@ public class EnemyAIBrain : MonoBehaviour
 
     public float speed;
 
+    public float thinkTime;
+    public float thinkTimer;
+
     public AIState currentState;
 
     void OnEnable()
@@ -39,6 +42,8 @@ public class EnemyAIBrain : MonoBehaviour
 
     private void Update()
     {
+        CollectData();
+
         //DEBUG ONLY
         if (triggerThink)
         {
@@ -53,9 +58,6 @@ public class EnemyAIBrain : MonoBehaviour
         {
             return;
         }
-
-        //Collect Data
-        CollectData();
 
         //Determine State
         DetermineState();

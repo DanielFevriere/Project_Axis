@@ -8,6 +8,8 @@ public class AIChaseTarget : AIAction
 {
     NavMeshAgent agent;
     EnemyAIBrain brain;
+    public float updateTime;
+    public float updateTimer;
 
     private void Start()
     {
@@ -15,6 +17,28 @@ public class AIChaseTarget : AIAction
         brain = GetComponent<EnemyAIBrain>();
         agent = GetComponent<NavMeshAgent>();
     }
+
+    private void Update()
+    {
+        updateTimer -= Time.deltaTime;
+
+        if (updateTimer <= 0)
+        {
+            updateTimer = updateTime;
+
+            //Will think again once the enemy is near the player
+            if (brain.currentState == EnemyAIBrain.AIState.ChasingPlayer)
+            {
+                if (brain.playerInAttackRange)
+                {
+                    brain.CompleteAction();
+                }
+            }
+        }
+
+
+    }
+
     public override void PerformAction()
     {
         //Automatically always facing player
@@ -27,14 +51,5 @@ public class AIChaseTarget : AIAction
 
         agent.isStopped = false;
 
-        DOTween.Sequence()
-            .AppendInterval(0.1f)
-            .AppendCallback(() =>
-            {
-                if (brain.enabled)
-                {
-                    brain.CompleteAction();
-                }
-            });
     }
 }

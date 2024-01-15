@@ -484,6 +484,8 @@ MonoBehaviour:
   sightRange: 10
   attackRange: 1.5
   speed: 5
+  thinkTime: 5
+  thinkTimer: 5
   currentState: 1
 --- !u!114 &8283982503405979801
 MonoBehaviour:
@@ -517,6 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   favorability: 0
+  updateTime: 1
+  updateTimer: 1
 --- !u!114 &6337935116045609497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,9 +550,14 @@ MonoBehaviour:
   attackBox: {fileID: 218013169199962941}
   warningBox: {fileID: 7294562831906790219}
   onCooldown: 0
+  windingUpAttack: 0
+  attacking: 0
   attackWindupTime: 0.3
+  attackWindupTimer: 0
   attackTime: 0.1
-  attackCoolDown: 0.9
+  attackTimer: 0
+  attackCoolDownTime: 1
+  attackCoolDownTimer: 0
 --- !u!1 &218013170669014303
 GameObject:
   m_ObjectHideFlags: 0

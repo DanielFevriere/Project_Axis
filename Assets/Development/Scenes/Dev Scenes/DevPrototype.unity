@@ -2687,7 +2687,7 @@ MonoBehaviour:
   encounterActive: 0
   Barrier: {fileID: 1341522726}
   Enemy: {fileID: 218013169817873682, guid: 9c0fecaf6e735b14d87a7761de0933b8, type: 3}
-  amountOfEnemiesToSpawn: 10
+  amountOfEnemiesToSpawn: 3
   TriggerZone: {fileID: 459208843}
   EnemiesRemaining: []
 --- !u!4 &70292398
@@ -23161,6 +23161,7 @@ MonoBehaviour:
     partyLeaderText: {fileID: 1571479382}
   Hud:
     gameHudContainer: {fileID: 1468841179}
+    CombatStatusPanels: []
   Menu:
     gameMenuContainer: {fileID: 1520429592}
   gameTabs: []
