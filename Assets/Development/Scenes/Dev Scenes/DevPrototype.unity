@@ -21873,8 +21873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8584906, g: 0.3455559, b: 0.3455559, a: 1}
+  m_Material: {fileID: 2100000, guid: cc7f23bcb42d16f439fbd2561b2c744e, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23161,7 +23161,10 @@ MonoBehaviour:
     partyLeaderText: {fileID: 1571479382}
   Hud:
     gameHudContainer: {fileID: 1468841179}
-    CombatStatusPanels: []
+    CombatStatusPanels:
+    - {fileID: 1044534231}
+    - {fileID: 771324222}
+    - {fileID: 1300028353}
   Menu:
     gameMenuContainer: {fileID: 1520429592}
   gameTabs: []
@@ -28319,6 +28322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 771324220}
   - component: {fileID: 771324221}
+  - component: {fileID: 771324222}
   m_Layer: 5
   m_Name: Character3
   m_TagString: Untagged
@@ -28365,6 +28369,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &771324222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771324219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6e6af17b8d1964db1e6d653f2c7cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterMug: {fileID: 535073235}
+  NameText: {fileID: 1875191452}
+  HPBar: {fileID: 1592626289}
+  SPBar: {fileID: 0}
 --- !u!1 &776744523
 GameObject:
   m_ObjectHideFlags: 0
@@ -36460,6 +36480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1044534229}
   - component: {fileID: 1044534230}
+  - component: {fileID: 1044534231}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -36506,6 +36527,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &1044534231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044534228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6e6af17b8d1964db1e6d653f2c7cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterMug: {fileID: 126687928}
+  NameText: {fileID: 1265385245}
+  HPBar: {fileID: 1067559505}
+  SPBar: {fileID: 479762919}
 --- !u!1 &1053036953
 GameObject:
   m_ObjectHideFlags: 0
@@ -37193,8 +37230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8584906, g: 0.3455559, b: 0.3455559, a: 1}
+  m_Material: {fileID: 2100000, guid: cc7f23bcb42d16f439fbd2561b2c744e, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -43701,6 +43738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1300028351}
   - component: {fileID: 1300028352}
+  - component: {fileID: 1300028353}
   m_Layer: 5
   m_Name: Character2
   m_TagString: Untagged
@@ -43747,6 +43785,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &1300028353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300028350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6e6af17b8d1964db1e6d653f2c7cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterMug: {fileID: 1800301546}
+  NameText: {fileID: 1451752554}
+  HPBar: {fileID: 526133376}
+  SPBar: {fileID: 0}
 --- !u!1 &1301416895
 GameObject:
   m_ObjectHideFlags: 0
@@ -48590,7 +48644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1468841180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52153,8 +52207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8584906, g: 0.3455559, b: 0.3455559, a: 1}
+  m_Material: {fileID: 2100000, guid: cc7f23bcb42d16f439fbd2561b2c744e, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
