@@ -60,6 +60,11 @@ public class AllyAIBrain : MonoBehaviour
 
     public void Think()
     {
+        if(GetComponent<Controller>().dead)
+        {
+            return;
+        }
+
         if(!enabled)
         {
             return;

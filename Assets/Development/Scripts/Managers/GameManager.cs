@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public static int MaxPartySize = 3;
+    public int partyLeaderIndex = 0;
 
     [SerializeField] Controller currentController;
     [SerializeField] Camera worldCamera;
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
     // subscribe and unsubscribe events that should happen in other systems when a state change occurs here
     public event Action OnStateChange; 
     public event Action OnPartyLeaderChange;
+
+    public event Action OnPartyMemberDeath;
 
     [Header("Debug")]
     public bool isDebugging = true;
@@ -293,7 +296,7 @@ public class GameManager : MonoBehaviour
         }
         
         //The first party member in the list of party members is the current leader
-        partyLeader = partyMembers[0];
+        partyLeader = partyMembers[partyLeaderIndex];
         currentController = partyLeader.GetComponent<Controller>();
         partyLeader.GetComponent<Controller>().enabled = true;
         partyLeader.GetComponent<NavMeshAgent>().enabled = false;
@@ -324,6 +327,13 @@ public class GameManager : MonoBehaviour
          *  if (index > partyMembers.Length()) { index = 0; }
          *  partyLeader = ...
          */
+
+        partyLeaderIndex = partyLeaderIndex + 1;
+        if(partyLeaderIndex > partyMembers.Count)
+        {
+            partyLeaderIndex = 0;
+        }
+
 
         SetPartyLeader();
         OnPartyLeaderChange?.Invoke();

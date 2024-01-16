@@ -16,6 +16,7 @@ public class Controller : MonoBehaviour, IDamageable
     public List<KeyControl> slot;
     public bool attacking = false;
     public bool inBattle = false;
+    public bool dead;
 
     //Movement vars
     public bool moving = false;
@@ -92,6 +93,11 @@ public class Controller : MonoBehaviour, IDamageable
     //Constantly called when the Gamemanager is in a certain state
     public void HandleUpdate()
     {
+        if (dead)
+        {
+            return;
+        }
+
         //This is the character thats being controlled
         isControlling = true;
 
@@ -450,7 +456,8 @@ public class Controller : MonoBehaviour, IDamageable
         //Checks if dead
         if (GetComponent<Stats>().currentStats[(int)Stat.HP] <= 0)
         {
-            Destroy(gameObject);
+            dead = true;
+            //Destroy(gameObject);
         }
     }
     
