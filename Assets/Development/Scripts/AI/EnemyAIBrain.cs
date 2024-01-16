@@ -54,10 +54,6 @@ public class EnemyAIBrain : MonoBehaviour
 
     public void Think()
     {
-        if (!enabled)
-        {
-            return;
-        }
 
         //Determine State
         DetermineState();
@@ -79,7 +75,7 @@ public class EnemyAIBrain : MonoBehaviour
     {
         //Grabs a random nearby player for target
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        target = players[Random.Range(0, players.Length)].transform;
+        target = FindClosestObject(players).transform;
 
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -140,5 +136,27 @@ public class EnemyAIBrain : MonoBehaviour
     {
         availableActions.Clear();
         Think();
+    }
+
+    GameObject FindClosestObject(GameObject[] objectsArray)
+    {
+        GameObject closestObject = null;
+        float closestDistance = Mathf.Infinity;
+
+        // Loop through each object in the array
+        foreach (GameObject obj in objectsArray)
+        {
+            // Calculate the distance between the targetTransform and the current object
+            float distance = Vector3.Distance(transform.position, obj.transform.position);
+
+            // Check if the current object is closer than the previously found closest object
+            if (distance < closestDistance)
+            {
+                closestObject = obj;
+                closestDistance = distance;
+            }
+        }
+
+        return closestObject;
     }
 }

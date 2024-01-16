@@ -11,6 +11,8 @@ public class AIChaseTarget : AIAction
     public float updateTime;
     public float updateTimer;
 
+    public bool chasing;
+
     private void Start()
     {
         //Gets components
@@ -20,7 +22,28 @@ public class AIChaseTarget : AIAction
 
     private void Update()
     {
-        updateTimer -= Time.deltaTime;
+        if(brain.currentState == EnemyAIBrain.AIState.ChasingPlayer)
+        {
+            updateTimer -= Time.deltaTime;
+        }
+
+        //Automatically always facing player
+        Vector3 targetDirection = brain.target.position - transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
+
+        //Chases player
+        if(chasing)
+        {
+            agent.SetDestination(brain.target.position);
+            agent.speed = brain.speed;
+            agent.isStopped = false;
+        }
+        else
+        {
+            agent.speed = 0;
+            agent.isStopped = true;
+        }
 
         if (updateTimer <= 0)
         {
@@ -31,25 +54,15 @@ public class AIChaseTarget : AIAction
             {
                 if (brain.playerInAttackRange)
                 {
+                    chasing = false;
                     brain.CompleteAction();
                 }
             }
         }
-
-
     }
 
     public override void PerformAction()
     {
-        //Automatically always facing player
-        Vector3 targetDirection = brain.target.position - transform.position;
-        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
-        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 15 * Time.deltaTime);
-
-        agent.SetDestination(brain.target.position);
-        agent.speed = brain.speed;
-
-        agent.isStopped = false;
-
+        chasing = true;
     }
 }

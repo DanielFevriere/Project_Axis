@@ -75,17 +75,13 @@ public class AIAttackPlayer : AIAction
 
     public override void PerformAction()
     {
-        if(onCooldown)
-        {
-            brain.CompleteAction();
-            return;
-        }
         WindupAttack();
     }
 
     public void WindupAttack()
     {
         windingUpAttack = true;
+        warningBox.SetActive(true);
     }
 
     public void Attack()

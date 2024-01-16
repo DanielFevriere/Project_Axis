@@ -481,11 +481,11 @@ MonoBehaviour:
     m_Bits: 512
   playerInSightRange: 0
   playerInAttackRange: 0
-  sightRange: 10
+  sightRange: 200
   attackRange: 1.5
   speed: 5
-  thinkTime: 5
-  thinkTimer: 5
+  thinkTime: 1
+  thinkTimer: 1
   currentState: 1
 --- !u!114 &8283982503405979801
 MonoBehaviour:
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: c4086dc0b934f6a499bc3ea9d4797962, type: 2}
-  StartingHP: 5
+  StartingHP: 90
   StartingSP: 5
   StartingATK: 5
   StartingDEF: 5
