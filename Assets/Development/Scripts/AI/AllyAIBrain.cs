@@ -60,7 +60,7 @@ public class AllyAIBrain : MonoBehaviour
 
     public void Think()
     {
-        if(GetComponent<Controller>().dead)
+        if(GetComponent<Player>().dead)
         {
             return;
         }

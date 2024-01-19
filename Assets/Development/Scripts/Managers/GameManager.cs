@@ -292,7 +292,6 @@ public class GameManager : MonoBehaviour
         if (partyMembers.Count == 0)
         {
             return;
-            
         }
         
         //The first party member in the list of party members is the current leader
@@ -316,7 +315,6 @@ public class GameManager : MonoBehaviour
     //Swaps control between party members
     public void SwapCharacter()
     {
-
         /* Anthony: bruh, instead of swapping like this, keep an INDEX variable that
          * points to the current party leader, then just cycle that variable when ever we need to swap character
          *  index = index + 1
@@ -324,11 +322,18 @@ public class GameManager : MonoBehaviour
          *  partyLeader = ...
          */
 
-        partyLeaderIndex = partyLeaderIndex + 1;
-        if(partyLeaderIndex > partyMembers.Count)
+        //Swaps party leader, but if that party leader is dead, swap to the next one
+        do
         {
-            partyLeaderIndex = 0;
-        }
+            if (partyLeaderIndex > partyMembers.Count)
+            {
+                partyLeaderIndex = 0;
+            }
+            else
+            {
+                partyLeaderIndex = partyLeaderIndex + 1;
+            }
+        } while (partyMembers[partyLeaderIndex].GetComponent<Player>().dead);
 
 
         SetPartyLeader();

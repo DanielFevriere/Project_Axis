@@ -87,13 +87,12 @@ public class Controller : MonoBehaviour
     //Always called every frame
     private void Update()
     {
-
     }
 
     //Constantly called when the Gamemanager is in a certain state
     public void HandleUpdate()
     {
-        if (dead)
+        if (GetComponent<Player>().dead)
         {
             return;
         }
