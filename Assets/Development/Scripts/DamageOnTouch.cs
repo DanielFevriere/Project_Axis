@@ -15,14 +15,14 @@ public class DamageOnTouch : MonoBehaviour
             return;
         }
 
-        Debug.Log("Projectile collided with " + other.gameObject.name);
+        Debug.Log("Hitbox collided with " + other.gameObject.name);
 
         // Deals damage if collided with player
         if (other.tag == "Player")
         {
             if (other.TryGetComponent(out IDamageable player))
             {
-                player.TakeDamage(damageDealt);
+                 player.TakeDamage(damageDealt);
             }
         }
     }

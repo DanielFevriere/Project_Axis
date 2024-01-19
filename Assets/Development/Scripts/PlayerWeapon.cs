@@ -55,15 +55,18 @@ public class PlayerWeapon : MonoBehaviour
 
         foreach (var c in collidedObjects)
         {
-            if (c.TryGetComponent(out IDamageable enemy))
+            if (c.tag == "Enemy")
             {
-                enemy.TakeDamage(1);
-
-                // Can knockback
-                Knockback knockbackComponent = c.GetComponent<Knockback>();
-                if (knockbackComponent != null)
+                if (c.TryGetComponent(out IDamageable enemy))
                 {
-                    knockbackComponent.ApplyKnockback(player.gameObject.transform, weaponKnockback);
+                    enemy.TakeDamage(1);
+
+                    // Can knockback
+                    Knockback knockbackComponent = c.GetComponent<Knockback>();
+                    if (knockbackComponent != null)
+                    {
+                        knockbackComponent.ApplyKnockback(player.gameObject.transform, weaponKnockback);
+                    }
                 }
             }
         }

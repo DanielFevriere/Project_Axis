@@ -345,6 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5745596687102131925}
+  - component: {fileID: 3928705220816080494}
   - component: {fileID: 5745596687102131947}
   - component: {fileID: 5745596687102131946}
   - component: {fileID: 5745596687102131944}
@@ -381,6 +382,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3928705220816080494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745596687102131926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a857216c1bd604bbd6a12a0a773c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dead: 0
+  damageStaggerDuration: 0.1
+  takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedBlendCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &5745596687102131947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +422,7 @@ MonoBehaviour:
   characterController: {fileID: 5745596687102131946}
   attacking: 0
   inBattle: 0
+  dead: 0
   moving: 0
   running: 0
   dashing: 0
@@ -422,32 +445,6 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   convo: {fileID: 11400000, guid: c6d38fc71a90d6a46b24ec7f08fdf7bf, type: 2}
   playerWeapon: {fileID: 0}
-  damageStaggerDuration: 0.1
-  takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
-  damagedBlendCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.0060022105
-      outSlope: -0.0060022105
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.2651827
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -2.8706887
-      outSlope: -2.8706887
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.039561033
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!143 &5745596687102131946
 CharacterController:
   m_ObjectHideFlags: 0

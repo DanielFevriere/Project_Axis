@@ -69929,6 +69929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de799264b100e09428b8bb6d46fcce6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partyLeaderIndex: 0
   currentController: {fileID: 0}
   worldCamera: {fileID: 798685927}
   currentCamera: {fileID: 1459653357}

@@ -316,10 +316,6 @@ public class GameManager : MonoBehaviour
     //Swaps control between party members
     public void SwapCharacter()
     {
-        //I know this is the lazy way im sorry for my shit code anthony
-        partyMembers[0] = partyMembers[1];
-        partyMembers[1] = partyMembers[2];
-        partyMembers[2] = partyLeader;
 
         /* Anthony: bruh, instead of swapping like this, keep an INDEX variable that
          * points to the current party leader, then just cycle that variable when ever we need to swap character

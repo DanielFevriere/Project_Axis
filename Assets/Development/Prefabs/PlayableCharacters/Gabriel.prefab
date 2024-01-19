@@ -279,6 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3647407617906402986}
+  - component: {fileID: 5880697034554495854}
   - component: {fileID: 3647407617906402985}
   - component: {fileID: 3647407617906402984}
   - component: {fileID: 3647407617906402981}
@@ -316,6 +317,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5880697034554495854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647407617906402987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a857216c1bd604bbd6a12a0a773c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3647407617906402985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +348,7 @@ MonoBehaviour:
   characterController: {fileID: 3647407617906402984}
   attacking: 0
   inBattle: 0
+  dead: 0
   moving: 0
   running: 0
   dashing: 0
@@ -953,6 +967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nameID
       value: Gabriel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072871500720959312, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4928688975307515870, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
