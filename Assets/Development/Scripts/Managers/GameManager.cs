@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 //States the game can be in
 public enum GameState { FreeRoam, Battle, Dialogue, Cutscene, Freeze }
@@ -89,6 +90,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (partyMembers[0].GetComponent<Player>().dead && partyMembers[1].GetComponent<Player>().dead && partyMembers[2].GetComponent<Player>().dead)
+        {
+            SceneManager.LoadScene("DevPrototype");
+        }
+
         if (state == GameState.FreeRoam)
         {
             /* Anthony: same as above */
@@ -198,7 +204,8 @@ public class GameManager : MonoBehaviour
             DialogueManager.Instance.HandleUpdate();
         }
 
-        // Debug purposes
+        // Debug/Test purposes
+
         //DebugUpdate(); 
     }
 
