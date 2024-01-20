@@ -47,8 +47,7 @@ public class GameManager : MonoBehaviour
     // subscribe and unsubscribe events that should happen in other systems when a state change occurs here
     public event Action OnStateChange; 
     public event Action OnPartyLeaderChange;
-
-    public event Action OnPartyMemberDeath;
+    public event Action OnPartyLeaderDeath;
 
     [Header("Debug")]
     public bool isDebugging = true;

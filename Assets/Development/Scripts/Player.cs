@@ -7,6 +7,10 @@ public class Player : MonoBehaviour, IDamageable
     Material material;
     public bool dead;
 
+    private void Start()
+    {
+    }
+
     #region Take Damage
     public void TakeDamage(float DamageTaken)
     {
@@ -26,6 +30,10 @@ public class Player : MonoBehaviour, IDamageable
         if (GetComponent<Stats>().currentStats[(int)Stat.HP] <= 0)
         {
             dead = true;
+            if(gameObject == GameManager.Instance.partyLeader)
+            {
+                GameManager.Instance.SwapCharacter();
+            }
             //Destroy(gameObject);
         }
     }
