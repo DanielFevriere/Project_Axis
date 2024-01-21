@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: c4086dc0b934f6a499bc3ea9d4797962, type: 2}
-  StartingHP: 10
+  StartingHP: 25
   StartingSP: 5
   StartingATK: 5
   StartingDEF: 5

@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Development/Scenes/Functional Scenes/DevPrototype.unity
     guid: 0871dc52d0800d446baeaf8dda4051fd
   - enabled: 0
-    path: Assets/Development/Scenes/Gabriel's Room.unity
+    path: Assets/Development/Scenes/Outdated and Unsorted Scenes/Gabriel's Room.unity
     guid: d4de99b2cf4699144ba94f5283e89bb4
   - enabled: 0
-    path: Assets/Development/Scenes/AcademyInterior.unity
+    path: Assets/Development/Scenes/Outdated and Unsorted Scenes/AcademyInterior.unity
     guid: 9d5604e987223dc4c9c8b2a1653d0b6f
   - enabled: 0
-    path: Assets/Development/Scenes/GashunCity.unity
+    path: Assets/Development/Scenes/Map Scenes/GashunCity.unity
     guid: 7864a4775a8d4e04196c740402638671
   m_configObjects: {}

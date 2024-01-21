@@ -44886,7 +44886,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41072
+  m_Name: pb_Mesh187952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48245,7 +48245,7 @@ Transform:
   m_Children:
   - {fileID: 1141688519}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 22.11, y: -0.691, z: 0}
 --- !u!1 &1463551981
 GameObject:
@@ -73777,7 +73777,7 @@ PrefabInstance:
     - target: {fileID: 5745596687102131925, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687102131925, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -74009,6 +74009,53 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: usable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 25096ce515c063c48a2bd6b108c95912,
+        type: 3}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillName
+      value: Cross Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: cooldownTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: cooldownTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: crossBackForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: crossBackDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: skillDescription
+      value: Swings the Roris infront to push back any opponent standing infront
+        of raphael
+      objectReference: {fileID: 0}
     - target: {fileID: 4606987733020471608, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -74174,9 +74221,14 @@ PrefabInstance:
       objectReference: {fileID: 6467951414573241468}
     - target: {fileID: 6467951413196368502, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
+      propertyPath: signature1Key
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368502, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
       propertyPath: signatureSkill1
       value: 
-      objectReference: {fileID: 6467951414573241466}
+      objectReference: {fileID: 0}
     - target: {fileID: 6467951414501729084, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: m_Name
@@ -74185,7 +74237,7 @@ PrefabInstance:
     - target: {fileID: 6467951414501729086, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6467951414501729086, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
@@ -74249,18 +74301,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ebfc8a880c7804dbd26748d2feaf16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6467951414573241466 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6467951413196368499, guid: 52b5c252cf91bd349adb88c710928e8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6467951414573241464}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6467951414573241467 stripped

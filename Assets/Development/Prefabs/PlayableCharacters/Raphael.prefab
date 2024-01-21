@@ -1,5 +1,116 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1765284786091695829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5892429936040740535}
+  - component: {fileID: 6153266606272242735}
+  - component: {fileID: 7127001284481786044}
+  - component: {fileID: 1154848392704083533}
+  - component: {fileID: 6816677866630973591}
+  m_Layer: 9
+  m_Name: CrossBackHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5892429936040740535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765284786091695829}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5599985}
+  m_LocalScale: {x: 2.09, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6467951413897563544}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6153266606272242735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765284786091695829}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f047ab8acfa0a47ad5a27e01af0d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitRotation: 0
+--- !u!23 &7127001284481786044
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765284786091695829}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7856b4b5bf3d5ff43b938aa358e5b8ed, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1154848392704083533
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765284786091695829}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6816677866630973591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765284786091695829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa65d9691a31b1d449fcb45989798144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackAmount: 21
 --- !u!1 &6467951413196368497
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,8 +123,7 @@ GameObject:
   - component: {fileID: 6467951413196368502}
   - component: {fileID: 6467951413196368501}
   - component: {fileID: 6467951413196368500}
-  - component: {fileID: 6467951413196368499}
-  - component: {fileID: 8748106716633644157}
+  - component: {fileID: 3134704271205867865}
   m_Layer: 9
   m_Name: AbilityHolder
   m_TagString: Untagged
@@ -105,7 +215,7 @@ MonoBehaviour:
   cooldownTimer: 0
   dashSpeed: 5
   particle: {fileID: 0}
---- !u!114 &6467951413196368499
+--- !u!114 &3134704271205867865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +224,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6467951413196368497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866b6ef91948b684385fe40df265f930, type: 3}
+  m_Script: {fileID: 11500000, guid: a50e69e833d71ba45b0410fe422cf7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 0}
@@ -124,32 +234,11 @@ MonoBehaviour:
   inUse: 0
   skillTime: 0
   onCooldown: 0
-  cooldownTime: 3
+  cooldownTime: 0
   cooldownTimer: 0
---- !u!114 &8748106716633644157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6467951413196368497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ecebf4f8f21dcb438b07ce4e5b5377c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillIcon: {fileID: 21300000, guid: 799e0050e6b775542b14f9558cd4492f, type: 3}
-  usable: 1
-  skillName: Boost Strike
-  skillDescription: Gabe Dashes forward in a straight line, dealing damage
-  inUse: 0
-  skillTime: 0.1
-  onCooldown: 0
-  cooldownTime: 5
-  cooldownTimer: 5
-  visual: {fileID: 0}
-  boostStrikeDamage: 0
-  boostStrikeSpeed: 20
+  visual: {fileID: 1765284786091695829}
+  crossBackDamage: 0
+  atkTransform: {fileID: 0}
 --- !u!1 &6467951413517797580
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6467951413897563544}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!114 &6467951413517797568
 MonoBehaviour:
@@ -395,6 +484,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5892429936040740535}
   - {fileID: 6467951414036310496}
   - {fileID: 6467951414566171704}
   - {fileID: 6467951414503360838}
@@ -452,7 +542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6467951413897563544}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6467951414501729084
 GameObject:
@@ -814,7 +904,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6467951413897563544}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6467951414566171719
 GameObject:
@@ -845,7 +935,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6467951413897563544}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6467951412895056349
 PrefabInstance:
