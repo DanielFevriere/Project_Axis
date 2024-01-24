@@ -2909,7 +2909,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 6, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &77760347
 MeshRenderer:
@@ -73394,6 +73394,31 @@ PrefabInstance:
       propertyPath: skillDescription
       value: test description for attack
       objectReference: {fileID: 0}
+    - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: StartingHP
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: StartingSP
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: StartingATK
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: StartingDEF
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: StartingSPD
+      value: 4124
+      objectReference: {fileID: 0}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: usable
@@ -73590,7 +73615,7 @@ PrefabInstance:
     - target: {fileID: 1268571199668914516, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: StartingHP
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1268571199668914516, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}

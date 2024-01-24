@@ -59,7 +59,7 @@ public class AIChasePartyLeader : AIAction
 
         if (running)
         {
-            agent.speed = brain.walkSpeed;
+            agent.speed = brain.runSpeed;
         }
         else
         {
