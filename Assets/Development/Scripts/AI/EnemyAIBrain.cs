@@ -75,6 +75,23 @@ public class EnemyAIBrain : MonoBehaviour
     {
         //Grabs a random nearby player for target
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        List<GameObject> playerList = new List<GameObject>();
+
+        //Makes it into a list for easy removal
+        foreach (GameObject p in players)
+        {
+            playerList.Add(p);
+        }
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].GetComponent<Player>().dead)
+            {
+                playerList.Remove(players[i]);
+            }
+        }
+
+        players = playerList.ToArray();
         target = FindClosestObject(players).transform;
 
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);

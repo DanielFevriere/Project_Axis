@@ -496,7 +496,7 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   sightRange: 200
-  attackRange: 3
+  attackRange: 2
   speed: 5
   thinkTime: 1
   thinkTimer: 1

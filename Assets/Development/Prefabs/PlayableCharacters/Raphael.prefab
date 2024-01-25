@@ -214,7 +214,8 @@ MonoBehaviour:
   cooldownTime: 0.1
   cooldownTimer: 0
   dashSpeed: 5
-  particle: {fileID: 0}
+  particle: {fileID: 8768822403384139457, guid: 0fa51e2be276f1c46bfc1d0f675e9cc5,
+    type: 3}
 --- !u!114 &3134704271205867865
 MonoBehaviour:
   m_ObjectHideFlags: 0
