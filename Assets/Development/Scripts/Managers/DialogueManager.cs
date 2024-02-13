@@ -86,8 +86,6 @@ public class DialogueManager : MonoBehaviour
         OnShowDialogue.Invoke();
         shownConversation = convo;
 
-        //dialogueBox.SetActive(true);
-
         dialogueName.text = convo.Dialogues[0].DisplayName;
         StartCoroutine(TypeLine(convo.Dialogues[0]));
     }
@@ -95,6 +93,7 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator TypeLine(Dialogue dialogue)
     {
         isTyping = true;
+        AudioManager.Instance.PlaySound("beep");
 
         for (int i = 0; i < listOfSpeakers.Count; i++)
         {
@@ -114,7 +113,6 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach(var letter in dialogue.Line.ToCharArray())
         {
-            AudioManager.Instance.PlaySound("beep");
             dialogueText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }

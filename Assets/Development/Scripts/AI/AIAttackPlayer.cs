@@ -80,6 +80,11 @@ public class AIAttackPlayer : AIAction
 
     public void WindupAttack()
     {
+        //Automatically faces player
+        Vector3 targetDirection = brain.target.position - transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
+
         windingUpAttack = true;
         warningBox.SetActive(true);
     }

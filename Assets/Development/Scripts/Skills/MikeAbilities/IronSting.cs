@@ -45,7 +45,6 @@ public class IronSting : Skill
     IEnumerator IronStingAbility()
     {
         float startTime = Time.time;
-        Vector3 movement = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
 
         while (Time.time < startTime + skillTime)
         {

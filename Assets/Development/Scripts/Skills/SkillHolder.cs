@@ -56,7 +56,10 @@ public class SkillHolder : MonoBehaviour
 
     public void HandleUpdate()
     {
-        ButtonCheck();
+        if(!GetComponentInParent<Player>().dead)
+        {
+            ButtonCheck();
+        }
     }
 
     /// <summary>

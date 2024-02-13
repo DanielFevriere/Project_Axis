@@ -321,26 +321,22 @@ public class GameManager : MonoBehaviour
     //Swaps control between party members
     public void SwapCharacter()
     {
-        /* Anthony: bruh, instead of swapping like this, keep an INDEX variable that
-         * points to the current party leader, then just cycle that variable when ever we need to swap character
-         *  index = index + 1
-         *  if (index > partyMembers.Length()) { index = 0; }
-         *  partyLeader = ...
-         */
+        //Swaps party leader
 
-        //Swaps party leader, but if that party leader is dead, swap to the next one
-        do
+        if (partyLeaderIndex == partyMembers.Count - 1)
         {
-            if (partyLeaderIndex > partyMembers.Count)
-            {
-                partyLeaderIndex = 0;
-            }
-            else
-            {
-                partyLeaderIndex = partyLeaderIndex + 1;
-            }
-        } while (partyMembers[partyLeaderIndex].GetComponent<Player>().dead);
+            partyLeaderIndex = 0;
+        }
+        else
+        {
+            partyLeaderIndex = partyLeaderIndex + 1;
+        }
 
+        //if that party leader is dead, swap to the next one (Recursive function)
+        if (partyMembers[partyLeaderIndex].GetComponent<Player>().dead)
+        {
+            SwapCharacter();
+        }
 
         SetPartyLeader();
         OnPartyLeaderChange?.Invoke();

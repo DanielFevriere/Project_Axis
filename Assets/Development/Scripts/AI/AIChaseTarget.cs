@@ -27,14 +27,14 @@ public class AIChaseTarget : AIAction
             updateTimer -= Time.deltaTime;
         }
 
-        //Automatically always facing player
-        Vector3 targetDirection = brain.target.position - transform.position;
-        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
-        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
-
         //Chases player
         if(chasing)
         {
+            //Automatically faces player
+            Vector3 targetDirection = brain.target.position - transform.position;
+            Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
+
             agent.SetDestination(brain.target.position);
             agent.speed = brain.speed;
             agent.isStopped = false;

@@ -10,6 +10,8 @@ public class BoostStrike : Skill
     public GameObject visual;
     public float boostStrikeDamage;
     public float boostStrikeSpeed;
+    public Transform atkTransform;
+
 
     void Start()
     {
@@ -35,6 +37,9 @@ public class BoostStrike : Skill
         //Activates attack animation
         moveScript.anim.SetTrigger("boost");
         moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
+
+        GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, boostStrikeSpeed);
+
     }
 
 
@@ -46,7 +51,6 @@ public class BoostStrike : Skill
         while (Time.time < startTime + skillTime)
         {
             moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
-            moveScript.characterController.Move(movement * boostStrikeSpeed * Time.fixedDeltaTime);
             yield return null;
         }
 

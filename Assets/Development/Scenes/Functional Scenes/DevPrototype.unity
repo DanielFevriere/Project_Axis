@@ -7205,8 +7205,8 @@ MonoBehaviour:
   DontDestroyOnLoad: 1
   MapBgm: 
   MasterVolume: 1
-  MusicVolume: 1
-  SoundVolume: 0.2
+  MusicVolume: 0.5
+  SoundVolume: 0.05
   AudioLibrary: {fileID: 11400000, guid: b10cea2abe0b30142a807afe9829cc3c, type: 2}
   SoundsContainer: {fileID: 798685928}
   MusicSource: {fileID: 798685930}
@@ -37391,6 +37391,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070977395}
   m_CullTransparentMesh: 1
+--- !u!4 &1071527015 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3647407616426509483, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3647407618021215375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1079463691
 GameObject:
   m_ObjectHideFlags: 0
@@ -73438,8 +73444,13 @@ PrefabInstance:
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: skillTime
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: atkTransform
+      value: 
+      objectReference: {fileID: 1071527015}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: cooldownTime
@@ -73453,7 +73464,7 @@ PrefabInstance:
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: boostStrikeSpeed
-      value: 15
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4814702871566077335, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -73935,6 +73946,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284992306975929991, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3badc7c0e91e3f241b2d424ab13fdd79, type: 3}
