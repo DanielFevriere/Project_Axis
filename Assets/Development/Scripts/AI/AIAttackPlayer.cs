@@ -34,7 +34,16 @@ public class AIAttackPlayer : AIAction
 
     private void Update()
     {
-        if(onCooldown)
+        // Get the current rotation of the object
+        Quaternion currentRotation = transform.rotation;
+
+        // Lock the rotation on the X and Z axes
+        currentRotation.eulerAngles = new Vector3(0, currentRotation.eulerAngles.y, 0);
+
+        // Apply the new rotation
+        transform.rotation = currentRotation;
+
+        if (onCooldown)
         {
             attackCoolDownTimer -= Time.deltaTime;
         }

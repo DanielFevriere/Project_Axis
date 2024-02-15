@@ -41,7 +41,8 @@ public class Controller : MonoBehaviour
     //Gravity vars
     public bool isGrounded;
     public bool isFalling;
-    public float gravity;
+    public float curGravity;
+    public float setGravity;
     public float verticalVel;
     public float terminalVel;
 
@@ -129,13 +130,13 @@ public class Controller : MonoBehaviour
             {
                 //Moves based on the slope vector
                 characterController.Move(GetSlopeMoveDirection() * Time.fixedDeltaTime);
-                gravity = 0;
+                curGravity = 0;
             }
             else
             {
                 //Moves based on the movement vector
                 characterController.Move(movement * Time.fixedDeltaTime);
-                gravity = 10;
+                curGravity = setGravity;
             }
         }
         else
@@ -168,8 +169,8 @@ public class Controller : MonoBehaviour
         else
         {
             isFalling = true;
-            gravity = 10;
-            verticalVel -= gravity * Time.deltaTime;
+            curGravity = setGravity;
+            verticalVel -= curGravity * Time.deltaTime;
         }
 
         //If your falling speed reaches terminal velocity, it cant go past it

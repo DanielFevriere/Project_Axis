@@ -329,6 +329,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a857216c1bd604bbd6a12a0a773c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
+  damageStaggerDuration: 0.1
+  takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  damagedBlendCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &3647407617906402985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,38 +374,13 @@ MonoBehaviour:
     m_Bits: 128
   isGrounded: 0
   isFalling: 0
-  gravity: 10
+  curGravity: 0
+  setGravity: 10
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
   convo: {fileID: 11400000, guid: 072794f7c58a3f148a99d6fa8b8b33c1, type: 2}
   playerWeapon: {fileID: 0}
-  damageStaggerDuration: 0.1
-  takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
-  damagedBlendCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.0060022105
-      outSlope: -0.0060022105
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.2651827
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -2.8706887
-      outSlope: -2.8706887
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.039561033
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!143 &3647407617906402984
 CharacterController:
   m_ObjectHideFlags: 0
@@ -859,6 +843,7 @@ MonoBehaviour:
   visual: {fileID: 0}
   boostStrikeDamage: 5
   boostStrikeSpeed: 20
+  atkTransform: {fileID: 0}
 --- !u!1 &6265578204162156350
 GameObject:
   m_ObjectHideFlags: 0

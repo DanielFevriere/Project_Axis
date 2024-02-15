@@ -250,9 +250,9 @@ GameObject:
   m_Component:
   - component: {fileID: 218013169817873681}
   - component: {fileID: 218013169817873695}
-  - component: {fileID: 218013169817873680}
   - component: {fileID: 218013169817873693}
   - component: {fileID: 218013169817873694}
+  - component: {fileID: 2214285990540428573}
   - component: {fileID: 218013169817873692}
   - component: {fileID: 218013169817873691}
   - component: {fileID: 6870387059824638207}
@@ -331,20 +331,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!136 &218013169817873680
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218013169817873682}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.22
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!54 &218013169817873693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -430,6 +416,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!65 &2214285990540428573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218013169817873682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!143 &218013169817873692
 CharacterController:
   m_ObjectHideFlags: 0
@@ -462,7 +461,7 @@ NavMeshAgent:
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1

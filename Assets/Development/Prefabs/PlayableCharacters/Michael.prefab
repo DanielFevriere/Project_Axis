@@ -439,7 +439,8 @@ MonoBehaviour:
     m_Bits: 128
   isGrounded: 0
   isFalling: 0
-  gravity: 10
+  curGravity: 0
+  setGravity: 10
   verticalVel: 0
   terminalVel: -9.8
   movement: {x: 0, y: 0, z: 0}
