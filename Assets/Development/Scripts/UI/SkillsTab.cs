@@ -55,18 +55,19 @@ public class SkillsTab : GameTab
                     break;
 
                 case 1:
+                    for (int i = 0; i < raphSkillHolder.skillList.Count; i++)
+                    {
+                        availableSkillsList.Add(raphSkillHolder.skillList[i]);
+                    }
+                    break;
+
+                case 2:
                     for (int i = 0; i < mikeSkillHolder.skillList.Count; i++)
                     {
                         availableSkillsList.Add(mikeSkillHolder.skillList[i]);
                     }
                     break;
 
-                case 2:
-                    for (int i = 0; i < raphSkillHolder.skillList.Count; i++)
-                    {
-                        availableSkillsList.Add(raphSkillHolder.skillList[i]);
-                    }
-                    break;
             }
         }
         else if(skillsPage == 1)

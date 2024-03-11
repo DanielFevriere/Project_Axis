@@ -42,6 +42,8 @@ public class AIAttackPlayer : AIAction
 
         // Apply the new rotation
         transform.rotation = currentRotation;
+        
+
 
         if (onCooldown)
         {
