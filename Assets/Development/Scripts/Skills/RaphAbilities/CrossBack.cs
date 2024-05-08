@@ -8,8 +8,9 @@ public class CrossBack : Skill
     Controller moveScript;
 
     public GameObject visual;
-    public float crossBackDamage;
-    public Transform atkTransform;
+    public int crossBackDamage;
+    public Transform crossBackStart;
+    public Transform crossBackEnd;
 
 
     void Start()
@@ -20,7 +21,7 @@ public class CrossBack : Skill
     public override void Activate()
     {
         Hit();
-        StartCoroutine(IronStingAbility());
+        StartCoroutine(CrossBackAbility());
     }
 
     public override void Deactivate()
@@ -35,18 +36,18 @@ public class CrossBack : Skill
         visual.SetActive(true);
         //Activates attack animation
         //moveScript.anim.SetTrigger("boost");
-        moveScript.playerWeapon.Attack(); //What i really want is a customized hitbox, but for now ill use the regular attack hitbox.
+        moveScript.playerWeapon.Attack(crossBackDamage, crossBackStart, crossBackEnd); 
     }
 
 
-    IEnumerator IronStingAbility()
+    IEnumerator CrossBackAbility()
     {
         float startTime = Time.time;
         Vector3 movement = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
 
         while (Time.time < startTime + skillTime)
         {
-            moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
+            moveScript.playerWeapon.Attack(crossBackDamage, crossBackStart, crossBackEnd); 
             yield return null;
         }
 

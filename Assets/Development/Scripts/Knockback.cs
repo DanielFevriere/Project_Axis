@@ -9,13 +9,16 @@ public class Knockback : MonoBehaviour
     // Rigid body 
     [SerializeField] bool useRigidBody;
     [SerializeField] Rigidbody rigidBody;
-    [SerializeField] float knockbackDuration = 0.15f;
+    [SerializeField] float currentKnockbackDuration;
 
     public UnityEvent OnBegin, OnComplete; 
     #endregion
 
-    public void ApplyKnockback(Transform source, float knockbackStrength)
+    public void ApplyKnockback(Transform source, float knockbackStrength, float duration)
     {
+        //
+        currentKnockbackDuration = duration;
+
         // Stop all previous knocking back coroutines
         StopAllCoroutines();
         // Call OnBegin event
@@ -44,7 +47,7 @@ public class Knockback : MonoBehaviour
         if (useRigidBody)
         {
             // Wait for knockback to finish
-            yield return new WaitForSeconds(knockbackDuration);
+            yield return new WaitForSeconds(currentKnockbackDuration);
             // Reset velocity on rigid body
             rigidBody.velocity = Vector3.zero;
             // Turn off rigidbody and physics control, and revert back to animations/movement components

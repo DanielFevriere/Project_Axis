@@ -8,6 +8,7 @@ public class Attack : Skill
     Controller moveScript;
 
     public float attackForce;
+    public float attackDuration;
 
     //Combo variables
     public bool inCombo = false;
@@ -17,7 +18,7 @@ public class Attack : Skill
     public int hitCount = 0;
 
     public Transform atkTransform;
-    public GameObject visual;
+    public GameObject hitBox;
 
     void Start()
     {
@@ -57,7 +58,7 @@ public class Attack : Skill
     public override void Deactivate()
     {
         base.Deactivate();
-        visual.SetActive(false);
+        hitBox.SetActive(false);
         comboTimer = comboTime;
         hitCount = 0;
         inCombo = false;
@@ -67,23 +68,21 @@ public class Attack : Skill
     {
         //Activates attack animation
         moveScript.anim.SetTrigger("attack");
-        visual.SetActive(true);
+        hitBox.SetActive(true);
 
         if (hitCount != 3)
         {
             hitCount++;
             comboTimer = hitCount == 3 ? skillTime : comboTime;
-            moveScript.playerWeapon.Attack();
-
             //Adds force
-            GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, attackForce);
+            GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, attackForce, attackDuration);
         }
     }
 
     //Does the same thing as Deactivate without activating the base class
     public void DropCombo()
     {
-        visual.SetActive(false);
+        hitBox.SetActive(false);
         comboTimer = comboTime;
         hitCount = 0;
         inCombo = false;

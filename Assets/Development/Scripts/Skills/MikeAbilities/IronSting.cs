@@ -10,6 +10,7 @@ public class IronSting : Skill
     public GameObject visual;
     public float ironStingDamage;
     public float ironStingPushBackForce;
+    public float ironStingPushBackDuration;
     public Transform atkTransform;
 
 
@@ -36,9 +37,11 @@ public class IronSting : Skill
         visual.SetActive(true);
         //Activates attack animation
         //moveScript.anim.SetTrigger("boost");
-        moveScript.playerWeapon.Attack(); //What i really want is a customized hitbox, but for now ill use the regular attack hitbox.
-                                          //Adds force
-        GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, -ironStingPushBackForce);
+        moveScript.playerWeapon.Attack(1, moveScript.playerWeapon.weaponStart, moveScript.playerWeapon.weaponEnd); //Reminder: Create a custom transform for the start and end of the Iron Sting box
+
+
+        //Adds force
+        GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, -ironStingPushBackForce, ironStingPushBackDuration);
     }
 
 
@@ -48,7 +51,7 @@ public class IronSting : Skill
 
         while (Time.time < startTime + skillTime)
         {
-            moveScript.playerWeapon.Attack(); //What i really want is a customized boost strike hitbox, but for now ill use the regular attack hitbox.
+            moveScript.playerWeapon.Attack(1, moveScript.playerWeapon.weaponStart, moveScript.playerWeapon.weaponEnd); //Reminder: Create a custom transform for the start and end of the Iron Sting box
             yield return null;
         }
 

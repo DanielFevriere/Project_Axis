@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageOnTouch : MonoBehaviour
 {
     public float damageDealt;
-
+    [SerializeField] LayerMask targetLayer;
 
     // Interaction with units and environments
     void OnTriggerEnter(Collider other)
@@ -17,13 +17,14 @@ public class DamageOnTouch : MonoBehaviour
 
         Debug.Log("Hitbox collided with " + other.gameObject.name);
 
-        // Deals damage if collided with player
-        if (other.tag == "Player")
+        // Deals damage if collided with targetLayer
+        if (((1 << other.gameObject.layer) & targetLayer) != 0) //If the collided objects layer is the target layer
         {
-            if (other.TryGetComponent(out IDamageable player))
+            if (other.TryGetComponent(out IDamageable entity))
             {
-                 player.TakeDamage(damageDealt);
+                 entity.TakeDamage(damageDealt);
             }
         }
     }
+
 }

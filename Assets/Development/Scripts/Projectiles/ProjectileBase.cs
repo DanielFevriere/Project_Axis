@@ -26,12 +26,6 @@ public class ProjectileBase : MonoBehaviour
         // Sets expiration lifetime
         Destroy(gameObject, lifeTime);
     }
-
-    void Update()
-    {
-        
-    }
-
     public virtual void LaunchProjectile(Vector3 direction, float force)
     {
         rb.AddForce(direction * force);
@@ -43,17 +37,6 @@ public class ProjectileBase : MonoBehaviour
         if (other.gameObject == gameObject)
         {
             return;
-        }
-        
-        Debug.Log("Projectile collided with " + other.gameObject.name);
-
-        // Deals damage if collided with player
-        if (other.tag == "Player")
-        {
-            if (other.TryGetComponent(out IDamageable player))
-            {
-                player.TakeDamage(damageDealt);
-            }
         }
         
         // Destroy self if collided with something else

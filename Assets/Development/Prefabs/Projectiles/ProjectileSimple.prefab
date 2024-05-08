@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 694659835540456958}
   - component: {fileID: 694659835540456957}
   - component: {fileID: 694659835540456899}
+  - component: {fileID: 589691728838553303}
   m_Layer: 0
   m_Name: ProjectileSimple
   m_TagString: Untagged
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
+  damageDealt: 1
 --- !u!54 &694659835540456957
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +144,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackAmount: 7
+  knockbackDuration: 0.3
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &589691728838553303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694659835540456956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a72725335d4e4aa217072798d3914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 512

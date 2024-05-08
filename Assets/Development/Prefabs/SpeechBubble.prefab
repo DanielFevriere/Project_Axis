@@ -178,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 4893047560387434215, guid: 3d89d57b0e17053478cfb83f9c13199b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,11 +228,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I'm unsure why you'd want me to do this. Are you sure you are a good person
-    cube? It's not making any sense.
+  m_text: "\u3053\u3093\u306B\u3061\u306F okay"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6bcf830453ef2b34ea11c92662491e1c, type: 2}
-  m_sharedMaterial: {fileID: 1410908517353740900, guid: 6bcf830453ef2b34ea11c92662491e1c,
+  m_fontAsset: {fileID: 11400000, guid: 3d89d57b0e17053478cfb83f9c13199b, type: 2}
+  m_sharedMaterial: {fileID: 4893047560387434215, guid: 3d89d57b0e17053478cfb83f9c13199b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -263,7 +262,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -616,7 +615,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2791833208592019533
 MonoBehaviour:
   m_ObjectHideFlags: 0

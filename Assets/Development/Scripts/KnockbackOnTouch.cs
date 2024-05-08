@@ -5,6 +5,9 @@ using UnityEngine;
 public class KnockbackOnTouch : MonoBehaviour
 {
     public float knockbackAmount;
+    public float knockbackDuration;
+
+    [SerializeField] LayerMask targetLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -15,9 +18,9 @@ public class KnockbackOnTouch : MonoBehaviour
     {
         // Knocks back if the collider has a component to knock them back
         Knockback knockbackComponent = other.GetComponent<Knockback>();
-        if (knockbackComponent != null && other.tag == "Player")
+        if (((1 << other.gameObject.layer) & targetLayer) != 0) //If the collided objects layer is the target layer
         {
-            knockbackComponent.ApplyKnockback(gameObject.transform, knockbackAmount);
+            knockbackComponent.ApplyKnockback(gameObject.transform, knockbackAmount, knockbackDuration);
         }
     }
 }

@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 5745596685767611380}
   - component: {fileID: 5745596685767611383}
   - component: {fileID: 5745596685767611382}
+  - component: {fileID: 281274460706053697}
+  - component: {fileID: 8238000489972441120}
+  - component: {fileID: 7401635377392244427}
   m_Layer: 9
-  m_Name: Weapon Visuals
+  m_Name: Weapon Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +100,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5745596685767611376}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &281274460706053697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745596685767611376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a72725335d4e4aa217072798d3914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 2
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &8238000489972441120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745596685767611376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bb200e696a1be46823fec58cc42618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackAmount: 2
+  knockbackDuration: 0.3
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!65 &7401635377392244427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745596685767611376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.0000009536743, z: 0}
 --- !u!1 &5745596685985065500
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRigidBody: 1
   rigidBody: {fileID: 5745596687102131944}
-  knockbackDuration: 0.15
+  currentKnockbackDuration: 0
   OnBegin:
     m_PersistentCalls:
       m_Calls:
@@ -774,12 +823,13 @@ MonoBehaviour:
   cooldownTime: 0.2
   cooldownTimer: 0
   attackForce: 2
+  attackDuration: 0
   inCombo: 0
   comboTime: 0.2
   comboTimer: 0.2
   hitCount: 0
   atkTransform: {fileID: 5745596686209016151}
-  visual: {fileID: 5745596685767611376}
+  hitBox: {fileID: 5745596685767611376}
 --- !u!114 &5745596687768814202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +878,7 @@ MonoBehaviour:
   visual: {fileID: 0}
   ironStingDamage: 0
   ironStingPushBackForce: 0
+  ironStingPushBackDuration: 0
   atkTransform: {fileID: 0}
 --- !u!1 &6111583960502615756
 GameObject:
@@ -841,6 +892,8 @@ GameObject:
   - component: {fileID: 4254380364591402005}
   - component: {fileID: 2134492251924473474}
   - component: {fileID: 895753662817783817}
+  - component: {fileID: 5566180982318920879}
+  - component: {fileID: 4524130179541098669}
   m_Layer: 9
   m_Name: IronStingHitBox
   m_TagString: Untagged
@@ -926,6 +979,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6111583960502615756}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5566180982318920879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111583960502615756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a72725335d4e4aa217072798d3914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!65 &4524130179541098669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111583960502615756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5745596686611519959
 PrefabInstance:
   m_ObjectHideFlags: 0

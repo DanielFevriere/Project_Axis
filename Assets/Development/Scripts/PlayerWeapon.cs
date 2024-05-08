@@ -45,31 +45,8 @@ public class PlayerWeapon : MonoBehaviour
     {
     }
 
-    public void Attack()
+    public void Attack(int damage, Transform start, Transform end)
     {
-        Vector3 start = weaponStart.position;
-        Vector3 end = weaponEnd.position;
-
-        // Currently only checks overlap for a single frame
-        Collider[] collidedObjects = Physics.OverlapCapsule(start, end, weaponRadius, hitMask);
-
-        foreach (var c in collidedObjects)
-        {
-            if (c.tag == "Enemy")
-            {
-                if (c.TryGetComponent(out IDamageable enemy))
-                {
-                    enemy.TakeDamage(1);
-
-                    // Can knockback
-                    Knockback knockbackComponent = c.GetComponent<Knockback>();
-                    if (knockbackComponent != null)
-                    {
-                        knockbackComponent.ApplyKnockback(player.gameObject.transform, weaponKnockback);
-                    }
-                }
-            }
-        }
     }
 
     public void UpdateWeaponRotation()

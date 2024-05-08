@@ -12,20 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
   m_Name: TestConvo1
   m_EditorClassIdentifier: 
+  convoTitle: 
   Dialogues:
   - nameID: Cube
-    displayName: ???
-    line: Hello Gabriel, my name is Cube.
-  - nameID: Gabriel
-    displayName: Gabe
-    line: Hello Cube, where am I?
+    displayName: Cube
+    line: Testing Japanese text
   - nameID: Cube
     displayName: Cube
-    line: You are improving. Your creators world is expanding. Do you know what awaits
-      you?
-  - nameID: Gabriel
-    displayName: Gabe
-    line: I actually don't know. Wait... what do you mean creator?
-  - nameID: Cube
-    displayName: Cube
-    line: I have been told to stop talking.
+    line: hello
