@@ -73482,6 +73482,11 @@ PrefabInstance:
       propertyPath: boostStrikeSpeed
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: boostStrikeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4814702871566077335, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -73825,6 +73830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ironStingPushBackForce
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: ironStingPushBackDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687102131925, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
