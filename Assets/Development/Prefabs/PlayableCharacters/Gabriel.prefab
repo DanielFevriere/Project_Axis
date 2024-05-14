@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bf6a00e1f41fc9b4a8618f9707c518a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65f9dd7601035984a8098e194f23665a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,7 +140,7 @@ Animator:
   m_GameObject: {fileID: 3647407616612288047}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ecef570fc07a73e4cbf397f36deac34b, type: 2}
+  m_Controller: {fileID: 9100000, guid: ba60768787deff74289e86b56342f471, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -366,7 +366,7 @@ MonoBehaviour:
   runSpeed: 3
   direction: 1
   facingVector: {x: 0, y: 0}
-  groundCheckDistance: 0.08
+  groundCheckDistance: 0.1
   maxSlopeAngle: 45
   onSlope: 0
   GroundLayer:
@@ -445,8 +445,8 @@ MonoBehaviour:
   enemyInAttackRange: 0
   sightRange: 100
   attackRange: 1
-  walkSpeed: 5
-  runSpeed: 10
+  walkSpeed: 3
+  runSpeed: 6.5
   currentState: 0
 --- !u!114 &3647407617906402982
 MonoBehaviour:

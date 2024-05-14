@@ -44897,7 +44897,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh87978
+  m_Name: pb_Mesh33624
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73413,6 +73413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
+      propertyPath: attackDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
       propertyPath: skillDescription
       value: test description for attack
       objectReference: {fileID: 0}
@@ -73960,6 +73965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
+      propertyPath: attackDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
       propertyPath: skillDescription
       value: YERRRRRR
       objectReference: {fileID: 0}
@@ -74275,6 +74285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cooldownTimer
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: attackDuration
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
