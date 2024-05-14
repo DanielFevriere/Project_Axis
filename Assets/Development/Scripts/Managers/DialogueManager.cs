@@ -27,10 +27,16 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject choiceBox;
     [SerializeField] TMP_Text dialogueName;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] int lettersPerSecond;
+
+    [SerializeField] TMP_Text promptText;
+    [SerializeField] TMP_Text choice1Text;
+    [SerializeField] TMP_Text choice2Text;
+
+    public int dialogueChoice;
 
     public List<Speaker> listOfSpeakers;
 
@@ -39,6 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     public Conversation shownConversation;
     int currentDialogue = 0;
+    bool choosing = false;
     bool isTyping = false;
 
 
@@ -53,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
         
         //If the dialogue key is pressed and its not already typing out a dialogue
-        if (kb.fKey.wasReleasedThisFrame && !isTyping)
+        if (kb.fKey.wasReleasedThisFrame && !isTyping && !choosing)
         {
             currentDialogue++;
             if(currentDialogue < shownConversation.Dialogues.Count)
@@ -68,7 +75,6 @@ public class DialogueManager : MonoBehaviour
                 {
                     listOfSpeakers[i].gameObject.SetActive(false);
                 }
-                //dialogueBox.SetActive(false);
                 OnCloseDialogue.Invoke();
             }
         }
@@ -77,6 +83,29 @@ public class DialogueManager : MonoBehaviour
     public void StartConvo(Conversation convo)
     {
         StartCoroutine(ShowConversation(convo));
+    }
+
+    /// <summary>
+    /// Prompts the player
+    /// </summary>
+    /// <param name="choice"></param>
+    public void StartPrompt(string prompt, string choice1, string choice2)
+    {
+        choosing = true;
+        choiceBox.SetActive(true);
+        OnShowDialogue.Invoke();
+
+        promptText.text = prompt;
+        choice1Text.text = choice1;
+        choice2Text.text = choice2;
+    }
+
+    public void ChoosePrompt(int choice)
+    {
+        choosing = false;
+        choiceBox.SetActive(false);
+        dialogueChoice = choice;
+        OnCloseDialogue.Invoke();
     }
 
     public IEnumerator ShowConversation(Conversation convo)

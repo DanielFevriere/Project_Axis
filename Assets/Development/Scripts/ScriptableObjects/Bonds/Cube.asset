@@ -17,7 +17,7 @@ MonoBehaviour:
   gabeLocked: 0
   mikeLocked: 0
   raphLocked: 0
-  gabeLevel: 1
+  gabeLevel: 2
   mikeLevel: 1
   raphLevel: 1
   gabeProgression: []
@@ -40,7 +40,15 @@ MonoBehaviour:
   raphRewards: []
   age: 
   height: 
-  bodyType: 
+  favColor: 
+  goals: 
   likes: 
   dislikes: 
   personality: 
+  ageLocked: 0
+  heightLocked: 0
+  favColorLocked: 0
+  goalsLocked: 0
+  likesLocked: 0
+  dislikesLocked: 0
+  personalityLocked: 0

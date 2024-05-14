@@ -112,13 +112,12 @@ public class Controller : MonoBehaviour
         anim.SetBool("moving", moving);
         anim.SetBool("running", running);
 
-        //Sets anims for attacking;
+        //Checks to see if on slope
+        CheckSlope();
 
         //Sets movement data
         Movement();
 
-        //Checks to see if on slope
-        CheckSlope();
 
         //If the player is not attacking
         if (!GetComponentInChildren<SkillHolder>().attackSkill.inUse)
@@ -204,14 +203,6 @@ public class Controller : MonoBehaviour
             GameManager.Instance.SwapCharacter(); //needs to be updated before being re-enabled
         }
 
-        //Quote test function
-        /*
-        if (kb.lKey.wasReleasedThisFrame)
-        {
-            //CutsceneManager.Instance.StartCutscene(); needs to be updated before being re enabled
-            SayQuote();
-        }
-        */
 
         //Open Menu
         OpenMenu();
