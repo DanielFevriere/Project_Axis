@@ -64,7 +64,7 @@ public class UiManager : MonoBehaviour
         DEBUG_SetCurrentState();
         DEBUG_SetCurrentPartyLeader();
 
-        Debug.ToggleVisibility();
+        //Debug.ToggleVisibility(); Its better for now to have the visibility automatically on
 
         Hud.ToggleVisibility();
 
