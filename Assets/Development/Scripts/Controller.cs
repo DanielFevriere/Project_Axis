@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour
 {
     public Rigidbody rb;
     public Animator anim;
+    public GameObject aimerGraphic;
     public string characterName;
     public bool isControlling;
     public InputMaster controls;
@@ -31,6 +32,7 @@ public class Controller : MonoBehaviour
     
     //Slope vars
     public float maxSlopeAngle = 45;
+    public float Angle;
     public bool onSlope;
     RaycastHit SlopeHit;
 
@@ -349,11 +351,18 @@ public class Controller : MonoBehaviour
     /// </summary>
     void CheckSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, 3f))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), Vector3.down, out SlopeHit, 3f))
         {
-            float Angle = Vector3.Angle(Vector3.up, SlopeHit.normal);
+            Angle = Vector3.Angle(Vector3.up, SlopeHit.normal);
             onSlope = Angle < maxSlopeAngle && Angle != 0;
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw the raycast gizmo
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), transform.position + Vector3.down * 3f);
     }
 
     /// <summary>

@@ -37,7 +37,6 @@ public class IronSting : Skill
         visual.SetActive(true);
         //Activates attack animation
         //moveScript.anim.SetTrigger("boost");
-        moveScript.playerWeapon.Attack(1, moveScript.playerWeapon.weaponStart, moveScript.playerWeapon.weaponEnd); //Reminder: Create a custom transform for the start and end of the Iron Sting box
 
 
         //Adds force
@@ -51,7 +50,6 @@ public class IronSting : Skill
 
         while (Time.time < startTime + skillTime)
         {
-            moveScript.playerWeapon.Attack(1, moveScript.playerWeapon.weaponStart, moveScript.playerWeapon.weaponEnd); //Reminder: Create a custom transform for the start and end of the Iron Sting box
             yield return null;
         }
 

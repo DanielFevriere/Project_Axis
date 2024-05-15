@@ -136,6 +136,9 @@ public class GameManager : MonoBehaviour
             {
                 if (p != partyLeader)
                 {
+                    //Turns off the aimer graphic for all party members
+                    p.GetComponent<Controller>().aimerGraphic.SetActive(false);
+
                     p.GetComponent<Controller>().enabled = false;
                     p.GetComponent<NavMeshAgent>().enabled = true;
 
@@ -148,6 +151,11 @@ public class GameManager : MonoBehaviour
                     {
                         a.enabled = true;
                     }
+                }
+                else
+                {
+                    //Turns on aimer graphic for the party leader
+                    p.GetComponent<Controller>().aimerGraphic.SetActive(true);
                 }
             }
 
@@ -299,12 +307,15 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        
+
+
+
         //The first party member in the list of party members is the current leader
         partyLeader = partyMembers[partyLeaderIndex];
         currentController = partyLeader.GetComponent<Controller>();
         partyLeader.GetComponent<Controller>().enabled = true;
         partyLeader.GetComponent<NavMeshAgent>().enabled = false;
+
 
         foreach (AIAction a in partyLeader.GetComponent<AllyAIBrain>().freeRoamActions)
         {
@@ -394,6 +405,12 @@ public class GameManager : MonoBehaviour
 
     void Exit_Battle()
     {
+        foreach (GameObject p in partyMembers)
+        {
+            //Turns off the aimer graphic for all party members
+            p.GetComponent<Controller>().aimerGraphic.SetActive(false);
+        }
+
         currentController.inBattle = false;
         currentController.running = false;
     }

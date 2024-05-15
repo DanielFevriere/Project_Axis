@@ -36,7 +36,6 @@ public class CrossBack : Skill
         visual.SetActive(true);
         //Activates attack animation
         //moveScript.anim.SetTrigger("boost");
-        moveScript.playerWeapon.Attack(crossBackDamage, crossBackStart, crossBackEnd); 
     }
 
 
@@ -47,7 +46,6 @@ public class CrossBack : Skill
 
         while (Time.time < startTime + skillTime)
         {
-            moveScript.playerWeapon.Attack(crossBackDamage, crossBackStart, crossBackEnd); 
             yield return null;
         }
 

@@ -14,11 +14,7 @@ using Vector3 = UnityEngine.Vector3;
 public class PlayerWeapon : MonoBehaviour
 {
     #region Properties
-    Controller player;
-
     public float weaponKnockback;
-    public Transform weaponStart;
-    public Transform weaponEnd;
     [SerializeField] float weaponRadius;
 
     // Layer mask for things we want weapon to hit
@@ -27,7 +23,7 @@ public class PlayerWeapon : MonoBehaviour
     //The games camera
     [SerializeField] Camera cam;
     //The current position of the mouse
-    Vector3 mousePos;
+    public Vector3 mousePos;
 
     public float yawRotation;
 
@@ -37,8 +33,6 @@ public class PlayerWeapon : MonoBehaviour
     {
         //Sets the camera variable to the camera that is mainly being used.
         cam = Camera.main;
-
-        player = GetComponentInParent<Controller>();
     }
 
     void Update()
@@ -69,7 +63,7 @@ public class PlayerWeapon : MonoBehaviour
             Vector3 look = camera.GetPoint(length);
             raycastHit = new Vector3(look.x, transform.position.y, look.z);
             transform.LookAt(raycastHit);
-
+            mousePos = raycastHit;
             // Find Yaw rotation angle and update animator based on that
             Quaternion aimRotation = transform.rotation;
             yawRotation = aimRotation.eulerAngles.y;
