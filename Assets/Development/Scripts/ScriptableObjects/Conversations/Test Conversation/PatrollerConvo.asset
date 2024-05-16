@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: PatrollerConvo
+  m_EditorClassIdentifier: 
+  convoTitle: PatrollerConvo
+  Dialogues:
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Excuse me
+  - nameID: PatrolCube
+    displayName: Patrol Cube
+    line: Yes?
+  - nameID: PatrolCube
+    displayName: Patrol Cube
+    line: Oh! Gabe. Yeah the patrol system is fully functional.
+  - nameID: Michael
+    displayName: Mike
+    line: Were starting to get a lot of new cubes..
+  - nameID: Raphael
+    displayName: Raph
+    line: That means that Daniel is putting in WORK

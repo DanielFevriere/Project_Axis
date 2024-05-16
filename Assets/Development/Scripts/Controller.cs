@@ -205,6 +205,11 @@ public class Controller : MonoBehaviour
             GameManager.Instance.SwapCharacter(); //needs to be updated before being re-enabled
         }
 
+        //Say quote
+        if (kb.lKey.wasReleasedThisFrame)
+        {
+            SayQuote(); 
+        }
 
         //Open Menu
         OpenMenu();
