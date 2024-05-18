@@ -12,6 +12,8 @@ public class PatrollingNPC : MonoBehaviour
     public bool inTalkingDistance = false;
     public Conversation convo;
     public float walkSpeed;
+    public Transform currentTarget;
+    public list<Transform> targetList;
 
 
     // Start is called before the first frame update
@@ -56,6 +58,25 @@ public class PatrollingNPC : MonoBehaviour
     {
         talking = false;
         DialogueManager.Instance.OnCloseDialogue -= StartPatrolling;
+
+    }
+
+    void NextTarget()
+    {
+        for(int i = 0;i < targetList.Count;i++)
+        {
+            if(currentTarget == targetList[i])
+            {
+                if(i != targetList[i-1])
+                {
+                    currentTarget = targetList[i+1];
+                }
+                else
+                {
+                    currentTarget = targetList[0];
+                }
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
