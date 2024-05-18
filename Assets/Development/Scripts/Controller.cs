@@ -88,6 +88,7 @@ public class Controller : MonoBehaviour
     }
 
     //Always called every frame
+    //The reason Update() is empty is because this isn't always active
     private void Update()
     {
     }
@@ -95,6 +96,7 @@ public class Controller : MonoBehaviour
     //Constantly called when the Gamemanager is in a certain state
     public void HandleUpdate()
     {
+        //The player shouldn't update if dead
         if (GetComponent<Player>().dead)
         {
             return;
@@ -102,7 +104,8 @@ public class Controller : MonoBehaviour
 
         //This is the character thats being controlled
         isControlling = true;
-
+        
+        //Disables an AI action
         GetComponent<AIChasePartyLeader>().enabled = false;
 
         //Fetches the keyboard input system
@@ -119,7 +122,6 @@ public class Controller : MonoBehaviour
 
         //Sets movement data
         Movement();
-
 
         //If the player is not attacking
         if (!GetComponentInChildren<SkillHolder>().attackSkill.inUse)
@@ -145,7 +147,6 @@ public class Controller : MonoBehaviour
             attacking = true;
         }
 
-
         // Rotate weapon
         if (playerWeapon != null)
         {
@@ -155,6 +156,7 @@ public class Controller : MonoBehaviour
         //GroundCheck
         isGrounded = Physics.Raycast(transform.position, Vector3.down, out GroundHit, groundCheckDistance, GroundLayer);
 
+        //Slope check
         if(onSlope)
         {
             isGrounded = true;
@@ -201,14 +203,12 @@ public class Controller : MonoBehaviour
         //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
         {
-            Debug.Log("Swapped");
-            GameManager.Instance.SwapCharacter(); //needs to be updated before being re-enabled
-        }
+            GameManager.Instance.SwapCharacter();
 
         //Say quote
         if (kb.lKey.wasReleasedThisFrame)
         {
-            SayQuote(); 
+            //SayQuote(); //Disable Quotes for now, just a test feature
         }
 
         //Open Menu
@@ -363,13 +363,15 @@ public class Controller : MonoBehaviour
         }
     }
 
+//This was just a gizmo drawn for slop detection debugging, consider deleting
+/*
     void OnDrawGizmosSelected()
     {
         // Draw the raycast gizmo
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), transform.position + Vector3.down * 3f);
     }
-
+*/
     /// <summary>
     /// Vector3 generated based on the movement on a slope
     /// </summary>
@@ -378,10 +380,13 @@ public class Controller : MonoBehaviour
         return Vector3.ProjectOnPlane(movement, SlopeHit.normal);
     }
 
+    //Plays a dialogue for test purposes
     public void SayQuote()
     {
         StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
     }
+
+    //Returns the facting direction
     public Vector2 ReturnDir()
     {
         switch (direction)
