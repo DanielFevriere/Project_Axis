@@ -26,6 +26,12 @@ public class PatrollingNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the NPC reaches the next target/waypoint, Switch Target
+        if(Physics.CheckSphere(currentTarget.position, 1f)
+            {
+                NextTarget();
+            }
+
         if(!talking)
         {
             //Automatically faces player
@@ -61,6 +67,7 @@ public class PatrollingNPC : MonoBehaviour
 
     }
 
+    //Switches target
     void NextTarget()
     {
         for(int i = 0;i < targetList.Count;i++)
