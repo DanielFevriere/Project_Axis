@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PatrollingNPC : MonoBehaviour
 {
     NavMeshAgent agent;
+    public Animator anim;
     public bool talking;
     public Transform target;
     public bool inTalkingDistance = false;
@@ -26,6 +27,11 @@ public class PatrollingNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Sets npc directional animations
+        anim.SetFloat("xAxis", agent.velocity.x);
+        anim.SetFloat("yAxis", agent.velocity.y);
+        anim.SetBool("Walking", !talking);
+
         //If the NPC reaches the next target/waypoint, Switch Target
         if(Physics.CheckSphere(currentTarget.position, 1f)
             {
