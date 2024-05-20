@@ -9,12 +9,11 @@ public class PatrollingNPC : MonoBehaviour
     NavMeshAgent agent;
     public Animator anim;
     public bool talking;
-    public Transform target;
     public bool inTalkingDistance = false;
     public Conversation convo;
     public float walkSpeed;
     public Transform currentTarget;
-    public list<Transform> targetList;
+    public List<Transform> targetList;
 
 
     // Start is called before the first frame update
@@ -32,22 +31,14 @@ public class PatrollingNPC : MonoBehaviour
         anim.SetFloat("yAxis", agent.velocity.y);
         anim.SetBool("Walking", !talking);
 
-        //If the NPC reaches the next target/waypoint, Switch Target
-        if(Physics.CheckSphere(currentTarget.position, 1f)
-            {
-                NextTarget();
-            }
 
-        if(!talking)
+        if (!talking)
         {
-            //Automatically faces player
-            Vector3 targetDirection = target.position - transform.position;
-            Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
+            Patrolling();
 
-            agent.SetDestination(target.position);
-            agent.isStopped = false;
         }
+
+
 
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
@@ -70,22 +61,51 @@ public class PatrollingNPC : MonoBehaviour
     {
         talking = false;
         DialogueManager.Instance.OnCloseDialogue -= StartPatrolling;
+    }
 
+    void Patrolling()
+    {
+        //Automatically faces player
+        Vector3 targetDirection = currentTarget.position - transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
+
+        agent.SetDestination(currentTarget.position);
+        agent.isStopped = false;
+
+        float distanceToTarget = Vector3.Distance(currentTarget.position, transform.position);
+        if(distanceToTarget <= 3)
+        {
+            NextTarget();
+        }
     }
 
     //Switches target
     void NextTarget()
     {
+        //Return if theres no targets lol
+        if(targetList.Count == 0)
+        {
+            return;
+        }
+
+        //Goes through the list of targets
         for(int i = 0;i < targetList.Count;i++)
         {
+            //If the current target is the target at the lists index,
             if(currentTarget == targetList[i])
             {
-                if(i != targetList[i-1])
+                //If the current target is not the last target in the list
+                if(currentTarget != targetList[targetList.Count - 1])
                 {
+                    //Make the current target the next target in the list
                     currentTarget = targetList[i+1];
+                    break;
                 }
+                //If it is
                 else
                 {
+                    //Make the current target the first target in the list (so it rotates)
                     currentTarget = targetList[0];
                 }
             }

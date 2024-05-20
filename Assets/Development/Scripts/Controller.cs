@@ -204,6 +204,7 @@ public class Controller : MonoBehaviour
         if (kb.eKey.wasReleasedThisFrame)
         {
             GameManager.Instance.SwapCharacter();
+        }
 
         //Say quote
         if (kb.lKey.wasReleasedThisFrame)
@@ -363,15 +364,15 @@ public class Controller : MonoBehaviour
         }
     }
 
-//This was just a gizmo drawn for slop detection debugging, consider deleting
-/*
-    void OnDrawGizmosSelected()
-    {
-        // Draw the raycast gizmo
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), transform.position + Vector3.down * 3f);
-    }
-*/
+    //This was just a gizmo drawn for slop detection debugging, consider deleting
+    /*
+        void OnDrawGizmosSelected()
+        {
+            // Draw the raycast gizmo
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), transform.position + Vector3.down * 3f);
+        }
+    */
     /// <summary>
     /// Vector3 generated based on the movement on a slope
     /// </summary>
