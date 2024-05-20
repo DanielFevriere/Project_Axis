@@ -101,12 +101,18 @@ public class EnemyAIBrain : MonoBehaviour
     public void DetermineState()
     {
         //WIP, unsure what to make enemy AI individual states at the moment
+        //I think some basic states should be Attacking, Defending, 
     }
 
     //Needs more fleshing out before implementation. Ignore for now
     public void SetGoal()
     {
-
+        //Goals for enemies could be simple
+        //Goals are priorities
+        //Simple goals are best
+        //The goals guides how much of a priority an action should be 
+        //Recommendation: Kill Player, Survive, Stall, Assist
+        //The state will determine the goal
     }
 
     //Sets the list of available actions that the AI can do
