@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     //Ground Detection + Gravity
     RaycastHit GroundHit;
+    public string enemyID;
     public LayerMask GroundLayer;
     public bool isGrounded;
     public bool isFalling;
@@ -108,6 +109,22 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnDestroy()
     {
+        //Cycles through the active quests
+        for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
+        {
+            //Cycles through the conditions of active quests
+            for (int j = 0; j < QuestManager.Instance.activeQuests[i].conditions.Count; j++)
+            {
+                //If the enemy ID is the same as the quest condition ID,
+                if (enemyID == QuestManager.Instance.activeQuests[i].conditions[j].ConditionID)
+                {
+                    //Gives progress for destroying the enemy
+                    QuestManager.Instance.activeQuests[i].conditions[j].GiveProgress(1);
+                }
+            }
+        }
+
+        //Can't remember why I did this, but it's probably some sort of bugfix
         DOTween.Sequence()
             .AppendInterval(0.1f)
             .AppendCallback(() =>

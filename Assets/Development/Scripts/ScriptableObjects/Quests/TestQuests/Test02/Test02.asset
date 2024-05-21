@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
-  m_Name: Test01
+  m_Name: Test02
   m_EditorClassIdentifier: 
-  questTitle: The Cube.
-  questDescription: The cube has been acting strange. Talk to it.
-  questObjective: Talk to the cube.
+  questTitle: A conversation with Cube
+  questDescription: Just talk to cube
+  questObjective: Talk to Cube
   isAccepted: 0
   isComplete: 0
   questReward: {fileID: 0}
   conditions:
-  - conditionName: Initiate Conversation with the cube
-    locked: 1
-    accomplished: 0
+  - conditionName: Talk to Cube
+    conditionID: Cube
+    locked: 0
+    completed: 0
     currentProgress: 0
     requiredProgress: 1

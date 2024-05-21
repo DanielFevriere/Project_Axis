@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PatrollingNPC : MonoBehaviour
 {
     NavMeshAgent agent;
+    [SerializeField] Quest killQuest;
     public Animator anim;
     public bool talking;
     public bool inTalkingDistance = false;
@@ -43,6 +44,7 @@ public class PatrollingNPC : MonoBehaviour
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
+        //If you are in talking distance,
         if (inTalkingDistance && GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
         {
             agent.velocity = Vector3.zero;
@@ -51,7 +53,23 @@ public class PatrollingNPC : MonoBehaviour
             //Changes the games state to dialogue
             GameManager.Instance.ChangeState(GameState.Dialogue);
 
+            //If it contains the quest, Check if the quest is complete
+            if(QuestManager.Instance.activeQuests.Contains(killQuest))
+            {
+                if(QuestManager.Instance.CheckIfQuestComplete(killQuest))
+                {
+                    QuestManager.Instance.FinishQuest(killQuest);
+                }    
+            }
+            //If not, accept the quest
+            else
+            {
+                QuestManager.Instance.AcceptQuest(killQuest);
+            }
+
+            
             StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
+
 
             DialogueManager.Instance.OnCloseDialogue += StartPatrolling;
         }

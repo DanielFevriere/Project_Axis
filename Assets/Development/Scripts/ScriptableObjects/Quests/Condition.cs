@@ -6,21 +6,28 @@ using UnityEngine;
 public class Condition
 {
     [SerializeField] string conditionName;
+    [SerializeField] string conditionID;
     [SerializeField] bool locked;
-    [SerializeField] bool accomplished;
+    [SerializeField] bool completed;
     [SerializeField] int currentProgress;
     [SerializeField] int requiredProgress;
+
+    //Getters
     public string ConditionName
     {
         get { return conditionName; }
+    }
+    public string ConditionID
+    {
+        get { return conditionID; }
     }
     public bool Locked
     {
         get { return locked; }
     }
-    public bool Accomplished
+    public bool Completed
     {
-        get { return accomplished; }
+        get { return completed; }
     }
     public int CurrentProgress
     {
@@ -31,9 +38,26 @@ public class Condition
         get { return requiredProgress; }
     }
 
-    //Completes Quest Condition
-    public virtual void CompleteCondition()
+    //Gives progress
+    public void GiveProgress(int amount)
     {
-        accomplished = true;
+        currentProgress += amount;
+        if(currentProgress >= requiredProgress)
+        {
+            CompleteCondition();
+        }
     }
+
+    //Completes Quest Condition
+    public void CompleteCondition()
+    {
+        completed = true;
+    }
+}
+
+public enum ConditionType
+{
+    Kill,
+    Gather,
+    Talk
 }

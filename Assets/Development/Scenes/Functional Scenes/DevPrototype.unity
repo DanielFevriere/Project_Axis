@@ -62566,13 +62566,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa2621664b09a64fbd2e99d44805494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killQuest: {fileID: 11400000, guid: c221e9ef7e05c0c489a3919fca55d1bb, type: 2}
   anim: {fileID: 1035698757}
   talking: 0
   inTalkingDistance: 0
   convo: {fileID: 11400000, guid: 62f39477e70199644acd168938a1470d, type: 2}
   walkSpeed: 2
-  currentTarget: {fileID: 0}
-  targetList: []
+  currentTarget: {fileID: 2096442225}
+  targetList:
+  - {fileID: 2096442225}
+  - {fileID: 357321975}
+  - {fileID: 170547759}
+  - {fileID: 1741046068}
 --- !u!1 &1628488313
 GameObject:
   m_ObjectHideFlags: 0
@@ -75815,7 +75820,7 @@ MonoBehaviour:
   characterName: Cube
   firstConvo: {fileID: 11400000, guid: de528b4f41ead104d8abd876255d3bf1, type: 2}
   repeatConvo: {fileID: 11400000, guid: 8e937c5aa3e5ee24388bed1c78264d4d, type: 2}
-  talkingQuest: {fileID: 11400000, guid: c221e9ef7e05c0c489a3919fca55d1bb, type: 2}
+  talkingQuest: {fileID: 11400000, guid: 197c4557cfcc49d4582f6aaa8201f6f2, type: 2}
 --- !u!1 &2104718880
 GameObject:
   m_ObjectHideFlags: 0
