@@ -52,7 +52,7 @@ public class AIChaseEnemy : AIAction
 
         //Sets the direction int in the animator controller
         anim.SetFloat("xAxis", agent.velocity.x);
-        anim.SetFloat("yAxis", agent.velocity.y);
+        anim.SetFloat("yAxis", agent.velocity.z);
 
         anim.SetBool("moving", moving);
         anim.SetBool("running", running);

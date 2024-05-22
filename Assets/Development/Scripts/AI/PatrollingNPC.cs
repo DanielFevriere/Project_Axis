@@ -29,7 +29,7 @@ public class PatrollingNPC : MonoBehaviour
     {
         //Sets npc directional animations
         anim.SetFloat("xAxis", agent.velocity.x);
-        anim.SetFloat("yAxis", agent.velocity.y);
+        anim.SetFloat("yAxis", agent.velocity.z);
         anim.SetBool("Walking", !talking);
 
 

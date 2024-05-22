@@ -41,7 +41,7 @@ public class AIChasePartyLeader : AIAction
 
         //Sets the direction int in the animator controller
         anim.SetFloat("xAxis", agent.velocity.x);
-        anim.SetFloat("yAxis", agent.velocity.y);
+        anim.SetFloat("yAxis", agent.velocity.z);
 
         //Sets the direction bool in the animator controller
         anim.SetBool("moving", moving);
