@@ -65,7 +65,7 @@ public class CharacterTab : GameTab
     public void NextCharacter()
     {
         //If you are at the end of the partymembers list, set the index to 0, otherwise increase
-        if(characterIndex == GameManager.Instance.partyMembers.Count)
+        if(characterIndex == GameManager.Instance.partyMembers.Count - 1)
         {
             characterIndex = 0;
         }
@@ -82,7 +82,7 @@ public class CharacterTab : GameTab
 
         if (characterIndex == 0)
         {
-            characterIndex = GameManager.Instance.partyMembers.Count;
+            characterIndex = GameManager.Instance.partyMembers.Count - 1;
         }
         else
         {

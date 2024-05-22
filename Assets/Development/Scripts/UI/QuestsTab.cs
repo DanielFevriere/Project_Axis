@@ -31,7 +31,11 @@ public class QuestsTab : GameTab
 
     public override void Refresh()
     {
-        mainQuest = questManager.activeQuests[0];
+        if(QuestManager.Instance.activeQuests.Count == 0)
+        {
+            mainQuest = questManager.activeQuests[0];
+            return;
+        }
 
         sideQuests.Clear();
 
