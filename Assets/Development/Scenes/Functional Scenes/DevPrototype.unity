@@ -15272,6 +15272,8 @@ MonoBehaviour:
   questTitleText: {fileID: 10263851}
   questDescriptionText: {fileID: 1826747687}
   questRewardText: {fileID: 519196701}
+  questTitleText_HUD: {fileID: 195362967}
+  questConditionText_HUD: {fileID: 183036324}
   mainQuestName: {fileID: 1024627086}
   sideQuestNames:
   - {fileID: 59787085}
@@ -51151,7 +51153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1468841180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51754,7 +51756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1492542866
 RectTransform:
   m_ObjectHideFlags: 0

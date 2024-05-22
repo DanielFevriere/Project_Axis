@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -133,32 +134,8 @@ public class UiDebug
 }
 
 [System.Serializable]
-public class GameHUD
-{
-    public GameObject gameHudContainer;
 
-    bool isVisible = false;
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        gameHudContainer.SetActive(isVisible);
-    }
 
-    public List<CharacterCombatStatusPanel> CombatStatusPanels;
-
-    public void SetUpCombatStatusPanelForCharacter(Stats OwnerStats, int index = 0)
-    {
-        if (CombatStatusPanels.Count == 0)
-        {
-            Debug.LogError("CombatStatusPanels unassigned in UI!!");
-            return;
-        }
-
-        CombatStatusPanels[index].SetUpNewOwner(OwnerStats);
-    }
-}
-
-[System.Serializable]
 public class GameMenu
 {
     public GameObject gameMenuContainer;

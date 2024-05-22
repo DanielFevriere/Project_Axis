@@ -15,6 +15,9 @@ public class QuestsTab : GameTab
     public TMP_Text questDescriptionText;
     public TMP_Text questRewardText;
 
+    public TMP_Text questTitleText_HUD;
+    public TMP_Text questConditionText_HUD;
+
     public TMP_Text mainQuestName;
     public List<TMP_Text> sideQuestNames;
 
@@ -23,6 +26,8 @@ public class QuestsTab : GameTab
     {
         questManager = QuestManager.Instance;
     }
+
+
 
     public void Refresh()
     {
