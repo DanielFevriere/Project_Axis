@@ -16,16 +16,22 @@ public class GameHUD : MonoBehaviour
 
     private void Update()
     {
-        questTitleText_HUD.text = questManager.activeQuests[0].questTitle;
+        string titleText = "";
         string conditionText = "";
 
-        for (int i = 0; i < questManager.activeQuests[0].conditions.Count; i++)
+        if(questManager.activeQuests.Count != 0)
         {
-            conditionText = questManager.activeQuests[0].conditions[i].ConditionName +
-                " " + questManager.activeQuests[0].conditions[i].CurrentProgress.ToString() +
-                "/" + questManager.activeQuests[0].conditions[i].RequiredProgress.ToString();
+            for (int i = 0; i < questManager.activeQuests[0].conditions.Count; i++)
+            {
+                conditionText = questManager.activeQuests[0].conditions[i].ConditionName +
+                    " " + questManager.activeQuests[0].conditions[i].CurrentProgress.ToString() +
+                    "/" + questManager.activeQuests[0].conditions[i].RequiredProgress.ToString();
+            }
+            titleText = questManager.activeQuests[0].questTitle;
         }
 
+        //Sets the HUD text to the active target quest
+        questTitleText_HUD.text = titleText;
         questConditionText_HUD.text = conditionText;
     }
     public void ToggleVisibility()

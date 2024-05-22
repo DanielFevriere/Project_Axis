@@ -17,11 +17,19 @@ MonoBehaviour:
   questObjective: Kill 20 shades
   isAccepted: 0
   isComplete: 0
-  questReward: {fileID: 0}
+  questReward:
+    veniReward: 300
+    boosterItemRewards:
+    - {fileID: 11400000, guid: 2c5b817d652ed924faeddba9829c000e, type: 2}
+    consumableItemRewards:
+    - {fileID: 11400000, guid: 146d4c23c2c2f8f469e75cbd297e389d, type: 2}
+    keyItemRewards:
+    - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
+    nodeRewards: []
   conditions:
   - conditionName: Destroy Shades
     conditionID: Shade
     locked: 0
-    completed: 0
-    currentProgress: 0
+    completed: 1
+    currentProgress: 20
     requiredProgress: 20

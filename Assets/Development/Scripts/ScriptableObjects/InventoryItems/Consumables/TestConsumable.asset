@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: TestConsumable
   m_EditorClassIdentifier: 
   itemName: Test Consumable
+  itemDescription: test consumable item
   icon: {fileID: 21300000, guid: 6c023c300e25bc54c9053eb9511e6d0c, type: 3}
-  usable: 0
+  usable: 1
   disposable: 0
-  amount: 0
+  amount: 5

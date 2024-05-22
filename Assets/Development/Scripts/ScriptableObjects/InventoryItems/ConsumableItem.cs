@@ -6,4 +6,5 @@ using UnityEngine;
 public class ConsumableItem : InventoryItem
 {
     public int amount;
+    
 }

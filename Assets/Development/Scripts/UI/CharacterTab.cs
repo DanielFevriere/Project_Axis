@@ -25,7 +25,7 @@ public class CharacterTab : GameTab
     public string itemNameText;
     public string itemNameDescription;
 
-    public void Refresh()
+    public override void Refresh()
     {
         veniText.text = "Veni: " + GameManager.Instance.veni.ToString();
         UpdateCharacterDisplay();

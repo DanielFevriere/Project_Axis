@@ -23,9 +23,9 @@ public class InventoryManager : MonoBehaviour
     }
     #endregion
 
-    public List<InventoryItem> boosterInventory;
-    public List<InventoryItem> consumableInventory;
-    public List<InventoryItem> keyItemInventory;
+    public List<BoosterItem> boosterInventory;
+    public List<ConsumableItem> consumableInventory;
+    public List<KeyItem> keyItemInventory;
 
     //If the item is able to be used, it will be activated
     public void UseItem(InventoryItem item)
@@ -33,3 +33,5 @@ public class InventoryManager : MonoBehaviour
 
     }
 }
+
+

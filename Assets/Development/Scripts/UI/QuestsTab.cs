@@ -29,7 +29,7 @@ public class QuestsTab : GameTab
 
 
 
-    public void Refresh()
+    public override void Refresh()
     {
         mainQuest = questManager.activeQuests[0];
 

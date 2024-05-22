@@ -78,6 +78,15 @@ public class UiManager : MonoBehaviour
         gameTabs.Add(SettingsTab);
     }
 
+    private void Update()
+    {
+        //Updates all the game tabs
+        for (int i = 0; i < gameTabs.Count; i++)
+        {
+            gameTabs[i].Refresh();
+        }
+    }
+
     public void DEBUG_SetCurrentState()
     {
         Debug.gameStateText.text = "Game State: " + GameManager.Instance.CurrentState.ToString();

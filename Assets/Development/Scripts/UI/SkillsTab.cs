@@ -30,7 +30,7 @@ public class SkillsTab : GameTab
     public List<Image> availableSkillIcons;
     public List<TMP_Text> availableSkillNames;
 
-    public void Refresh()
+    public override void Refresh()
     {
         UpdateCharacterDisplay();
         UpdateSkillDisplay();

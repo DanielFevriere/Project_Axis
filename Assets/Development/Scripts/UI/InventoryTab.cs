@@ -13,7 +13,7 @@ public class InventoryTab : GameTab
     public InventoryManager InventoryManager;
     public List<Image> inventoryIcons;
 
-    public void Refresh()
+    public override void Refresh()
     {
         veniText.text = "Veni: " + GameManager.Instance.veni.ToString();
 
@@ -27,23 +27,44 @@ public class InventoryTab : GameTab
         switch (invPage)
         {
             case 0:
-                for (int i = 0; i < InventoryManager.boosterInventory.Count; i++)
+                if(InventoryManager.boosterInventory.Count == 0)
                 {
-                    inventoryIcons[i].sprite = InventoryManager.boosterInventory[i].icon;
+                    break;
+                }
+                else
+                {
+                    for (int i = 0; i < InventoryManager.boosterInventory.Count; i++)
+                    {
+                        inventoryIcons[i].sprite = InventoryManager.boosterInventory[i].icon;
+                    }
                 }
                 break;
 
             case 1:
-                for (int i = 0; i < InventoryManager.consumableInventory.Count; i++)
+                if(InventoryManager.consumableInventory.Count == 0)
                 {
-                    inventoryIcons[i].sprite = InventoryManager.consumableInventory[i].icon;
+                    break;
+                }
+                else
+                {
+                    for (int i = 0; i < InventoryManager.consumableInventory.Count; i++)
+                    {
+                        inventoryIcons[i].sprite = InventoryManager.consumableInventory[i].icon;
+                    }
                 }
                 break;
 
             case 2:
-                for (int i = 0; i < InventoryManager.keyItemInventory.Count; i++)
+                if (InventoryManager.keyItemInventory.Count == 0)
                 {
-                    inventoryIcons[i].sprite = InventoryManager.keyItemInventory[i].icon;
+                    break;
+                }
+                else
+                {
+                    for (int i = 0; i < InventoryManager.keyItemInventory.Count; i++)
+                    {
+                        inventoryIcons[i].sprite = InventoryManager.keyItemInventory[i].icon;
+                    }
                 }
                 break;
         }

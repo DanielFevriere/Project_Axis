@@ -8,6 +8,11 @@ public class GameTab : MonoBehaviour
     public GameObject tabContainer;
     public bool isVisible = false;
 
+    public virtual void Refresh()
+    {
+
+    }
+
     public void ToggleVisibility()
     {
         isVisible = !isVisible;

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TestKeyItem
   m_EditorClassIdentifier: 
   itemName: Test Key Item
+  itemType: 0
+  itemDescription: yeah test item
   icon: {fileID: 21300000, guid: a27efeab4a22e37439ca8722b3c7d4ea, type: 3}
   usable: 0
   disposable: 0

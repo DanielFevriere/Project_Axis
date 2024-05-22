@@ -48,15 +48,30 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    //Checks if the quest passed in has been accepted
+    //Checks if the quest passed in has been Completed
     public bool CheckIfQuestComplete(Quest targetQuest)
     {
         //Searches the active quests list for the target quest
         for (int i = 0; i < activeQuests.Count; i++)
         {
+            //If it's the target quest
             if (activeQuests[i] == targetQuest)
             {
-                //Completes the quest
+                //Searches through all the quest conditions
+                for (int j = 0; j < activeQuests[i].conditions.Count; j++)
+                {
+                    //If the quest condition is not complete, then the quest is not complete
+                    if(!activeQuests[i].conditions[j].Completed)
+                    {
+                        activeQuests[i].isComplete = false;
+                        return activeQuests[i].isComplete;
+                    }
+                }
+
+                //If it makes it through the search, then the quest is complete
+                activeQuests[i].isComplete = true;
+
+                //Returns if the quest is complete or not
                 return activeQuests[i].isComplete;
             }
         }
@@ -68,7 +83,7 @@ public class QuestManager : MonoBehaviour
     //Completes quest
     public void FinishQuest(Quest targetQuest)
     {
-        //Checks if the quest was accepted
+        //Checks if the quest was even accepted
         if (!activeQuests.Contains(targetQuest))
         {
             return;
@@ -79,9 +94,7 @@ public class QuestManager : MonoBehaviour
         {
             if (activeQuests[i] == targetQuest)
             {
-                //Completes the quest
-                activeQuests[i].isComplete = true;
-                //activeQuests[i].CompleteQuest(); Add functionality for quest rewarding before uncommenting this
+                activeQuests[i].CompleteQuest();
                 activeQuests.Remove(activeQuests[i]);
             }
         }
