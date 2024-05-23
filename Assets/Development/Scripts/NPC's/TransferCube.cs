@@ -51,6 +51,15 @@ public class TransferCube : MonoBehaviour
         if(DialogueManager.Instance.dialogueChoice == 1)
         {
             StartCoroutine(TeleportCoroutine(GameManager.Instance.partyLeader.GetComponent<Controller>()));
+
+            //Teleports each party member to the party leader
+            foreach (GameObject p in GameManager.Instance.partyMembers)
+            {
+                if (p != GameManager.Instance.partyLeader)
+                {
+                    p.transform.position = GameManager.Instance.partyLeader.transform.position;
+                }
+            }
         }
     }
 

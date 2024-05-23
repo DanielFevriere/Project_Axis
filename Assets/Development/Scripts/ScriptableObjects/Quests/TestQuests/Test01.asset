@@ -30,6 +30,6 @@ MonoBehaviour:
   - conditionName: Destroy Shades
     conditionID: Shade
     locked: 0
-    completed: 1
-    currentProgress: 20
+    completed: 0
+    currentProgress: 0
     requiredProgress: 20

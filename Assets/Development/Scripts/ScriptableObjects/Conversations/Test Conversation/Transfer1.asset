@@ -16,7 +16,7 @@ MonoBehaviour:
   Dialogues:
   - nameID: RedCube
     displayName: Teleporter Cube 1
-    line: You ready to transfer to point B?
+    line: You want to explore the map?
   - nameID: Raphael
     displayName: Raph
     line: Yes.

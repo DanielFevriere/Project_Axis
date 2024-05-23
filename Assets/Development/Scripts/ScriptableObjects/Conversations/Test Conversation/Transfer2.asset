@@ -16,7 +16,7 @@ MonoBehaviour:
   Dialogues:
   - nameID: YellowCube
     displayName: Teleporter Cube 2
-    line: Ready to transfer to point C?
+    line: You want to return to the combat test zone?
   - nameID: Michael
     displayName: Mike
     line: Yessir!

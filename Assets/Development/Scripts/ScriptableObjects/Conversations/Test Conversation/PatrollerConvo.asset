@@ -18,14 +18,14 @@ MonoBehaviour:
     displayName: Gabe
     line: Excuse me
   - nameID: PatrolCube
-    displayName: Patrol Cube
+    displayName: Test Gabriel
     line: Yes?
   - nameID: PatrolCube
-    displayName: Patrol Cube
-    line: Oh! Gabe. Yeah the patrol system is fully functional.
+    displayName: Test Gabriel
+    line: Oh! Gabe. Yeah I have a quest for you
   - nameID: Michael
     displayName: Mike
-    line: Were starting to get a lot of new cubes..
+    line: Were starting to get a lot of new things
   - nameID: Raphael
     displayName: Raph
     line: That means that Daniel is putting in WORK

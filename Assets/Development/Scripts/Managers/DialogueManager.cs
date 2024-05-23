@@ -115,7 +115,6 @@ public class DialogueManager : MonoBehaviour
         OnShowDialogue.Invoke();
         shownConversation = convo;
 
-        dialogueName.text = convo.Dialogues[0].DisplayName;
         StartCoroutine(TypeLine(convo.Dialogues[0]));
     }
 
