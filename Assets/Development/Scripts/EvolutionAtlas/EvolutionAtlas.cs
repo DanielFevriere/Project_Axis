@@ -9,6 +9,5 @@ public class EvolutionAtlas : ScriptableObject
 
     public List<Node> lockedNodes;
     public List<Node> unlockedNodes;
-    public List<Node> acquiredNodes;
 
 }

@@ -5,17 +5,12 @@ using UnityEngine;
 public class Node : ScriptableObject
 {
     public bool locked;
-    public int spCost;
     public string nodeDescription;
 
-    //When a node is acquired, it needs to be able to give that node affect to the designated character
-    public virtual void AcquireNode(GameObject character)
+    //When a node is Unlocked, it needs to be able to give that node affect to the designated character
+
+    public virtual void UnlockNode()
     {
 
-    }
-
-    public virtual bool UnlockRequirements()
-    {
-        return false;
     }
 }
