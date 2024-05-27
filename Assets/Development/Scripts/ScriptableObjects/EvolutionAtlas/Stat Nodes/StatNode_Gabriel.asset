@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StatNode_Gabriel
   m_EditorClassIdentifier: 
   locked: 0
-  spCost: 1
   nodeDescription: 
   stat: 0
+  increaseAmount: 1

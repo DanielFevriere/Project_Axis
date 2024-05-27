@@ -8,8 +8,4 @@ public class SkillNode : Node
 {
     public Skill ability;
 
-    public override void AcquireNode(GameObject character)
-    {
-        character.GetComponentInChildren<SkillHolder>().skillList.Add(ability);
-    }
 }

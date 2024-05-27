@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class AtlasManager : MonoBehaviour
 {
+    #region Global static reference
+    private static AtlasManager instance;
+    public static AtlasManager Instance
+    {
+        get
+        {
+            if (instance != null)
+            {
+                return instance;
+            }
+            else
+            {
+                instance = FindObjectOfType<AtlasManager>();
+                return instance;
+            }
+        }
+    }
+    #endregion
+
     public EvolutionAtlas gabeAtlas;
     public EvolutionAtlas mikeAtlas;
     public EvolutionAtlas raphAtlas;
@@ -12,7 +31,7 @@ public class AtlasManager : MonoBehaviour
     /// Unlocks the node for the specified character
     /// </summary>
     /// <param name="node"></param>
-    public void UnlockNode(Node node, EvolutionAtlas characterAtlas)
+    public void UnlockNode(string nodeID)
     {
 
     }

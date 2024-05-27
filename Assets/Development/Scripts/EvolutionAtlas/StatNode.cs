@@ -7,14 +7,4 @@ public class StatNode : Node
 {
     public Stat stat;
     public int increaseAmount;
-
-    public override void AcquireNode(GameObject character)
-    {
-        character.GetComponent<Stats>().ModifyStat(stat, increaseAmount);
-    }
-
-    public override bool UnlockRequirements()
-    {
-        return false;
-    }
 }

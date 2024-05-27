@@ -47,7 +47,7 @@ public class RewardGiver
                 if (InventoryManager.Instance.boosterInventory[i] == boosterItemRewards[i])
                 {
                     //This shouldn't happen. Each booster item is unique and there should only be one of each, so skip to the next item
-                    //BUTTTT comment out the break if you want to see duplicates
+                    //BUTTTT comment out the break if you want to see duplicates (test reasons)
                     //break;
                 }
 
@@ -117,7 +117,7 @@ public class RewardGiver
                 if (InventoryManager.Instance.keyItemInventory[i] == keyItemRewards[i])
                 {
                     //This shouldn't happen. Each key item is unique and there should only be one of each, so skip to the next item
-                    //BUTTTT comment out the break if you want to see duplicates
+                    //BUTTTT comment out the break if you want to see duplicates (test reasons)
                     //break;
                 }
 
@@ -134,6 +134,15 @@ public class RewardGiver
 
     void GiveNodes()
     {
+        if(nodeRewards.Count == 0)
+        {
+            return;
+        }
 
+        for (int i = 0; i < nodeRewards.Count; i++)
+        {
+            AtlasManager.Instance.UnlockNode(nodeRewards[i].nodeID);
+
+        }
     }
 }
