@@ -10,4 +10,12 @@ public class EvolutionAtlas : ScriptableObject
     public List<Node> lockedNodes;
     public List<Node> unlockedNodes;
 
+    public void ApplyNodes()
+    {
+        for (int i = 0; i < unlockedNodes.Count; i++)
+        {
+
+        }
+    }
+
 }

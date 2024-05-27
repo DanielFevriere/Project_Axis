@@ -5,7 +5,7 @@ using UnityEngine;
 public class Node : ScriptableObject
 {
     public string nodeID;
-    public bool locked;
+    public bool locked = true;
     public bool applied;
     public string nodeDescription;
 
@@ -13,6 +13,6 @@ public class Node : ScriptableObject
 
     public virtual void UnlockNode()
     {
-
+        locked = false;
     }
 }

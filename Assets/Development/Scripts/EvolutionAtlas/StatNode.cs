@@ -7,4 +7,9 @@ public class StatNode : Node
 {
     public Stat stat;
     public int increaseAmount;
+
+    public override void UnlockNode()
+    {
+        
+    }
 }

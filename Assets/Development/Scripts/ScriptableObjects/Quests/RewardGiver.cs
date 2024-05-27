@@ -134,6 +134,7 @@ public class RewardGiver
 
     void GiveNodes()
     {
+        //If theres no nodes, return
         if(nodeRewards.Count == 0)
         {
             return;
@@ -142,7 +143,6 @@ public class RewardGiver
         for (int i = 0; i < nodeRewards.Count; i++)
         {
             AtlasManager.Instance.UnlockNode(nodeRewards[i].nodeID);
-
         }
     }
 }
