@@ -144,5 +144,8 @@ public class RewardGiver
         {
             AtlasManager.Instance.UnlockNode(nodeRewards[i].nodeID);
         }
+
+        //Refreshes atlas so nodes are applied to characters
+        AtlasManager.Instance.UpdateAtlas();
     }
 }

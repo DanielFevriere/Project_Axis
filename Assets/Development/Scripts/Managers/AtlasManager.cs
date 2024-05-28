@@ -24,9 +24,24 @@ public class AtlasManager : MonoBehaviour
     #endregion
 
     public List<EvolutionAtlas> characterAtlases;
-    public EvolutionAtlas gabeAtlas;
-    public EvolutionAtlas mikeAtlas;
-    public EvolutionAtlas raphAtlas;
+
+    void Start()
+    {
+        //Searches through character atlases
+        for (int i = 0; i < characterAtlases.Count; i++)
+        {
+            //Searches through each party member
+            for (int j = 0; j < GameManager.Instance.partyMembers.Count; j++)
+            {
+                //If the character atlas' character ID equals the party members player ID
+                if(characterAtlases[i].characterID == GameManager.Instance.partyMembers[j].GetComponent<Player>().playerID)
+                {
+                    //The atlas' character object is that party member
+                    characterAtlases[i].characterObject = GameManager.Instance.partyMembers[j];
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// Unlocks the node for the specified character
@@ -43,8 +58,9 @@ public class AtlasManager : MonoBehaviour
                 //If it equals that ID, unlock it and exit the function
                 if(characterAtlases[i].lockedNodes[j].nodeID == nodeID)
                 {
-                    characterAtlases[i].lockedNodes[j].UnlockNode();
-                    characterAtlases[i].unlockedNodes.Add(characterAtlases[i].lockedNodes[j]);
+                    characterAtlases[i].lockedNodes[j].UnlockNode(); //Unlocks node
+                    characterAtlases[i].unlockedNodes.Add(characterAtlases[i].lockedNodes[j]); //Adds the node to unlocked
+                    characterAtlases[i].lockedNodes.Remove(characterAtlases[i].lockedNodes[j]); //Removes the node from locked
                     return;
                 }
             }
@@ -56,10 +72,21 @@ public class AtlasManager : MonoBehaviour
     /// </summary>
     public void UpdateAtlas()
     {
-        //Goes through all the character atlases
+        //Goes through all the character atlases and applies any node that hasn't been applied yet
         for (int i = 0; i < characterAtlases.Count; i++)
         {
+            characterAtlases[i].ApplyNodes();
+        }
+    }
 
+    /// <summary>
+    /// Debug purposes, locks and resets all nodes
+    /// </summary>
+    public void ResetAtlas()
+    {
+        for (int i = 0; i < characterAtlases.Count; i++)
+        {
+            characterAtlases[i].UnApplyNodes();
         }
     }
 }

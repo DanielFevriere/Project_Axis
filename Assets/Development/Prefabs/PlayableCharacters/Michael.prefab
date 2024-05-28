@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a857216c1bd604bbd6a12a0a773c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: Michael
   dead: 0
   damageStaggerDuration: 0.1
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}

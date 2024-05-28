@@ -206,9 +206,10 @@ public class Controller : MonoBehaviour
             GameManager.Instance.SwapCharacter();
         }
 
-        //Say quote
+        //Debug key, test features like resetting atlas and quotes
         if (kb.lKey.wasReleasedThisFrame)
         {
+            AtlasManager.Instance.ResetAtlas(); //Un applies the effects of all nodes.
             //SayQuote(); //Disable Quotes for now, just a test feature
         }
 

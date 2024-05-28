@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80114515dea541440af1d60926154cb4, type: 3}
   m_Name: GabeAtlas
   m_EditorClassIdentifier: 
-  character: {fileID: 3647407617906402987, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
-    type: 3}
+  characterID: Gabriel
+  characterObject: {fileID: 0}
   lockedNodes: []
-  unlockedNodes: []
-  acquiredNodes: []
+  unlockedNodes:
+  - {fileID: 11400000, guid: 14a9ba33d0810d5459ae19e706d4d053, type: 2}

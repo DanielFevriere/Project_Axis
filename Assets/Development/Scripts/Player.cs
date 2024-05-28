@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable
 {
+    public string playerID;
     Material material;
     public bool dead;
 

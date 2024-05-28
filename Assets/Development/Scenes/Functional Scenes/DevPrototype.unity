@@ -46935,7 +46935,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33790
+  m_Name: pb_Mesh34762
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -47630,7 +47630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1351061263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49429,9 +49429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de15ef05b767f44d93f0b76b325ee14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gabeAtlas: {fileID: 11400000, guid: cebc8027a915eeb41a56509e69581260, type: 2}
-  mikeAtlas: {fileID: 11400000, guid: 18e69405bf0bd21499dc120a967c9071, type: 2}
-  raphAtlas: {fileID: 11400000, guid: 9b7cc173d5384ef43a4b17b2c061aedb, type: 2}
+  characterAtlases:
+  - {fileID: 11400000, guid: cebc8027a915eeb41a56509e69581260, type: 2}
+  - {fileID: 11400000, guid: 18e69405bf0bd21499dc120a967c9071, type: 2}
+  - {fileID: 11400000, guid: 9b7cc173d5384ef43a4b17b2c061aedb, type: 2}
 --- !u!1 &1419009984
 GameObject:
   m_ObjectHideFlags: 0
@@ -52307,7 +52308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0

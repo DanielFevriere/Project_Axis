@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
   m_Name: StatNode_Gabriel
   m_EditorClassIdentifier: 
-  locked: 0
-  nodeDescription: 
+  nodeID: G1_MaxHP
+  locked: 1
+  applied: 0
+  nodeDescription: Test stat node for gabriel. Incrases max hp by 1
   stat: 0
-  increaseAmount: 1
+  increaseAmount: 5
