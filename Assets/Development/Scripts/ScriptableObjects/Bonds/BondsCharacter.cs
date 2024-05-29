@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Support Character")]
-public class SupportCharacter : ScriptableObject
+public class BondsCharacter : ScriptableObject
 {
     //Character Name and icon
     public string characterName;
@@ -14,20 +14,20 @@ public class SupportCharacter : ScriptableObject
     public bool mikeLocked;
     public bool raphLocked;
 
-    //Character support levels with the main crew
+    //Character bonds levels with the main crew
     public int gabeLevel = 0;
     public int mikeLevel = 0;
     public int raphLevel = 0;
 
-    //Character support conditions
-    public List<Condition> gabeProgression;
-    public List<Condition> mikeProgression;
-    public List<Condition> raphProgression;
+    //Character bonds conditions
+    public List<Condition> gabeConditions;
+    public List<Condition> mikeConditions;
+    public List<Condition> raphConditions;
 
     //List of convos for each support level
-    public List<Conversation> gabeSupportConvos;
-    public List<Conversation> mikeSupportConvos;
-    public List<Conversation> raphSupportConvos;
+    public List<Conversation> gabeBondsConvos;
+    public List<Conversation> mikeBondsConvos;
+    public List<Conversation> raphBondsConvos;
 
     //Rewards for each support level
     public List<RewardGiver> gabeRewards;
@@ -81,18 +81,18 @@ public class SupportCharacter : ScriptableObject
     }
 
     /// <summary>
-    /// Levels up the support level for one of the 3 characters by passing in an int
+    /// Levels up the bonds level for one of the 3 characters by passing in an int
     /// 1 - Gabe,
     /// 2 - Mike,
     /// 3 - Raph
     /// </summary>
-    public void SupportLevelUp(int character)
+    public void BondLevelUp(int character)
     {
         //Checks if one of the three are properly selected
         if(character != 1 && character != 2 && character != 3)
         {
             //Returns if the selection is invalid
-            Debug.Log("Invalid character to level up support");
+            Debug.Log("Invalid character to level up bond");
             return;
         }
 
@@ -101,39 +101,39 @@ public class SupportCharacter : ScriptableObject
         {
             case 1:
 
-                if(gabeLevel < gabeSupportConvos.Count)
+                if(gabeLevel < gabeBondsConvos.Count)
                 {
-                    Debug.Log("Gabe Support level up!");
+                    Debug.Log("Gabe Bond level up!");
                     gabeLevel++;
                     //gabeRewards[gabeLevel - 1].GiveReward(); Uncomment when you make the rewards system
                 }
                 else
                 {
-                    Debug.Log("Gabe Support level is max.");
+                    Debug.Log("Gabe Bond level is max.");
                 }
                 break;
             case 2:
-                if (mikeLevel < mikeSupportConvos.Count)
+                if (mikeLevel < mikeBondsConvos.Count)
                 {
-                    Debug.Log("Mike Support level up!");
+                    Debug.Log("Mike Bond level up!");
                     mikeLevel++;
                     //mikeRewards[mikeLevel - 1].GiveReward(); Uncomment when you make the rewards system
                 }
                 else
                 {
-                    Debug.Log("Mike Support level is max.");
+                    Debug.Log("Mike Bond level is max.");
                 }
                 break;
             case 3:
-                if (raphLevel < raphSupportConvos.Count)
+                if (raphLevel < raphBondsConvos.Count)
                 {
-                    Debug.Log("Raph Support level up!");
+                    Debug.Log("Raph Bond level up!");
                     raphLevel++;
                     //raphRewards[raphLevel - 1].GiveReward(); Uncomment when you make the rewards system
                 }
                 else
                 {
-                    Debug.Log("Raph Support level is max.");
+                    Debug.Log("Raph Bond level is max.");
                 }
                 break;
         }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupportManager : MonoBehaviour
+public class BondsManager : MonoBehaviour
 {
     #region Global static reference
-    private static SupportManager instance;
-    public static SupportManager Instance
+    private static BondsManager instance;
+    public static BondsManager Instance
     {
         get
         {
@@ -16,12 +16,12 @@ public class SupportManager : MonoBehaviour
             }
             else
             {
-                instance = FindObjectOfType<SupportManager>();
+                instance = FindObjectOfType<BondsManager>();
                 return instance;
             }
         }
     }
     #endregion
 
-    public List<SupportCharacter> supportCharacters;
+    public List<BondsCharacter> bondsCharacters;
 }

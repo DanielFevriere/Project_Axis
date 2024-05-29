@@ -13,16 +13,16 @@ public class CubeDialogueNPC : MonoBehaviour
     [SerializeField] Conversation repeatConvo;
     [SerializeField] Quest talkingQuest;
 
-    SupportCharacter cubeSupportCharacter;
+    BondsCharacter cubeBondsCharacter;
 
     private void Awake()
     {
         //Finds the support character in the manager
-        for (int i = 0; i < SupportManager.Instance.supportCharacters.Count; i++)
+        for (int i = 0; i < BondsManager.Instance.bondsCharacters.Count; i++)
         {
-            if(characterName == SupportManager.Instance.supportCharacters[i].characterName)
+            if(characterName == BondsManager.Instance.bondsCharacters[i].characterName)
             {
-                cubeSupportCharacter = SupportManager.Instance.supportCharacters[i];
+                cubeBondsCharacter = BondsManager.Instance.bondsCharacters[i];
             }
         }
     }
@@ -48,18 +48,18 @@ public class CubeDialogueNPC : MonoBehaviour
                     //Depending on the party leader, level up the corresponding support level and start the proper support conversation
                     if(GameManager.Instance.partyLeader.name == "Gabriel")
                     {
-                        cubeSupportCharacter.SupportLevelUp(1);
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(cubeSupportCharacter.gabeSupportConvos[cubeSupportCharacter.gabeLevel - 1]));
+                        cubeBondsCharacter.BondLevelUp(1);
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(cubeBondsCharacter.gabeBondsConvos[cubeBondsCharacter.gabeLevel - 1]));
                     }
                     else if(GameManager.Instance.partyLeader.name == "Michael")
                     {
-                        cubeSupportCharacter.SupportLevelUp(2);
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(cubeSupportCharacter.mikeSupportConvos[cubeSupportCharacter.mikeLevel - 1]));
+                        cubeBondsCharacter.BondLevelUp(2);
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(cubeBondsCharacter.mikeBondsConvos[cubeBondsCharacter.mikeLevel - 1]));
                     }
                     else if(GameManager.Instance.partyLeader.name == "Raphael")
                     {
-                        cubeSupportCharacter.SupportLevelUp(3);
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(cubeSupportCharacter.raphSupportConvos[cubeSupportCharacter.raphLevel - 1]));
+                        cubeBondsCharacter.BondLevelUp(3);
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(cubeBondsCharacter.raphBondsConvos[cubeBondsCharacter.raphLevel - 1]));
                     }
                 }
                 else
