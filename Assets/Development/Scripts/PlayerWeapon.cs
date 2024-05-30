@@ -39,10 +39,6 @@ public class PlayerWeapon : MonoBehaviour
     {
     }
 
-    public void Attack(int damage, Transform start, Transform end)
-    {
-    }
-
     public void UpdateWeaponRotation()
     {
         Ray camera = cam.ScreenPointToRay(Input.mousePosition);

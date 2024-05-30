@@ -69,6 +69,7 @@ public class Attack : Skill
         //Activates attack animation
         moveScript.anim.SetTrigger("attack");
         hitBox.SetActive(true);
+        hitBox.GetComponent<DamageOnTouch>().onCooldown = false;
 
         if (hitCount != 3)
         {

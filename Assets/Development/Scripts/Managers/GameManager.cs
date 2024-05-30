@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //Reloads scene if dead
         if (partyMembers[0].GetComponent<Player>().dead && partyMembers[1].GetComponent<Player>().dead && partyMembers[2].GetComponent<Player>().dead)
         {
             SceneManager.LoadScene("DevPrototype");

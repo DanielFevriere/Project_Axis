@@ -76955,6 +76955,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6987272033148114032, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: damageID
+      value: Shade
+      objectReference: {fileID: 0}
     - target: {fileID: 8572612221766934155, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: m_SizeDelta.y

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1451508947}
   - component: {fileID: 1451508949}
   - component: {fileID: 1451508948}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 218013169199962939}
   - component: {fileID: 218013169199962936}
   - component: {fileID: 3544117699939083668}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74a72725335d4e4aa217072798d3914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageID: 
   damageDealt: 1
   targetLayer:
     serializedVersion: 2
@@ -591,7 +592,7 @@ GameObject:
   - component: {fileID: 218013170669014302}
   - component: {fileID: 218013170669014300}
   - component: {fileID: 218013170669014301}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +691,7 @@ GameObject:
   - component: {fileID: 4563064974277742536}
   - component: {fileID: 5634071709290158280}
   - component: {fileID: 5961654695456341131}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Warningbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
