@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
-  m_Name: Test01
+  m_Name: BTC_Gabe_2
   m_EditorClassIdentifier: 
-  questTitle: Shades in the map
-  questDescription: There are shades in the encounter zone. Go and eliminate them.
+  questTitle: Gabe's Bond 2
+  questDescription: The second bonding quest requires double of your first
   questObjective: Kill 20 shades
   isAccepted: 0
   isComplete: 0
   questReward:
-    veniReward: 300
+    veniReward: 10
     boosterItemRewards:
     - {fileID: 11400000, guid: 2c5b817d652ed924faeddba9829c000e, type: 2}
     consumableItemRewards:
@@ -26,7 +26,7 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: 14a9ba33d0810d5459ae19e706d4d053, type: 2}
+    - {fileID: 11400000, guid: b43e469c09613504dbad91cdb5a878ea, type: 2}
   conditions:
   - conditionName: Destroy Shades
     conditionID: Shade

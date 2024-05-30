@@ -20,29 +20,13 @@ MonoBehaviour:
   gabeLevel: 1
   mikeLevel: 1
   raphLevel: 1
-  gabeProgression: []
-  mikeProgression: []
-  raphProgression: []
-  gabeSupportConvos:
-  - {fileID: 11400000, guid: 69f9093beca79054a844c9a07389204c, type: 2}
-  - {fileID: 11400000, guid: c795df4b24bbc364aad953759c9a28b5, type: 2}
-  - {fileID: 11400000, guid: bfc0c999ef4d32d4f9085023ba48c772, type: 2}
-  mikeSupportConvos:
-  - {fileID: 11400000, guid: 9da398e550e4e6d49af12249b162e3e8, type: 2}
-  - {fileID: 11400000, guid: 0ad8e7d1cbb608b4a81e6d3ad63d9c02, type: 2}
-  - {fileID: 11400000, guid: 0745809f4a3332a40bef7f196edfc241, type: 2}
-  raphSupportConvos:
-  - {fileID: 11400000, guid: 0720497451aca4a4cad664fcf45da8d2, type: 2}
-  - {fileID: 11400000, guid: 06e8cb20d6f332348a1fa2e5966de894, type: 2}
-  - {fileID: 11400000, guid: 4911dba097bf97e4a9c830a668e7bb85, type: 2}
-  gabeRewards:
-  - veniReward: 0
-    boosterItemRewards: []
-    consumableItemRewards: []
-    keyItemRewards: []
-    nodeRewards: []
-  mikeRewards: []
-  raphRewards: []
+  gabeQuests:
+  - {fileID: 0}
+  mikeQuests: []
+  raphQuests: []
+  gabeBondsConvos: []
+  mikeBondsConvos: []
+  raphBondsConvos: []
   age: 
   height: 
   favColor: 

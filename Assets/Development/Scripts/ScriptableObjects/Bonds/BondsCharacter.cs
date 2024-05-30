@@ -19,20 +19,16 @@ public class BondsCharacter : ScriptableObject
     public int mikeLevel = 0;
     public int raphLevel = 0;
 
-    //Character bonds conditions
-    public List<Condition> gabeConditions;
-    public List<Condition> mikeConditions;
-    public List<Condition> raphConditions;
+
+    //Character bonds quests
+    public List<Quest> gabeQuests;
+    public List<Quest> mikeQuests;
+    public List<Quest> raphQuests;
 
     //List of convos for each support level
     public List<Conversation> gabeBondsConvos;
     public List<Conversation> mikeBondsConvos;
     public List<Conversation> raphBondsConvos;
-
-    //Rewards for each support level
-    public List<RewardGiver> gabeRewards;
-    public List<RewardGiver> mikeRewards;
-    public List<RewardGiver> raphRewards;
 
     //Character Info
     public string age;

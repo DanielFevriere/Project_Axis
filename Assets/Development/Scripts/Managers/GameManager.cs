@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 //States the game can be in
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     public event Action OnStateChange; 
     public event Action OnPartyLeaderChange;
     public event Action OnPartyLeaderDeath;
+    public event Action OnInteract;
 
     [Header("Debug")]
     public bool isDebugging = true;
@@ -93,6 +95,14 @@ public class GameManager : MonoBehaviour
         if (partyMembers[0].GetComponent<Player>().dead && partyMembers[1].GetComponent<Player>().dead && partyMembers[2].GetComponent<Player>().dead)
         {
             SceneManager.LoadScene("DevPrototype");
+        }
+
+        //Fetches the keyboard input system
+        Keyboard kb = InputSystem.GetDevice<Keyboard>();
+
+        if(kb.fKey.wasPressedThisFrame)
+        {
+            OnInteract.Invoke();
         }
 
         if (state == GameState.FreeRoam)
