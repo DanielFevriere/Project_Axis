@@ -29,6 +29,7 @@ public class Quest : ScriptableObject
 
     public void CompleteQuest()
     {
+        isAccepted = false;
         questReward.GiveReward();
     }
 }

@@ -15939,7 +15939,7 @@ MonoBehaviour:
   choiceBox: {fileID: 495780268}
   dialogueName: {fileID: 0}
   dialogueText: {fileID: 0}
-  lettersPerSecond: 45
+  lettersPerSecond: 200
   promptText: {fileID: 633454182}
   choice1Text: {fileID: 199238568}
   choice2Text: {fileID: 27237891}
@@ -75940,7 +75940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1cf9022de98ab41a388132beb38567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Test Bonds Character
   inTalkingDistance: 0
 --- !u!1 &2104718880
 GameObject:
