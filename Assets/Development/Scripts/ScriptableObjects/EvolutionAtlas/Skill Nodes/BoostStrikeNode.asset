@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36ac8ff84e6fa564ea8665c98bc1210a, type: 3}
-  m_Name: SkillNode_Gabriel
+  m_Name: BoostStrikeNode
   m_EditorClassIdentifier: 
   nodeID: Boost Strike
   locked: 1

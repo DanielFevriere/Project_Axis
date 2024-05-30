@@ -6882,7 +6882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bdec243b8dd744b9fa473860998160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleID: Shade
+  collectibleID: Cube
 --- !u!1 &210891545
 GameObject:
   m_ObjectHideFlags: 0
@@ -75937,13 +75937,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2104442478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b7b15de303cd3f4e992095f1ba6f1d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e1cf9022de98ab41a388132beb38567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: Cube
-  firstConvo: {fileID: 11400000, guid: de528b4f41ead104d8abd876255d3bf1, type: 2}
-  repeatConvo: {fileID: 11400000, guid: 8e937c5aa3e5ee24388bed1c78264d4d, type: 2}
-  talkingQuest: {fileID: 11400000, guid: 197c4557cfcc49d4582f6aaa8201f6f2, type: 2}
+  characterName: 
+  inTalkingDistance: 0
 --- !u!1 &2104718880
 GameObject:
   m_ObjectHideFlags: 0

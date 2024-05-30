@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: RaphBondsConvo2
+  m_EditorClassIdentifier: 
+  convoTitle: Raph Bonds Convo 2
+  Dialogues:
+  - nameID: Raphael
+    displayName: Raph
+    line: Do you have anything new for me?
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Yes! Here's 10 more veni.
+  - nameID: Raphael
+    displayName: Raph
+    line: I'm no longer collecting cubes for you.
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Waiiiit wait wait wait. I promise if you collect some more, I have something
+      super special for you.
+  - nameID: Raphael
+    displayName: Raph
+    line: Fine. I'll be back.

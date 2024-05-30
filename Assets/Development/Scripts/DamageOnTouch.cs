@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DamageOnTouch : MonoBehaviour
 {
+    //In the future, this might become a list of strings instead so that multiple id types for quest purposes
     public string damageID;
     public float damageDealt;
 
     public bool onCooldown = false;
-    float cooldownTime = 0.5f;
+    float cooldownTime;
     float cooldownTimer;
 
     private void Start()
     {
+        cooldownTime = 0.5f;
         cooldownTimer = cooldownTime;
     }
 

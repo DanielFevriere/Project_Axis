@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: RaphBondsConvo3
+  m_EditorClassIdentifier: 
+  convoTitle: Raph Bonds Convo 3
+  Dialogues:
+  - nameID: Raphael
+    displayName: Raph
+    line: Well? What do you have for me?
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: A fun fact!
+  - nameID: Raphael
+    displayName: Raph
+    line: A fun fact?
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: A fun fact!
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: 'Fun Fact: I''m canonically 5''10...but I have no name!'
+  - nameID: Raphael
+    displayName: Raph
+    line: Goodbye. I don't want to talk anymore
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Wait- Raph. WAITTT!

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: GabeBondsConvo3
+  m_EditorClassIdentifier: 
+  convoTitle: Gabe Bonds Convo 3
+  Dialogues:
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Done.
+  - nameID: Gabriel
+    displayName: Gabe
+    line: This is the final bonds conversation right?
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Yup. My favorite food is apples.
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Thats a decent fruit choice.
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Oh so NOW you want to have a normal conversation??
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Hehe
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Sorry, Hopefully your characters design gets added to the main game, I
+      actually dig it, and your energy reminds me of Michael
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Yeah, and hopefully I kick your ass in the main game when that happens.
+  - nameID: Gabriel
+    displayName: Gabe
+    line: Heh, we will see

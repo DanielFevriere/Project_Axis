@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Support Character")]
+[CreateAssetMenu(fileName = "New Bonds Character")]
 public class BondsCharacter : ScriptableObject
 {
     //Character Name and icon

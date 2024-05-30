@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: MikeBondsConvo1
+  m_EditorClassIdentifier: 
+  convoTitle: Mike Bonds Convo 1
+  Dialogues:
+  - nameID: Michael
+    displayName: Mike
+    line: Hi! hello! Hi!
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Good work! You can now press Q to use your first skill mike
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: It's a pretty cool one. Check it out.
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Once you deal some more damage, come back

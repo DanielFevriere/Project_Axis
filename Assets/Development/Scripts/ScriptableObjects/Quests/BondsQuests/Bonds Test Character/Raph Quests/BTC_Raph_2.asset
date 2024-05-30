@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
-  m_Name: BTC_Gabe_1
+  m_Name: BTC_Raph_2
   m_EditorClassIdentifier: 
-  questTitle: Gabe's Bond 1
-  questDescription: This is your first bonding quest with gabriel. Goodluck!
-  questObjective: Kill 10 shades
+  questTitle: Raph's Bond 2
+  questDescription: Go collect more yellow cubes
+  questObjective: Collect 6 yellow cubes
   isAccepted: 0
   isComplete: 0
   questReward:
@@ -26,12 +26,11 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: e52fa8806c0077247b6453ae4c4d80ff, type: 2}
-    - {fileID: 11400000, guid: e52fa8806c0077247b6453ae4c4d80ff, type: 2}
+    - {fileID: 11400000, guid: 6dda00e6dcd89cf48b2435e8a4bcc374, type: 2}
   conditions:
-  - conditionName: Destroy Shades
-    conditionID: Shade
+  - conditionName: Find yellow cubes
+    conditionID: Cube
     locked: 0
     completed: 0
     currentProgress: 0
-    requiredProgress: 10
+    requiredProgress: 6

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cee17d5309b034dac21ee381df6280, type: 3}
+  m_Name: TestBondsCharacter
+  m_EditorClassIdentifier: 
+  characterName: Test Bonds Character
+  characterIcon: {fileID: 21300000, guid: 2adf300192825504f8be33b20694414d, type: 3}
+  gabeLocked: 1
+  mikeLocked: 1
+  raphLocked: 1
+  gabeLevel: 0
+  mikeLevel: 0
+  raphLevel: 0
+  gabeQuests:
+  - {fileID: 11400000, guid: 77fb2f01151229349b79e3e634b292b6, type: 2}
+  - {fileID: 11400000, guid: 7d712145e4751d44296dc95b66c8f0ac, type: 2}
+  - {fileID: 11400000, guid: 3272b2ac857134348a6a9de60ff73f2b, type: 2}
+  mikeQuests:
+  - {fileID: 11400000, guid: 24690f87bba97124f93ac94ea13771da, type: 2}
+  - {fileID: 11400000, guid: 706e4ddc1bfef724c8ee142f5f08aa8c, type: 2}
+  - {fileID: 11400000, guid: 1e897c7362400d745819ee439f2cf60d, type: 2}
+  raphQuests:
+  - {fileID: 11400000, guid: 5be24df6c054b284aa40966ca8d98e65, type: 2}
+  - {fileID: 11400000, guid: 8b924d356fff37640b50ffc0bbc798a7, type: 2}
+  - {fileID: 11400000, guid: b7a215de46a76f5479a604a4ce472411, type: 2}
+  gabeBondsConvos:
+  - {fileID: 11400000, guid: b49cc506779e9124b99538690f8dbca8, type: 2}
+  - {fileID: 11400000, guid: 7b68c16d1c401534c86c9a3e90a8acca, type: 2}
+  - {fileID: 11400000, guid: d1e38e1f8f17b9447b6e932b6311a585, type: 2}
+  mikeBondsConvos:
+  - {fileID: 11400000, guid: 0d232bda5d9a68e49bb8396b66a2a8f9, type: 2}
+  - {fileID: 11400000, guid: a0ff770d609bd0047b9b58e68086d1a8, type: 2}
+  - {fileID: 11400000, guid: bdffe6b1bb34ee24293c8eee73a91207, type: 2}
+  raphBondsConvos:
+  - {fileID: 11400000, guid: 0e34b49116dff7146af40153fdf993ee, type: 2}
+  - {fileID: 11400000, guid: f9f1206b79e3cab429c61588e57abd64, type: 2}
+  - {fileID: 11400000, guid: 1930a1c075333fe4681030348e03eddd, type: 2}
+  age: 17
+  height: 5'10
+  favColor: Yellow
+  goals: Becoming a real character in the main game
+  likes: Apples
+  dislikes: Being irrelevant
+  personality: Helpful, upbeat
+  ageLocked: 0
+  heightLocked: 0
+  favColorLocked: 0
+  goalsLocked: 0
+  likesLocked: 0
+  dislikesLocked: 0
+  personalityLocked: 0
