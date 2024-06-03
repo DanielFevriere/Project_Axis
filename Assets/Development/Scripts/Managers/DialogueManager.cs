@@ -44,14 +44,16 @@ public class DialogueManager : MonoBehaviour
     public event Action OnCloseDialogue;
 
     public Conversation shownConversation;
+    public bool skippingDialogue = false;
     int currentDialogue = 0;
     bool choosing = false;
-    bool isTyping = false;
+    public bool isTyping = false;
 
 
     private void Awake()
     {
         listOfSpeakers = new List<Speaker>();
+        GameManager.Instance.OnInteract += SkipDialogue;
     }
 
     public void HandleUpdate()
@@ -60,7 +62,7 @@ public class DialogueManager : MonoBehaviour
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
         
         //If the dialogue key is pressed and its not already typing out a dialogue
-        if (kb.fKey.wasReleasedThisFrame && !isTyping && !choosing)
+        if (kb.fKey.wasReleasedThisFrame && !isTyping && !choosing && !skippingDialogue)
         {
             currentDialogue++;
             if(currentDialogue < shownConversation.Dialogues.Count)
@@ -78,6 +80,7 @@ public class DialogueManager : MonoBehaviour
                 OnCloseDialogue.Invoke();
             }
         }
+
     }
 
     public void StartConvo(Conversation convo)
@@ -120,8 +123,11 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator TypeLine(Dialogue dialogue)
     {
+        skippingDialogue = false;
         isTyping = true;
         AudioManager.Instance.PlaySound("beep");
+
+
 
         for (int i = 0; i < listOfSpeakers.Count; i++)
         {
@@ -139,12 +145,36 @@ public class DialogueManager : MonoBehaviour
 
         dialogueName.text = dialogue.DisplayName;
         dialogueText.text = "";
-        foreach(var letter in dialogue.Line.ToCharArray())
+
+
+
+        foreach (var letter in dialogue.Line.ToCharArray())
         {
+
+
             dialogueText.text += letter;
-            yield return new WaitForSeconds(1f / lettersPerSecond);
+
+            //If you aren't skipping dialogue, type it out slowly
+            if(!skippingDialogue)
+            {
+                yield return new WaitForSeconds(1f / lettersPerSecond);
+            }
+
         }
         isTyping = false;
+    }
+
+    public void SkipDialogue()
+    {
+        if(isTyping)
+        {
+            Debug.Log("Dialogue Skipped");
+            skippingDialogue = true;
+        }
+        else
+        {
+            skippingDialogue = false;
+        }
     }
 
     public void HideDialogue()

@@ -15939,13 +15939,14 @@ MonoBehaviour:
   choiceBox: {fileID: 495780268}
   dialogueName: {fileID: 0}
   dialogueText: {fileID: 0}
-  lettersPerSecond: 200
+  lettersPerSecond: 15
   promptText: {fileID: 633454182}
   choice1Text: {fileID: 199238568}
   choice2Text: {fileID: 27237891}
   dialogueChoice: 0
   listOfSpeakers: []
   shownConversation: {fileID: 0}
+  skippingDialogue: 0
 --- !u!1 &408617575
 GameObject:
   m_ObjectHideFlags: 0
@@ -47093,7 +47094,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33782
+  m_Name: pb_Mesh33806
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -75942,6 +75943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Test Bonds Character
   inTalkingDistance: 0
+  lockedConvo: {fileID: 11400000, guid: d72c03dead3bafa43a468ce8d8366443, type: 2}
 --- !u!1 &2104718880
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,7 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74a72725335d4e4aa217072798d3914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageID: Damage
   damageDealt: 2
+  onCooldown: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -1014,7 +1016,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74a72725335d4e4aa217072798d3914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageID: Damage
   damageDealt: 10
+  onCooldown: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 1024

@@ -32,6 +32,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5be24df6c054b284aa40966ca8d98e65, type: 2}
   - {fileID: 11400000, guid: 8b924d356fff37640b50ffc0bbc798a7, type: 2}
   - {fileID: 11400000, guid: b7a215de46a76f5479a604a4ce472411, type: 2}
+  gabeDefaultConvo: {fileID: 11400000, guid: 69511fbbbc0dc1641aabc8f45d7571d2, type: 2}
+  mikeDefaultConvo: {fileID: 11400000, guid: 573be9001a0e9cd4086509fd2d26951e, type: 2}
+  raphDefaultConvo: {fileID: 11400000, guid: da75b254434e71d4a9cb1eb8e9e6fd59, type: 2}
+  gabeProgressConvo: {fileID: 11400000, guid: 884be931a244c0e448da66a7e1de5add, type: 2}
+  mikeProgressConvo: {fileID: 11400000, guid: 4229f9ce07620824c96e23fcde85e7c5, type: 2}
+  raphProgressConvo: {fileID: 11400000, guid: 764aecb9ed2517d4cb8d16c80cac062f, type: 2}
   gabeBondsConvos:
   - {fileID: 11400000, guid: b49cc506779e9124b99538690f8dbca8, type: 2}
   - {fileID: 11400000, guid: 7b68c16d1c401534c86c9a3e90a8acca, type: 2}
