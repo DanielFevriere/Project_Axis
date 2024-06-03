@@ -52,20 +52,8 @@ public class PatrollingNPC : MonoBehaviour
             talking = true;
             //Changes the games state to dialogue
             GameManager.Instance.ChangeState(GameState.Dialogue);
-
-            //If it contains the quest, Check if the quest is complete
-            if(QuestManager.Instance.activeQuests.Contains(killQuest))
-            {
-                if(QuestManager.Instance.CheckIfQuestComplete(killQuest))
-                {
-                    QuestManager.Instance.FinishQuest(killQuest);
-                }    
-            }
-            //If not, accept the quest
-            else
-            {
-                QuestManager.Instance.AcceptQuest(killQuest);
-            }
+            
+            DialogueManager.Instance.OnCloseDialogue += QuestCheck;
 
             
             StartCoroutine(DialogueManager.Instance.ShowConversation(convo));
@@ -73,6 +61,24 @@ public class PatrollingNPC : MonoBehaviour
 
             DialogueManager.Instance.OnCloseDialogue += StartPatrolling;
         }
+    }
+
+    public void QuestCheck()
+    {
+        //If it contains the quest, Check if the quest is complete
+        if (QuestManager.Instance.activeQuests.Contains(killQuest))
+        {
+            if (QuestManager.Instance.CheckIfQuestComplete(killQuest))
+            {
+                QuestManager.Instance.FinishQuest(killQuest);
+            }
+        }
+        //If not, accept the quest
+        else
+        {
+            QuestManager.Instance.AcceptQuest(killQuest);
+        }
+        DialogueManager.Instance.OnCloseDialogue -= QuestCheck;
     }
 
     void StartPatrolling()
