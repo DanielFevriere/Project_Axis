@@ -64,7 +64,7 @@ public class PlayerWeapon : MonoBehaviour
             var rotation = Quaternion.LookRotation(mousePos - transform.position);
             rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * smoothing);
             transform.rotation = rotation;
-            //transform.LookAt(raycastHit); // Snappy
+            transform.LookAt(raycastHit); // Snappy
             
             // Find Yaw rotation angle and update animator based on that
             Quaternion aimRotation = transform.rotation;

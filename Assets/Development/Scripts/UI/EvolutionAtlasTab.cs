@@ -27,6 +27,7 @@ public class EvolutionAtlasTab : GameTab
     public override void Refresh()
     {
         displayedNodes.Clear();
+        nodeDetailsDisplay.SetActive(false);
         currentAtlas = atlasManager.characterAtlases[characterIndex];
 
         //Automatically adds the child gameobjects to the displayednodes list
@@ -64,6 +65,10 @@ public class EvolutionAtlasTab : GameTab
         }
     }
 
+    /// <summary>
+    /// Highlights and displays details of a selected node
+    /// </summary>
+    /// <param name="nodeNum"></param>
     public void SelectNode(int nodeNum)
     {
         Node currentNode = currentAtlas.lockedNodes[nodeNum];
@@ -88,5 +93,7 @@ public class EvolutionAtlasTab : GameTab
         characterIndex = page;
         Refresh();
     }
+
+
 
 }
