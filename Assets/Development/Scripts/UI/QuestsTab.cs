@@ -21,7 +21,6 @@ public class QuestsTab : GameTab
     public TMP_Text mainQuestName;
     public List<TMP_Text> sideQuestNames;
 
-
     private void Awake()
     {
         questManager = QuestManager.Instance;
@@ -29,18 +28,31 @@ public class QuestsTab : GameTab
 
     public override void Refresh()
     {
-        if(QuestManager.Instance.activeQuests.Count == 0)
-        {
-            mainQuest = questManager.activeQuests[0];
-            return;
-        }
-
+        mainQuest = null;
         sideQuests.Clear();
 
-        for (int i = 1; i < questManager.activeQuests.Count; i++)
+        //Checks to see if there's a main quest
+        for (int i = 0; i < questManager.activeQuests.Count; i++)
+        {
+            if(questManager.activeQuests.Count == 0)
+            {
+                break;
+            }
+            if(questManager.activeQuests[i].mainQuest)
+            {
+                mainQuest = questManager.activeQuests[i];
+            }
+        }
+
+        for (int i = 0; i < questManager.activeQuests.Count; i++)
         {
             UpdateQuestDisplay(i);
-            sideQuests.Add(questManager.activeQuests[i]);
+
+            //Adds the quest to the sidequests list if it's not a mainquest
+            if(!questManager.activeQuests[i].mainQuest)
+            {
+                sideQuests.Add(questManager.activeQuests[i]);
+            }
         }
 
         //Name of the mainquest is the name of the first quest in the questmanagers active quests list
