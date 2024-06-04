@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
   m_Name: MikeBond2
   m_EditorClassIdentifier: 
+  nodeName: MikeAtk2
   nodeID: MikeBond2
+  nodeIcon: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
   locked: 1
   applied: 0
   nodeDescription: Increases Mike's attack by 3

@@ -27,8 +27,6 @@ public class QuestsTab : GameTab
         questManager = QuestManager.Instance;
     }
 
-
-
     public override void Refresh()
     {
         if(QuestManager.Instance.activeQuests.Count == 0)

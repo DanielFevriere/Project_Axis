@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: Gabriel
   characterObject: {fileID: 0}
-  lockedNodes: []
-  unlockedNodes:
-  - {fileID: 11400000, guid: 14a9ba33d0810d5459ae19e706d4d053, type: 2}
+  lockedNodes:
+  - {fileID: 11400000, guid: e52fa8806c0077247b6453ae4c4d80ff, type: 2}
+  - {fileID: 11400000, guid: b43e469c09613504dbad91cdb5a878ea, type: 2}
+  - {fileID: 11400000, guid: ca73c8790b1f8194d9173312fa56b3f6, type: 2}
+  - {fileID: 11400000, guid: 54904d4f6e1e54a47b1879a7753e9f01, type: 2}
+  unlockedNodes: []

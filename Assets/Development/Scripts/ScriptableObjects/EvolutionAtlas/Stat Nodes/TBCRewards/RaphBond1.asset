@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
   m_Name: RaphBond1
   m_EditorClassIdentifier: 
+  nodeName: RaphHp1
   nodeID: RaphBond1
+  nodeIcon: {fileID: 21300000, guid: 74ef721fef79c44489d4e3edb0ab0c01, type: 3}
   locked: 1
   applied: 0
   nodeDescription: Increases Raph's Max HP by 5

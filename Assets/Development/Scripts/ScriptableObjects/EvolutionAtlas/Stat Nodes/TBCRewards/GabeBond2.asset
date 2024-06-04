@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
   m_Name: GabeBond2
   m_EditorClassIdentifier: 
+  nodeName: GabeSpd2
   nodeID: GabeBond2
+  nodeIcon: {fileID: 21300000, guid: cdb88fdb0cf46b244a667edaff21c7df, type: 3}
   locked: 1
   applied: 0
   nodeDescription: Increases Gabe's speed by 3

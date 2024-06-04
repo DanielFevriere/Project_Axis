@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ac8ff84e6fa564ea8665c98bc1210a, type: 3}
   m_Name: BoostStrikeNode
   m_EditorClassIdentifier: 
+  nodeName: Boost Strike Node
   nodeID: Boost Strike
+  nodeIcon: {fileID: 21300000, guid: 799e0050e6b775542b14f9558cd4492f, type: 3}
   locked: 1
   applied: 0
   nodeDescription: Unlocks boost strike, a cool dash skill

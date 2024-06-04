@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: Raphael
   characterObject: {fileID: 0}
-  lockedNodes: []
+  lockedNodes:
+  - {fileID: 11400000, guid: 239f8b59a97490441871ee814ae2a46e, type: 2}
+  - {fileID: 11400000, guid: 6dda00e6dcd89cf48b2435e8a4bcc374, type: 2}
+  - {fileID: 11400000, guid: ec6588444f8f9db4fbcfc2aee8ff6502, type: 2}
   unlockedNodes: []

@@ -50,6 +50,7 @@ public class PatrollingNPC : MonoBehaviour
             agent.velocity = Vector3.zero;
             agent.isStopped = true;
             talking = true;
+
             //Changes the games state to dialogue
             GameManager.Instance.ChangeState(GameState.Dialogue);
             
