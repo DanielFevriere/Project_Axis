@@ -58,14 +58,22 @@ public class PlayerWeapon : MonoBehaviour
         {
             Vector3 look = camera.GetPoint(length);
             raycastHit = new Vector3(look.x, transform.position.y, look.z);
-            transform.LookAt(raycastHit);
             mousePos = raycastHit;
+            
+            // Update transform (smoother rotation)
+            var rotation = Quaternion.LookRotation(mousePos - transform.position);
+            rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * smoothing);
+            transform.rotation = rotation;
+            //transform.LookAt(raycastHit); // Snappy
+            
             // Find Yaw rotation angle and update animator based on that
             Quaternion aimRotation = transform.rotation;
             yawRotation = aimRotation.eulerAngles.y;
         }
     }
 
+    private float smoothing = 9.2f;
+    
     Vector3 planeNormal;
     Vector3 weaponPlanePoint;
     Vector3 raycastHit;
