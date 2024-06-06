@@ -19,13 +19,15 @@ public class QuestsTab : GameTab
     public TMP_Text questRewardText;
     public TMP_Text questConditionsText;
 
-    public TMP_Text mainQuestName;
+    public TMP_Text mainQuestDisplayName;
+    public GameObject mainQuestDisplayBg;
     public List<TMP_Text> sideQuestDisplayNames;
     public List<GameObject> sideQuestDisplayBgs;
 
     private void Awake()
     {
         questManager = QuestManager.Instance;
+        ClearQuestDisplay();
     }
 
     public override void Refresh()
@@ -34,11 +36,17 @@ public class QuestsTab : GameTab
         mainQuest = null;
         sideQuests.Clear();
 
+        if (questManager.activeQuests.Count == 0)
+        {
+            ClearQuestDisplay();
+        }
+
         //Checks to see if there's a main quest
         for (int i = 0; i < questManager.activeQuests.Count; i++)
         {
             if(questManager.activeQuests.Count == 0)
             {
+                ClearQuestDisplay();
                 break;
             }
             //If this active quest is a mainquest, connect the reference
@@ -48,11 +56,26 @@ public class QuestsTab : GameTab
             }
         }
 
+        //If theres no mainquest, Disable the visual
+        if (mainQuest == null)
+        {
+            mainQuestDisplayName.gameObject.SetActive(false);
+            mainQuestDisplayBg.SetActive(false);
+        }
+        else
+        {
+            //Otherwise enable
+            mainQuestDisplayName.gameObject.SetActive(true);
+            mainQuestDisplayBg.SetActive(true);
+
+            //Sets the displayname of the main quest
+            mainQuestDisplayName.text = mainQuest.questTitle;
+        }
+
         //Based on the quest page index, figure out the proper formula to display the correct page of quests
         //Utilize the the count of side quest names list, so regardless of if you add more to display per page, itll just work
         for (int i = 0; i < questManager.activeQuests.Count; i++)
         {
-
             //Adds the quest to the sidequests list if it's not a mainquest
             if(!questManager.activeQuests[i].mainQuest)
             {
@@ -60,8 +83,6 @@ public class QuestsTab : GameTab
             }
         }
 
-        //Name of the mainquest is the name of the first quest in the questmanagers active quests list
-        mainQuestName.text = questManager.activeQuests[0].questTitle;
 
         //Names of the sidequest buttons on the side become the sidequest title
         for (int i = 0; i < sideQuestDisplayNames.Count; i++)
@@ -90,14 +111,14 @@ public class QuestsTab : GameTab
             }
         }
 
-        //If sidequests count is 3 and the displayNames count is 4, itll be zero.
+        //Sets the page amount
         pageAmount = sideQuests.Count / sideQuestDisplayNames.Count;
-
 
         if (pageAmount ==  0)
         {
             pageAmount++;
         }
+
         if((sideQuests.Count % sideQuestDisplayNames.Count) != 0)
         {
             pageAmount++;
@@ -108,6 +129,13 @@ public class QuestsTab : GameTab
         {
             previousPageButton.SetActive(false);
         }
+
+        //If theres only one page, hide the next page button
+        if(pageAmount == 1)
+        {
+            nextPageButton.SetActive(false);
+        }
+
         //If the page number is greater than 1, show the previous page button
         if(currentPage > 1)
         {
@@ -154,6 +182,15 @@ public class QuestsTab : GameTab
         
         //uncomment this when u actually bestow rewards
         //questRewardText.text = questManager.activeQuests[questIndex].questReward.rewardName;
+    }
+
+    void ClearQuestDisplay()
+    {
+        //Clears the quest title, description, rewards, and conditions
+        questTitleText.text = "";
+        questDescriptionText.text = "";
+        questRewardText.text = "";
+        questConditionsText.text = "";
     }
 
     public void NextPage()

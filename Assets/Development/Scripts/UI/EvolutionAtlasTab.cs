@@ -10,6 +10,7 @@ public class EvolutionAtlasTab : GameTab
     public EvolutionAtlas currentAtlas;
 
     public int characterIndex;
+    public bool nodeSelected = false;
     public GameObject nodeDetailsDisplay;
     public TMP_Text nodeNameText;
     public TMP_Text nodeDescriptionText;
@@ -27,8 +28,17 @@ public class EvolutionAtlasTab : GameTab
     public override void Refresh()
     {
         displayedNodes.Clear();
-        nodeDetailsDisplay.SetActive(false);
         currentAtlas = atlasManager.characterAtlases[characterIndex];
+
+        //Node display turns on if a node is selected
+        if(!nodeSelected)
+        {
+            nodeDetailsDisplay.SetActive(false);
+        }    
+        else
+        {
+            nodeDetailsDisplay.SetActive(true);
+        }
 
         //Automatically adds the child gameobjects to the displayednodes list
         for (int i = 0; i < nodeHolder.transform.childCount; i++)
@@ -74,7 +84,7 @@ public class EvolutionAtlasTab : GameTab
         Node currentNode = currentAtlas.lockedNodes[nodeNum];
 
         //Node Details display shows and sets the name and description to the selected node
-        nodeDetailsDisplay.SetActive(true);
+        nodeSelected = true;
         nodeNameText.text = currentNode.nodeName;
         nodeDescriptionText.text = currentNode.nodeDescription;
 
@@ -92,6 +102,11 @@ public class EvolutionAtlasTab : GameTab
     {
         characterIndex = page;
         Refresh();
+    }
+
+    private void OnEnable()
+    {
+        nodeSelected = false;
     }
 
 

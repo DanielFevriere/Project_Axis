@@ -4399,7 +4399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &140401491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15153,7 +15153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &382199587
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15194,7 +15194,7 @@ MonoBehaviour:
   isVisible: 0
   mainQuest: {fileID: 0}
   currentPage: 1
-  pageAmount: 0
+  pageAmount: 1
   previousPageButton: {fileID: 773711623}
   nextPageButton: {fileID: 1912041585}
   sideQuests: []
@@ -15202,7 +15202,8 @@ MonoBehaviour:
   questDescriptionText: {fileID: 1826747687}
   questRewardText: {fileID: 519196701}
   questConditionsText: {fileID: 119924408}
-  mainQuestName: {fileID: 1024627086}
+  mainQuestDisplayName: {fileID: 1024627086}
+  mainQuestDisplayBg: {fileID: 418079711}
   sideQuestDisplayNames:
   - {fileID: 59787085}
   - {fileID: 1598624417}
@@ -47988,6 +47989,7 @@ MonoBehaviour:
   isVisible: 0
   currentAtlas: {fileID: 0}
   characterIndex: 0
+  nodeSelected: 0
   nodeDetailsDisplay: {fileID: 140401490}
   nodeNameText: {fileID: 1576913335}
   nodeDescriptionText: {fileID: 1120669853}
@@ -52933,7 +52935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0
