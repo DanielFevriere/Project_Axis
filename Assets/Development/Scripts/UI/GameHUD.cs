@@ -21,13 +21,16 @@ public class GameHUD : MonoBehaviour
 
         if(questManager.activeQuests.Count != 0)
         {
-            for (int i = 0; i < questManager.activeQuests[0].conditions.Count; i++)
+            if(questManager.highlightedQuest != null)
             {
-                conditionText = questManager.activeQuests[0].conditions[i].ConditionName +
-                    " " + questManager.activeQuests[0].conditions[i].CurrentProgress.ToString() +
-                    "/" + questManager.activeQuests[0].conditions[i].RequiredProgress.ToString();
+                for (int i = 0; i < questManager.highlightedQuest.conditions.Count; i++)
+                {
+                    conditionText = questManager.highlightedQuest.conditions[i].ConditionName +
+                        " " + questManager.highlightedQuest.conditions[i].CurrentProgress.ToString() +
+                        "/" + questManager.highlightedQuest.conditions[i].RequiredProgress.ToString();
+                }
+                titleText = questManager.highlightedQuest.questTitle;
             }
-            titleText = questManager.activeQuests[0].questTitle;
         }
 
         //Sets the HUD text to the active target quest

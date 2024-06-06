@@ -157,23 +157,27 @@ public class RewardGiver
         for (int i = 0; i < boosterItemRewards.Count; i++)
         {
             rewardsText += boosterItemRewards[i].itemName;
+            rewardsText += "\n";
         }
         for (int i = 0; i < consumableItemRewards.Count; i++)
         {
             rewardsText += consumableItemRewards[i].itemName;
+            rewardsText += "\n";
         }
         for (int i = 0; i < keyItemRewards.Count; i++)
         {
             rewardsText += keyItemRewards[i].itemName;
+            rewardsText += "\n";
         }
 
         //Cycles through nodes needed to be given
         for (int i = 0; i < nodeRewards.Count; i++)
         {
             rewardsText += nodeRewards[i].nodeName;
+            rewardsText += "\n";
         }
 
-        rewardsText += veniReward.ToString();
+        rewardsText += veniReward.ToString() + " Veni";
         return rewardsText;
     }
 }

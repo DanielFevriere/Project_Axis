@@ -10,6 +10,7 @@ public class QuestsTab : GameTab
     public Quest mainQuest;
     public int currentPage = 1;
     public int pageAmount;
+    public GameObject highlightQuestButton;
     public GameObject previousPageButton;
     public GameObject nextPageButton;
     public List<Quest> sideQuests;
@@ -39,6 +40,11 @@ public class QuestsTab : GameTab
         if (questManager.activeQuests.Count == 0)
         {
             ClearQuestDisplay();
+            highlightQuestButton.SetActive(false);
+        }
+        else
+        {
+            highlightQuestButton.SetActive(true);
         }
 
         //Checks to see if there's a main quest
@@ -118,8 +124,7 @@ public class QuestsTab : GameTab
         {
             pageAmount++;
         }
-
-        if((sideQuests.Count % sideQuestDisplayNames.Count) != 0)
+        else if((sideQuests.Count % sideQuestDisplayNames.Count) != 0)
         {
             pageAmount++;
         }    
@@ -135,6 +140,10 @@ public class QuestsTab : GameTab
         {
             nextPageButton.SetActive(false);
         }
+        else
+        {
+            nextPageButton.SetActive(true);
+        }
 
         //If the page number is greater than 1, show the previous page button
         if(currentPage > 1)
@@ -149,6 +158,22 @@ public class QuestsTab : GameTab
             else
             {
                 nextPageButton.SetActive(true);
+            }
+        }
+
+        //Highlightedquest null check
+        if(questManager.highlightedQuest != null)
+        {
+            //If the displayedQuest is the highlighted quest
+            if (questTitleText.text == questManager.highlightedQuest.questTitle)
+            {
+                //Hide the highlight quest button
+                highlightQuestButton.SetActive(false);
+            }
+            //Otherwise, show it
+            else
+            {
+                highlightQuestButton.SetActive(true);
             }
         }
     }
@@ -191,6 +216,25 @@ public class QuestsTab : GameTab
         questDescriptionText.text = "";
         questRewardText.text = "";
         questConditionsText.text = "";
+    }
+
+    public void HighlightQuest()
+    {
+        //Searches for the quest to highlight
+        for (int i = 0; i < sideQuests.Count; i++)
+        {
+            //If found
+            if(questTitleText.text == questManager.activeQuests[i].questTitle)
+            {
+                //Checks if the quest is already highlighted (it shouldnt be)
+                if(questManager.activeQuests[i] != questManager.highlightedQuest)
+                {
+                    //Highlights the quest
+                    questManager.highlightedQuest = questManager.activeQuests[i];
+                }
+                break;
+            }    
+        }
     }
 
     public void NextPage()

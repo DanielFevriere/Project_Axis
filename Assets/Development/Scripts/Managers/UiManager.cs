@@ -83,7 +83,10 @@ public class UiManager : MonoBehaviour
         //Updates all the game tabs
         for (int i = 0; i < gameTabs.Count; i++)
         {
-            gameTabs[i].Refresh();
+            if(gameTabs[i].isVisible)
+            {
+                gameTabs[i].Refresh();
+            }
         }
     }
 

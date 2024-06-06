@@ -31,13 +31,13 @@ public class EvolutionAtlasTab : GameTab
         currentAtlas = atlasManager.characterAtlases[characterIndex];
 
         //Node display turns on if a node is selected
-        if(!nodeSelected)
+        if(nodeSelected)
         {
-            nodeDetailsDisplay.SetActive(false);
+            nodeDetailsDisplay.SetActive(true);
         }    
         else
         {
-            nodeDetailsDisplay.SetActive(true);
+            nodeDetailsDisplay.SetActive(false);
         }
 
         //Automatically adds the child gameobjects to the displayednodes list
@@ -90,6 +90,8 @@ public class EvolutionAtlasTab : GameTab
 
         //Sets the locked text to locked/unlocked
         lockedText.text = currentNode.locked ? "Locked" : "Unlocked";
+
+        Refresh();
     }
 
     /// <summary>
@@ -104,7 +106,7 @@ public class EvolutionAtlasTab : GameTab
         Refresh();
     }
 
-    private void OnEnable()
+    private void OnDisable()
     {
         nodeSelected = false;
     }

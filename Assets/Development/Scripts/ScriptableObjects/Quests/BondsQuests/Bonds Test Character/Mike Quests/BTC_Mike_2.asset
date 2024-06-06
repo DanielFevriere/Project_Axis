@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
   m_Name: BTC_Mike_2
   m_EditorClassIdentifier: 
+  mainQuest: 0
   questTitle: Mike's Bond 2
   questDescription: Start dealing damage with mike again
   questObjective: Deal 300 Damage
   isAccepted: 0
   isComplete: 0
   questReward:
-    veniReward: 10
+    veniReward: 20
     boosterItemRewards:
     - {fileID: 11400000, guid: 2c5b817d652ed924faeddba9829c000e, type: 2}
     consumableItemRewards:

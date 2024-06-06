@@ -23,6 +23,7 @@ public class QuestManager : MonoBehaviour
     }
     #endregion
 
+    public Quest highlightedQuest;
     public List<Quest> activeQuests;
 
     //Accepts the quest passed in through the function
