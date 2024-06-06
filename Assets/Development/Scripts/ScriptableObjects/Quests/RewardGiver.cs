@@ -148,4 +148,32 @@ public class RewardGiver
         //Refreshes atlas so nodes are applied to characters
         AtlasManager.Instance.UpdateAtlas();
     }
+
+    public string RewardsText()
+    {
+        string rewardsText = "";
+
+        //Cycles through items needed to be given, adds them to the text
+        for (int i = 0; i < boosterItemRewards.Count; i++)
+        {
+            rewardsText += boosterItemRewards[i].itemName;
+        }
+        for (int i = 0; i < consumableItemRewards.Count; i++)
+        {
+            rewardsText += consumableItemRewards[i].itemName;
+        }
+        for (int i = 0; i < keyItemRewards.Count; i++)
+        {
+            rewardsText += keyItemRewards[i].itemName;
+        }
+
+        //Cycles through nodes needed to be given
+        for (int i = 0; i < nodeRewards.Count; i++)
+        {
+            rewardsText += nodeRewards[i].nodeName;
+        }
+
+        rewardsText += veniReward.ToString();
+        return rewardsText;
+    }
 }
