@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Test Bonds Character
   characterIcon: {fileID: 21300000, guid: 2adf300192825504f8be33b20694414d, type: 3}
+  characterPortrait: {fileID: 0}
   gabeLocked: 1
   mikeLocked: 1
   raphLocked: 1
@@ -50,6 +51,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e34b49116dff7146af40153fdf993ee, type: 2}
   - {fileID: 11400000, guid: f9f1206b79e3cab429c61588e57abd64, type: 2}
   - {fileID: 11400000, guid: 1930a1c075333fe4681030348e03eddd, type: 2}
+  gabeLevel1Details: 
+  gabeLevel2Details: 
+  gabeLevel3Details: 
+  mikeLevel1Details: 
+  mikeLevel2Details: 
+  mikeLevel3Details: 
+  raphLevel1Details: 
+  raphLevel2Details: 
+  raphLevel3Details: 
   age: 17
   height: 5'10
   favColor: Yellow
@@ -57,6 +67,18 @@ MonoBehaviour:
   likes: Apples
   dislikes: Being irrelevant
   personality: Helpful, upbeat
+  strengths: 
+  weaknesses: 
+  bodyType: 
+  motto: 
+  hobbies: 
+  fears: 
+  skinColor: 
+  question1: 
+  question2: 
+  question3: 
+  question4: 
+  question5: 
   ageLocked: 0
   heightLocked: 0
   favColorLocked: 0
@@ -64,3 +86,15 @@ MonoBehaviour:
   likesLocked: 0
   dislikesLocked: 0
   personalityLocked: 0
+  strengthsLocked: 0
+  weaknessesLocked: 0
+  bodyTypeLocked: 0
+  mottoLocked: 0
+  hobbiesLocked: 0
+  fearsLocked: 0
+  skinColorLocked: 0
+  question1Locked: 0
+  question2Locked: 0
+  question3Locked: 0
+  question4Locked: 0
+  question5Locked: 0

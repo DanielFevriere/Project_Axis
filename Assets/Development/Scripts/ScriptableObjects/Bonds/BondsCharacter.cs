@@ -8,6 +8,7 @@ public class BondsCharacter : ScriptableObject
     //Character Name and icon
     public string characterName;
     public Sprite characterIcon;
+    public Sprite characterPortrait;
 
     //if the character is locked, it cannot be progressed yet
     public bool gabeLocked;
@@ -18,7 +19,6 @@ public class BondsCharacter : ScriptableObject
     public int gabeLevel = 0;
     public int mikeLevel = 0;
     public int raphLevel = 0;
-
 
     //Character bonds quests
     public List<Quest> gabeQuests;
@@ -40,15 +40,67 @@ public class BondsCharacter : ScriptableObject
     public List<Conversation> mikeBondsConvos;
     public List<Conversation> raphBondsConvos;
 
+    //List of details that will be unlocked at each level
+    //The number represents which will be unlocked
+    /// <summary>
+    /// 1: Age
+    /// 2: Height
+    /// 3: Favorite Color
+    /// 4: Body Type
+    /// 5: Likes
+    /// 6: Dislikes
+    /// 7: Skin Color
+    /// 8: Motto
+    /// 9: Hobbies
+    /// 10: Fears
+    /// 11: Goals
+    /// 12: Personality
+    /// 13: Strengths
+    /// 14: Weaknesses
+    /// 15: Question 1
+    /// 16: Question 2
+    /// 17: Question 3
+    /// 18: Question 4
+    /// 19: Question 5
+    /// </summary>
+
+    public List<int> gabeLevel0Details;
+    public List<int> gabeLevel1Details;
+    public List<int> gabeLevel2Details;
+    public List<int> gabeLevel3Details;
+
+    public List<int> mikeLevel0Details;
+    public List<int> mikeLevel1Details;
+    public List<int> mikeLevel2Details;
+    public List<int> mikeLevel3Details;
+
+    public List<int> raphLevel0Details;
+    public List<int> raphLevel1Details;
+    public List<int> raphLevel2Details;
+    public List<int> raphLevel3Details;
+
     //Character Info
     public string age;
     public string height;
     public string favColor;
-    public string goals;
+    public string bodyType;
     public string likes;
     public string dislikes;
+    public string skinColor;
+    public string motto;
+    public string hobbies;
+    public string fears;
+    public string goals;
     public string personality;
+    public string strengths;
+    public string weaknesses;
+    public string question1;
+    public string question2;
+    public string question3;
+    public string question4;
+    public string question5;
 
+    //Bools
     public bool ageLocked;
     public bool heightLocked;
     public bool favColorLocked;
@@ -56,35 +108,20 @@ public class BondsCharacter : ScriptableObject
     public bool likesLocked;
     public bool dislikesLocked;
     public bool personalityLocked;
+    public bool strengthsLocked;
+    public bool weaknessesLocked;
+    public bool bodyTypeLocked;
+    public bool mottoLocked;
+    public bool hobbiesLocked;
+    public bool fearsLocked;
+    public bool skinColorLocked;
+    public bool question1Locked;
+    public bool question2Locked;
+    public bool question3Locked;
+    public bool question4Locked;
+    public bool question5Locked;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public void UnlockSupport(int character)
-    {
-        //Checks if one of the three are properly selected
-        if (character != 1 && character != 2 && character != 3)
-        {
-            //Returns if the selection is invalid
-            Debug.Log("Invalid character to level up support");
-            return;
-        }
 
-        //Unlocks the support level for the specific character
-        switch (character)
-        {
-            case 1:
-                gabeLocked = false;
-                break;
-            case 2:
-                mikeLocked = false;
-                break;
-            case 3:
-                raphLocked = false;
-                break;
-        }
-
-    }
 
     /// <summary>
     /// Levels up the bonds level for one of the 3 characters by passing in an int
@@ -111,7 +148,6 @@ public class BondsCharacter : ScriptableObject
                 {
                     Debug.Log("Gabe Bond level up!");
                     gabeLevel++;
-                    //gabeRewards[gabeLevel - 1].GiveReward(); Uncomment when you make the rewards system
                 }
                 else
                 {
@@ -123,7 +159,6 @@ public class BondsCharacter : ScriptableObject
                 {
                     Debug.Log("Mike Bond level up!");
                     mikeLevel++;
-                    //mikeRewards[mikeLevel - 1].GiveReward(); Uncomment when you make the rewards system
                 }
                 else
                 {
@@ -135,7 +170,6 @@ public class BondsCharacter : ScriptableObject
                 {
                     Debug.Log("Raph Bond level up!");
                     raphLevel++;
-                    //raphRewards[raphLevel - 1].GiveReward(); Uncomment when you make the rewards system
                 }
                 else
                 {
@@ -146,5 +180,4 @@ public class BondsCharacter : ScriptableObject
 
     }
 
-    //Make sure to eventually incorporate and add progression to the quest and support system
 }

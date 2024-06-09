@@ -61,7 +61,7 @@ public class EvolutionAtlasTab : GameTab
                 //Fades/unfades based on if they are locked or unlocked
                 if(currentAtlas.lockedNodes[i].locked)
                 {
-                    displayedNodes[i].transform.GetChild(1).gameObject.GetComponent<Image>().color = new Color(255,255,255,0.7f);
+                    displayedNodes[i].transform.GetChild(1).gameObject.GetComponent<Image>().color = new Color(0,0,0,0.7f);
                 }
                 else
                 {
