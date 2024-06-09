@@ -7,6 +7,7 @@ public class Attack : Skill
 {
     Controller moveScript;
 
+    public float attackDamage;
     public float attackForce;
     public float attackDuration;
 
@@ -23,6 +24,7 @@ public class Attack : Skill
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
+        hitBox.GetComponent<DamageOnTouch>().damageDealt = attackDamage + moveScript.GetComponent<Stats>().GetStat(Stat.ATK);
     }
 
     private void Update()

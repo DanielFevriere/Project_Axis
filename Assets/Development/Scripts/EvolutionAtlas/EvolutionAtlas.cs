@@ -8,19 +8,18 @@ public class EvolutionAtlas : ScriptableObject
     public string characterID;
     public GameObject characterObject;
 
-    public List<Node> lockedNodes;
-    public List<Node> unlockedNodes;
+    public List<Node> nodeList;
 
     public void ApplyNodes()
     {
         //Goes through all unlocked nodes
-        for (int i = 0; i < unlockedNodes.Count; i++)
+        for (int i = 0; i < nodeList.Count; i++)
         {
             //If the unlocked nodes haven't been applied yet,
-            if (unlockedNodes[i].applied != true)
+            if (nodeList[i].applied != true)
             {
                 //apply them to the respective character
-                unlockedNodes[i].ApplyNode(characterObject);
+                nodeList[i].ApplyNode(characterObject);
             }
         }
     }
@@ -28,13 +27,13 @@ public class EvolutionAtlas : ScriptableObject
     public void UnApplyNodes()
     {
         //Goes through all unlocked nodes
-        for (int i = 0; i < unlockedNodes.Count; i++)
+        for (int i = 0; i < nodeList.Count; i++)
         {
             //If the unlocked nodes haven't been applied yet,
-            if (unlockedNodes[i].applied == true)
+            if (nodeList[i].applied == true)
             {
                 //apply them to the respective character
-                unlockedNodes[i].UnApplyNode(characterObject);
+                nodeList[i].UnApplyNode(characterObject);
             }
         }
     }

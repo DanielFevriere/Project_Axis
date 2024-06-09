@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: GabeDefaultConvo
+  m_Name: GabeStarterConvo
   m_EditorClassIdentifier: 
-  convoTitle: Default Gabe Convo
+  convoTitle: Starter Gabe Convo
   Dialogues:
   - nameID: TestBondsCharacter
     displayName: TestBondsCharacter

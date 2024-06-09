@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
-  m_Name: GabeBond1
+  m_Name: HPNode1_Gabe
   m_EditorClassIdentifier: 
-  nodeName: GabeSpd1
-  nodeID: GabeBond1
-  nodeIcon: {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
+  nodeName: HP Node 1
+  nodeID: GabeHp1
+  nodeIcon: {fileID: 21300000, guid: 74ef721fef79c44489d4e3edb0ab0c01, type: 3}
   locked: 1
   applied: 0
-  nodeDescription: Increases Gabe's speed by 2
-  stat: 7
-  increaseAmount: 2
+  nodeDescription: Increases Max HP by 5
+  stat: 1
+  increaseAmount: 5

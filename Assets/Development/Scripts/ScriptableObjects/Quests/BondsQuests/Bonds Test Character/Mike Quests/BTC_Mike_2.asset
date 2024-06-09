@@ -27,11 +27,13 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: f71b429112154964ab84d89fe8f744dd, type: 2}
+    - {fileID: 11400000, guid: 89c9a806c1f597141a86bbf10891b797, type: 2}
+    - {fileID: 11400000, guid: c9bc10c4f032c4b4ca14dc35c8557330, type: 2}
+    - {fileID: 11400000, guid: 441c456113522284484e36ba34aae73c, type: 2}
   conditions:
   - conditionName: Deal Damage
     conditionID: Damage
     locked: 0
     completed: 0
     currentProgress: 0
-    requiredProgress: 300
+    requiredProgress: 150

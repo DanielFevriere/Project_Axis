@@ -93,7 +93,7 @@ public class BondsManager : MonoBehaviour
     /// <summary>
     /// Unlocks support character progression for either gabe mike or raph depending on the partymember int paramaeter
     /// </summary>
-    public void UnlockSupport(BondsCharacter bondsChar, int partyMember)
+    public void UnlockBond(BondsCharacter bondsChar, int partyMember)
     {
         //Checks if one of the three are properly selected
         if (partyMember != 1 && partyMember != 2 && partyMember != 3)

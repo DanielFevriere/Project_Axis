@@ -17,6 +17,7 @@ public class IronSting : Skill
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
+        visual.GetComponent<DamageOnTouch>().damageDealt = ironStingDamage + moveScript.GetComponent<Stats>().GetStat(Stat.ATK);
     }
 
     public override void Activate()
@@ -37,7 +38,6 @@ public class IronSting : Skill
         visual.SetActive(true);
         //Activates attack animation
         //moveScript.anim.SetTrigger("boost");
-
 
         //Adds force
         GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, -ironStingPushBackForce, ironStingPushBackDuration);

@@ -16,5 +16,7 @@ MonoBehaviour:
   Dialogues:
   - nameID: TestBondsCharacter
     displayName: TestBondsCharacter
-    line: Your bond with this character is locked, look around and figure out how
-      to unlock it
+    line: Yo- [BOND LOCKED]
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Ah, sorry. We can't talk until you've unlocked the bond for me

@@ -7122,6 +7122,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibleID: Cube
+  waypoints:
+  - {fileID: 2096442225}
+  - {fileID: 357321975}
+  - {fileID: 170547759}
+  - {fileID: 1741046068}
+  parent: {fileID: 2069267985}
 --- !u!1 &213336471
 GameObject:
   m_ObjectHideFlags: 0
@@ -14652,7 +14658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &334036332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37846,7 +37852,7 @@ PrefabInstance:
     - target: {fileID: 370143671435429160, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
       propertyPath: nameID
-      value: Cube
+      value: TestBondsCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 3072871500720959312, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
@@ -56106,7 +56112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520429593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57578,7 +57584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567133910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66720,7 +66726,7 @@ MonoBehaviour:
   m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -73569,7 +73575,7 @@ MonoBehaviour:
   m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -80598,10 +80604,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069267985}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 6, z: 2}
+  m_Size: {x: 4, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2069267989
 MeshRenderer:
@@ -81579,9 +81585,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1cf9022de98ab41a388132beb38567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: Test Bonds Character
+  characterName: TestBondsCharacter
   inTalkingDistance: 0
   lockedConvo: {fileID: 11400000, guid: d72c03dead3bafa43a468ce8d8366443, type: 2}
+  questToAccept: {fileID: 0}
 --- !u!1 &2124730390
 GameObject:
   m_ObjectHideFlags: 0
@@ -82479,6 +82486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
+      propertyPath: attackDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647407618463890062, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
       propertyPath: cooldownTimer
       value: 0.2
       objectReference: {fileID: 0}
@@ -82515,12 +82527,12 @@ PrefabInstance:
     - target: {fileID: 4678217740999728791, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: StartingSPD
-      value: 4124
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: usable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -82557,6 +82569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: boostStrikeSpeed
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: boostStrikeDamage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -82652,11 +82669,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987272033148114032, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
-        type: 3}
-      propertyPath: damageID
-      value: Shade
       objectReference: {fileID: 0}
     - target: {fileID: 8572612221766934155, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -82809,7 +82821,7 @@ PrefabInstance:
     - target: {fileID: 1268571199668914516, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: StartingSPD
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1289669352376926580, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -82919,7 +82931,7 @@ PrefabInstance:
     - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: usable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -82960,7 +82972,7 @@ PrefabInstance:
     - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: ironStingDamage
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -83097,6 +83109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
+      propertyPath: attackDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687768814203, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
       propertyPath: cooldownTimer
       value: 0.2
       objectReference: {fileID: 0}
@@ -83226,7 +83243,7 @@ PrefabInstance:
     - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: usable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
@@ -83262,7 +83279,7 @@ PrefabInstance:
     - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: crossBackDamage
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
@@ -83417,6 +83434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: skillTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: attackDamage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6467951413196368501, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}

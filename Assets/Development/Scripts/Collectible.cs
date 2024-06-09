@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 public class Collectible : MonoBehaviour
 {
     public string collectibleID;
+    public List<Transform> waypoints;
+    public GameObject parent;
 
-    void Start()
+    void Awake()
     {
-
+        Teleport();
     }
 
     private void Update()
@@ -50,8 +52,14 @@ public class Collectible : MonoBehaviour
                 {
                     //Gives progress
                     QuestManager.Instance.activeQuests[i].conditions[j].GiveProgress(1);
+                    Teleport();
                 }
             }
         }
+    }
+
+    public void Teleport()
+    {
+        parent.transform.position = waypoints[Random.Range(0, waypoints.Count - 1)].position;
     }
 }

@@ -8,6 +8,7 @@ public class BondsDialogueNPC : MonoBehaviour
     [SerializeField] string characterName;
     public bool inTalkingDistance;
     public Conversation lockedConvo;
+    public Quest questToAccept;
 
     BondsCharacter testBondsCharacter;
 
@@ -65,8 +66,9 @@ public class BondsDialogueNPC : MonoBehaviour
                                     //If the bond level isnt maxed
                                     if(testBondsCharacter.gabeLevel != testBondsCharacter.gabeQuests.Count)
                                     {
-                                        //Automatically accept the next bonds quest
-                                        QuestManager.Instance.AcceptQuest(testBondsCharacter.gabeQuests[testBondsCharacter.gabeLevel]);
+                                        //Automatically accept the next bonds quest after the dialogue
+                                        questToAccept = testBondsCharacter.gabeQuests[testBondsCharacter.gabeLevel];
+                                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                                     }
                                     //exit function
                                     return;
@@ -75,15 +77,25 @@ public class BondsDialogueNPC : MonoBehaviour
                                 else
                                 {
                                     StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeProgressConvo));
+                                    return;
                                 }
                             }
                         }
-                        //If it reaches this point then it means that no bonds quest has been accepted, therefore
-                        //Play the default convo
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeDefaultConvo));
+                    }
+                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
+                    if (testBondsCharacter.gabeLevel == 3)
+                    {
+                        //Play the completed convo if the bond is maxed
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeCompletedConvo));
+                    }
+                    else
+                    {
+                        //Play the starter convo
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeStarterConvo));
 
                         //Accepts a quest
-                        QuestManager.Instance.AcceptQuest(testBondsCharacter.gabeQuests[testBondsCharacter.gabeLevel]);
+                        questToAccept = testBondsCharacter.gabeQuests[testBondsCharacter.gabeLevel];
+                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                     }
                 }
                 //If it is locked,
@@ -117,8 +129,9 @@ public class BondsDialogueNPC : MonoBehaviour
                                     //If the bond level isnt maxed
                                     if (testBondsCharacter.mikeLevel != testBondsCharacter.mikeQuests.Count)
                                     {
-                                        //Automatically accept the next bonds quest
-                                        QuestManager.Instance.AcceptQuest(testBondsCharacter.mikeQuests[testBondsCharacter.mikeLevel]);
+                                        //Automatically accept the next bonds quest after the dialogue
+                                        questToAccept = testBondsCharacter.mikeQuests[testBondsCharacter.mikeLevel];
+                                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                                     }
                                     //exit function
                                     return;
@@ -127,15 +140,25 @@ public class BondsDialogueNPC : MonoBehaviour
                                 else
                                 {
                                     StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeProgressConvo));
+                                    return;
                                 }
                             }
                         }
-                        //If it reaches this point then it means that no bonds quest has been accepted, therefore
-                        //Play the default convo
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphDefaultConvo));
+                    }
+                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
+                    if (testBondsCharacter.mikeLevel == 3)
+                    {
+                        //Play the completed convo if the bond is maxed
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeCompletedConvo));
+                    }
+                    else
+                    {
+                        //Play the starter convo
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeStarterConvo));
 
                         //Accepts a quest
-                        QuestManager.Instance.AcceptQuest(testBondsCharacter.mikeQuests[testBondsCharacter.mikeLevel]);
+                        questToAccept = testBondsCharacter.mikeQuests[testBondsCharacter.mikeLevel];
+                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                     }
                 }
                 //If it is locked,
@@ -170,8 +193,9 @@ public class BondsDialogueNPC : MonoBehaviour
                                     //If the bond level isnt maxed
                                     if (testBondsCharacter.raphLevel != testBondsCharacter.raphQuests.Count)
                                     {
-                                        //Automatically accept the next bonds quest
-                                        QuestManager.Instance.AcceptQuest(testBondsCharacter.raphQuests[testBondsCharacter.raphLevel]);
+                                        //Automatically accept the next bonds quest after the dialogue
+                                        questToAccept = testBondsCharacter.raphQuests[testBondsCharacter.raphLevel];
+                                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                                     }
                                     //exit function
                                     return;
@@ -180,15 +204,25 @@ public class BondsDialogueNPC : MonoBehaviour
                                 else
                                 {
                                     StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphProgressConvo));
+                                    return;
                                 }
                             }
                         }
-                        //If it reaches this point then it means that no bonds quest has been accepted, therefore
-                        //Play the default convo
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphDefaultConvo));
+                    }
+                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
+                    if (testBondsCharacter.raphLevel == 3)
+                    {
+                        //Play the completed convo if the bond is maxed
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphCompletedConvo));
+                    }
+                    else
+                    {
+                        //Play the starter convo
+                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphStarterConvo));
 
                         //Accepts a quest
-                        QuestManager.Instance.AcceptQuest(testBondsCharacter.raphQuests[testBondsCharacter.raphLevel]);
+                        questToAccept = testBondsCharacter.raphQuests[testBondsCharacter.raphLevel];
+                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                     }
                 }
                 //If it is locked,
@@ -199,6 +233,13 @@ public class BondsDialogueNPC : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    void AcceptQuest()
+    {
+        QuestManager.Instance.AcceptQuest(questToAccept);
+        questToAccept = null;
+        DialogueManager.Instance.OnCloseDialogue -= AcceptQuest;
     }
 
     void OnTriggerEnter(Collider other)

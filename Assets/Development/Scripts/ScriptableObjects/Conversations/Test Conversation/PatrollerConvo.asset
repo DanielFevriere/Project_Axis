@@ -14,18 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   convoTitle: PatrollerConvo
   Dialogues:
-  - nameID: Gabriel
-    displayName: Gabe
-    line: Excuse me
   - nameID: PatrolCube
-    displayName: Test Gabriel
-    line: Yes?
-  - nameID: PatrolCube
-    displayName: Test Gabriel
-    line: Oh! Gabe. Yeah I have a quest for you
-  - nameID: Michael
-    displayName: Mike
-    line: Were starting to get a lot of new things
-  - nameID: Raphael
-    displayName: Raph
-    line: That means that Daniel is putting in WORK
+    displayName: Patroller
+    line: Kill 3 shades for me, and I'll unlock your bond for Gabe, Mike, and Raphael.

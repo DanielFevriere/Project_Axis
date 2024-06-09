@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: Michael
   characterObject: {fileID: 0}
-  lockedNodes:
-  - {fileID: 11400000, guid: ada84db5fa6381f4291623eb3cbd9966, type: 2}
-  - {fileID: 11400000, guid: f71b429112154964ab84d89fe8f744dd, type: 2}
-  - {fileID: 11400000, guid: e01c3c7dc37678a40a24ee7dd12fc158, type: 2}
-  unlockedNodes: []
+  nodeList:
+  - {fileID: 11400000, guid: 6b35f97131b9f024da64728ae97fe8ca, type: 2}
+  - {fileID: 11400000, guid: 26fa469dbe42022478ef6180f6f10c18, type: 2}
+  - {fileID: 11400000, guid: 89c9a806c1f597141a86bbf10891b797, type: 2}
+  - {fileID: 11400000, guid: 5ff8e0b51117a194d830eab34b0f37be, type: 2}
+  - {fileID: 11400000, guid: 0a92edf491e85e643895b252dcfa824a, type: 2}
+  - {fileID: 11400000, guid: c9bc10c4f032c4b4ca14dc35c8557330, type: 2}
+  - {fileID: 11400000, guid: 47df5323b50c75f4ca228b6e68e8e9b6, type: 2}
+  - {fileID: 11400000, guid: 9eda1bfcae02ee24cbf0cfc29bedaf59, type: 2}
+  - {fileID: 11400000, guid: 441c456113522284484e36ba34aae73c, type: 2}
+  - {fileID: 11400000, guid: 391be7d1d52faad4aaa54306a2488766, type: 2}

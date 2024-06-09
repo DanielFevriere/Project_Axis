@@ -72,6 +72,9 @@ public class PatrollingNPC : MonoBehaviour
             if (QuestManager.Instance.CheckIfQuestComplete(killQuest))
             {
                 QuestManager.Instance.FinishQuest(killQuest);
+                BondsManager.Instance.UnlockBond(BondsManager.Instance.bondsCharacters[0], 1);
+                BondsManager.Instance.UnlockBond(BondsManager.Instance.bondsCharacters[0], 2);
+                BondsManager.Instance.UnlockBond(BondsManager.Instance.bondsCharacters[0], 3);
             }
         }
         //If not, accept the quest

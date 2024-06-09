@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
-  m_Name: MikeBond2
+  m_Name: HPNode1_Raph
   m_EditorClassIdentifier: 
-  nodeName: MikeAtk2
-  nodeID: MikeBond2
-  nodeIcon: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
+  nodeName: HP Node 1
+  nodeID: RaphHp1
+  nodeIcon: {fileID: 21300000, guid: 74ef721fef79c44489d4e3edb0ab0c01, type: 3}
   locked: 1
   applied: 0
-  nodeDescription: Increases Mike's attack by 3
-  stat: 5
-  increaseAmount: 3
+  nodeDescription: Increases Max HP by 5
+  stat: 1
+  increaseAmount: 5

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainQuest: 0
   questTitle: Gabe's Bond 2
-  questDescription: The second bonding quest requires double of your first
-  questObjective: Kill 20 shades
+  questDescription: kill 12 shades for me, ill give u cool stuff
+  questObjective: Kill 12 Shades
   isAccepted: 0
   isComplete: 0
   questReward:
@@ -27,11 +27,13 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: b43e469c09613504dbad91cdb5a878ea, type: 2}
+    - {fileID: 11400000, guid: f71b429112154964ab84d89fe8f744dd, type: 2}
+    - {fileID: 11400000, guid: 6dda00e6dcd89cf48b2435e8a4bcc374, type: 2}
+    - {fileID: 11400000, guid: 228f44222ed240746beb2b5796ffa6f1, type: 2}
   conditions:
   - conditionName: Destroy Shades
     conditionID: Shade
     locked: 0
     completed: 0
     currentProgress: 0
-    requiredProgress: 20
+    requiredProgress: 12

@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: Raphael
   characterObject: {fileID: 0}
-  lockedNodes:
-  - {fileID: 11400000, guid: 239f8b59a97490441871ee814ae2a46e, type: 2}
-  - {fileID: 11400000, guid: 6dda00e6dcd89cf48b2435e8a4bcc374, type: 2}
-  - {fileID: 11400000, guid: ec6588444f8f9db4fbcfc2aee8ff6502, type: 2}
-  unlockedNodes: []
+  nodeList:
+  - {fileID: 11400000, guid: aaf0f172cb7d3d743bf9b9c6bc75c9d7, type: 2}
+  - {fileID: 11400000, guid: 677cf7a7b91a1bc41bd8af9abedcfcdf, type: 2}
+  - {fileID: 11400000, guid: ec7c42735194c3a45ba4fe6bcbeb1b6b, type: 2}
+  - {fileID: 11400000, guid: 4218de8666eaad54f90746d2ce1aa32a, type: 2}
+  - {fileID: 11400000, guid: 9cb2c1334f3b4034991679baf42fa58b, type: 2}
+  - {fileID: 11400000, guid: 59c91320674006043848664311e0b22e, type: 2}
+  - {fileID: 11400000, guid: baec8b75a00f05d43ac4ae3b0a41b43f, type: 2}
+  - {fileID: 11400000, guid: 4a89513df3fb25a4b9700a7f6c6093af, type: 2}
+  - {fileID: 11400000, guid: f479cbe06d68b7049a2eca7ee99ece33, type: 2}
+  - {fileID: 11400000, guid: c4925a7217124cc45a095d564da04054, type: 2}

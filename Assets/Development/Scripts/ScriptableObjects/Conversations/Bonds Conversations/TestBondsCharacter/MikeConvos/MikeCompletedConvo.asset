@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: MikeDefaultConvo
+  m_Name: MikeCompletedConvo
   m_EditorClassIdentifier: 
-  convoTitle: Default Mike Convo
+  convoTitle: Mike Completed Convo
   Dialogues:
-  - nameID: Michael
-    displayName: Mike
-    line: Hi! Hello!
-  - nameID: Michael
-    displayName: Mike
-    line: Do you have a quest for me?
   - nameID: TestBondsCharacter
     displayName: TestBondsCharacter
-    line: Perhaps. Check ur quest log and see.
+    line: Congrats on maxing out your bonds level with me Raph!
+  - nameID: TestBondsCharacter
+    displayName: TestBondsCharacter
+    line: Make sure to complete Gabriel and Michael's bonds as well to learn more
+      about me.

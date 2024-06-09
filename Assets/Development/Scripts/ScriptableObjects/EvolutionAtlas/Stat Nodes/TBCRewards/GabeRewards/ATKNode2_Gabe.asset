@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 442c6ba3284091d4982092b0a7eaf8e5, type: 3}
-  m_Name: RaphBond3
+  m_Name: ATKNode2_Gabe
   m_EditorClassIdentifier: 
-  nodeName: RaphHp3
-  nodeID: RaphBond3
-  nodeIcon: {fileID: 21300000, guid: 40685941c1361aa4a957b61174bce3f6, type: 3}
+  nodeName: ATK Node 2
+  nodeID: GabeAtk2
+  nodeIcon: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
   locked: 1
   applied: 0
-  nodeDescription: Increases Raph's Max HP by 15
-  stat: 1
-  increaseAmount: 15
+  nodeDescription: Increases attack by 3
+  stat: 5
+  increaseAmount: 3

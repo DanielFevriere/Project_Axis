@@ -16,6 +16,7 @@ public class CrossBack : Skill
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
+        visual.GetComponent<DamageOnTouch>().damageDealt = crossBackDamage + moveScript.GetComponent<Stats>().GetStat(Stat.ATK);
     }
 
     public override void Activate()

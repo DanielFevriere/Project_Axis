@@ -47,6 +47,12 @@ public class QuestManager : MonoBehaviour
                 activeQuests[i].isAccepted = true;
             }
         }
+
+        //Automatically makes the only active quest the highlighted one
+        if(activeQuests.Count == 1)
+        {
+            highlightedQuest = activeQuests[0];
+        }
     }
 
     //Checks if the quest passed in has been Completed
@@ -88,6 +94,11 @@ public class QuestManager : MonoBehaviour
         if (!activeQuests.Contains(targetQuest))
         {
             return;
+        }
+
+        if(highlightedQuest == targetQuest)
+        {
+            highlightedQuest = null;
         }
 
         //Searches the active quests list for the target quest

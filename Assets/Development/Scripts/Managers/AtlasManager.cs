@@ -53,14 +53,12 @@ public class AtlasManager : MonoBehaviour
         for (int i = 0; i < characterAtlases.Count; i++)
         {
             //Searches through the locked nodes of the character atlas
-            for (int j = 0; j < characterAtlases[i].lockedNodes.Count; j++)
+            for (int j = 0; j < characterAtlases[i].nodeList.Count; j++)
             {
                 //If it equals that ID, unlock it and exit the function
-                if(characterAtlases[i].lockedNodes[j].nodeID == nodeID)
+                if(characterAtlases[i].nodeList[j].nodeID == nodeID)
                 {
-                    characterAtlases[i].lockedNodes[j].UnlockNode(); //Unlocks node
-                    characterAtlases[i].unlockedNodes.Add(characterAtlases[i].lockedNodes[j]); //Adds the node to unlocked
-                    characterAtlases[i].lockedNodes.Remove(characterAtlases[i].lockedNodes[j]); //Removes the node from locked
+                    characterAtlases[i].nodeList[j].UnlockNode(); //Unlocks node
                     return;
                 }
             }

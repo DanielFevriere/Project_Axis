@@ -25,15 +25,19 @@ public class BondsCharacter : ScriptableObject
     public List<Quest> mikeQuests;
     public List<Quest> raphQuests;
 
-    //The initial default convo when a character bond is locked for a character
-    public Conversation gabeDefaultConvo;
-    public Conversation mikeDefaultConvo;
-    public Conversation raphDefaultConvo;
+    //The initial starting convo before accepting the bond characters first quest
+    public Conversation gabeStarterConvo;
+    public Conversation mikeStarterConvo;
+    public Conversation raphStarterConvo;
 
     //The progress convos for each character
     public Conversation gabeProgressConvo;
     public Conversation mikeProgressConvo;
     public Conversation raphProgressConvo;
+
+    public Conversation gabeCompletedConvo;
+    public Conversation mikeCompletedConvo;
+    public Conversation raphCompletedConvo;
 
     //List of convos for each bond level
     public List<Conversation> gabeBondsConvos;
@@ -141,8 +145,4 @@ public class BondsCharacter : ScriptableObject
     public bool question3Locked;
     public bool question4Locked;
     public bool question5Locked;
-
-
-
-
 }

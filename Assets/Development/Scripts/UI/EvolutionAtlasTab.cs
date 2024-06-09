@@ -52,14 +52,14 @@ public class EvolutionAtlasTab : GameTab
         for (int i = 0; i < displayedNodes.Count; i++)
         {
             //If the index is less than the current atlas node count, show the node
-            if (i < currentAtlas.lockedNodes.Count)
+            if (i < currentAtlas.nodeList.Count)
             {
                 displayedNodes[i].SetActive(true);
                 //Gets the icon and sets it to the node icon
-                displayedNodes[i].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = currentAtlas.lockedNodes[i].nodeIcon;
+                displayedNodes[i].transform.GetChild(1).gameObject.GetComponent<Image>().sprite = currentAtlas.nodeList[i].nodeIcon;
 
                 //Fades/unfades based on if they are locked or unlocked
-                if(currentAtlas.lockedNodes[i].locked)
+                if(currentAtlas.nodeList[i].locked)
                 {
                     displayedNodes[i].transform.GetChild(1).gameObject.GetComponent<Image>().color = new Color(0,0,0,0.7f);
                 }
@@ -81,7 +81,7 @@ public class EvolutionAtlasTab : GameTab
     /// <param name="nodeNum"></param>
     public void SelectNode(int nodeNum)
     {
-        Node currentNode = currentAtlas.lockedNodes[nodeNum];
+        Node currentNode = currentAtlas.nodeList[nodeNum];
 
         //Node Details display shows and sets the name and description to the selected node
         nodeSelected = true;

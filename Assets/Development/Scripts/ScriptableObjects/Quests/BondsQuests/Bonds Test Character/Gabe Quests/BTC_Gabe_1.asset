@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a816ca4cc1000458ac54ee665db824, type: 3}
   m_Name: BTC_Gabe_1
   m_EditorClassIdentifier: 
+  mainQuest: 0
   questTitle: Gabe's Bond 1
   questDescription: This is your first bonding quest with gabriel. Goodluck!
-  questObjective: Kill 10 shades
+  questObjective: Kill 9 shades
   isAccepted: 0
   isComplete: 0
   questReward:
@@ -26,12 +27,14 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
+    - {fileID: 11400000, guid: ada84db5fa6381f4291623eb3cbd9966, type: 2}
+    - {fileID: 11400000, guid: 239f8b59a97490441871ee814ae2a46e, type: 2}
     - {fileID: 11400000, guid: e52fa8806c0077247b6453ae4c4d80ff, type: 2}
-    - {fileID: 11400000, guid: e52fa8806c0077247b6453ae4c4d80ff, type: 2}
+    - {fileID: 11400000, guid: 54904d4f6e1e54a47b1879a7753e9f01, type: 2}
   conditions:
   - conditionName: Destroy Shades
     conditionID: Shade
     locked: 0
     completed: 0
     currentProgress: 0
-    requiredProgress: 10
+    requiredProgress: 9
