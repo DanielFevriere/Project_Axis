@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestBondsCharacter
   m_EditorClassIdentifier: 
   characterName: Test Bonds Character
-  characterIcon: {fileID: 21300000, guid: 2adf300192825504f8be33b20694414d, type: 3}
-  characterPortrait: {fileID: 0}
+  characterIcon: {fileID: 21300000, guid: 73c5d335f004ce845a3afe48e5cb194d, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 2adf300192825504f8be33b20694414d, type: 3}
   gabeLocked: 1
   mikeLocked: 1
   raphLocked: 1
@@ -66,22 +66,25 @@ MonoBehaviour:
   age: 17
   height: 5'10
   favColor: Yellow
-  bodyType: 
+  bodyType: Slim
   likes: Apples
   dislikes: Being irrelevant
-  skinColor: 
-  motto: 
-  hobbies: 
-  fears: 
+  skinColor: Pale
+  motto: '"COME ON!"'
+  hobbies: Standing, waiting around, smiling, being weird
+  fears: Being erased after his primary purpose is fulfilled
   goals: Becoming a real character in the main game
   personality: Helpful, upbeat
-  strengths: 
-  weaknesses: 
-  question1: 
-  question2: 
-  question3: 
-  question4: 
-  question5: 
+  strengths: Being helpful and Informative
+  weaknesses: Anxious,
+  question1: I'll finally exist and be given a name!
+  question2: '"Who?" - Gabriel                                                                  
+    "He''s chill. Idk him enough" - Michael                                        
+    "I hope his dream comes true" - Raphael'
+  question3: Standing
+  question4: '"Infraxis will be finished in 5 years, so I''m either dead in the code,
+    or alive and a character in the game"'
+  question5: '"I have no memories. I started existing in this build"'
   ageLocked: 1
   heightLocked: 1
   favColorLocked: 1

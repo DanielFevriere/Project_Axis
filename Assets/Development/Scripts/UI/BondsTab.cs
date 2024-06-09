@@ -19,11 +19,17 @@ public class BondsTab : GameTab
 
     //Variables relating to the currently selected bonds character
     public BondsCharacter currentBond;
-    public string currentBondName;
-    public string currentBondLevel;
     public List<GameObject> detailsPages;
-    public int bondsDetailsPage = 1;
-    public List<TMP_Text> detailsTexts;
+    public int currentBondsDetailsPage = 1;
+    public TMP_Text currentBondsCharacterName;
+    public Image currentBondsCharacterPortrait;
+    public TMP_Text GabeLvText;
+    public TMP_Text MikeLvText;
+    public TMP_Text RaphLvText;
+    public Material GabeBarMaterial;
+    public Material MikeBarMaterial;
+    public Material RaphBarMaterial;
+
     public TMP_Text ageText;
     public TMP_Text heightText;
     public TMP_Text favColorText;
@@ -49,36 +55,10 @@ public class BondsTab : GameTab
         bondsManager = BondsManager.Instance;
 
         currentBond = bondsManager.bondsCharacters[0];
-
-        //Adds all the texts to a list
-        detailsTexts = new List<TMP_Text>();
-        detailsTexts.Add(ageText);
-        detailsTexts.Add(heightText);
-        detailsTexts.Add(favColorText);
-        detailsTexts.Add(bodyTypeText);
-        detailsTexts.Add(likesText);
-        detailsTexts.Add(dislikesText);
-        detailsTexts.Add(skinColorText);
-        detailsTexts.Add(mottoText);
-        detailsTexts.Add(hobbiesText);
-        detailsTexts.Add(fearsText);
-        detailsTexts.Add(goalsText);
-        detailsTexts.Add(personalityText);
-        detailsTexts.Add(strengthsText);
-        detailsTexts.Add(weaknessesText);
-        detailsTexts.Add(question1Text);
-        detailsTexts.Add(question2Text);
-        detailsTexts.Add(question3Text);
-        detailsTexts.Add(question4Text);
-        detailsTexts.Add(question5Text);
     }
 
     public override void Refresh()
     {
-        //To do list:
-        //Grab the total list of bonds from the bonds menu and display them up properly here
-        //Use the quest thing to figure out whats right
-
         //Clears bonds list
         bondsList.Clear();
 
@@ -118,10 +98,10 @@ public class BondsTab : GameTab
         SetBondsPageAmount();
 
         //Displays the proper bonds details page
-        for (int i = 0; i < bondsDetailsPage; i++)
+        for (int i = 0; i < detailsPages.Count; i++)
         {
             //Displays the proper one
-            if(currentBondsPage == bondsDetailsPage)
+            if (i == currentBondsDetailsPage)
             {
                 detailsPages[i].SetActive(true);
             }
@@ -135,8 +115,40 @@ public class BondsTab : GameTab
         UpdateBondsDetailsDisplay();
     }
 
+    public void SelectBond(int bondsIndex)
+    {
+        //Searches for the bond in the bonds character list
+        for (int i = 0; i < bondsManager.bondsCharacters.Count; i++)
+        {
+            //If the selected bond is it
+            if (bondsDisplayNames[bondsIndex].text == bondsManager.bondsCharacters[i].characterName)
+            {
+                currentBond = bondsManager.bondsCharacters[i];
+            }
+        }
+    }
+
     public void UpdateBondsDetailsDisplay()
     {
+        currentBondsCharacterName.text = currentBond.characterName;
+        currentBondsCharacterPortrait.sprite = currentBond.characterPortrait;
+
+        GabeLvText.text = "Gabe Lv " + currentBond.gabeLevel.ToString();
+        MikeLvText.text = "Mike Lv " + currentBond.mikeLevel.ToString();
+        RaphLvText.text = "Raph Lv " + currentBond.raphLevel.ToString();
+
+        //so currently youll have the bar set up by current progress / required progress, BUT
+        //IMPORTANT: IN THE FUTURE, CHANGE IT SO THAT IT COMBINES THE PROGRESS OF ALL CONDITIONS, NOT JUST ONE. ITS FLAWED AND THIS IS A TEMP SOLUTION.
+
+        float gabeFill = currentBond.gabeQuests[currentBond.gabeLevel].conditions[0].CurrentProgress / currentBond.gabeQuests[currentBond.gabeLevel].conditions[0].RequiredProgress;
+        float mikeFill = currentBond.mikeQuests[currentBond.mikeLevel].conditions[0].CurrentProgress / currentBond.mikeQuests[currentBond.mikeLevel].conditions[0].RequiredProgress;
+        float raphFill = currentBond.raphQuests[currentBond.raphLevel].conditions[0].CurrentProgress / currentBond.raphQuests[currentBond.raphLevel].conditions[0].RequiredProgress;
+
+        //If they are max level (3) it fills up to max already
+        GabeBarMaterial.SetFloat("_Fill", currentBond.gabeLevel == 3 ? 1 : gabeFill);
+        MikeBarMaterial.SetFloat("_Fill", currentBond.mikeLevel == 3 ? 1 : mikeFill);
+        RaphBarMaterial.SetFloat("_Fill", currentBond.raphLevel == 3 ? 1 : raphFill);
+
         //Updates details based on if they are locked or not
         ageText.text = currentBond.ageLocked ? "???" : currentBond.age;
         heightText.text = currentBond.heightLocked ? "???" : currentBond.height;
@@ -162,10 +174,12 @@ public class BondsTab : GameTab
     //Displays the page based on the number
     public void ShowDetailsPage(int pageNum)
     {
+        currentBondsDetailsPage = pageNum;
+
         for (int i = 0; i < detailsPages.Count; i++)
         {
             //Turns off all the other pages and sets the selected page number to true
-            if(i != pageNum)
+            if (i != pageNum)
             {
                 detailsPages[i].SetActive(false);
             }
