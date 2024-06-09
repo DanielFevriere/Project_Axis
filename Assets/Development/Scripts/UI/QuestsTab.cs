@@ -78,8 +78,6 @@ public class QuestsTab : GameTab
             mainQuestDisplayName.text = mainQuest.questTitle;
         }
 
-        //Based on the quest page index, figure out the proper formula to display the correct page of quests
-        //Utilize the the count of side quest names list, so regardless of if you add more to display per page, itll just work
         for (int i = 0; i < questManager.activeQuests.Count; i++)
         {
             //Adds the quest to the sidequests list if it's not a mainquest
@@ -89,6 +87,8 @@ public class QuestsTab : GameTab
             }
         }
 
+        //Based on the quest page index, figure out the proper formula to display the correct page of quests
+        //Utilize the the count of side quest names list, so regardless of if you add more to display per page, itll just work
 
         //Names of the sidequest buttons on the side become the sidequest title
         for (int i = 0; i < sideQuestDisplayNames.Count; i++)
@@ -237,6 +237,9 @@ public class QuestsTab : GameTab
         }
     }
 
+    /// <summary>
+    /// Next Quests Page
+    /// </summary>
     public void NextPage()
     {
         if(currentPage != pageAmount)
@@ -245,6 +248,9 @@ public class QuestsTab : GameTab
         }
     }
 
+    /// <summary>
+    /// Previous Quests Page
+    /// </summary>
     public void PreviousPage()
     {
         if(currentPage != 1)

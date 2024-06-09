@@ -64,6 +64,27 @@ public class BondsCharacter : ScriptableObject
     /// 19: Question 5
     /// </summary>
 
+    [Header("Detail numbers: \n" +
+        "1 = Age \n" +
+        "2 = Height \n" +
+        "3 = Favorite Color \n" +
+        "4 = Body Type \n" +
+        "5 = Likes \n" +
+        "6 = Dislikes \n" +
+        "7 = Skin Color \n" +
+        "8 = Motto \n" +
+        "9 = Hobbies \n" +
+        "10 = Fears \n" +
+        "11 = Goals \n" +
+        "12 = Personality \n" +
+        "13 = Strengths \n" +
+        "14 = Weaknesses \n" +
+        "15 = Question 1 \n" +
+        "16 = Question 2 \n" +
+        "17 = Question 3 \n" +
+        "18 = Question 4 \n" +
+        "19 = Question 5 \n")]
+
     public List<int> gabeLevel0Details;
     public List<int> gabeLevel1Details;
     public List<int> gabeLevel2Details;
@@ -123,61 +144,5 @@ public class BondsCharacter : ScriptableObject
 
 
 
-    /// <summary>
-    /// Levels up the bonds level for one of the 3 characters by passing in an int
-    /// 1 - Gabe,
-    /// 2 - Mike,
-    /// 3 - Raph
-    /// </summary>
-    public void BondLevelUp(int character)
-    {
-        //Checks if one of the three are properly selected
-        if(character != 1 && character != 2 && character != 3)
-        {
-            //Returns if the selection is invalid
-            Debug.Log("Invalid character to level up bond");
-            return;
-        }
-
-        //Depending on the character, depends on which one gets leveled up while getting the rewards
-        switch(character)
-        {
-            case 1:
-
-                if(gabeLevel < gabeBondsConvos.Count)
-                {
-                    Debug.Log("Gabe Bond level up!");
-                    gabeLevel++;
-                }
-                else
-                {
-                    Debug.Log("Gabe Bond level is max.");
-                }
-                break;
-            case 2:
-                if (mikeLevel < mikeBondsConvos.Count)
-                {
-                    Debug.Log("Mike Bond level up!");
-                    mikeLevel++;
-                }
-                else
-                {
-                    Debug.Log("Mike Bond level is max.");
-                }
-                break;
-            case 3:
-                if (raphLevel < raphBondsConvos.Count)
-                {
-                    Debug.Log("Raph Bond level up!");
-                    raphLevel++;
-                }
-                else
-                {
-                    Debug.Log("Raph Bond level is max.");
-                }
-                break;
-        }
-
-    }
 
 }

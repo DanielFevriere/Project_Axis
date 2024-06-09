@@ -60,7 +60,7 @@ public class BondsDialogueNPC : MonoBehaviour
                                     //Finish up the quest and give the rewards to the player
                                     QuestManager.Instance.FinishQuest(testBondsCharacter.gabeQuests[j]);
                                     StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeBondsConvos[testBondsCharacter.gabeLevel]));
-                                    testBondsCharacter.BondLevelUp(1);
+                                    BondsManager.Instance.BondLevelUp(testBondsCharacter, 1); 
 
                                     //If the bond level isnt maxed
                                     if(testBondsCharacter.gabeLevel != testBondsCharacter.gabeQuests.Count)
@@ -113,8 +113,7 @@ public class BondsDialogueNPC : MonoBehaviour
                                     //Finish up the quest and give the rewards to the player
                                     QuestManager.Instance.FinishQuest(testBondsCharacter.mikeQuests[j]);
                                     StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeBondsConvos[testBondsCharacter.mikeLevel]));
-                                    testBondsCharacter.BondLevelUp(2);
-
+                                    BondsManager.Instance.BondLevelUp(testBondsCharacter, 2);
                                     //If the bond level isnt maxed
                                     if (testBondsCharacter.mikeLevel != testBondsCharacter.mikeQuests.Count)
                                     {
@@ -166,7 +165,7 @@ public class BondsDialogueNPC : MonoBehaviour
                                     //Finish up the quest and give the rewards to the player
                                     QuestManager.Instance.FinishQuest(testBondsCharacter.raphQuests[j]);
                                     StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphBondsConvos[testBondsCharacter.raphLevel]));
-                                    testBondsCharacter.BondLevelUp(3);
+                                    BondsManager.Instance.BondLevelUp(testBondsCharacter, 3);
 
                                     //If the bond level isnt maxed
                                     if (testBondsCharacter.raphLevel != testBondsCharacter.raphQuests.Count)

@@ -51,50 +51,53 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e34b49116dff7146af40153fdf993ee, type: 2}
   - {fileID: 11400000, guid: f9f1206b79e3cab429c61588e57abd64, type: 2}
   - {fileID: 11400000, guid: 1930a1c075333fe4681030348e03eddd, type: 2}
-  gabeLevel1Details: 
-  gabeLevel2Details: 
-  gabeLevel3Details: 
-  mikeLevel1Details: 
-  mikeLevel2Details: 
-  mikeLevel3Details: 
-  raphLevel1Details: 
-  raphLevel2Details: 
-  raphLevel3Details: 
+  gabeLevel0Details: 01000000
+  gabeLevel1Details: 030000000400000005000000
+  gabeLevel2Details: 0d000000
+  gabeLevel3Details: 1000000011000000
+  mikeLevel0Details: 02000000
+  mikeLevel1Details: 060000000800000009000000
+  mikeLevel2Details: 0e000000
+  mikeLevel3Details: 12000000
+  raphLevel0Details: 07000000
+  raphLevel1Details: 0a0000000b0000000c000000
+  raphLevel2Details: 0f000000
+  raphLevel3Details: 13000000
   age: 17
   height: 5'10
   favColor: Yellow
-  goals: Becoming a real character in the main game
+  bodyType: 
   likes: Apples
   dislikes: Being irrelevant
-  personality: Helpful, upbeat
-  strengths: 
-  weaknesses: 
-  bodyType: 
+  skinColor: 
   motto: 
   hobbies: 
   fears: 
-  skinColor: 
+  goals: Becoming a real character in the main game
+  personality: Helpful, upbeat
+  strengths: 
+  weaknesses: 
   question1: 
   question2: 
   question3: 
   question4: 
   question5: 
-  ageLocked: 0
-  heightLocked: 0
-  favColorLocked: 0
-  goalsLocked: 0
-  likesLocked: 0
-  dislikesLocked: 0
-  personalityLocked: 0
-  strengthsLocked: 0
-  weaknessesLocked: 0
-  bodyTypeLocked: 0
-  mottoLocked: 0
-  hobbiesLocked: 0
-  fearsLocked: 0
-  skinColorLocked: 0
-  question1Locked: 0
-  question2Locked: 0
-  question3Locked: 0
-  question4Locked: 0
-  question5Locked: 0
+  ageLocked: 1
+  heightLocked: 1
+  favColorLocked: 1
+  goalsLocked: 1
+  likesLocked: 1
+  dislikesLocked: 1
+  personalityLocked: 1
+  strengthsLocked: 1
+  weaknessesLocked: 1
+  bodyTypeLocked: 1
+  mottoLocked: 1
+  hobbiesLocked: 1
+  fearsLocked: 1
+  skinColorLocked: 1
+  question1Locked: 1
+  question2Locked: 1
+  question3Locked: 1
+  question4Locked: 1
+  question5Locked: 1

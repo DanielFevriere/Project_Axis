@@ -34,7 +34,6 @@ public class BondsManager : MonoBehaviour
         
     }
 
-
     /// <summary>
     /// Levels up the bonds level for one of the 3 characters by passing in an int
     /// 1 - Gabe,
@@ -89,6 +88,7 @@ public class BondsManager : MonoBehaviour
                 break;
         }
 
+        UpdateDetails(bondsChar);
     }
     /// <summary>
     /// Unlocks support character progression for either gabe mike or raph depending on the partymember int paramaeter
@@ -120,7 +120,10 @@ public class BondsManager : MonoBehaviour
         UpdateDetails(bondsChar);
     }
 
-    //Updates and unlocks details based on the bondslevels on a character
+    /// <summary>
+    /// Updates and unlocks details based on the bondslevels on a character
+    /// </summary>
+    /// <param name="bondsChar"></param>
     public void UpdateDetails(BondsCharacter bondsChar)
     { 
         //If gabes bond progress isnt locked

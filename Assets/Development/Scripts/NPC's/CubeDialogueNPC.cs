@@ -48,17 +48,17 @@ public class CubeDialogueNPC : MonoBehaviour
                     //Depending on the party leader, level up the corresponding support level and start the proper support conversation
                     if(GameManager.Instance.partyLeader.name == "Gabriel")
                     {
-                        cubeBondsCharacter.BondLevelUp(1);
+                        BondsManager.Instance.BondLevelUp(cubeBondsCharacter, 1);
                         StartCoroutine(DialogueManager.Instance.ShowConversation(cubeBondsCharacter.gabeBondsConvos[cubeBondsCharacter.gabeLevel - 1]));
                     }
                     else if(GameManager.Instance.partyLeader.name == "Michael")
                     {
-                        cubeBondsCharacter.BondLevelUp(2);
+                        BondsManager.Instance.BondLevelUp(cubeBondsCharacter, 2);
                         StartCoroutine(DialogueManager.Instance.ShowConversation(cubeBondsCharacter.mikeBondsConvos[cubeBondsCharacter.mikeLevel - 1]));
                     }
                     else if(GameManager.Instance.partyLeader.name == "Raphael")
                     {
-                        cubeBondsCharacter.BondLevelUp(3);
+                        BondsManager.Instance.BondLevelUp(cubeBondsCharacter, 3);
                         StartCoroutine(DialogueManager.Instance.ShowConversation(cubeBondsCharacter.raphBondsConvos[cubeBondsCharacter.raphLevel - 1]));
                     }
                 }
