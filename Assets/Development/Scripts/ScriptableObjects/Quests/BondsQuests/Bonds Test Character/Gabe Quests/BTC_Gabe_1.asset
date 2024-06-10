@@ -27,9 +27,6 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: ada84db5fa6381f4291623eb3cbd9966, type: 2}
-    - {fileID: 11400000, guid: 239f8b59a97490441871ee814ae2a46e, type: 2}
-    - {fileID: 11400000, guid: e52fa8806c0077247b6453ae4c4d80ff, type: 2}
     - {fileID: 11400000, guid: 54904d4f6e1e54a47b1879a7753e9f01, type: 2}
   conditions:
   - conditionName: Destroy Shades

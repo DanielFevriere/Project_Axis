@@ -17,7 +17,7 @@ public class IronSting : Skill
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
-        visual.GetComponent<DamageOnTouch>().damageDealt = ironStingDamage + moveScript.GetComponent<Stats>().GetStat(Stat.ATK);
+        visual.GetComponent<DamageOnTouch>().damageDealt = ironStingDamage;
     }
 
     public override void Activate()

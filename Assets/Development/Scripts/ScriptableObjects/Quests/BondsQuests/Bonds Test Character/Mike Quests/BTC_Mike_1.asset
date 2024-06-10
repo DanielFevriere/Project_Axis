@@ -27,9 +27,6 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: 26fa469dbe42022478ef6180f6f10c18, type: 2}
-    - {fileID: 11400000, guid: 0a92edf491e85e643895b252dcfa824a, type: 2}
-    - {fileID: 11400000, guid: 9eda1bfcae02ee24cbf0cfc29bedaf59, type: 2}
     - {fileID: 11400000, guid: 6b35f97131b9f024da64728ae97fe8ca, type: 2}
   conditions:
   - conditionName: Deal Damage

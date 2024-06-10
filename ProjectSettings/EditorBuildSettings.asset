@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Development/Scenes/Map Scenes/GashunCity.unity
     guid: 7864a4775a8d4e04196c740402638671
   - enabled: 0
-    path: Assets/Development/Scenes/Functional Scenes/Template1.unity
-    guid: fc5d1ba41d4ab1843a835217bcae039b
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Development/Scenes/Functional Scenes/UpdatedMap.unity
     guid: 0014a68cc6f407446849a6516bc1b408
+  - enabled: 1
+    path: Assets/Development/Scenes/Functional Scenes/Updated Map 2.unity
+    guid: 4e3d336f849113e478ffc003dfe1d5a8
   m_configObjects: {}

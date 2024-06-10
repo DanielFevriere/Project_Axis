@@ -233,11 +233,6 @@ public class Controller : MonoBehaviour
         //Sets speed depending on if walking or running
         curSpeed = running ? runSpeed : walkSpeed;
 
-        if(inBattle)
-        {
-            curSpeed = runSpeed + GetComponent<Stats>().GetStat(Stat.SPD);
-        }
-
         //8 directional movement
         movement = new Vector3(moveInput.x, verticalVel, moveInput.y) * (curSpeed * 100) * Time.deltaTime;
 

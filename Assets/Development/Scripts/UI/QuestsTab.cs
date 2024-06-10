@@ -180,28 +180,50 @@ public class QuestsTab : GameTab
 
     public void UpdateQuestDisplay(int questIndex)
     {
-        //Searches for the quest title in the sidequests list
-        for (int i = 0; i < sideQuests.Count; i++)
+        if(questIndex == -1)
         {
-            if(sideQuestDisplayNames[questIndex].text == sideQuests[i].questTitle)
+            //Displays the quest title, description, rewards, and conditions
+            questTitleText.text = mainQuest.questTitle;
+            questDescriptionText.text = mainQuest.questDescription;
+
+            //here's how rewards will be listed out:
+            questRewardText.text = mainQuest.questReward.RewardsText();
+
+            //Conditions are listed individually
+            string conditionText = "";
+            for (int j = 0; j < mainQuest.conditions.Count; j++)
             {
-                //Displays the quest title, description, rewards, and conditions
-                questTitleText.text = sideQuests[i].questTitle;
-                questDescriptionText.text = sideQuests[i].questDescription;
-
-                //here's how rewards will be listed out:
-                questRewardText.text = sideQuests[i].questReward.RewardsText();
-
-                //Conditions are listed individually
-                string conditionText = "";
-                for (int j = 0; j < sideQuests[i].conditions.Count; j++)
+                conditionText += mainQuest.conditions[j].ConditionName +
+                    " " + mainQuest.conditions[j].CurrentProgress.ToString() +
+                    "/" + mainQuest.conditions[j].RequiredProgress.ToString();
+            }
+            questConditionsText.text = conditionText;
+        }
+        else
+        {
+            //Searches for the quest title in the sidequests list
+            for (int i = 0; i < sideQuests.Count; i++)
+            {
+                if(sideQuestDisplayNames[questIndex].text == sideQuests[i].questTitle)
                 {
-                    conditionText += sideQuests[i].conditions[j].ConditionName +
-                        " " + sideQuests[i].conditions[j].CurrentProgress.ToString() +
-                        "/" + sideQuests[i].conditions[j].RequiredProgress.ToString();
+                    //Displays the quest title, description, rewards, and conditions
+                    questTitleText.text = sideQuests[i].questTitle;
+                    questDescriptionText.text = sideQuests[i].questDescription;
+
+                    //here's how rewards will be listed out:
+                    questRewardText.text = sideQuests[i].questReward.RewardsText();
+
+                    //Conditions are listed individually
+                    string conditionText = "";
+                    for (int j = 0; j < sideQuests[i].conditions.Count; j++)
+                    {
+                        conditionText += sideQuests[i].conditions[j].ConditionName +
+                            " " + sideQuests[i].conditions[j].CurrentProgress.ToString() +
+                            "/" + sideQuests[i].conditions[j].RequiredProgress.ToString();
+                    }
+                    questConditionsText.text = conditionText;
+                    break;
                 }
-                questConditionsText.text = conditionText;
-                break;
             }
         }
         

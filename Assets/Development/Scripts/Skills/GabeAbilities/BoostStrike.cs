@@ -18,7 +18,7 @@ public class BoostStrike : Skill
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
-        visual.GetComponent<DamageOnTouch>().damageDealt = boostStrikeDamage + moveScript.GetComponent<Stats>().GetStat(Stat.ATK);
+        visual.GetComponent<DamageOnTouch>().damageDealt = boostStrikeDamage;
     }
 
     public override void Activate()

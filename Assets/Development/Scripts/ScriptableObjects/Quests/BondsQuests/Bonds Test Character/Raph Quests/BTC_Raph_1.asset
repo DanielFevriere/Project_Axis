@@ -27,9 +27,6 @@ MonoBehaviour:
     keyItemRewards:
     - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
     nodeRewards:
-    - {fileID: 11400000, guid: 677cf7a7b91a1bc41bd8af9abedcfcdf, type: 2}
-    - {fileID: 11400000, guid: 9cb2c1334f3b4034991679baf42fa58b, type: 2}
-    - {fileID: 11400000, guid: 4a89513df3fb25a4b9700a7f6c6093af, type: 2}
     - {fileID: 11400000, guid: aaf0f172cb7d3d743bf9b9c6bc75c9d7, type: 2}
   conditions:
   - conditionName: Find yellow cubes

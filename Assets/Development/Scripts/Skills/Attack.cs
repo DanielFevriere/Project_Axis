@@ -24,7 +24,7 @@ public class Attack : Skill
     void Start()
     {
         moveScript = GetComponentInParent<Controller>();
-        hitBox.GetComponent<DamageOnTouch>().damageDealt = attackDamage + moveScript.GetComponent<Stats>().GetStat(Stat.ATK);
+        hitBox.GetComponent<DamageOnTouch>().damageDealt = attackDamage;
     }
 
     private void Update()

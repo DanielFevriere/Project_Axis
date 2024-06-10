@@ -52,6 +52,7 @@ public class Collectible : MonoBehaviour
                 {
                     //Gives progress
                     QuestManager.Instance.activeQuests[i].conditions[j].GiveProgress(1);
+                    GameManager.Instance.OnInteract -= Collect;
                     Teleport();
                 }
             }
