@@ -486,4 +486,10 @@ public class GameManager : MonoBehaviour
             ChangeState(nextState);
         }
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("Game Closed");
+        Application.Quit();
+    }
 }
