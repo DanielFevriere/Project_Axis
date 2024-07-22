@@ -778,6 +778,7 @@ MonoBehaviour:
   onCooldown: 0
   cooldownTime: 0.2
   cooldownTimer: 0
+  attackDamage: 0
   attackForce: 2
   attackDuration: 0
   inCombo: 0
@@ -1241,6 +1242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362692036643650607, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8092813669043172546, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}

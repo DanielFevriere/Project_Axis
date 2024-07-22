@@ -16,7 +16,8 @@ public class CharacterCombatStatusPanel : MonoBehaviour
     [SerializeField] Image HPBar;
     [SerializeField] Image SPBar;
 
-    Material HPBarMaterial;
+    Material HpMaterial;
+    Material HpbMaterial;
     
     #endregion
     
@@ -24,9 +25,9 @@ public class CharacterCombatStatusPanel : MonoBehaviour
 
     void Awake()
     {
-        HPBarMaterial = new Material(HPBar.material);
-        HPBarMaterial.SetFloat("_Fill", 1f);
-        HPBar.material = HPBarMaterial;
+        HpMaterial = new Material(HPBar.material);
+        HpMaterial.SetFloat("_Fill", 1f);
+        HPBar.material = HpMaterial;
     }
 
     void Start()
@@ -62,7 +63,7 @@ public class CharacterCombatStatusPanel : MonoBehaviour
         if (OwnerStats)
         {
             float Fill = OwnerStats.GetStat(Stat.HP) / (float)OwnerStats.GetStat(Stat.MaxHP);
-            HPBarMaterial.SetFloat("_Fill", Fill);
+            HpMaterial.SetFloat("_Fill", Fill);
         }
     }
 
