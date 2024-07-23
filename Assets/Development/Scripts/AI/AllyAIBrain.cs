@@ -17,6 +17,8 @@ public class AllyAIBrain : MonoBehaviour
     //Used data
     public LayerMask whatIsPlayer;
     public LayerMask whatIsEnemy;
+    public Transform target;
+
     public bool playerInSightRange;
     public bool enemyInSightRange;
     public bool enemyInAttackRange;

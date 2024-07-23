@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour, IDamageable
     RaycastHit GroundHit;
     public string enemyID;
     public LayerMask GroundLayer;
+    [SerializeField] GameObject damagePopupPrefab;
+    public GameObject hpVisual;
     public GameObject hpBar;
     public GameObject hpbBar;
 
@@ -61,10 +63,14 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Debug.Log(name + " took damage");
 
+        hpVisual.SetActive(true);
+
         if (TakeDamageCoroutine != null)
         {
             StopCoroutine(TakeDamageCoroutine);
         }
+
+        DamagePopup.Create(damagePopupPrefab, transform.position, (int)DamageTaken);
 
         // Take damage
         TakeDamageCoroutine = Coroutine_TakeDamage();
@@ -121,7 +127,7 @@ public class Enemy : MonoBehaviour, IDamageable
         yield return null;
 
         // Set damaged color on material
-        //material.SetColor("_TakeDamageColor", takeDamageColor);
+        material.SetColor("_TakeDamageColor", takeDamageColor);
 
         float timeElapsed = 0f;
         while (timeElapsed < damageStaggerDuration)

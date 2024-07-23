@@ -222,6 +222,7 @@ MonoBehaviour:
   onCooldown: 0
   cooldownTime: 0.2
   cooldownTimer: 0
+  attackDamage: 0
   attackForce: 2
   attackDuration: 0
   inCombo: 0
@@ -643,12 +644,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: Raphael
+  damagePopupPrefab: {fileID: 1275061995841066040, guid: 2d8dbcaf5f85c844e833d20d5370d295,
+    type: 3}
   dead: 0
-  damageStaggerDuration: 0.1
+  damageStaggerDuration: 0.5
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
   damagedBlendCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.0060022105
+      outSlope: -0.0060022105
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2651827
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.8706887
+      outSlope: -2.8706887
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.039561033
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -672,7 +693,6 @@ MonoBehaviour:
   characterController: {fileID: 6467951414501729074}
   attacking: 0
   inBattle: 0
-  dead: 0
   moving: 0
   running: 0
   dashing: 0
@@ -756,11 +776,12 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 1024
+  target: {fileID: 0}
   playerInSightRange: 0
   enemyInSightRange: 0
   enemyInAttackRange: 0
   sightRange: 100
-  attackRange: 1
+  attackRange: 2
   walkSpeed: 3
   runSpeed: 6.5
   currentState: 0

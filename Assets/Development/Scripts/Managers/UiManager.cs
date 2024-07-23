@@ -53,6 +53,7 @@ public class UiManager : MonoBehaviour
 
 
     public Animator BlackScreenAnimator;
+    public Animator RedFlashAnimator;
 
     #endregion
 
@@ -111,6 +112,11 @@ public class UiManager : MonoBehaviour
     public void PlayBlackScreenEffect()
     {
         BlackScreenAnimator.SetTrigger("Fade");
+    }
+
+    public void PlayRedFlashEffect()
+    {
+        RedFlashAnimator.SetTrigger("Fade");    
     }
 
     public void SwitchToTab(string tabName)

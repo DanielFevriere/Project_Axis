@@ -49,6 +49,10 @@ public class AIChaseEnemy : AIAction
         }
 
 
+        //Automatically faces player
+        Vector3 targetDirection = target.transform.position - transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
 
         //Sets the direction int in the animator controller
         anim.SetFloat("xAxis", agent.velocity.x);
@@ -58,6 +62,7 @@ public class AIChaseEnemy : AIAction
         anim.SetBool("running", running);
 
         agent.SetDestination(target.transform.position);
+
 
         DOTween.Sequence()
             .AppendInterval(0.1f)

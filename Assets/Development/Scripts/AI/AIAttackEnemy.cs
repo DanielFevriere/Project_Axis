@@ -27,6 +27,12 @@ public class AIAttackEnemy : AIAction
             agent.SetDestination(target.transform.position);
             abilityHolder.ActivateSkill(abilityHolder.attackSkill);
 
+
+        //Automatically faces enemy
+        Vector3 targetDirection = target.transform.position - transform.position;
+        Quaternion desiredRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 150 * Time.deltaTime);
+
         DOTween.Sequence()
             .AppendInterval(abilityHolder.attackSkill.skillTime)
             .AppendCallback(() =>

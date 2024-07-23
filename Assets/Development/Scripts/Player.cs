@@ -5,17 +5,27 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     public string playerID;
+    [SerializeField] GameObject damagePopupPrefab;
     Material material;
+    SpriteRenderer spriteRenderer;
     public bool dead;
 
     private void Start()
     {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            material = spriteRenderer.material;
+        }
     }
 
     #region Take Damage
     public void TakeDamage(float DamageTaken)
     {
         Debug.Log(name + " took damage");
+
+        UiManager.Instance.PlayRedFlashEffect();
+        DamagePopup.Create(damagePopupPrefab, transform.position, (int)DamageTaken);
 
         if (TakeDamageCoroutine != null)
         {
@@ -49,7 +59,7 @@ public class Player : MonoBehaviour, IDamageable
         yield return null;
 
         // Set damaged color on material
-        //material.SetColor("_TakeDamageColor", takeDamageColor);
+        material.SetColor("_TakeDamageColor", takeDamageColor);
 
         float timeElapsed = 0f;
         while (timeElapsed < damageStaggerDuration)

@@ -17,7 +17,6 @@ public class Controller : MonoBehaviour
     public List<KeyControl> slot;
     public bool attacking = false;
     public bool inBattle = false;
-    public bool dead;
 
     //Movement vars
     public bool moving = false;
