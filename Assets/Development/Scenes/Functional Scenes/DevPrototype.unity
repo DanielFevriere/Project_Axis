@@ -24508,8 +24508,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1044534229}
-  - {fileID: 1300028351}
   - {fileID: 771324220}
+  - {fileID: 1300028351}
   m_Father: {fileID: 1468841180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32309,7 +32309,7 @@ GameObject:
   - component: {fileID: 771324221}
   - component: {fileID: 771324222}
   m_Layer: 5
-  m_Name: Character3
+  m_Name: Character2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32333,7 +32333,7 @@ RectTransform:
   - {fileID: 1419009985}
   - {fileID: 1957209652}
   m_Father: {fileID: 520634342}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -49387,7 +49387,7 @@ GameObject:
   - component: {fileID: 1300028352}
   - component: {fileID: 1300028353}
   m_Layer: 5
-  m_Name: Character2
+  m_Name: Character3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49411,7 +49411,7 @@ RectTransform:
   - {fileID: 1309593451}
   - {fileID: 1500646427}
   m_Father: {fileID: 520634342}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50869,7 +50869,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33732
+  m_Name: pb_Mesh33702
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55164,8 +55164,8 @@ MonoBehaviour:
   questConditionText_HUD: {fileID: 183036324}
   CombatStatusPanels:
   - {fileID: 1044534231}
-  - {fileID: 1300028353}
   - {fileID: 771324222}
+  - {fileID: 1300028353}
 --- !u!1 &1470611557
 GameObject:
   m_ObjectHideFlags: 0
@@ -83085,6 +83085,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3647407617906402983, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3647407617906402986, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: m_RootOrder
@@ -83255,7 +83260,7 @@ PrefabInstance:
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: usable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4750050408826138650, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
@@ -83659,7 +83664,7 @@ PrefabInstance:
     - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
       propertyPath: usable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4673372487064512942, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -83777,6 +83782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Michael
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745596687102131927, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5745596687768814183, guid: 3badc7c0e91e3f241b2d424ab13fdd79,
         type: 3}
@@ -83971,7 +83981,7 @@ PrefabInstance:
     - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
       propertyPath: usable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3134704271205867865, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}
@@ -84202,6 +84212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: signatureSkill1
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467951414501729072, guid: 52b5c252cf91bd349adb88c710928e8c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6467951414501729084, guid: 52b5c252cf91bd349adb88c710928e8c,
         type: 3}

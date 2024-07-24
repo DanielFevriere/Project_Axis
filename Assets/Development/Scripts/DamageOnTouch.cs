@@ -14,7 +14,7 @@ public class DamageOnTouch : MonoBehaviour
 
     private void Start()
     {
-        cooldownTime = 0.5f;
+        cooldownTime = 0f;
         cooldownTimer = cooldownTime;
     }
 

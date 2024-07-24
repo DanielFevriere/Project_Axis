@@ -16,11 +16,33 @@ public class AIChasePartyLeader : AIAction
     bool moving = false;
     bool running = false;
 
+    bool performing = false;
+    float thinkTime = 0.2f;
+    float thinkTimer = 0.2f;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         partyLeader = GameManager.Instance.partyLeader;
         brain = gameObject.GetComponent<AllyAIBrain>();
+    }
+
+    private void Update()
+    {
+        if(performing)
+        {
+            thinkTimer -= Time.deltaTime;
+        }
+
+        if (thinkTimer <= 0)
+        {
+            if (brain.enabled)
+            {
+                thinkTimer = thinkTime;
+                performing = false;
+                brain.CompleteAction();
+            }
+        }
     }
 
     //Chases Player
@@ -66,16 +88,7 @@ public class AIChasePartyLeader : AIAction
             agent.speed = brain.walkSpeed;
         }
 
+        performing = true;
         agent.SetDestination(partyLeader.transform.position);
-
-        DOTween.Sequence()
-            .AppendInterval(0.1f)
-            .AppendCallback(() =>
-            {
-                if (brain.enabled)
-                {
-                    brain.CompleteAction();
-                }
-            });
     }
 }

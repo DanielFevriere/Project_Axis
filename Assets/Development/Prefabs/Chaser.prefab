@@ -515,8 +515,8 @@ MonoBehaviour:
   sightRange: 200
   attackRange: 1
   speed: 5
-  thinkTime: 1
-  thinkTimer: 1
+  thinkTime: 0.5
+  thinkTimer: 0.5
   currentState: 1
 --- !u!114 &8283982503405979801
 MonoBehaviour:
@@ -550,8 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   favorability: 0
-  updateTime: 1
-  updateTimer: 1
+  updateTime: 0.5
+  updateTimer: 0.5
   chasing: 0
 --- !u!114 &6337935116045609497
 MonoBehaviour:
@@ -588,7 +588,7 @@ MonoBehaviour:
   attackWindupTimer: 0
   attackTime: 0.1
   attackTimer: 0
-  attackCoolDownTime: 1
+  attackCoolDownTime: 0.1
   attackCoolDownTimer: 0
 --- !u!1 &218013170669014303
 GameObject:

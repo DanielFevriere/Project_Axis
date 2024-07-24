@@ -31,13 +31,7 @@ public class EnemyAIBrain : MonoBehaviour
 
     void OnEnable()
     {
-        DOTween.Sequence()
-            .AppendInterval(0.1f)
-            .AppendCallback(() =>
-            {
-                //Immediately start thinking after 1 second
-                CompleteAction();
-            });
+        triggerThink = true;
     }
 
     private void Update()

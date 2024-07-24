@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 5381724247406620219}
   - component: {fileID: 3647407617906402983}
   - component: {fileID: 3647407617906402980}
-  - component: {fileID: 3647407617906402979}
   - component: {fileID: 4678217740999728791}
   m_Layer: 9
   m_Name: Gabriel
@@ -543,20 +542,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!136 &3647407617906402979
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3647407617906402987}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.57, z: 0}
 --- !u!114 &4678217740999728791
 MonoBehaviour:
   m_ObjectHideFlags: 0
