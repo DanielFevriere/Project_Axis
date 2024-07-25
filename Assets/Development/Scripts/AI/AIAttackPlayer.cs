@@ -11,6 +11,7 @@ public class AIAttackPlayer : AIAction
 
     public GameObject attackBox;
     public GameObject warningBox;
+    public ParticleSystem particle;
 
     public bool onCooldown = false;
     public bool windingUpAttack;
@@ -105,5 +106,6 @@ public class AIAttackPlayer : AIAction
         attacking = true;
         warningBox.SetActive(false);
         attackBox.SetActive(true);
+        particle.Play();
     }
 }

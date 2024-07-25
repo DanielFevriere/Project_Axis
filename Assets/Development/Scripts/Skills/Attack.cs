@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class Attack : Skill
 {
     Controller moveScript;
+    GameObject owner;
+
+    public ParticleSystem particle;
+
 
     public float attackDamage;
     public float attackForce;
@@ -25,6 +29,11 @@ public class Attack : Skill
     {
         moveScript = GetComponentInParent<Controller>();
         hitBox.GetComponent<DamageOnTouch>().damageDealt = attackDamage;
+
+        if (moveScript)
+        {
+            owner = moveScript.gameObject;
+        }
     }
 
     private void Update()
@@ -70,6 +79,7 @@ public class Attack : Skill
     {
         //Activates attack animation
         moveScript.anim.SetTrigger("attack");
+        PlayAttackEffect();
         hitBox.SetActive(true);
         hitBox.GetComponent<DamageOnTouch>().onCooldown = false;
 
@@ -89,5 +99,18 @@ public class Attack : Skill
         comboTimer = comboTime;
         hitCount = 0;
         inCombo = false;
+    }
+
+    void PlayAttackEffect()
+    {
+        // Checks for valid ownership
+        if (!owner)
+        {
+            return;
+        }
+
+        Vector3 direction = new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y);
+
+        particle.Play();
     }
 }
