@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, IDamageable
 {
     public string playerID;
     [SerializeField] GameObject damagePopupPrefab;
+    [SerializeField] ParticleSystem hitEffect;
     Material material;
     SpriteRenderer spriteRenderer;
     public bool dead;
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour, IDamageable
 
         UiManager.Instance.PlayRedFlashEffect();
         DamagePopup.Create(damagePopupPrefab, transform.position, (int)DamageTaken);
+        hitEffect.Play();
+
 
         if (TakeDamageCoroutine != null)
         {

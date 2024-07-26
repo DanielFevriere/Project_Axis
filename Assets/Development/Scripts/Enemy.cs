@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public string enemyID;
     public LayerMask GroundLayer;
     [SerializeField] GameObject damagePopupPrefab;
+    [SerializeField] ParticleSystem hitEffect;
     public GameObject hpVisual;
     public GameObject hpBar;
     public GameObject hpbBar;
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
 
         DamagePopup.Create(damagePopupPrefab, transform.position, (int)DamageTaken);
+        hitEffect.Play();
 
         // Take damage
         TakeDamageCoroutine = Coroutine_TakeDamage();
