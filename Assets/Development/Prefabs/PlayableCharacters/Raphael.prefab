@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bb200e696a1be46823fec58cc42618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackAmount: 40
+  knockbackAmount: 20
   knockbackDuration: 0.3
+  knockbackType: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -254,6 +255,7 @@ MonoBehaviour:
   cooldownTime: 0.1
   cooldownTimer: 0
   dashSpeed: 3
+  atkTransform: {fileID: 6467951414503360838}
   particle: {fileID: 8768822403384139457, guid: 0fa51e2be276f1c46bfc1d0f675e9cc5,
     type: 3}
 --- !u!114 &3134704271205867865
@@ -293,6 +295,7 @@ GameObject:
   - component: {fileID: 6467951413517797568}
   - component: {fileID: 6467951413517797583}
   - component: {fileID: 6467951413517797582}
+  - component: {fileID: 7678931470878209965}
   - component: {fileID: 9066279626248491835}
   - component: {fileID: 4060188723189038337}
   m_Layer: 9
@@ -380,6 +383,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6467951413517797580}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7678931470878209965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467951413517797580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bb200e696a1be46823fec58cc42618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackAmount: 2
+  knockbackDuration: 0.3
+  knockbackType: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &9066279626248491835
 MonoBehaviour:
   m_ObjectHideFlags: 0

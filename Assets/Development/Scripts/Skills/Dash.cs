@@ -8,6 +8,8 @@ public class Dash : Skill
     Controller moveScript;
 
     public float dashSpeed;
+    public Transform atkTransform;
+
 
     GameObject owner;
     public ParticleSystem particle;
@@ -23,11 +25,15 @@ public class Dash : Skill
 
     public override void Activate()
     {
+        //GetComponentInParent<Knockback>().OnComplete.AddListener(Deactivate);
+        //GetComponentInParent<Knockback>().ApplyForce(new Vector3(moveScript.facingVector.x, 0, moveScript.facingVector.y), dashSpeed, skillTime);
+        PlayDashEffect();
         StartCoroutine(DashAbility());
     }
 
     public override void Deactivate()
     {
+        //GetComponentInParent<Knockback>().OnComplete.RemoveListener(Deactivate);
         base.Deactivate();
     }
 

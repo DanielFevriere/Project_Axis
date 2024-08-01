@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackAmount: 2
   knockbackDuration: 0.3
+  knockbackType: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -846,6 +847,7 @@ MonoBehaviour:
   cooldownTime: 0.1
   cooldownTimer: 0
   dashSpeed: 3
+  atkTransform: {fileID: 5745596686209016151}
   particle: {fileID: 8768822403384139457, guid: 0fa51e2be276f1c46bfc1d0f675e9cc5,
     type: 3}
 --- !u!114 &4673372487064512942

@@ -83011,6 +83011,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8283982503405979801, guid: 9c0fecaf6e735b14d87a7761de0933b8,
+        type: 3}
+      propertyPath: StartingHP
+      value: 240
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0fecaf6e735b14d87a7761de0933b8, type: 3}
 --- !u!1001 &1275061996403613382
@@ -83244,6 +83249,11 @@ PrefabInstance:
       propertyPath: signatureSkill1
       value: 
       objectReference: {fileID: 3647407618021215381}
+    - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3647407618463889777, guid: 964c4cd1d0acdf14db742a6597c1c1f4,
         type: 3}
       propertyPath: skillIcon

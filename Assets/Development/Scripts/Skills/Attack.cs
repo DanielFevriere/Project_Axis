@@ -88,7 +88,7 @@ public class Attack : Skill
             hitCount++;
             comboTimer = hitCount == 3 ? skillTime : comboTime;
             //Adds force
-            GetComponentInParent<Knockback>().ApplyForce(atkTransform, attackForce, attackDuration);
+            GetComponentInParent<Knockback>().ApplyForce(atkTransform.position, attackForce, attackDuration);
         }
     }
 

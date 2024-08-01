@@ -42,7 +42,7 @@ public class BoostStrike : Skill
         effect.Play();
         //Activates attack animation
         moveScript.anim.SetTrigger("boost");
-        GetComponentInParent<Knockback>().ApplyForce(atkTransform, boostStrikeSpeed, boostStrikeDuration);
+        GetComponentInParent<Knockback>().ApplyForce(atkTransform.position, boostStrikeSpeed, boostStrikeDuration);
     }
 
 
