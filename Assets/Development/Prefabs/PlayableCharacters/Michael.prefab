@@ -418,6 +418,7 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 1275061995841066040, guid: 2d8dbcaf5f85c844e833d20d5370d295,
     type: 3}
   hitEffect: {fileID: 3846616228637561988}
+  stunned: 0
   dead: 0
   damageStaggerDuration: 0.4
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
@@ -639,7 +640,34 @@ MonoBehaviour:
   useRigidBody: 1
   rigidBody: {fileID: 5745596687102131944}
   currentKnockbackDuration: 0
-  OnBegin:
+  OnKnockBackBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5745596687102131944}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: WakeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5745596687102131946}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnForceBegin:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5745596687102131944}

@@ -225,7 +225,7 @@ public class GameManager : MonoBehaviour
 
         // Debug/Test purposes
 
-        //DebugUpdate(); 
+        DebugUpdate(); 
     }
 
     public void ChangeState(GameState nextState)
@@ -463,8 +463,11 @@ public class GameManager : MonoBehaviour
     {
         if (!isDebugging) { return; }
 
+        //Fetches the keyboard input system
+        Keyboard kb = InputSystem.GetDevice<Keyboard>();
+
         // State change key (P)
-        if (Input.GetKeyDown(KeyCode.P))
+        if (kb.pKey.wasPressedThisFrame)
         {
             GameState nextState = GameState.FreeRoam;
             switch (state)

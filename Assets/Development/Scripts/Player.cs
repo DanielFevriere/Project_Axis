@@ -9,6 +9,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem hitEffect;
     Material material;
     SpriteRenderer spriteRenderer;
+    public bool stunned;
     public bool dead;
 
     private void Start()
@@ -18,6 +19,14 @@ public class Player : MonoBehaviour, IDamageable
         {
             material = spriteRenderer.material;
         }
+
+        GetComponent<Knockback>().OnKnockBackBegin.AddListener(StartStun);
+        GetComponent<Knockback>().OnComplete.AddListener(EndStun);
+    }
+
+    private void Update()
+    {
+        GetComponentInChildren<Animator>().SetBool("stunned", stunned);
     }
 
     #region Take Damage
@@ -50,6 +59,16 @@ public class Player : MonoBehaviour, IDamageable
             }
             //Destroy(gameObject);
         }
+    }
+
+    public void StartStun()
+    {
+        stunned = true;
+    }
+
+    public void EndStun()
+    {
+        stunned = false;
     }
 
     [Range(0f, 1f)] public float damageStaggerDuration = 0.1f;

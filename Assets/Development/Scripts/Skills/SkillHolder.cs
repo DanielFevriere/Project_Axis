@@ -85,7 +85,7 @@ public class SkillHolder : MonoBehaviour
     {
         for (int i = 0; i < skillList.Count; i++)
         {
-            if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable)
+            if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable && !GetComponentInParent<Player>().stunned)
             {
                 ActivateSkill(skillList[i]);
             }

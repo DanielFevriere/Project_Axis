@@ -120,7 +120,11 @@ public class Controller : MonoBehaviour
         CheckSlope();
 
         //Sets movement data
-        Movement();
+        //If the player isnt stunned they can move
+        if(!GetComponent<Player>().stunned)
+        {
+            Movement();
+        }
 
         //If the player is not attacking
         if (!GetComponentInChildren<SkillHolder>().attackSkill.inUse)
@@ -149,7 +153,18 @@ public class Controller : MonoBehaviour
         // Rotate weapon
         if (playerWeapon != null)
         {
-            playerWeapon.UpdateWeaponRotation();
+            bool inUse = false;
+            for (int i = 0; i < GetComponentInChildren<SkillHolder>().skillList.Count; i++)
+            {
+                if(GetComponentInChildren<SkillHolder>().skillList[i].inUse)
+                {
+                    inUse = true;
+                }
+            }
+            if(!inUse)
+            {
+                playerWeapon.UpdateWeaponRotation();
+            }
         }
 
         //GroundCheck

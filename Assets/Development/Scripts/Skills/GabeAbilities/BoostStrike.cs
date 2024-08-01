@@ -8,6 +8,7 @@ public class BoostStrike : Skill
     Controller moveScript;
 
     public GameObject visual;
+    public ParticleSystem effect;
     public float boostStrikeDamage;
     public float boostStrikeSpeed;
     public float boostStrikeDuration;
@@ -32,15 +33,16 @@ public class BoostStrike : Skill
         base.Deactivate();
         moveScript.anim.SetTrigger("endskill");
         visual.SetActive(false);
+        effect.Stop();
     }
 
     public void Hit()
     {
         visual.SetActive(true);
+        effect.Play();
         //Activates attack animation
         moveScript.anim.SetTrigger("boost");
-        GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, boostStrikeSpeed, boostStrikeDuration);
-
+        GetComponentInParent<Knockback>().ApplyForce(atkTransform, boostStrikeSpeed, boostStrikeDuration);
     }
 
 

@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, IDamageable
     Image hpbRenderer;
 
     float bHealth = 1;
+    public bool stunned;
     public bool isGrounded;
     public bool isFalling;
     public float gravity;
@@ -58,6 +59,9 @@ public class Enemy : MonoBehaviour, IDamageable
 
         hpRenderer.material = hpInstance;
         hpbRenderer.material = hpbInstance;
+
+        GetComponent<Knockback>().OnKnockBackBegin.AddListener(StartStun);
+        GetComponent<Knockback>().OnComplete.AddListener(EndStun);
     }
 
     public void TakeDamage(float DamageTaken)
@@ -121,6 +125,17 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             verticalVel = terminalVel;
         }
+    }
+
+    public void StartStun()
+    {
+        stunned = true;
+    }
+
+    public void EndStun()
+    {
+        stunned = false;
+        GetComponent<EnemyAIBrain>().CompleteAction();
     }
 
     #region Take Damage

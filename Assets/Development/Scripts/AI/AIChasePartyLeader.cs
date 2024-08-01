@@ -43,6 +43,14 @@ public class AIChasePartyLeader : AIAction
                 brain.CompleteAction();
             }
         }
+
+        //Sets the direction int in the animator controller
+        anim.SetFloat("xAxis", agent.velocity.x);
+        anim.SetFloat("yAxis", agent.velocity.z);
+
+        //Sets the direction bool in the animator controller
+        anim.SetBool("moving", moving);
+        anim.SetBool("running", running);
     }
 
     //Chases Player
@@ -61,13 +69,7 @@ public class AIChasePartyLeader : AIAction
         //If the leader is running so is the AI
         running = partyLeader.GetComponent<Controller>().running;
 
-        //Sets the direction int in the animator controller
-        anim.SetFloat("xAxis", agent.velocity.x);
-        anim.SetFloat("yAxis", agent.velocity.z);
 
-        //Sets the direction bool in the animator controller
-        anim.SetBool("moving", moving);
-        anim.SetBool("running", running);
 
 
         if (agent.velocity.x == 0 && agent.velocity.y == 0)

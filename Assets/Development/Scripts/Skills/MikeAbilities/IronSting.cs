@@ -40,7 +40,7 @@ public class IronSting : Skill
         //moveScript.anim.SetTrigger("boost");
 
         //Adds force
-        GetComponentInParent<Knockback>().ApplyKnockback(atkTransform, -ironStingPushBackForce, ironStingPushBackDuration);
+        GetComponentInParent<Knockback>().ApplyForce(atkTransform, -ironStingPushBackForce, ironStingPushBackDuration);
     }
 
 

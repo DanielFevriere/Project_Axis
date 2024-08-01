@@ -650,6 +650,7 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 1275061995841066040, guid: 2d8dbcaf5f85c844e833d20d5370d295,
     type: 3}
   hitEffect: {fileID: 4759997406030172751}
+  stunned: 0
   dead: 0
   damageStaggerDuration: 0.4
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
@@ -871,7 +872,34 @@ MonoBehaviour:
   useRigidBody: 1
   rigidBody: {fileID: 6467951414501729076}
   currentKnockbackDuration: 0
-  OnBegin:
+  OnKnockBackBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6467951414501729076}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: WakeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6467951414501729074}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnForceBegin:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6467951414501729076}
@@ -1422,27 +1450,27 @@ PrefabInstance:
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.194304
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2587923
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.5060544
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
@@ -1457,7 +1485,7 @@ PrefabInstance:
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1635952283373154199, guid: e74a0e0a372483d448ad99b184587c31,
         type: 3}

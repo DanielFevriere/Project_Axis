@@ -48,21 +48,24 @@ public class EnemyAIBrain : MonoBehaviour
 
     public void Think()
     {
+        //Enemy only thinks when it's not stunned
+        if(!GetComponent<Enemy>().stunned)
+        {
+            //Determine State
+            DetermineState();
 
-        //Determine State
-        DetermineState();
+            //Set Goal
+            SetGoal(); //Ignore for now
 
-        //Set Goal
-        SetGoal(); //Ignore for now
+            //Set Available Actions
+            SetAvailableActions();
 
-        //Set Available Actions
-        SetAvailableActions();
+            //Rank Available Actions
+            RankActions();
 
-        //Rank Available Actions
-        RankActions();
-
-        //Chooses Action to perform
-        ChooseAction();
+            //Chooses Action to perform
+            ChooseAction();
+        }
     }
 
     public void CollectData()
