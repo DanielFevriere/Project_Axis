@@ -254,7 +254,7 @@ MonoBehaviour:
   onCooldown: 0
   cooldownTime: 0.1
   cooldownTimer: 0
-  dashSpeed: 3
+  dashSpeed: 20
   atkTransform: {fileID: 6467951414503360838}
   particle: {fileID: 8768822403384139457, guid: 0fa51e2be276f1c46bfc1d0f675e9cc5,
     type: 3}

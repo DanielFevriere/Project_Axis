@@ -23,6 +23,8 @@ public class SkillHolder : MonoBehaviour
     public Skill dashSkill;
     public Skill signatureSkill1;
 
+    public Skill teamSkill;
+
     //Fetches the keyboard/mouse input system
     Keyboard kb;
     Mouse mouse;
