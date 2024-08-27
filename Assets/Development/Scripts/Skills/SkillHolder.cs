@@ -15,6 +15,7 @@ public class SkillHolder : MonoBehaviour
     ButtonControl attackControl;
     KeyControl dashControl;
     KeyControl signature1Control;
+    KeyControl teamSkillControl;
 
     //List of ability scripts on the gameobject
     public List<Skill> skillList;

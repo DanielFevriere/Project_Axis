@@ -73,6 +73,8 @@ public class Player : MonoBehaviour, IDamageable
 
     [Range(0f, 1f)] public float damageStaggerDuration = 0.1f;
     [ColorUsageAttribute(true, true)] public Color takeDamageColor = new Color(1, 0, 0);
+    [ColorUsageAttribute(true, true)] public Color healDamageColor = new Color(0, 1, 0);
+
     [SerializeField] AnimationCurve damagedBlendCurve;
     IEnumerator TakeDamageCoroutine;
 

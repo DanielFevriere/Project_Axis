@@ -504,7 +504,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.35
-  m_SlopeLimit: 1
+  m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -794,6 +794,7 @@ MonoBehaviour:
   attackSkill: {fileID: 0}
   dashSkill: {fileID: 0}
   signatureSkill1: {fileID: 0}
+  teamSkill: {fileID: 0}
 --- !u!114 &5745596687768814203
 MonoBehaviour:
   m_ObjectHideFlags: 0
