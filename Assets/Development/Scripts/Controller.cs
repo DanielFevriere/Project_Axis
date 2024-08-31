@@ -126,30 +126,6 @@ public class Controller : MonoBehaviour
             Movement();
         }
 
-        //If the player is not attacking
-        if (!GetComponentInChildren<SkillHolder>().attackSkill.inUse)
-        {
-            attacking = false;
-
-            //Moves based on if the player is on a slope or not
-            if (onSlope)
-            {
-                //Moves based on the slope vector
-                characterController.Move(GetSlopeMoveDirection() * Time.fixedDeltaTime);
-                curGravity = 0;
-            }
-            else
-            {
-                //Moves based on the movement vector
-                characterController.Move(movement * Time.fixedDeltaTime);
-                curGravity = setGravity;
-            }
-        }
-        else
-        {
-            attacking = true;
-        }
-
         // Rotate weapon
         if (playerWeapon != null)
         {
@@ -187,7 +163,7 @@ public class Controller : MonoBehaviour
         {
             isFalling = true;
             curGravity = setGravity;
-            verticalVel -= curGravity * Time.deltaTime;
+            verticalVel -= curGravity * Time.fixedDeltaTime;
         }
 
         //If your falling speed reaches terminal velocity, it cant go past it
@@ -234,6 +210,43 @@ public class Controller : MonoBehaviour
         DebugUpdate();
     }
 
+    public void HandleFixedUpdate()
+    {
+        //If the player is not attacking
+        if (!GetComponentInChildren<SkillHolder>().attackSkill.inUse)
+        {
+            attacking = false;
+
+            Vector3 move;
+
+            //Moves based on if the player is on a slope or not
+            if (onSlope)
+            {
+                //Moves based on the slope vector
+                move = GetSlopeMoveDirection() * Time.fixedDeltaTime;
+                if (move != Vector3.zero)
+                {
+                    characterController.Move(move);
+                }
+                curGravity = 0;
+            }
+            else
+            {
+                //Moves based on the movement vector
+                move = movement * Time.fixedDeltaTime;
+                if (move != Vector3.zero)
+                {
+                    characterController.Move(move);
+                }
+                curGravity = setGravity;
+            }
+        }
+        else
+        {
+            attacking = true;
+        }
+    }
+
     /// <summary>
     /// Checks movement input data
     /// </summary>
@@ -248,7 +261,7 @@ public class Controller : MonoBehaviour
         curSpeed = running ? runSpeed : walkSpeed;
 
         //8 directional movement
-        movement = new Vector3(moveInput.x, verticalVel, moveInput.y) * (curSpeed * 100) * Time.deltaTime;
+        movement = new Vector3(moveInput.x, verticalVel, moveInput.y) * (curSpeed * 10) * Time.fixedDeltaTime;
 
         //Makes sure the animation variables match the movement inputs
         //anim.SetFloat("xAxis", moveInput.x);

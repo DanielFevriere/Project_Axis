@@ -9,6 +9,7 @@ public class SkillHolder : MonoBehaviour
 {
     public Key dashKey;
     public Key signature1Key;
+    public Key teamSkillKey;
 
     public List<ButtonControl> buttonList = new List<ButtonControl>();
 
@@ -23,7 +24,6 @@ public class SkillHolder : MonoBehaviour
     public Skill attackSkill;
     public Skill dashSkill;
     public Skill signatureSkill1;
-
     public Skill teamSkill;
 
     //Fetches the keyboard/mouse input system
@@ -39,6 +39,8 @@ public class SkillHolder : MonoBehaviour
         attackControl = mouse.leftButton;
         dashControl = kb.FindKeyOnCurrentKeyboardLayout(dashKey.ToString());
         signature1Control = kb.FindKeyOnCurrentKeyboardLayout(signature1Key.ToString());
+        teamSkillControl = kb.FindKeyOnCurrentKeyboardLayout(teamSkillKey.ToString());
+
 
         //Adds all available abilities into the list
         foreach (Skill a in gameObject.GetComponents<Skill>())
@@ -55,6 +57,7 @@ public class SkillHolder : MonoBehaviour
         buttonList.Add(attackControl);
         buttonList.Add(dashControl);
         buttonList.Add(signature1Control);
+        buttonList.Add(teamSkillControl);
     }
 
     public void HandleUpdate()
@@ -102,6 +105,11 @@ public class SkillHolder : MonoBehaviour
 
     public void EquipSkill(Skill s)
     {
-        
+        signatureSkill1 = s;
+    }
+
+    public void EquipTeamSkill(Skill s)
+    {
+        teamSkill = s;
     }
 }

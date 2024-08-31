@@ -228,6 +228,18 @@ public class GameManager : MonoBehaviour
         DebugUpdate(); 
     }
 
+    private void FixedUpdate()
+    {
+        if(state == GameState.FreeRoam)
+        {
+            currentController.HandleFixedUpdate();
+        }
+        else if(state == GameState.Battle)
+        {
+            currentController.HandleFixedUpdate();
+        }
+    }
+
     public void ChangeState(GameState nextState)
     {
         // If the requested state is the same, do nothing

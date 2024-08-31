@@ -275,6 +275,7 @@ MonoBehaviour:
   dead: 0
   damageStaggerDuration: 0.5
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  healDamageColor: {r: 0, g: 1, b: 0, a: 1}
   damagedBlendCurve:
     serializedVersion: 2
     m_Curve:
@@ -323,8 +324,8 @@ MonoBehaviour:
   running: 0
   dashing: 0
   curSpeed: 1
-  walkSpeed: 1.3
-  runSpeed: 3
+  walkSpeed: 13
+  runSpeed: 30
   direction: 1
   facingVector: {x: 0, y: 0}
   groundCheckDistance: 0.1
@@ -792,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashKey: 1
   signature1Key: 31
+  teamSkillKey: 32
   skillList: []
   attackSkill: {fileID: 0}
   dashSkill: {fileID: 0}
@@ -895,18 +897,20 @@ MonoBehaviour:
   skillIcon: {fileID: 0}
   usable: 1
   skillName: Gabe x Mike Switch
-  skillDescription: 
+  skillDescription: Swaps the position of Gabriel and Michael while dealing a line
+    of damage in between them
   inUse: 0
-  skillTime: 0.5
+  skillTime: 0.1
   onCooldown: 0
-  cooldownTime: 2
-  cooldownTimer: 2
+  cooldownTime: 1
+  cooldownTimer: 1
   tpCost: 5
   includedCharacters: []
   gabePosition: {fileID: 0}
   mikePosition: {fileID: 0}
-  hitBox: {fileID: 0}
-  swapDamage: 0
+  hitBox: {fileID: 3271153069107213271, guid: bb11af46007a07e4d96fb3f4f3b8fc41, type: 3}
+  swapDamage: 2
+  skillTimer: 0
 --- !u!1 &6265578204162156350
 GameObject:
   m_ObjectHideFlags: 0

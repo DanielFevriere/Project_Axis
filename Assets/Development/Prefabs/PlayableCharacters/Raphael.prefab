@@ -197,7 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashKey: 1
-  signature1Key: 0
+  signature1Key: 31
+  teamSkillKey: 32
   skillList: []
   attackSkill: {fileID: 0}
   dashSkill: {fileID: 0}
@@ -676,6 +677,7 @@ MonoBehaviour:
   dead: 0
   damageStaggerDuration: 0.4
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  healDamageColor: {r: 0, g: 1, b: 0, a: 1}
   damagedBlendCurve:
     serializedVersion: 2
     m_Curve:
@@ -724,8 +726,8 @@ MonoBehaviour:
   running: 0
   dashing: 0
   curSpeed: 1
-  walkSpeed: 1.3
-  runSpeed: 3
+  walkSpeed: 13
+  runSpeed: 30
   direction: 1
   facingVector: {x: 0, y: 0}
   groundCheckDistance: 0.1
