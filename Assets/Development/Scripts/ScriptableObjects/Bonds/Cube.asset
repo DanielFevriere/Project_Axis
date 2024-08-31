@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Cube
   characterIcon: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
-  gabeLocked: 1
-  mikeLocked: 1
-  raphLocked: 1
+  characterPortrait: {fileID: 0}
+  gabeLocked: 0
+  mikeLocked: 0
+  raphLocked: 0
   gabeLevel: 1
   mikeLevel: 1
   raphLevel: 1
@@ -24,16 +25,49 @@ MonoBehaviour:
   - {fileID: 0}
   mikeQuests: []
   raphQuests: []
+  gabeStarterConvo: {fileID: 0}
+  mikeStarterConvo: {fileID: 0}
+  raphStarterConvo: {fileID: 0}
+  gabeProgressConvo: {fileID: 0}
+  mikeProgressConvo: {fileID: 0}
+  raphProgressConvo: {fileID: 0}
+  gabeCompletedConvo: {fileID: 0}
+  mikeCompletedConvo: {fileID: 0}
+  raphCompletedConvo: {fileID: 0}
   gabeBondsConvos: []
   mikeBondsConvos: []
   raphBondsConvos: []
+  gabeLevel0Details: 
+  gabeLevel1Details: 
+  gabeLevel2Details: 
+  gabeLevel3Details: 
+  mikeLevel0Details: 
+  mikeLevel1Details: 
+  mikeLevel2Details: 
+  mikeLevel3Details: 
+  raphLevel0Details: 
+  raphLevel1Details: 
+  raphLevel2Details: 
+  raphLevel3Details: 
   age: 
   height: 
   favColor: 
-  goals: 
+  bodyType: 
   likes: 
   dislikes: 
+  skinColor: 
+  motto: 
+  hobbies: 
+  fears: 
+  goals: 
   personality: 
+  strengths: 
+  weaknesses: 
+  question1: 
+  question2: 
+  question3: 
+  question4: 
+  question5: 
   ageLocked: 0
   heightLocked: 0
   favColorLocked: 0
@@ -41,3 +75,15 @@ MonoBehaviour:
   likesLocked: 0
   dislikesLocked: 0
   personalityLocked: 0
+  strengthsLocked: 0
+  weaknessesLocked: 0
+  bodyTypeLocked: 0
+  mottoLocked: 0
+  hobbiesLocked: 0
+  fearsLocked: 0
+  skinColorLocked: 0
+  question1Locked: 0
+  question2Locked: 0
+  question3Locked: 0
+  question4Locked: 0
+  question5Locked: 0

@@ -909,6 +909,7 @@ MonoBehaviour:
   gabePosition: {fileID: 0}
   mikePosition: {fileID: 0}
   hitBox: {fileID: 3271153069107213271, guid: bb11af46007a07e4d96fb3f4f3b8fc41, type: 3}
+  effect: {fileID: 3401981518847037395, guid: 495c9e527df3c514ebd63b3df7e05332, type: 3}
   swapDamage: 2
   skillTimer: 0
 --- !u!1 &6265578204162156350

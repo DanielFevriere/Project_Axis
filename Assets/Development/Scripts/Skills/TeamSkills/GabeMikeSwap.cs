@@ -11,6 +11,8 @@ public class GabeMikeSwap : TeamSkill
     GameObject mike;
 
     public GameObject hitBox;
+    public ParticleSystem effect;
+
     public float swapDamage;
     public float skillTimer;
 
@@ -119,7 +121,6 @@ public class GabeMikeSwap : TeamSkill
         // Adjust the size of the box collider
         BoxCollider boxCollider = damageBox.GetComponent<BoxCollider>();
 
-
         if (boxCollider != null)
         {
             // Assuming the box's Z-axis is the forward direction
@@ -127,6 +128,9 @@ public class GabeMikeSwap : TeamSkill
             damageBox.transform.localScale = new Vector3(boxCollider.size.x, boxCollider.size.y, distance);
             boxCollider.center = Vector3.zero; // Ensure it's centered
         }
+
+        ParticleSystem p = Instantiate(effect, boxCollider.transform.position, boxCollider.transform.rotation);
+        p.transform.localScale = new Vector3(distance, 1, 1);
     }
 
     public override void Deactivate()
