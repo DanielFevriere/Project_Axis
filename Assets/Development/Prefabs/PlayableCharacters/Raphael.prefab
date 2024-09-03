@@ -162,6 +162,8 @@ GameObject:
   - component: {fileID: 6467951413196368501}
   - component: {fileID: 6467951413196368500}
   - component: {fileID: 3134704271205867865}
+  - component: {fileID: 4148526722939886574}
+  - component: {fileID: 743645196874831650}
   m_Layer: 9
   m_Name: AbilityHolder
   m_TagString: Untagged
@@ -199,11 +201,13 @@ MonoBehaviour:
   dashKey: 1
   signature1Key: 31
   teamSkillKey: 32
+  healSkillKey: 20
   skillList: []
-  attackSkill: {fileID: 0}
-  dashSkill: {fileID: 0}
-  signatureSkill1: {fileID: 0}
-  teamSkill: {fileID: 0}
+  attackSkill: {fileID: 6467951413196368501}
+  dashSkill: {fileID: 6467951413196368500}
+  signatureSkill1: {fileID: 3134704271205867865}
+  teamSkill: {fileID: 4148526722939886574}
+  healSkill: {fileID: 743645196874831650}
 --- !u!114 &6467951413196368501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +289,59 @@ MonoBehaviour:
   crossBackDamage: 1
   crossBackStart: {fileID: 0}
   crossBackEnd: {fileID: 0}
+--- !u!114 &4148526722939886574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467951413196368497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7a742e0ba7cd7489eddda44100f529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 0}
+  usable: 1
+  skillName: Raph x Gabe SwapStrike
+  skillDescription: Raph and Gabe Swap positions while dealing damage
+  inUse: 0
+  skillTime: 0.1
+  onCooldown: 0
+  cooldownTime: 1
+  cooldownTimer: 1
+  tpCost: 10
+  includedCharacters: []
+  raphPosition: {fileID: 0}
+  gabePosition: {fileID: 0}
+  hitBox: {fileID: 3271153069107213271, guid: bb11af46007a07e4d96fb3f4f3b8fc41, type: 3}
+  effect: {fileID: 3401981518847037395, guid: 495c9e527df3c514ebd63b3df7e05332, type: 3}
+  swapDamage: 2
+  skillTimer: 0
+--- !u!114 &743645196874831650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467951413196368497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45309798760cec04a84a8ac1a49dc38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 21300000, guid: 077bbe706f0a4dc4f80d47cae51f3ed1, type: 3}
+  usable: 1
+  skillName: Heal
+  skillDescription: Heals player
+  inUse: 0
+  skillTime: 0
+  onCooldown: 0
+  cooldownTime: 1
+  cooldownTimer: 1
+  tpCost: 80
+  includedCharacters: []
+  healAmount: 10
 --- !u!1 &6467951413517797580
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,11 +730,12 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 1275061995841066040, guid: 2d8dbcaf5f85c844e833d20d5370d295,
     type: 3}
   hitEffect: {fileID: 4759997406030172751}
+  healEffect: {fileID: 2249143604395416755, guid: 50effd32255dc624a95f6bb57ea9e917,
+    type: 3}
   stunned: 0
   dead: 0
   damageStaggerDuration: 0.4
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
-  healDamageColor: {r: 0, g: 1, b: 0, a: 1}
   damagedBlendCurve:
     serializedVersion: 2
     m_Curve:
@@ -699,6 +757,13 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.039561033
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  healDamageColor: {r: 0, g: 1, b: 0, a: 1}
+  healBlendCurve:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

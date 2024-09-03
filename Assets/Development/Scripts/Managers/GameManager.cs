@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera lowCamera;
     public GameObject partyLeader;
     public List<GameObject> partyMembers;
+    public int maxTP = 30;
+    public int currentTP = 0;
     public int veni;
 
     GameState state;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     public event Action OnPartyLeaderChange;
     public event Action OnPartyLeaderDeath;
     public event Action OnInteract;
+    public event Action OnTPUpdate;
 
     [Header("Debug")]
     public bool isDebugging = true;
@@ -70,7 +73,6 @@ public class GameManager : MonoBehaviour
         SetPartyLeader();
 
         ChangeState(GameState.FreeRoam);
-
         //Goes to dialogue state when dialogue is open
         DialogueManager.Instance.OnShowDialogue += () =>
         {
@@ -374,6 +376,42 @@ public class GameManager : MonoBehaviour
 
         SetPartyLeader();
         OnPartyLeaderChange?.Invoke();
+    }
+
+    /// <summary>
+    /// Adds team points
+    /// </summary>
+    /// <param name="amount"></param>
+    public void AddTP(int amount)
+    {
+        if(currentTP != maxTP)
+        {
+            currentTP += amount;
+
+            if(currentTP > maxTP)
+            {
+                currentTP = maxTP;
+            }
+        }
+        OnTPUpdate.Invoke();
+    }
+
+    /// <summary>
+    /// Removes team points
+    /// </summary>
+    /// <param name="amount"></param>
+    public void RemoveTP(int amount)
+    {
+        if (currentTP != 0)
+        {
+            currentTP -= amount;
+
+            if (currentTP < 0)
+            {
+                currentTP = 0;
+            }
+        }
+        OnTPUpdate.Invoke();
     }
 
     #endregion

@@ -50,12 +50,14 @@ public class CharacterCombatStatusPanel : MonoBehaviour
         if (OwnerStats != null)
         {
             OwnerStats.OnTakeDamage -= OnHPUpdate;
+            OwnerStats.OnHealDamage -= OnHPUpdate;
         }
         
         OwnerStats = NewOwnerStats;
         
         // Makes HP update everytime associated owner takes damage
         OwnerStats.OnTakeDamage += OnHPUpdate;
+        OwnerStats.OnHealDamage += OnHPUpdate;
     }
     
     void OnHPUpdate()

@@ -317,6 +317,8 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 1275061995841066040, guid: e12ad2e649a43db478695c0bb4f62703,
     type: 3}
   hitEffect: {fileID: 7360866010401170064}
+  deathEffect: {fileID: 2249143604395416755, guid: 5c052fb14a4b5874d88128a3b07b1961,
+    type: 3}
   hpVisual: {fileID: 7212428915314006032}
   hpBar: {fileID: 2218346203652713297}
   hpbBar: {fileID: 1928947112475274006}
@@ -563,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsProfile: {fileID: 11400000, guid: c4086dc0b934f6a499bc3ea9d4797962, type: 2}
-  StartingHP: 24
+  StartingHP: 30
   StartingSP: 5
   StartingATK: 5
   StartingDEF: 5

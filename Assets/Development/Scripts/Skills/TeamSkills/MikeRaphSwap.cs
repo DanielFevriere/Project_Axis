@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GabeMikeSwap : TeamSkill
+public class MikeRaphSwap : TeamSkill
 {
-    public Transform gabePosition;
     public Transform mikePosition;
+    public Transform raphPosition;
 
-    GameObject gabe;
     GameObject mike;
+    GameObject raph;
 
     public GameObject hitBox;
     public ParticleSystem effect;
@@ -24,15 +24,15 @@ public class GabeMikeSwap : TeamSkill
         //Finds and sets the transform reference of mike and gabe
         for (int i = 0; i < GameManager.Instance.partyMembers.Count; i++)
         {
-            if(GameManager.Instance.partyMembers[i].GetComponent<Controller>().name == "Gabriel")
-            {
-                gabe = GameManager.Instance.partyMembers[i];
-                gabePosition = gabe.transform;
-            }
             if(GameManager.Instance.partyMembers[i].GetComponent<Controller>().name == "Michael")
             {
                 mike = GameManager.Instance.partyMembers[i];
                 mikePosition = mike.transform;
+            }
+            if(GameManager.Instance.partyMembers[i].GetComponent<Controller>().name == "Raphael")
+            {
+                raph = GameManager.Instance.partyMembers[i];
+                raphPosition = raph.transform;
             }
         }
         skillTimer = skillTime;
@@ -59,14 +59,13 @@ public class GabeMikeSwap : TeamSkill
         {
             GameManager.Instance.RemoveTP(tpCost);
 
-            gabe.GetComponent<CharacterController>().enabled = false;
-            SwapObjects(gabePosition.gameObject, mikePosition.gameObject);
+            mike.GetComponent<CharacterController>().enabled = false;
+            SwapObjects(mikePosition.gameObject, raphPosition.gameObject);
 
             SpawnHitBox();
-            gabe.GetComponent<CharacterController>().enabled = true;
+            mike.GetComponent<CharacterController>().enabled = true;
         }
     }
-
     void SwapObjects(GameObject objectA, GameObject objectB)
     {
         Vector3 posA = objectA.gameObject.transform.position;
@@ -79,10 +78,10 @@ public class GabeMikeSwap : TeamSkill
     {
         //Spawns the hitbox between them
         //creates a midpoint vector3
-        Vector3 midPoint = (gabePosition.position + mikePosition.position) / 2;
+        Vector3 midPoint = (mikePosition.position + raphPosition.position) / 2;
 
         // Calculate the direction and distance
-        Vector3 direction = mikePosition.position - gabePosition.position;
+        Vector3 direction = raphPosition.position - mikePosition.position;
         float distance = direction.magnitude;
 
         // Instantiate the damage box prefab

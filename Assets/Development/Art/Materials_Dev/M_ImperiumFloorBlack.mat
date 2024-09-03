@@ -110,20 +110,20 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NormalStrength: 0
+    - _NormalStrength: 0.09
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SideScale: 1
+    - _SideScale: 7
     - _Smoothness: 0.044
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TopScale: 1
+    - _TopScale: 7
     - _VerticalGradient: 0
     - _WorkflowMode: 1
     - _ZWrite: 1

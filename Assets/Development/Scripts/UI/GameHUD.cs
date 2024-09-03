@@ -8,10 +8,14 @@ public class GameHUD : MonoBehaviour
     QuestManager questManager;
 
     public GameObject gameHudContainer;
+    public GameObject battleHud;
     bool isVisible = false;
+    bool isBattleHudVisible = false;
     private void Awake()
     {
         questManager = QuestManager.Instance;
+        battleHud.SetActive(false);
+        GameManager.Instance.OnStateChange += ToggleBattleHudVisibility;
     }
 
     private void Update()
@@ -43,9 +47,16 @@ public class GameHUD : MonoBehaviour
         gameHudContainer.SetActive(isVisible);
     }
 
+    /// <summary>
+    /// Toggles the visibility of the battle ui
+    /// </summary>
+    public void ToggleBattleHudVisibility()
+    {
+        battleHud.SetActive(GameManager.Instance.CurrentState == GameState.Battle ? true : false);
+    }
+
     public TMP_Text questTitleText_HUD;
     public TMP_Text questConditionText_HUD;
-
     public List<CharacterCombatStatusPanel> CombatStatusPanels;
 
     public void SetUpCombatStatusPanelForCharacter(Stats OwnerStats, int index = 0)

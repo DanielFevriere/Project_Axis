@@ -7,6 +7,8 @@ public class Player : MonoBehaviour, IDamageable
     public string playerID;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] ParticleSystem healEffect;
+
     Material material;
     SpriteRenderer spriteRenderer;
     public bool stunned;
@@ -73,7 +75,6 @@ public class Player : MonoBehaviour, IDamageable
 
     [Range(0f, 1f)] public float damageStaggerDuration = 0.1f;
     [ColorUsageAttribute(true, true)] public Color takeDamageColor = new Color(1, 0, 0);
-    [ColorUsageAttribute(true, true)] public Color healDamageColor = new Color(0, 1, 0);
 
     [SerializeField] AnimationCurve damagedBlendCurve;
     IEnumerator TakeDamageCoroutine;
@@ -99,4 +100,50 @@ public class Player : MonoBehaviour, IDamageable
         }
     }
     #endregion
+
+    #region Heal Damage
+    public void HealDamage(float damageHealed)
+    {
+        Debug.Log(name + " healed damage");
+
+        Instantiate(healEffect, transform.position, Quaternion.identity);
+
+        if (HealDamageCoroutine != null)
+        {
+            StopCoroutine(HealDamageCoroutine);
+        }
+
+        //Heal damage
+        HealDamageCoroutine = Coroutine_HealDamage();
+        StartCoroutine(HealDamageCoroutine);
+        GetComponent<Stats>().ModifyStat(Stat.HP, (int)damageHealed);
+    }
+    [ColorUsageAttribute(true, true)] public Color healDamageColor = new Color(0, 1, 0);
+
+    [SerializeField] AnimationCurve healBlendCurve;
+    IEnumerator HealDamageCoroutine;
+
+    IEnumerator Coroutine_HealDamage()
+    {
+        yield return null;
+
+        // Set damaged color on material
+        material.SetColor("_HealDamageColor", healDamageColor);
+
+        float timeElapsed = 0f;
+        while (timeElapsed < damageStaggerDuration)
+        {
+            timeElapsed += Time.deltaTime;
+
+            // Lerp down from damaged color
+            float t = timeElapsed / damageStaggerDuration;
+            float value = damagedBlendCurve.Evaluate(t);
+            material.SetFloat("_HealedBlend", value);
+
+            yield return null;
+        }
+    }
+    #endregion
+
+
 }

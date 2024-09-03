@@ -41,6 +41,7 @@ public class Stats : MonoBehaviour
     }
 
     public event Action OnTakeDamage;
+    public event Action OnHealDamage;
 
     float lastDamageTaken = 0f;
     void TakeDamageDebug()
@@ -88,6 +89,16 @@ public class Stats : MonoBehaviour
         {
             lastDamageTaken = -Amount;
             OnTakeDamage?.Invoke();
+        }
+        else if(StatToModify == Stat.HP && Amount > 0)
+        {
+            OnHealDamage?.Invoke();
+
+            //If ur healing and it goes over max hp, sets it back to max
+            if(currentStats[(int)Stat.HP] > currentStats[(int)Stat.MaxHP])
+            {
+                currentStats[(int)Stat.HP] = currentStats[(int)Stat.MaxHP];
+            }
         }
     }
     /// <summary>

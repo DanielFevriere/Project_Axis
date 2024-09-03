@@ -271,11 +271,12 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 1275061995841066040, guid: 2d8dbcaf5f85c844e833d20d5370d295,
     type: 3}
   hitEffect: {fileID: 8835378713871523851}
+  healEffect: {fileID: 2249143604395416755, guid: 50effd32255dc624a95f6bb57ea9e917,
+    type: 3}
   stunned: 0
   dead: 0
   damageStaggerDuration: 0.5
   takeDamageColor: {r: 1, g: 0, b: 0, a: 1}
-  healDamageColor: {r: 0, g: 1, b: 0, a: 1}
   damagedBlendCurve:
     serializedVersion: 2
     m_Curve:
@@ -297,6 +298,13 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.039561033
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  healDamageColor: {r: 0, g: 1, b: 0, a: 1}
+  healBlendCurve:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -757,6 +765,7 @@ GameObject:
   - component: {fileID: 3647407618463889777}
   - component: {fileID: 4750050408826138650}
   - component: {fileID: 7932313045429856090}
+  - component: {fileID: 7916754982344566158}
   m_Layer: 9
   m_Name: AbilityHolder
   m_TagString: Untagged
@@ -794,11 +803,13 @@ MonoBehaviour:
   dashKey: 1
   signature1Key: 31
   teamSkillKey: 32
+  healSkillKey: 20
   skillList: []
-  attackSkill: {fileID: 0}
-  dashSkill: {fileID: 0}
-  signatureSkill1: {fileID: 0}
-  teamSkill: {fileID: 0}
+  attackSkill: {fileID: 3647407618463890062}
+  dashSkill: {fileID: 3647407618463889777}
+  signatureSkill1: {fileID: 4750050408826138650}
+  teamSkill: {fileID: 7932313045429856090}
+  healSkill: {fileID: 7916754982344566158}
 --- !u!114 &3647407618463890062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,20 +878,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecebf4f8f21dcb438b07ce4e5b5377c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 0}
-  usable: 0
+  skillIcon: {fileID: 21300000, guid: 81d7cd06af02ada4a94dfb511281d4a7, type: 3}
+  usable: 1
   skillName: Boost Strike
   skillDescription: Gabe Dashes forward in a straight line, dealing damage
   inUse: 0
-  skillTime: 0.1
+  skillTime: 0.2
   onCooldown: 0
-  cooldownTime: 5
-  cooldownTimer: 5
+  cooldownTime: 1
+  cooldownTimer: 1
   visual: {fileID: 6265578204162156350}
   effect: {fileID: 8582874817275884847}
-  boostStrikeDamage: 5
-  boostStrikeSpeed: 20
-  boostStrikeDuration: 0
+  boostStrikeDamage: 10
+  boostStrikeSpeed: 70
+  boostStrikeDuration: 0.2
   atkTransform: {fileID: 3647407616426509483}
 --- !u!114 &7932313045429856090
 MonoBehaviour:
@@ -904,7 +915,7 @@ MonoBehaviour:
   onCooldown: 0
   cooldownTime: 1
   cooldownTimer: 1
-  tpCost: 5
+  tpCost: 10
   includedCharacters: []
   gabePosition: {fileID: 0}
   mikePosition: {fileID: 0}
@@ -912,6 +923,30 @@ MonoBehaviour:
   effect: {fileID: 3401981518847037395, guid: 495c9e527df3c514ebd63b3df7e05332, type: 3}
   swapDamage: 2
   skillTimer: 0
+--- !u!114 &7916754982344566158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647407618463889779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45309798760cec04a84a8ac1a49dc38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 21300000, guid: 077bbe706f0a4dc4f80d47cae51f3ed1, type: 3}
+  usable: 1
+  skillName: Heal
+  skillDescription: Heals player
+  inUse: 0
+  skillTime: 0
+  onCooldown: 0
+  cooldownTime: 1
+  cooldownTimer: 1
+  tpCost: 80
+  includedCharacters: []
+  healAmount: 10
 --- !u!1 &6265578204162156350
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +1003,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6265578204162156350}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

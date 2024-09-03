@@ -10,6 +10,7 @@ public class SkillHolder : MonoBehaviour
     public Key dashKey;
     public Key signature1Key;
     public Key teamSkillKey;
+    public Key healSkillKey;
 
     public List<ButtonControl> buttonList = new List<ButtonControl>();
 
@@ -17,6 +18,7 @@ public class SkillHolder : MonoBehaviour
     KeyControl dashControl;
     KeyControl signature1Control;
     KeyControl teamSkillControl;
+    KeyControl healSkillControl;
 
     //List of ability scripts on the gameobject
     public List<Skill> skillList;
@@ -25,6 +27,7 @@ public class SkillHolder : MonoBehaviour
     public Skill dashSkill;
     public Skill signatureSkill1;
     public Skill teamSkill;
+    public Skill healSkill;
 
     //Fetches the keyboard/mouse input system
     Keyboard kb;
@@ -40,6 +43,7 @@ public class SkillHolder : MonoBehaviour
         dashControl = kb.FindKeyOnCurrentKeyboardLayout(dashKey.ToString());
         signature1Control = kb.FindKeyOnCurrentKeyboardLayout(signature1Key.ToString());
         teamSkillControl = kb.FindKeyOnCurrentKeyboardLayout(teamSkillKey.ToString());
+        healSkillControl = kb.FindKeyOnCurrentKeyboardLayout(healSkillKey.ToString());
 
 
         //Adds all available abilities into the list
@@ -58,6 +62,7 @@ public class SkillHolder : MonoBehaviour
         buttonList.Add(dashControl);
         buttonList.Add(signature1Control);
         buttonList.Add(teamSkillControl);
+        buttonList.Add(healSkillControl);
     }
 
     public void HandleUpdate()

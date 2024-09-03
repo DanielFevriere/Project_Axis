@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour, IDamageable
     public LayerMask GroundLayer;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] ParticleSystem deathEffect;
+
     public GameObject hpVisual;
     public GameObject hpBar;
     public GameObject hpbBar;
@@ -66,6 +68,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(float DamageTaken)
     {
+        GameManager.Instance.AddTP(2);
+
         Debug.Log(name + " took damage");
 
         hpVisual.SetActive(true);
@@ -89,7 +93,6 @@ public class Enemy : MonoBehaviour, IDamageable
             Destroy(gameObject);
         }
     }
-
 
     private void FixedUpdate()
     {
@@ -162,6 +165,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnDestroy()
     {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+
         //Cycles through the active quests
         for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
         {
