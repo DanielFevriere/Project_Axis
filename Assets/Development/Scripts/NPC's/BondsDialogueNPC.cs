@@ -242,6 +242,16 @@ public class BondsDialogueNPC : MonoBehaviour
         DialogueManager.Instance.OnCloseDialogue -= AcceptQuest;
     }
 
+    void ShowInteractable()
+    {
+        
+    }
+
+    void HideInteractable()
+    { 
+    
+    }
+
     void OnTriggerEnter(Collider other)
     {
         inTalkingDistance = true;
