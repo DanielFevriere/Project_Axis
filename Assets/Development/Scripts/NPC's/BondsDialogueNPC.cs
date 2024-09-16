@@ -7,13 +7,16 @@ public class BondsDialogueNPC : MonoBehaviour
 {
     [SerializeField] string characterName;
     public bool inTalkingDistance;
+    public GameObject interactableUI;
     public Conversation lockedConvo;
-    public Quest questToAccept;
+    Quest questToAccept;
 
     BondsCharacter testBondsCharacter;
 
     void Awake()
     {
+        ShowInteractable();
+
         //Finds the bonds character in the manager
         for (int i = 0; i < BondsManager.Instance.bondsCharacters.Count; i++)
         {
@@ -33,7 +36,9 @@ public class BondsDialogueNPC : MonoBehaviour
         //If you are in talking distance,
         if (inTalkingDistance && GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
         {
+            HideInteractable();
             Talk();
+            DialogueManager.Instance.OnCloseDialogue += ShowInteractable;
         }
     }
 
@@ -244,12 +249,12 @@ public class BondsDialogueNPC : MonoBehaviour
 
     void ShowInteractable()
     {
-        
+        interactableUI.SetActive(true);
     }
 
     void HideInteractable()
-    { 
-    
+    {
+        interactableUI.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
