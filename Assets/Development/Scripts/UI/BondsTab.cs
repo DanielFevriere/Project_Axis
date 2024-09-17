@@ -137,12 +137,9 @@ public class BondsTab : GameTab
         MikeLvText.text = "Mike Lv " + currentBond.mikeLevel.ToString();
         RaphLvText.text = "Raph Lv " + currentBond.raphLevel.ToString();
 
-        //so currently youll have the bar set up by current progress / required progress, BUT
-        //IMPORTANT: IN THE FUTURE, CHANGE IT SO THAT IT COMBINES THE PROGRESS OF ALL CONDITIONS, NOT JUST ONE. ITS FLAWED AND THIS IS A TEMP SOLUTION.
-
-        float gabeFill = (float)currentBond.gabeQuests[currentBond.gabeLevel].conditions[0].CurrentProgress / (float)currentBond.gabeQuests[currentBond.gabeLevel].conditions[0].RequiredProgress;
-        float mikeFill = (float)currentBond.mikeQuests[currentBond.mikeLevel].conditions[0].CurrentProgress / (float)currentBond.mikeQuests[currentBond.mikeLevel].conditions[0].RequiredProgress;
-        float raphFill = (float)currentBond.raphQuests[currentBond.raphLevel].conditions[0].CurrentProgress / (float)currentBond.raphQuests[currentBond.raphLevel].conditions[0].RequiredProgress;
+        float gabeFill = (float)currentBond.gabeXp / (float)currentBond.gabeBondLevelRequirements[currentBond.gabeLevel];
+        float mikeFill = (float)currentBond.mikeXp / (float)currentBond.mikeBondLevelRequirements[currentBond.mikeLevel];
+        float raphFill = (float)currentBond.raphXp / (float)currentBond.raphBondLevelRequirements[currentBond.raphLevel];
 
         //If they are max level (3) it fills up to max already
         GabeBarMaterial.SetFloat("_Fill", currentBond.gabeLevel == 3 ? 1 : gabeFill);

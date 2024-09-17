@@ -10,6 +10,15 @@ public class BondsDialogueNPC : MonoBehaviour
     public GameObject interactableUI;
     public GameObject npcOptions;
     public Conversation lockedConvo;
+
+    public Conversation gabeQuestConvo;
+    public Conversation mikeQuestConvo;
+    public Conversation raphQuestConvo;
+
+    public Quest gabeQuest;
+    public Quest mikeQuest;
+    public Quest raphQuest;
+
     Quest questToAccept;
 
     BondsCharacter testBondsCharacter;
@@ -44,6 +53,7 @@ public class BondsDialogueNPC : MonoBehaviour
         }
     }
 
+    //Will either accept, check progress on, or complete a quest
     public void Talk()
     {
         HideNPCOptions();
@@ -58,54 +68,37 @@ public class BondsDialogueNPC : MonoBehaviour
                     //Going through active quests
                     for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
                     {
-                        //Going through the character's bond quests
-                        for (int j = 0; j < testBondsCharacter.gabeQuests.Count; j++)
+                        //If the accepted quest is equal to the bond quest
+                        if (gabeQuest == QuestManager.Instance.activeQuests[i])
                         {
-                            //If the accepted quest is equal to the bond quest
-                            if (testBondsCharacter.gabeQuests[j] == QuestManager.Instance.activeQuests[i])
+                            //if the active quest is complete
+                            if (QuestManager.Instance.CheckIfQuestComplete(gabeQuest))
                             {
-                                //if the active quest is complete
-                                if (QuestManager.Instance.CheckIfQuestComplete(testBondsCharacter.gabeQuests[j]))
-                                {
-                                    //Finish up the quest and give the rewards to the player
-                                    QuestManager.Instance.FinishQuest(testBondsCharacter.gabeQuests[j]);
-                                    StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeBondsConvos[testBondsCharacter.gabeLevel]));
-                                    BondsManager.Instance.BondLevelUp(testBondsCharacter, 1); 
+                                //Finish up the quest and give the rewards to the player
+                                QuestManager.Instance.FinishQuest(gabeQuest);
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeBondsConvos[testBondsCharacter.gabeLevel]));
+                                BondsManager.Instance.BondLevelUp(testBondsCharacter, 1);
 
-                                    //If the bond level isnt maxed
-                                    if(testBondsCharacter.gabeLevel != testBondsCharacter.gabeQuests.Count)
-                                    {
-                                        //Automatically accept the next bonds quest after the dialogue
-                                        questToAccept = testBondsCharacter.gabeQuests[testBondsCharacter.gabeLevel];
-                                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
-                                    }
-                                    //exit function
-                                    return;
-                                }
-                                //Otherwise, play the progress convo
-                                else
-                                {
-                                    StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeProgressConvo));
-                                    return;
-                                }
+                                //exit function
+                                return;
+                            }
+                            //Otherwise, play the progress convo
+                            else
+                            {
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeProgressConvo));
+                                return;
                             }
                         }
                     }
-                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
-                    if (testBondsCharacter.gabeLevel == 3)
-                    {
-                        //Play the completed convo if the bond is maxed
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeCompletedConvo));
-                    }
-                    else
-                    {
-                        //Play the starter convo
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeStarterConvo));
 
-                        //Accepts a quest
-                        questToAccept = testBondsCharacter.gabeQuests[testBondsCharacter.gabeLevel];
-                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
-                    }
+                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
+
+                    //Play the starter convo
+                    StartCoroutine(DialogueManager.Instance.ShowConversation(gabeQuestConvo));
+
+                    //Accepts a quest
+                    questToAccept = gabeQuest;
+                    DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                 }
                 //If it is locked,
                 else
@@ -122,53 +115,37 @@ public class BondsDialogueNPC : MonoBehaviour
                     //Going through active quests
                     for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
                     {
-                        //Going through the character's bond quests
-                        for (int j = 0; j < testBondsCharacter.mikeQuests.Count; j++)
+                        //If the accepted quest is equal to the bond quest
+                        if (mikeQuest == QuestManager.Instance.activeQuests[i])
                         {
-                            //If the accepted quest is equal to the bond quest
-                            if (testBondsCharacter.mikeQuests[j] == QuestManager.Instance.activeQuests[i])
+                            //if the active quest is complete
+                            if (QuestManager.Instance.CheckIfQuestComplete(mikeQuest))
                             {
-                                //if the active quest is complete
-                                if (QuestManager.Instance.CheckIfQuestComplete(testBondsCharacter.mikeQuests[j]))
-                                {
-                                    //Finish up the quest and give the rewards to the player
-                                    QuestManager.Instance.FinishQuest(testBondsCharacter.mikeQuests[j]);
-                                    StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeBondsConvos[testBondsCharacter.mikeLevel]));
-                                    BondsManager.Instance.BondLevelUp(testBondsCharacter, 2);
-                                    //If the bond level isnt maxed
-                                    if (testBondsCharacter.mikeLevel != testBondsCharacter.mikeQuests.Count)
-                                    {
-                                        //Automatically accept the next bonds quest after the dialogue
-                                        questToAccept = testBondsCharacter.mikeQuests[testBondsCharacter.mikeLevel];
-                                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
-                                    }
-                                    //exit function
-                                    return;
-                                }
-                                //Otherwise, play the progress convo
-                                else
-                                {
-                                    StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeProgressConvo));
-                                    return;
-                                }
+                                //Finish up the quest and give the rewards to the player
+                                QuestManager.Instance.FinishQuest(mikeQuest);
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeBondsConvos[testBondsCharacter.mikeLevel]));
+                                BondsManager.Instance.BondLevelUp(testBondsCharacter, 2);
+
+                                //exit function
+                                return;
+                            }
+                            //Otherwise, play the progress convo
+                            else
+                            {
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeProgressConvo));
+                                return;
                             }
                         }
                     }
-                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
-                    if (testBondsCharacter.mikeLevel == 3)
-                    {
-                        //Play the completed convo if the bond is maxed
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeCompletedConvo));
-                    }
-                    else
-                    {
-                        //Play the starter convo
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeStarterConvo));
 
-                        //Accepts a quest
-                        questToAccept = testBondsCharacter.mikeQuests[testBondsCharacter.mikeLevel];
-                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
-                    }
+                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
+
+                    //Play the starter convo
+                    StartCoroutine(DialogueManager.Instance.ShowConversation(mikeQuestConvo));
+
+                    //Accepts a quest
+                    questToAccept = mikeQuest;
+                    DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                 }
                 //If it is locked,
                 else
@@ -185,54 +162,37 @@ public class BondsDialogueNPC : MonoBehaviour
                     //Going through active quests
                     for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
                     {
-                        //Going through the character's bond quests
-                        for (int j = 0; j < testBondsCharacter.raphQuests.Count; j++)
+                        //If the accepted quest is equal to the bond quest
+                        if (raphQuest == QuestManager.Instance.activeQuests[i])
                         {
-                            //If the accepted quest is equal to the bond quest
-                            if (testBondsCharacter.raphQuests[j] == QuestManager.Instance.activeQuests[i])
+                            //if the active quest is complete
+                            if (QuestManager.Instance.CheckIfQuestComplete(raphQuest))
                             {
-                                //if the active quest is complete
-                                if (QuestManager.Instance.CheckIfQuestComplete(testBondsCharacter.raphQuests[j]))
-                                {
-                                    //Finish up the quest and give the rewards to the player
-                                    QuestManager.Instance.FinishQuest(testBondsCharacter.raphQuests[j]);
-                                    StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphBondsConvos[testBondsCharacter.raphLevel]));
-                                    BondsManager.Instance.BondLevelUp(testBondsCharacter, 3);
+                                //Finish up the quest and give the rewards to the player
+                                QuestManager.Instance.FinishQuest(raphQuest);
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphBondsConvos[testBondsCharacter.raphLevel]));
+                                BondsManager.Instance.BondLevelUp(testBondsCharacter, 3);
 
-                                    //If the bond level isnt maxed
-                                    if (testBondsCharacter.raphLevel != testBondsCharacter.raphQuests.Count)
-                                    {
-                                        //Automatically accept the next bonds quest after the dialogue
-                                        questToAccept = testBondsCharacter.raphQuests[testBondsCharacter.raphLevel];
-                                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
-                                    }
-                                    //exit function
-                                    return;
-                                }
-                                //Otherwise, play the progress convo
-                                else
-                                {
-                                    StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphProgressConvo));
-                                    return;
-                                }
+                                //exit function
+                                return;
+                            }
+                            //Otherwise, play the progress convo
+                            else
+                            {
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphProgressConvo));
+                                return;
                             }
                         }
                     }
-                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
-                    if (testBondsCharacter.raphLevel == 3)
-                    {
-                        //Play the completed convo if the bond is maxed
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphCompletedConvo));
-                    }
-                    else
-                    {
-                        //Play the starter convo
-                        StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphStarterConvo));
 
-                        //Accepts a quest
-                        questToAccept = testBondsCharacter.raphQuests[testBondsCharacter.raphLevel];
-                        DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
-                    }
+                    //If it reaches this point then it means that no bonds quest has been accepted, therefore
+
+                    //Play the starter convo
+                    StartCoroutine(DialogueManager.Instance.ShowConversation(raphQuestConvo));
+
+                    //Accepts a quest
+                    questToAccept = raphQuest;
+                    DialogueManager.Instance.OnCloseDialogue += AcceptQuest;
                 }
                 //If it is locked,
                 else
@@ -249,6 +209,24 @@ public class BondsDialogueNPC : MonoBehaviour
         QuestManager.Instance.AcceptQuest(questToAccept);
         questToAccept = null;
         DialogueManager.Instance.OnCloseDialogue -= AcceptQuest;
+    }
+
+    public void GiveGift(BoosterItem gift)
+    {
+        //If the gift belongs to the right bonds character,
+        if(gift.requiredBondsCharacter == testBondsCharacter)
+        {
+            //If the right party member is giving the gift, 
+            if (gift.requiredPartyMember == GameManager.Instance.partyLeader.name)
+            {
+                //Play a thank you conversation for the gift? have the conversation be attached from the boosteritem
+                //Play a cool effect on the npc as well
+                //Discard the gift item from the inventory
+                //add the amount of bonds exp too
+            }
+        }
+
+
     }
 
     void ShowInteractable()

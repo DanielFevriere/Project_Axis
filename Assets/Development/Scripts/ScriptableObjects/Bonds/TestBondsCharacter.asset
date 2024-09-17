@@ -18,21 +18,15 @@ MonoBehaviour:
   gabeLocked: 1
   mikeLocked: 1
   raphLocked: 1
-  gabeLevel: 0
+  gabeLevel: 2
   mikeLevel: 0
   raphLevel: 0
-  gabeQuests:
-  - {fileID: 11400000, guid: 77fb2f01151229349b79e3e634b292b6, type: 2}
-  - {fileID: 11400000, guid: 7d712145e4751d44296dc95b66c8f0ac, type: 2}
-  - {fileID: 11400000, guid: 3272b2ac857134348a6a9de60ff73f2b, type: 2}
-  mikeQuests:
-  - {fileID: 11400000, guid: 24690f87bba97124f93ac94ea13771da, type: 2}
-  - {fileID: 11400000, guid: 706e4ddc1bfef724c8ee142f5f08aa8c, type: 2}
-  - {fileID: 11400000, guid: 1e897c7362400d745819ee439f2cf60d, type: 2}
-  raphQuests:
-  - {fileID: 11400000, guid: 5be24df6c054b284aa40966ca8d98e65, type: 2}
-  - {fileID: 11400000, guid: 8b924d356fff37640b50ffc0bbc798a7, type: 2}
-  - {fileID: 11400000, guid: b7a215de46a76f5479a604a4ce472411, type: 2}
+  gabeXp: 24
+  mikeXp: 6
+  raphXp: 8
+  gabeBondLevelRequirements: 0a000000140000001e000000
+  mikeBondLevelRequirements: 0a000000140000001e000000
+  raphBondLevelRequirements: 0a000000140000001e000000
   gabeStarterConvo: {fileID: 11400000, guid: 69511fbbbc0dc1641aabc8f45d7571d2, type: 2}
   mikeStarterConvo: {fileID: 11400000, guid: 573be9001a0e9cd4086509fd2d26951e, type: 2}
   raphStarterConvo: {fileID: 11400000, guid: da75b254434e71d4a9cb1eb8e9e6fd59, type: 2}

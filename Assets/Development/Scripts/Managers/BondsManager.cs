@@ -27,8 +27,8 @@ public class BondsManager : MonoBehaviour
 
     /// <summary>
     /// Adds bond experience for one of the 3 characters by passing in an int
-    /// 1 - Gabe
-    /// 2 - Mike
+    /// 1 - Gabe,
+    /// 2 - Mike,
     /// 3 - Raph
     /// </summary>
     public void AddBondExp(BondsCharacter bondsChar, int partyMember, int amount)
@@ -82,8 +82,8 @@ public class BondsManager : MonoBehaviour
 
     /// <summary>
     /// Levels up the bonds level for one of the 3 characters by passing in an int
-    /// 1 - Gabe
-    /// 2 - Mike
+    /// 1 - Gabe,
+    /// 2 - Mike,
     /// 3 - Raph
     /// </summary>
     public void BondLevelUp(BondsCharacter bondsChar, int partyMember)

@@ -30,11 +30,6 @@ public class BondsCharacter : ScriptableObject
     public List<int> mikeBondLevelRequirements;
     public List<int> raphBondLevelRequirements;
 
-    //Character bonds quests
-    public List<Quest> gabeQuests;
-    public List<Quest> mikeQuests;
-    public List<Quest> raphQuests;
-
     //The initial starting convo before accepting the bond characters first quest
     public Conversation gabeStarterConvo;
     public Conversation mikeStarterConvo;
