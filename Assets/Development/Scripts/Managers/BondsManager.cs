@@ -25,19 +25,65 @@ public class BondsManager : MonoBehaviour
 
     public List<BondsCharacter> bondsCharacters;
 
-    private void Awake()
+    /// <summary>
+    /// Adds bond experience for one of the 3 characters by passing in an int
+    /// 1 - Gabe
+    /// 2 - Mike
+    /// 3 - Raph
+    /// </summary>
+    public void AddBondExp(BondsCharacter bondsChar, int partyMember, int amount)
     {
-        
-    }
-    private void Update()
-    {
-        
+        //Checks if one of the three are properly selected
+        if (partyMember != 1 && partyMember != 2 && partyMember != 3)
+        {
+            //Returns if the selection is invalid
+            Debug.Log("Invalid character to give bond xp to");
+            return;
+        }
+
+        //Depending on the character, depends on which one gets leveled up while getting the rewards
+        switch (partyMember)
+        {
+            case 1:
+                if (bondsChar.gabeLevel < bondsChar.gabeBondLevelRequirements.Count)
+                {
+                    Debug.Log(amount + " bond exp given to Gabriel");
+                    bondsChar.gabeXp += amount;
+                }
+                else
+                {
+                    Debug.Log("Gabriel Bond level is max.");
+                }
+                break;
+            case 2:
+                if (bondsChar.mikeLevel < bondsChar.mikeBondLevelRequirements.Count)
+                {
+                    Debug.Log(amount + " bond exp given to Michael");
+                    bondsChar.mikeXp += amount;
+                }
+                else
+                {
+                    Debug.Log("Michael Bond level is max.");
+                }
+                break;
+            case 3:
+                if (bondsChar.raphLevel < bondsChar.raphBondLevelRequirements.Count)
+                {
+                    Debug.Log(amount + " bond exp given to Raphael");
+                    bondsChar.raphXp += amount;
+                }
+                else
+                {
+                    Debug.Log("Raph Bond level is max.");
+                }
+                break;
+        }
     }
 
     /// <summary>
     /// Levels up the bonds level for one of the 3 characters by passing in an int
-    /// 1 - Gabe,
-    /// 2 - Mike,
+    /// 1 - Gabe
+    /// 2 - Mike
     /// 3 - Raph
     /// </summary>
     public void BondLevelUp(BondsCharacter bondsChar, int partyMember)
@@ -54,10 +100,11 @@ public class BondsManager : MonoBehaviour
         switch (partyMember)
         {
             case 1:
-                if (bondsChar.gabeLevel < bondsChar.gabeBondsConvos.Count)
+                if (bondsChar.gabeLevel < bondsChar.gabeBondLevelRequirements.Count)
                 {
                     Debug.Log("Gabe Bond level up!");
                     bondsChar.gabeLevel++;
+                    bondsChar.gabeXp = 0;
                 }
                 else
                 {
@@ -65,10 +112,11 @@ public class BondsManager : MonoBehaviour
                 }
                 break;
             case 2:
-                if (bondsChar.mikeLevel < bondsChar.mikeBondsConvos.Count)
+                if (bondsChar.mikeLevel < bondsChar.mikeBondLevelRequirements.Count)
                 {
                     Debug.Log("Mike Bond level up!");
                     bondsChar.mikeLevel++;
+                    bondsChar.mikeXp = 0;
                 }
                 else
                 {
@@ -76,10 +124,11 @@ public class BondsManager : MonoBehaviour
                 }
                 break;
             case 3:
-                if (bondsChar.raphLevel < bondsChar.raphBondsConvos.Count)
+                if (bondsChar.raphLevel < bondsChar.raphBondLevelRequirements.Count)
                 {
                     Debug.Log("Raph Bond level up!");
                     bondsChar.raphLevel++;
+                    bondsChar.raphXp = 0;
                 }
                 else
                 {
@@ -91,7 +140,7 @@ public class BondsManager : MonoBehaviour
         UpdateDetails(bondsChar);
     }
     /// <summary>
-    /// Unlocks support character progression for either gabe mike or raph depending on the partymember int paramaeter
+    /// Unlocks bonds character progression for either gabe mike or raph depending on the partymember int paramaeter
     /// </summary>
     public void UnlockBond(BondsCharacter bondsChar, int partyMember)
     {

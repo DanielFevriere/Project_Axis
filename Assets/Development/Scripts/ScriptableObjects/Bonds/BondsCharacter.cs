@@ -20,6 +20,16 @@ public class BondsCharacter : ScriptableObject
     public int mikeLevel = 0;
     public int raphLevel = 0;
 
+    //Character bonds current exp
+    public int gabeXp = 0;
+    public int mikeXp = 0;
+    public int raphXp = 0;
+
+    //These are the lists of intergers needed for them to hit their next bond level
+    public List<int> gabeBondLevelRequirements;
+    public List<int> mikeBondLevelRequirements;
+    public List<int> raphBondLevelRequirements;
+
     //Character bonds quests
     public List<Quest> gabeQuests;
     public List<Quest> mikeQuests;
