@@ -8,6 +8,7 @@ public class BondsDialogueNPC : MonoBehaviour
     [SerializeField] string characterName;
     public bool inTalkingDistance;
     public GameObject interactableUI;
+    public GameObject npcOptions;
     public Conversation lockedConvo;
     Quest questToAccept;
 
@@ -16,6 +17,7 @@ public class BondsDialogueNPC : MonoBehaviour
     void Awake()
     {
         ShowInteractable();
+        HideNPCOptions();
 
         //Finds the bonds character in the manager
         for (int i = 0; i < BondsManager.Instance.bondsCharacters.Count; i++)
@@ -37,13 +39,15 @@ public class BondsDialogueNPC : MonoBehaviour
         if (inTalkingDistance && GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
         {
             HideInteractable();
-            Talk();
+            ShowNPCOptions();
             DialogueManager.Instance.OnCloseDialogue += ShowInteractable;
         }
     }
 
     public void Talk()
     {
+        HideNPCOptions();
+
         //Depending on whos being talked to
         switch (GameManager.Instance.partyLeader.name)
         {
@@ -255,6 +259,18 @@ public class BondsDialogueNPC : MonoBehaviour
     void HideInteractable()
     {
         interactableUI.SetActive(false);
+    }
+
+    public void ShowNPCOptions()
+    {
+        GameManager.Instance.ChangeState(GameState.Freeze);
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.ZoomedCamera);
+        npcOptions.SetActive(true);
+    }
+
+    public void HideNPCOptions()
+    {
+        npcOptions.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)

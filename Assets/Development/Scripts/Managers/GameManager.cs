@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera currentCamera;
     [SerializeField] CinemachineVirtualCamera highCamera;
     [SerializeField] CinemachineVirtualCamera lowCamera;
+    [SerializeField] CinemachineVirtualCamera zoomedCamera;
+
+
     public GameObject partyLeader;
     public List<GameObject> partyMembers;
     public int maxTP = 30;
@@ -421,9 +424,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.PlayBgm("defiance", 0.0f, 2.0f);
 
-        highCamera.gameObject.SetActive(false);
-        lowCamera.gameObject.SetActive(true);
-        currentCamera = lowCamera;
+        SetCurrentCamera(lowCamera);
 
         // Todo: Check if partyMembers is empty, if empty then add in party members
 
@@ -437,9 +438,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayBgm("ghoul", 0.0f, 2.0f);
 
         //Swaps the camera to the battle camera
-        lowCamera.gameObject.SetActive(false);
-        highCamera.gameObject.SetActive(true);
-        currentCamera = highCamera;
+        SetCurrentCamera(highCamera);
 
         //Teleports each party member to the party leader upon entering the battle state
         foreach (GameObject p in partyMembers)
@@ -453,7 +452,7 @@ public class GameManager : MonoBehaviour
 
     void Enter_Dialogue()
     {
-
+        SetCurrentCamera(zoomedCamera);
     }
 
     void Enter_Cutscene()
@@ -506,6 +505,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentCamera(CinemachineVirtualCamera camera)
+    {
+        highCamera.gameObject.SetActive(false);
+        lowCamera.gameObject.SetActive(false);
+        zoomedCamera.gameObject.SetActive(false);
+
+        camera.gameObject.SetActive(true);
+        currentCamera = camera;
+    }
+
 
     #endregion Camera Controller
 
@@ -545,4 +554,18 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Closed");
         Application.Quit();
     }
+
+    public CinemachineVirtualCamera HighCamera
+    {
+        get { return highCamera; }
+    }
+    public CinemachineVirtualCamera LowCamera
+    {
+        get { return lowCamera; }
+    }
+    public CinemachineVirtualCamera ZoomedCamera
+    {
+        get { return zoomedCamera; }
+    }
+
 }
