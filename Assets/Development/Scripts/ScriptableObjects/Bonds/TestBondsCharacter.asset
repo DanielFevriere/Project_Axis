@@ -15,15 +15,15 @@ MonoBehaviour:
   characterName: TestBondsCharacter
   characterIcon: {fileID: 21300000, guid: 73c5d335f004ce845a3afe48e5cb194d, type: 3}
   characterPortrait: {fileID: 21300000, guid: 2adf300192825504f8be33b20694414d, type: 3}
-  gabeLocked: 1
-  mikeLocked: 1
-  raphLocked: 1
-  gabeLevel: 2
+  gabeLocked: 0
+  mikeLocked: 0
+  raphLocked: 0
+  gabeLevel: 0
   mikeLevel: 0
   raphLevel: 0
-  gabeXp: 24
-  mikeXp: 6
-  raphXp: 8
+  gabeXp: 0
+  mikeXp: 0
+  raphXp: 0
   gabeBondLevelRequirements: 0a000000140000001e000000
   mikeBondLevelRequirements: 0a000000140000001e000000
   raphBondLevelRequirements: 0a000000140000001e000000
@@ -83,20 +83,20 @@ MonoBehaviour:
     or alive and a character in the game"'
   question5: '"I have no memories. I started existing in this build"'
   ageLocked: 1
-  heightLocked: 1
-  favColorLocked: 1
-  goalsLocked: 1
-  likesLocked: 1
-  dislikesLocked: 1
-  personalityLocked: 1
-  strengthsLocked: 1
-  weaknessesLocked: 1
-  bodyTypeLocked: 1
-  mottoLocked: 1
-  hobbiesLocked: 1
-  fearsLocked: 1
-  skinColorLocked: 1
-  question1Locked: 1
+  heightLocked: 0
+  favColorLocked: 0
+  goalsLocked: 0
+  likesLocked: 0
+  dislikesLocked: 0
+  personalityLocked: 0
+  strengthsLocked: 0
+  weaknessesLocked: 0
+  bodyTypeLocked: 0
+  mottoLocked: 0
+  hobbiesLocked: 0
+  fearsLocked: 0
+  skinColorLocked: 0
+  question1Locked: 0
   question2Locked: 1
   question3Locked: 1
   question4Locked: 1

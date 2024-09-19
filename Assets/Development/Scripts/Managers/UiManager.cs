@@ -32,6 +32,8 @@ public class UiManager : MonoBehaviour
     public GameHUD Hud;
     [Header("Game Menu")]
     public GameMenu Menu;
+    [Header("Bonds Menu")]
+    public BondsMenu bondsMenu;
 
     [Header("Game Menu Tabs")]
     public List<GameTab> gameTabs;
@@ -164,5 +166,20 @@ public class GameMenu
     {
         isVisible = !isVisible;
         gameMenuContainer.SetActive(isVisible);
+    }
+}
+
+[System.Serializable]
+
+public class BondsMenu
+{
+    public GameObject bondsMenuContainer;
+
+    bool isVisible = false;
+
+    public void ToggleVisibility()
+    {
+        isVisible = !isVisible;
+        bondsMenuContainer.SetActive(isVisible);
     }
 }

@@ -14,20 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainQuest: 0
   questTitle: Gabe's Bond 1
-  questDescription: This is your first bonding quest with gabriel. Goodluck!
+  questDescription: We gotta get a booster item
   questObjective: Kill 9 shades
   isAccepted: 0
   isComplete: 0
   questReward:
-    veniReward: 10
+    veniReward: 90
     boosterItemRewards:
-    - {fileID: 11400000, guid: 2c5b817d652ed924faeddba9829c000e, type: 2}
-    consumableItemRewards:
-    - {fileID: 11400000, guid: 146d4c23c2c2f8f469e75cbd297e389d, type: 2}
-    keyItemRewards:
-    - {fileID: 11400000, guid: b0601d8fd51e18a46971852fab5e7b99, type: 2}
-    nodeRewards:
-    - {fileID: 11400000, guid: 54904d4f6e1e54a47b1879a7753e9f01, type: 2}
+    - {fileID: 11400000, guid: c5686fe9f826e254e9d1af677b7e7c0d, type: 2}
+    consumableItemRewards: []
+    keyItemRewards: []
+    nodeRewards: []
   conditions:
   - conditionName: Destroy Shades
     conditionID: Shade

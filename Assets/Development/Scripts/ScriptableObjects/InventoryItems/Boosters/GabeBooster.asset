@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcaa1a02590f8141b25d6fd39b92fb8, type: 3}
   m_Name: GabeBooster
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  icon: {fileID: 0}
+  itemName: Gabe Booster
+  itemDescription: A test gift item to give to the bonds npc from Gabriel
+  icon: {fileID: 21300000, guid: a27efeab4a22e37439ca8722b3c7d4ea, type: 3}
   usable: 0
-  disposable: 0
-  character: {fileID: 0}
-  partyMember: 
+  disposable: 1
+  requiredBondsCharacter: {fileID: 0}
+  requiredPartyMember: 
+  bondsExpAmount: 0

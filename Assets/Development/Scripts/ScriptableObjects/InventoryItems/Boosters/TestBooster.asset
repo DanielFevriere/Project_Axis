@@ -16,4 +16,7 @@ MonoBehaviour:
   itemDescription: This is a test booster item. Dan is making sure this text appears
   icon: {fileID: 21300000, guid: fa5008d99bcf17742a0e05fd155586a0, type: 3}
   usable: 0
-  disposable: 0
+  disposable: 1
+  requiredBondsCharacter: {fileID: 0}
+  requiredPartyMember: 
+  bondsExpAmount: 0

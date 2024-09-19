@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcaa1a02590f8141b25d6fd39b92fb8, type: 3}
   m_Name: MikeBooster
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  icon: {fileID: 0}
+  itemName: Michael Booster
+  itemDescription: An item to give to the bonds npc from Michael
+  icon: {fileID: 21300000, guid: 76e3571b1ca6c9541b013f2de66a1089, type: 3}
   usable: 0
-  disposable: 0
-  character: {fileID: 0}
-  partyMember: 
+  disposable: 1
+  requiredBondsCharacter: {fileID: 0}
+  requiredPartyMember: 
+  bondsExpAmount: 0

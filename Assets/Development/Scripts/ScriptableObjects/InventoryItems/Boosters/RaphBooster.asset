@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcaa1a02590f8141b25d6fd39b92fb8, type: 3}
   m_Name: RaphBooster
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Raphael Booster
+  itemDescription: A test item to give to the blonde bonds npc from Raphael
   icon: {fileID: 0}
   usable: 0
-  disposable: 0
-  character: {fileID: 0}
-  partyMember: 
+  disposable: 1
+  requiredBondsCharacter: {fileID: 0}
+  requiredPartyMember: 
+  bondsExpAmount: 0
