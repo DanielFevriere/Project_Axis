@@ -36,6 +36,9 @@ MonoBehaviour:
   gabeCompletedConvo: {fileID: 11400000, guid: 1bab73995bdd8f74d8ed1559e457612b, type: 2}
   mikeCompletedConvo: {fileID: 11400000, guid: 2dc12ab13829f00438afb3d9b89d969b, type: 2}
   raphCompletedConvo: {fileID: 11400000, guid: 4657e472ea899ef4d8df9b6d2e0f0824, type: 2}
+  giftSuccess: {fileID: 11400000, guid: d85207e4347024b4cbf700dc04798915, type: 2}
+  wrongPerson: {fileID: 11400000, guid: f878a3625b761b84f94e007c364330b1, type: 2}
+  wrongGift: {fileID: 11400000, guid: 97d1e151ad802e344bab0ec17ec05ec9, type: 2}
   gabeBondsConvos:
   - {fileID: 11400000, guid: b49cc506779e9124b99538690f8dbca8, type: 2}
   - {fileID: 11400000, guid: 7b68c16d1c401534c86c9a3e90a8acca, type: 2}

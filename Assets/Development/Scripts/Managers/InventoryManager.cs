@@ -32,6 +32,19 @@ public class InventoryManager : MonoBehaviour
     {
 
     }
+
+    public void RemoveItem(InventoryItem item)
+    {
+        //Looks through the inventories to find the item
+        for (int i = 0; i < boosterInventory.Count; i++)
+        {
+            //If the item names match, remove the item
+            if(item.itemName == boosterInventory[i].itemName)
+            {
+                boosterInventory.Remove(boosterInventory[i]);
+            }
+        }
+    }
 }
 
 

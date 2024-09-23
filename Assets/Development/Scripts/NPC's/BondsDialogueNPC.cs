@@ -47,15 +47,16 @@ public class BondsDialogueNPC : MonoBehaviour
         //If you are in talking distance,
         if (inTalkingDistance && GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
         {
+            GameManager.Instance.ChangeState(GameState.Freeze);
             HideInteractable();
             ShowNPCOptions();
-            DialogueManager.Instance.OnCloseDialogue += ShowInteractable;
         }
     }
 
     //Will either accept, check progress on, or complete a quest
     public void Talk()
     {
+        DialogueManager.Instance.OnCloseDialogue += ShowInteractable;
         HideNPCOptions();
 
         //Depending on whos being talked to
@@ -204,6 +205,14 @@ public class BondsDialogueNPC : MonoBehaviour
         }
     }
 
+    public void Bond()
+    {
+        HideNPCOptions();
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.BondsMenuCamera);
+        UiManager.Instance.bondsMenu.ToggleVisibility();
+        UiManager.Instance.bondsMenu.currentBondsCharacter = testBondsCharacter;
+    }
+
     void AcceptQuest()
     {
         QuestManager.Instance.AcceptQuest(questToAccept);
@@ -229,19 +238,20 @@ public class BondsDialogueNPC : MonoBehaviour
 
     }
 
-    void ShowInteractable()
+    public void ShowInteractable()
     {
         interactableUI.SetActive(true);
+        GetComponent<BoxCollider>().enabled = true;
     }
 
-    void HideInteractable()
+    public void HideInteractable()
     {
         interactableUI.SetActive(false);
+        GetComponent<BoxCollider>().enabled = false;
     }
 
     public void ShowNPCOptions()
     {
-        GameManager.Instance.ChangeState(GameState.Freeze);
         GameManager.Instance.SetCurrentCamera(GameManager.Instance.ZoomedCamera);
         npcOptions.SetActive(true);
     }

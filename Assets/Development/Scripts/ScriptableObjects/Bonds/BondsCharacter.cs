@@ -44,6 +44,11 @@ public class BondsCharacter : ScriptableObject
     public Conversation mikeCompletedConvo;
     public Conversation raphCompletedConvo;
 
+    //Convos depending on gifts given
+    public Conversation giftSuccess;
+    public Conversation wrongPerson;
+    public Conversation wrongGift;
+
     //List of convos for each bond level
     public List<Conversation> gabeBondsConvos;
     public List<Conversation> mikeBondsConvos;

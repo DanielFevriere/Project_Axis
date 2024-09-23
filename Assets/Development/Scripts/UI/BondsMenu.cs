@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class BondsMenu : MonoBehaviour
 {
     InventoryManager inventoryManager;
+    public BondsCharacter currentBondsCharacter;
 
     public GameObject bondsMenuContainer;
     public GameObject previousPageButton;
@@ -17,6 +18,8 @@ public class BondsMenu : MonoBehaviour
     public List<TMP_Text> boosterItemDisplayNames;
     public List<GameObject> boosterItemDisplayBgs;
 
+    //Variables for the selected item
+    public BoosterItem selectedItem;
     public GameObject selectedItemDisplay;
     public Image selectedItemIcon;
     public TMP_Text selectedItemName;
@@ -128,6 +131,8 @@ public class BondsMenu : MonoBehaviour
         {
             if (boosterItemDisplayNames[itemIndex].text == inventoryManager.boosterInventory[i].itemName)
             {
+                selectedItem = inventoryManager.boosterInventory[i];
+
                 //Displays the item name, description, and icon
                 selectedItemName.text = inventoryManager.boosterInventory[i].itemName;
                 selectedItemDescription.text = inventoryManager.boosterInventory[i].itemDescription;
@@ -138,9 +143,9 @@ public class BondsMenu : MonoBehaviour
         UpdateItemDisplay();
     }
 
-    void HideItem()
+    public void HideItem()
     {
-
+        selectedItemDisplay.SetActive(false);
     }
 
     void ClearBoosterItemDisplay()
@@ -149,6 +154,45 @@ public class BondsMenu : MonoBehaviour
         selectedItemName.text = "";
         selectedItemDescription.text = "";
         selectedItemDisplay.SetActive(false);
+    }
+
+    /// <summary>
+    /// Gives the passed in gift to the bonds character
+    /// </summary>
+    /// <param name="gift"></param>
+    public void GiveGift()
+    {
+        //Check to see if it's the right gift
+        if(selectedItem.requiredBondsCharacter == currentBondsCharacter)
+        {
+            //Checks to see if it's the right party member giving the gift
+            if(GameManager.Instance.partyLeader.name == selectedItem.requiredPartyMember)
+            {
+                //Play the gift success convo
+                StartCoroutine(DialogueManager.Instance.ShowConversation(currentBondsCharacter.giftSuccess));
+            }
+            //If its not the right party member, but the right gift
+            else
+            {
+                //Play the wrong person convo
+                StartCoroutine(DialogueManager.Instance.ShowConversation(currentBondsCharacter.wrongPerson));
+            }
+        }
+        //If its not the correct gift for the bonds character
+        else
+        {
+            StartCoroutine(DialogueManager.Instance.ShowConversation(currentBondsCharacter.wrongGift));
+        }
+    }
+
+    /// <summary>
+    /// Closes the Bonds Menu
+    /// </summary>
+    public void Exit()
+    {
+        GameManager.Instance.ChangeState(GameState.FreeRoam);
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.LowCamera);
+        UiManager.Instance.bondsMenu.ToggleVisibility();
     }
 
     /// <summary>
@@ -179,5 +223,6 @@ public class BondsMenu : MonoBehaviour
     {
         isVisible = !isVisible;
         bondsMenuContainer.SetActive(isVisible);
+        DialogueManager.Instance.OnCloseDialogue -= ToggleVisibility;
     }
 }

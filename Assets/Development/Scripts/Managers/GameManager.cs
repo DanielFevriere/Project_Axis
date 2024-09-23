@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera highCamera;
     [SerializeField] CinemachineVirtualCamera lowCamera;
     [SerializeField] CinemachineVirtualCamera zoomedCamera;
+    [SerializeField] CinemachineVirtualCamera bondsMenuCamera;
 
 
     public GameObject partyLeader;
@@ -510,6 +511,7 @@ public class GameManager : MonoBehaviour
         highCamera.gameObject.SetActive(false);
         lowCamera.gameObject.SetActive(false);
         zoomedCamera.gameObject.SetActive(false);
+        bondsMenuCamera.gameObject.SetActive(false);
 
         camera.gameObject.SetActive(true);
         currentCamera = camera;
@@ -566,6 +568,10 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera ZoomedCamera
     {
         get { return zoomedCamera; }
+    }
+    public CinemachineVirtualCamera BondsMenuCamera
+    {
+        get { return bondsMenuCamera; }
     }
 
 }
