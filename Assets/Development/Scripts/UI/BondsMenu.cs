@@ -17,6 +17,7 @@ public class BondsMenu : MonoBehaviour
     public List<TMP_Text> boosterItemDisplayNames;
     public List<GameObject> boosterItemDisplayBgs;
 
+    public GameObject selectedItemDisplay;
     public Image selectedItemIcon;
     public TMP_Text selectedItemName;
     public TMP_Text selectedItemDescription;
@@ -31,6 +32,7 @@ public class BondsMenu : MonoBehaviour
     {
         inventoryManager = InventoryManager.Instance;
         Refresh();
+        selectedItemDisplay.SetActive(false);
     }
 
     void Refresh()
@@ -119,6 +121,8 @@ public class BondsMenu : MonoBehaviour
 
     public void DisplayItem(int itemIndex)
     {
+        selectedItemDisplay.SetActive(true);
+
         //Searches for the item in the List
         for (int i = 0; i < inventoryManager.boosterInventory.Count; i++)
         {
@@ -131,6 +135,12 @@ public class BondsMenu : MonoBehaviour
                 break;
             }
         }
+        UpdateItemDisplay();
+    }
+
+    void HideItem()
+    {
+
     }
 
     void ClearBoosterItemDisplay()
@@ -138,6 +148,31 @@ public class BondsMenu : MonoBehaviour
         //Clears the quest title, description, rewards, and conditions
         selectedItemName.text = "";
         selectedItemDescription.text = "";
+        selectedItemDisplay.SetActive(false);
+    }
+
+    /// <summary>
+    /// Next Quests Page
+    /// </summary>
+    public void NextPage()
+    {
+        if (currentPage != pageAmount)
+        {
+            currentPage++;
+        }
+        UpdateItemDisplay();
+    }
+
+    /// <summary>
+    /// Previous Quests Page
+    /// </summary>
+    public void PreviousPage()
+    {
+        if (currentPage != 1)
+        {
+            currentPage--;
+        }
+        UpdateItemDisplay();
     }
 
     public void ToggleVisibility()
