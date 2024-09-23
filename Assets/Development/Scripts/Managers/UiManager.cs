@@ -169,17 +169,3 @@ public class GameMenu
     }
 }
 
-[System.Serializable]
-
-public class BondsMenu
-{
-    public GameObject bondsMenuContainer;
-
-    bool isVisible = false;
-
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        bondsMenuContainer.SetActive(isVisible);
-    }
-}
