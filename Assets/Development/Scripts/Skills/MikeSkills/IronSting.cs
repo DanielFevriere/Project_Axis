@@ -8,6 +8,8 @@ public class IronSting : Skill
     Controller moveScript;
 
     public GameObject visual;
+    public ParticleSystem effect;
+
     public float ironStingDamage;
     public float ironStingPushBackForce;
     public float ironStingPushBackDuration;
@@ -38,6 +40,8 @@ public class IronSting : Skill
         visual.SetActive(true);
         //Activates attack animation
         //moveScript.anim.SetTrigger("boost");
+
+        ParticleSystem p = Instantiate(effect, visual.transform.position, visual.transform.rotation);
 
         //Adds force
         GetComponentInParent<Knockback>().ApplyForce(atkTransform.position, -ironStingPushBackForce, ironStingPushBackDuration);
