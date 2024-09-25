@@ -21,7 +21,7 @@ public class BondsDialogueNPC : MonoBehaviour
 
     Quest questToAccept;
 
-    BondsCharacter testBondsCharacter;
+    BondsCharacter targetBondsCharacter;
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class BondsDialogueNPC : MonoBehaviour
         {
             if (characterName == BondsManager.Instance.bondsCharacters[i].characterName)
             {
-                testBondsCharacter = BondsManager.Instance.bondsCharacters[i];
+                targetBondsCharacter = BondsManager.Instance.bondsCharacters[i];
             }
         }
     }
@@ -64,7 +64,7 @@ public class BondsDialogueNPC : MonoBehaviour
         {
             case "Gabriel":
                 //If the characters bond is not locked
-                if (!testBondsCharacter.gabeLocked)
+                if (!targetBondsCharacter.gabeLocked)
                 {
                     //Going through active quests
                     for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
@@ -77,8 +77,8 @@ public class BondsDialogueNPC : MonoBehaviour
                             {
                                 //Finish up the quest and give the rewards to the player
                                 QuestManager.Instance.FinishQuest(gabeQuest);
-                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeBondsConvos[testBondsCharacter.gabeLevel]));
-                                BondsManager.Instance.BondLevelUp(testBondsCharacter, 1);
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(targetBondsCharacter.gabeBondsConvos[targetBondsCharacter.gabeLevel]));
+                                BondsManager.Instance.BondLevelUp(targetBondsCharacter, 1);
 
                                 //exit function
                                 return;
@@ -86,7 +86,7 @@ public class BondsDialogueNPC : MonoBehaviour
                             //Otherwise, play the progress convo
                             else
                             {
-                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.gabeProgressConvo));
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(targetBondsCharacter.gabeProgressConvo));
                                 return;
                             }
                         }
@@ -111,7 +111,7 @@ public class BondsDialogueNPC : MonoBehaviour
 
             case "Michael":
                 //If the characters bond is not locked
-                if (!testBondsCharacter.mikeLocked)
+                if (!targetBondsCharacter.mikeLocked)
                 {
                     //Going through active quests
                     for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
@@ -124,8 +124,8 @@ public class BondsDialogueNPC : MonoBehaviour
                             {
                                 //Finish up the quest and give the rewards to the player
                                 QuestManager.Instance.FinishQuest(mikeQuest);
-                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeBondsConvos[testBondsCharacter.mikeLevel]));
-                                BondsManager.Instance.BondLevelUp(testBondsCharacter, 2);
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(targetBondsCharacter.mikeBondsConvos[targetBondsCharacter.mikeLevel]));
+                                BondsManager.Instance.BondLevelUp(targetBondsCharacter, 2);
 
                                 //exit function
                                 return;
@@ -133,7 +133,7 @@ public class BondsDialogueNPC : MonoBehaviour
                             //Otherwise, play the progress convo
                             else
                             {
-                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.mikeProgressConvo));
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(targetBondsCharacter.mikeProgressConvo));
                                 return;
                             }
                         }
@@ -158,7 +158,7 @@ public class BondsDialogueNPC : MonoBehaviour
 
             case "Raphael":
                 //If the characters bond is not locked
-                if (!testBondsCharacter.raphLocked)
+                if (!targetBondsCharacter.raphLocked)
                 {
                     //Going through active quests
                     for (int i = 0; i < QuestManager.Instance.activeQuests.Count; i++)
@@ -171,8 +171,8 @@ public class BondsDialogueNPC : MonoBehaviour
                             {
                                 //Finish up the quest and give the rewards to the player
                                 QuestManager.Instance.FinishQuest(raphQuest);
-                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphBondsConvos[testBondsCharacter.raphLevel]));
-                                BondsManager.Instance.BondLevelUp(testBondsCharacter, 3);
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(targetBondsCharacter.raphBondsConvos[targetBondsCharacter.raphLevel]));
+                                BondsManager.Instance.BondLevelUp(targetBondsCharacter, 3);
 
                                 //exit function
                                 return;
@@ -180,7 +180,7 @@ public class BondsDialogueNPC : MonoBehaviour
                             //Otherwise, play the progress convo
                             else
                             {
-                                StartCoroutine(DialogueManager.Instance.ShowConversation(testBondsCharacter.raphProgressConvo));
+                                StartCoroutine(DialogueManager.Instance.ShowConversation(targetBondsCharacter.raphProgressConvo));
                                 return;
                             }
                         }
@@ -210,7 +210,7 @@ public class BondsDialogueNPC : MonoBehaviour
         HideNPCOptions();
         GameManager.Instance.SetCurrentCamera(GameManager.Instance.BondsMenuCamera);
         UiManager.Instance.bondsMenu.ToggleVisibility();
-        UiManager.Instance.bondsMenu.currentBondsCharacter = testBondsCharacter;
+        UiManager.Instance.bondsMenu.currentBondsCharacter = targetBondsCharacter;
     }
 
     void AcceptQuest()
@@ -222,20 +222,15 @@ public class BondsDialogueNPC : MonoBehaviour
 
     public void GiveGift(BoosterItem gift)
     {
-        //If the gift belongs to the right bonds character,
-        if(gift.requiredBondsCharacter == testBondsCharacter)
-        {
-            //If the right party member is giving the gift, 
-            if (gift.requiredPartyMember == GameManager.Instance.partyLeader.name)
-            {
-                //Play a thank you conversation for the gift? have the conversation be attached from the boosteritem
-                //Play a cool effect on the npc as well
-                //Discard the gift item from the inventory
-                //add the amount of bonds exp too
-            }
-        }
+        targetBondsCharacter.gabeXp += gift.bondsExpAmount;
+        InventoryManager.Instance.boosterInventory.Remove(gift);
+    }
 
-
+    public void ExitTalk()
+    {
+        ShowInteractable();
+        HideNPCOptions();
+        GameManager.Instance.ChangeState(GameState.FreeRoam);
     }
 
     public void ShowInteractable()

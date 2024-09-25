@@ -18,7 +18,7 @@ MonoBehaviour:
   gabeLocked: 0
   mikeLocked: 0
   raphLocked: 0
-  gabeLevel: 0
+  gabeLevel: 1
   mikeLevel: 0
   raphLevel: 0
   gabeXp: 0

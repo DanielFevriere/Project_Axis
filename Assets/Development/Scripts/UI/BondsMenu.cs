@@ -170,6 +170,8 @@ public class BondsMenu : MonoBehaviour
             {
                 //Play the gift success convo
                 StartCoroutine(DialogueManager.Instance.ShowConversation(currentBondsCharacter.giftSuccess));
+                GameObject bondsNPC = GameObject.Find(currentBondsCharacter.characterName);
+                bondsNPC.GetComponentInChildren<BondsDialogueNPC>().GiveGift(selectedItem);
             }
             //If its not the right party member, but the right gift
             else
@@ -183,6 +185,15 @@ public class BondsMenu : MonoBehaviour
         {
             StartCoroutine(DialogueManager.Instance.ShowConversation(currentBondsCharacter.wrongGift));
         }
+
+        //Makes sure to go back to the menu after the dialogue
+        ToggleVisibility();
+        DialogueManager.Instance.OnCloseDialogue += ToggleVisibility;
+        DialogueManager.Instance.OnCloseDialogue += ActivateBondsMenuCamera;
+        DialogueManager.Instance.OnCloseDialogue += () =>
+        {
+            GameManager.Instance.ChangeState(GameState.Freeze);
+        };
     }
 
     /// <summary>
@@ -223,6 +234,14 @@ public class BondsMenu : MonoBehaviour
     {
         isVisible = !isVisible;
         bondsMenuContainer.SetActive(isVisible);
+        selectedItemDisplay.SetActive(false);
+        Refresh();
         DialogueManager.Instance.OnCloseDialogue -= ToggleVisibility;
+    }
+
+    public void ActivateBondsMenuCamera()
+    {
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.BondsMenuCamera);
+        DialogueManager.Instance.OnCloseDialogue -= ActivateBondsMenuCamera;
     }
 }
