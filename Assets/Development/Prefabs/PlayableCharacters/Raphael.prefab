@@ -286,6 +286,7 @@ MonoBehaviour:
   cooldownTime: 0
   cooldownTimer: 0
   visual: {fileID: 1765284786091695829}
+  effect: {fileID: 484373843126127115, guid: 52d7fd041c061264e9b17fa8be8cfa36, type: 3}
   crossBackDamage: 1
   crossBackStart: {fileID: 0}
   crossBackEnd: {fileID: 0}
