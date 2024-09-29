@@ -237,6 +237,7 @@ public class BondsDialogueNPC : MonoBehaviour
     {
         interactableUI.SetActive(true);
         GetComponent<BoxCollider>().enabled = true;
+        DialogueManager.Instance.OnCloseDialogue -= ShowInteractable;
     }
 
     public void HideInteractable()

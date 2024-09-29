@@ -190,10 +190,7 @@ public class BondsMenu : MonoBehaviour
         ToggleVisibility();
         DialogueManager.Instance.OnCloseDialogue += ToggleVisibility;
         DialogueManager.Instance.OnCloseDialogue += ActivateBondsMenuCamera;
-        DialogueManager.Instance.OnCloseDialogue += () =>
-        {
-            GameManager.Instance.ChangeState(GameState.Freeze);
-        };
+        DialogueManager.Instance.OnCloseDialogue += ChangeStateToFreeze;
     }
 
     /// <summary>
@@ -243,5 +240,11 @@ public class BondsMenu : MonoBehaviour
     {
         GameManager.Instance.SetCurrentCamera(GameManager.Instance.BondsMenuCamera);
         DialogueManager.Instance.OnCloseDialogue -= ActivateBondsMenuCamera;
+    }
+    
+    void ChangeStateToFreeze()
+    {
+        GameManager.Instance.ChangeState(GameState.Freeze);
+        DialogueManager.Instance.OnCloseDialogue -= ChangeStateToFreeze;
     }
 }
