@@ -34,6 +34,8 @@ public class UiManager : MonoBehaviour
     public GameMenu Menu;
     [Header("Bonds Menu")]
     public BondsMenu bondsMenu;
+    [Header("Shop Menu")]
+    public ShopMenu shopMenu;
 
     [Header("Game Menu Tabs")]
     public List<GameTab> gameTabs;

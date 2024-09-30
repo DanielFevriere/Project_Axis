@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a0d817ecfcf91498d6d122d0702276, type: 3}
-  m_Name: TestKeyItem
+  m_Script: {fileID: 11500000, guid: c17c1a0ce3cdec9438ce431d2ed097b5, type: 3}
+  m_Name: TestShopItem2
   m_EditorClassIdentifier: 
-  itemName: Test Key Item
-  itemDescription: yeah test item
-  icon: {fileID: 21300000, guid: 0ae26350c62214c48a301453e0271f85, type: 3}
-  usable: 0
-  disposable: 0
+  itemCost: 21
+  item: {fileID: 11400000, guid: ef813bfee097356438e62458f1e3ebe7, type: 2}
