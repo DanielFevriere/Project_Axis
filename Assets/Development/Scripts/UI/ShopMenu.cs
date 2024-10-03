@@ -90,11 +90,77 @@ public class ShopMenu : MonoBehaviour
         Refresh();
     }
 
+    /// <summary>
+    /// Buys displayed item
+    /// </summary>
+    /// <param name="itemIndex"></param>
+    public void BuyItem()
+    {
+        //Checks to see if the player has enough veni
+        //If they do, purchase the item, play the convo
+        if (GameManager.Instance.veni >= selectedShopItem.itemCost)
+        {
+            GameManager.Instance.veni -= selectedShopItem.itemCost;
+
+            //Subtracts the item from the proper inventory based on what item type it is
+            if (selectedShopItem.item is BoosterItem boosterItem)
+            {
+                InventoryManager.Instance.boosterInventory.Add(boosterItem);
+            }
+            else if (selectedShopItem.item is ConsumableItem consumableItem)
+            {
+                InventoryManager.Instance.consumableInventory.Add(consumableItem);
+            }
+            else if (selectedShopItem.item is KeyItem keyItem)
+            {
+                InventoryManager.Instance.keyItemInventory.Add(keyItem);
+            }
+
+            //Play the buy success convo after adding the inventory item
+            StartCoroutine(DialogueManager.Instance.ShowConversation(currentShopKeeper.buyConvo));
+
+        }
+        //If they dont, play the broke convo
+        else
+        {
+            //How the FUCK am i supposed to find a reference to the proper conversation??? (figured it out, swapped data placement)
+            StartCoroutine(DialogueManager.Instance.ShowConversation(currentShopKeeper.failBuyConvo));
+        }
+
+        //Makes sure to go back to the menu after the dialogue
+        ToggleVisibility();
+        DialogueManager.Instance.OnCloseDialogue += ToggleVisibility;
+        DialogueManager.Instance.OnCloseDialogue += ActivateShopMenuCamera;
+        DialogueManager.Instance.OnCloseDialogue += ChangeStateToFreeze;
+    }
+
+    /// <summary>
+    /// Closes the Bonds Menu
+    /// </summary>
+    public void Exit()
+    {
+        GameManager.Instance.ChangeState(GameState.FreeRoam);
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.LowCamera);
+        UiManager.Instance.shopMenu.ToggleVisibility();
+    }
+
     public void ToggleVisibility()
     {
         isVisible = !isVisible;
         shopMenuContainer.SetActive(isVisible);
         selectedItemDisplay.SetActive(false);
         Refresh();
+        DialogueManager.Instance.OnCloseDialogue -= ToggleVisibility;
+    }
+
+    public void ActivateShopMenuCamera()
+    {
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.BondsMenuCamera);
+        DialogueManager.Instance.OnCloseDialogue -= ActivateShopMenuCamera;
+    }
+    void ChangeStateToFreeze()
+    {
+        GameManager.Instance.ChangeState(GameState.Freeze);
+        DialogueManager.Instance.OnCloseDialogue -= ChangeStateToFreeze;
     }
 }

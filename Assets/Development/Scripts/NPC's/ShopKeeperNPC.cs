@@ -11,15 +11,12 @@ public class ShopKeeperNPC : MonoBehaviour
     public GameObject interactableUI;
     public GameObject npcOptions;
 
-    public Conversation talkConvo;
-    public Conversation shopConvo;
-    public Conversation buyConvo;
-    public Conversation failBuyConvo;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        ShowInteractable();
+        HideNPCOptions();
     }
 
     // Update is called once per frame
@@ -28,7 +25,7 @@ public class ShopKeeperNPC : MonoBehaviour
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
-        //If you are in talking distance,
+        //If you are in talking distance
         if (inTalkingDistance && GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
         {
             GameManager.Instance.ChangeState(GameState.Freeze);
@@ -39,13 +36,30 @@ public class ShopKeeperNPC : MonoBehaviour
 
     public void Talk()
     {
-
+        HideNPCOptions();
+        StartCoroutine(DialogueManager.Instance.ShowConversation(shopKeeper.normalConvo));
+        DialogueManager.Instance.OnCloseDialogue -= ShowInteractable;
     }
 
     public void Shop()
     {
-        //Connect this keeper to the shop Menu (which at this point has almostbecome a manager)
+        GameManager.Instance.SetCurrentCamera(GameManager.Instance.BondsMenuCamera);
+        HideNPCOptions();
         UiManager.Instance.shopMenu.ToggleVisibility();
+    }
+
+    public void ExitTalk()
+    {
+        ShowInteractable();
+        HideNPCOptions();
+        GameManager.Instance.ChangeState(GameState.FreeRoam);
+    }
+
+    public void ShowInteractable()
+    {
+        interactableUI.SetActive(true);
+        GetComponent<BoxCollider>().enabled = true;
+        DialogueManager.Instance.OnCloseDialogue -= ShowInteractable;
     }
 
     public void ShowNPCOptions()
@@ -57,5 +71,20 @@ public class ShopKeeperNPC : MonoBehaviour
     {
         interactableUI.SetActive(false);
         GetComponent<BoxCollider>().enabled = false;
+    }
+
+    public void HideNPCOptions()
+    {
+        npcOptions.SetActive(false);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        inTalkingDistance = true;
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        inTalkingDistance = false;
     }
 }
