@@ -340,7 +340,7 @@ public class Controller : MonoBehaviour
             moving = true;
         }
 
-        // Override rotation based on aim if not moving or attacking
+        // Override rotation based on aim if not moving or if attacking
         if (!moving || attacking)
         {
             //Mouse based player rotation only in combat

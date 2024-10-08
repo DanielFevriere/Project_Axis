@@ -10,7 +10,6 @@ public class Attack : Skill
 
     public ParticleSystem particle;
 
-
     public float attackDamage;
     public float attackForce;
     public float attackDuration;
@@ -87,6 +86,10 @@ public class Attack : Skill
         {
             hitCount++;
             comboTimer = hitCount == 3 ? skillTime : comboTime;
+
+            //Updates weapon rotation just incase the player faced a different direction for the next attack of the combo
+            moveScript.playerWeapon.UpdateWeaponRotation();
+
             //Adds force
             GetComponentInParent<Knockback>().ApplyForce(atkTransform.position, attackForce, attackDuration);
         }
