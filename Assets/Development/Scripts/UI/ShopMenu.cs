@@ -10,7 +10,7 @@ public class ShopMenu : MonoBehaviour
     bool isVisible = false;
 
     public ShopKeeper currentShopKeeper;
-
+    public TMP_Text currentVeniDisplay;
     public List<ShopItem> shopItemsList;
     public List<GameObject> shopItemObjects;
     public List<Image> shopItemIcons;
@@ -42,6 +42,8 @@ public class ShopMenu : MonoBehaviour
 
     public void Refresh()
     {
+        currentVeniDisplay.text = GameManager.Instance.veni.ToString();
+
         //Names of the item buttons become the required
         for (int i = 0; i < shopItemObjects.Count; i++)
         {
@@ -81,7 +83,7 @@ public class ShopMenu : MonoBehaviour
 
                 //Displays the item name, description, and icon
                 selectedShopItemName.text = shopItemsList[itemIndex].item.itemName;
-                selectedShopItemCost.text = shopItemsList[itemIndex].itemCost.ToString();
+                selectedShopItemCost.text = "Cost: " + shopItemsList[itemIndex].itemCost.ToString();
                 selectedShopItemDescription.text = shopItemsList[itemIndex].item.itemDescription;
                 selectedShopItemIcon.sprite = shopItemsList[itemIndex].item.icon;
                 break;
@@ -120,7 +122,7 @@ public class ShopMenu : MonoBehaviour
             StartCoroutine(DialogueManager.Instance.ShowConversation(currentShopKeeper.buyConvo));
 
         }
-        //If they dont, play the broke convo
+        //If they dont, play the broke boy convo
         else
         {
             //How the FUCK am i supposed to find a reference to the proper conversation??? (figured it out, swapped data placement)
