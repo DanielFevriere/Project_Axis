@@ -10,6 +10,10 @@ public class Attack : Skill
 
     public ParticleSystem particle;
 
+    public float currentAttackTime;
+    public float currentAttackTimer;
+
+    public bool attacking;
     public float attackDamage;
     public float attackForce;
     public float attackDuration;
@@ -26,6 +30,8 @@ public class Attack : Skill
 
     void Start()
     {
+        currentAttackTimer = currentAttackTime;
+
         moveScript = GetComponentInParent<Controller>();
         hitBox.GetComponent<DamageOnTouch>().damageDealt = attackDamage;
 
@@ -37,53 +43,61 @@ public class Attack : Skill
 
     private void Update()
     {
-        //Combo is no longer on if it hits 0
+        //Combo is no longer on if the combo timer hits 0
         if (comboTimer <= 0)
         {
-            //if its already on cooldown, just drop the combo
-            if (onCooldown)
-            {
-                DropCombo();
-            }
-            //otherwise, activate cooldown and drop the combo
-            else
-            {
-                Deactivate();
-            }
+            DropCombo();
         }
-        
-        if(inCombo)
+
+        if (inCombo)
         {
             comboTimer -= Time.deltaTime;
+        }
+
+        if (attacking)
+        {
+            currentAttackTimer -= Time.deltaTime;
+        }
+
+        if (currentAttackTimer <= 0)
+        {
+            currentAttackTimer = currentAttackTime;
+            attacking = false;
+            hitBox.SetActive(false);
         }
 
     }
 
     public override void Activate()
     {
-        inCombo = true;
-        Hit();
+        //If you are still performing the last attack
+        if(!attacking)
+        {
+            inCombo = true;
+            
+            Hit();
+        }
+        else
+        {
+            Deactivate();
+        }
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
-        hitBox.SetActive(false);
-        comboTimer = comboTime;
-        hitCount = 0;
-        inCombo = false;
     }
 
     public void Hit()
     {
-        //Activates attack animation
-        moveScript.anim.SetTrigger("attack");
-        PlayAttackEffect();
-        hitBox.SetActive(true);
-        hitBox.GetComponent<DamageOnTouch>().onCooldown = false;
-
         if (hitCount != 3)
         {
+            //Activates attack animation
+            moveScript.anim.SetTrigger("attack");
+            PlayAttackEffect();
+            hitBox.SetActive(true);
+            hitBox.GetComponent<DamageOnTouch>().onCooldown = false;
+
             hitCount++;
             comboTimer = hitCount == 3 ? skillTime : comboTime;
 
@@ -92,13 +106,18 @@ public class Attack : Skill
 
             //Adds force
             GetComponentInParent<Knockback>().ApplyForce(atkTransform.position, attackForce, attackDuration);
+            attacking = true;
+            hitBox.SetActive(true);
+        }
+        else if(hitCount == 3)
+        {
+            Deactivate();
         }
     }
 
-    //Does the same thing as Deactivate without activating the base class
+    //Drops the combo
     public void DropCombo()
     {
-        hitBox.SetActive(false);
         comboTimer = comboTime;
         hitCount = 0;
         inCombo = false;

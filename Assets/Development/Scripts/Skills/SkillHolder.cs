@@ -96,10 +96,18 @@ public class SkillHolder : MonoBehaviour
     {
         for (int i = 0; i < skillList.Count; i++)
         {
-            if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable && !GetComponentInParent<Player>().stunned)
+            //If the primary attack button is being held down, then you can spam the attack skill
+            if (buttonList[i] == attackControl && buttonList[i].isPressed && !skillList[i].onCooldown && skillList[i].usable&& !GetComponentInParent<Player>().stunned)
             {
                 ActivateSkill(skillList[i]);
             }
+            //Otherwise, you'll have to press it again
+            else if (buttonList[i].wasPressedThisFrame && !skillList[i].onCooldown && skillList[i].usable && !GetComponentInParent<Player>().stunned)
+            {
+                ActivateSkill(skillList[i]);
+            }
+
+
         }
     }
     public void ActivateSkill(Skill a)
