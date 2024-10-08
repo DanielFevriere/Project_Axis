@@ -42,7 +42,7 @@ public class ShopMenu : MonoBehaviour
 
     public void Refresh()
     {
-        currentVeniDisplay.text = GameManager.Instance.veni.ToString();
+        currentVeniDisplay.text = "Veni: " + GameManager.Instance.veni.ToString();
 
         //Names of the item buttons become the required
         for (int i = 0; i < shopItemObjects.Count; i++)

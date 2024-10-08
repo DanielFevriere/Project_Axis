@@ -25,8 +25,10 @@ public class BondsDialogueNPC : MonoBehaviour
 
     void Awake()
     {
-        ShowInteractable();
         HideNPCOptions();
+
+        GameManager.Instance.OnStateChange += ShowInteractable;
+        GameManager.Instance.OnStateChange += HideInteractable;
 
         //Finds the bonds character in the manager
         for (int i = 0; i < BondsManager.Instance.bondsCharacters.Count; i++)
@@ -48,7 +50,6 @@ public class BondsDialogueNPC : MonoBehaviour
         if (inTalkingDistance && GameManager.Instance.CurrentState == GameState.FreeRoam && kb.fKey.wasPressedThisFrame)
         {
             GameManager.Instance.ChangeState(GameState.Freeze);
-            HideInteractable();
             ShowNPCOptions();
         }
     }
@@ -56,7 +57,6 @@ public class BondsDialogueNPC : MonoBehaviour
     //Will either accept, check progress on, or complete a quest
     public void Talk()
     {
-        DialogueManager.Instance.OnCloseDialogue += ShowInteractable;
         HideNPCOptions();
 
         //Depending on whos being talked to
@@ -228,22 +228,33 @@ public class BondsDialogueNPC : MonoBehaviour
 
     public void ExitTalk()
     {
-        ShowInteractable();
         HideNPCOptions();
         GameManager.Instance.ChangeState(GameState.FreeRoam);
     }
 
+    /// <summary>
+    /// If the game is in freeroam, show the interactables
+    /// </summary>
     public void ShowInteractable()
     {
-        interactableUI.SetActive(true);
-        GetComponent<BoxCollider>().enabled = true;
-        DialogueManager.Instance.OnCloseDialogue -= ShowInteractable;
+        if(GameManager.Instance.CurrentState == GameState.FreeRoam)
+        {
+            interactableUI.SetActive(true);
+            GetComponent<BoxCollider>().enabled = true;
+            DialogueManager.Instance.OnCloseDialogue -= ShowInteractable;
+        }
     }
 
+    /// <summary>
+    /// If the game is not in freeroam, hide the interactables
+    /// </summary>
     public void HideInteractable()
     {
-        interactableUI.SetActive(false);
-        GetComponent<BoxCollider>().enabled = false;
+        if(GameManager.Instance.CurrentState != GameState.FreeRoam)
+        {
+            interactableUI.SetActive(false);
+            GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     public void ShowNPCOptions()
