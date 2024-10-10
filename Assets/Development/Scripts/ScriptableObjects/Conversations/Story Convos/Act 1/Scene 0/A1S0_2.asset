@@ -10,16 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: S1_C5
+  m_Name: A1S0_2
   m_EditorClassIdentifier: 
+  convoTitle: 
   Dialogues:
   - nameID: Gabriel
     displayName: Gabriel
-    line: "I\u2019m good."
-  - nameID: Raphael
-    displayName: Raphael
-    line: Right, let us leave.
-  - nameID: Michael
-    displayName: Michael
-    line: "Man, I'm so ready to watch this. I hear Kage has been training. Gabe you
-      might actually lose to him if you don\u2019t watch yourself! "
+    line: ...??
