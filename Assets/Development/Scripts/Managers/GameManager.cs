@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public bool isGameplayScene = true;
     public static int MaxPartySize = 3;
     public int partyLeaderIndex = 0;
 
@@ -64,185 +65,206 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //partyLeader = partyMembers[0]; //no this is fucking terrible
-        state = GameState.FreeRoam;
-        ChangeState(GameState.FreeRoam);
+        if(isGameplayScene)
+        {
+            state = GameState.FreeRoam;
+            ChangeState(GameState.FreeRoam);
+        }
     }
 
     // Todo: This should tell the game to enter a default state upon launch (for now)
     private void Start()
     {
-        InitializeParty();
-        
-        SetPartyLeader();
-
-        ChangeState(GameState.FreeRoam);
         //Goes to dialogue state when dialogue is open
         DialogueManager.Instance.OnShowDialogue += () =>
         {
-            if(state != GameState.Cutscene)
+            if (state != GameState.Cutscene)
             {
                 ChangeState(GameState.Dialogue);
             }
-        };
+        };      
 
-        //Goes to freeroam state when dialogue is closed in a regular dialogue, 
-        DialogueManager.Instance.OnCloseDialogue += () =>
+        if (isGameplayScene)
         {
-            if(state == GameState.Dialogue)
+            InitializeParty();
+        
+            SetPartyLeader();
+
+            ChangeState(GameState.FreeRoam);
+
+            //Goes to freeroam state when dialogue is closed in a regular dialogue, 
+            DialogueManager.Instance.OnCloseDialogue += () =>
             {
-                ChangeState(GameState.FreeRoam);
-            }
-        };
+                if(state == GameState.Dialogue)
+                {
+                    ChangeState(GameState.FreeRoam);
+                }
+            };
+        }
     }
 
     private void Update()
     {
-        //Reloads scene if dead
-        if (partyMembers[0].GetComponent<Player>().dead && partyMembers[1].GetComponent<Player>().dead && partyMembers[2].GetComponent<Player>().dead)
-        {
-            SceneManager.LoadScene("DevPrototype");
-        }
-
         //Fetches the keyboard input system
         Keyboard kb = InputSystem.GetDevice<Keyboard>();
 
-        if(kb.fKey.wasPressedThisFrame)
+        if (kb.fKey.wasPressedThisFrame)
         {
             OnInteract.Invoke();
         }
 
-        if (state == GameState.FreeRoam)
+        if (isGameplayScene)
         {
-            /* Anthony: same as above */
-            //Makes sure each non leader party member is following the party leader
-            foreach(GameObject p in partyMembers)
+            //Reloads scene if dead
+            if (partyMembers[0].GetComponent<Player>().dead && partyMembers[1].GetComponent<Player>().dead && partyMembers[2].GetComponent<Player>().dead)
             {
-                if(p != partyLeader)
+                SceneManager.LoadScene("DevPrototype");
+            }
+
+
+            if (state == GameState.FreeRoam)
+            {
+                /* Anthony: same as above */
+                //Makes sure each non leader party member is following the party leader
+                foreach(GameObject p in partyMembers)
                 {
-                    p.GetComponent<Controller>().enabled = false;
-                    p.GetComponent<NavMeshAgent>().enabled = true;
-
-                    foreach(AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                    if(p != partyLeader)
                     {
-                        a.enabled = true;
-                    }
-                    foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
-                    {
-                        a.enabled = true;
-                    }
+                        p.GetComponent<Controller>().enabled = false;
+                        p.GetComponent<NavMeshAgent>().enabled = true;
 
-                    p.GetComponent<AllyAIBrain>().enabled = true;
+                        foreach(AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                        {
+                            a.enabled = true;
+                        }
+                        foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                        {
+                            a.enabled = true;
+                        }
+
+                        p.GetComponent<AllyAIBrain>().enabled = true;
+                    }
                 }
-            }
 
-            if (partyLeader != null)
-            {
-                worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
-                currentCamera.Follow = partyLeader.transform;
-            }
+                if (partyLeader != null)
+                {
+                    worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
+                    currentCamera.Follow = partyLeader.transform;
+                }
            
 
-            /* Anthony: only this should be called here, we only want to keep things that require updates every frame
-             * within Update functions, everything else should ideally be event-based instead */
-            currentController.HandleUpdate();
-        }
-        else if (state == GameState.Battle)
-        {
-            foreach (GameObject p in partyMembers)
+                /* Anthony: only this should be called here, we only want to keep things that require updates every frame
+                 * within Update functions, everything else should ideally be event-based instead */
+                currentController.HandleUpdate();
+            }
+            else if (state == GameState.Battle)
             {
-                if (p != partyLeader)
+                foreach (GameObject p in partyMembers)
                 {
-                    //Turns off the aimer graphic for all party members
-                    p.GetComponent<Controller>().aimerGraphic.SetActive(false);
+                    if (p != partyLeader)
+                    {
+                        //Turns off the aimer graphic for all party members
+                        p.GetComponent<Controller>().aimerGraphic.SetActive(false);
 
+                        p.GetComponent<Controller>().enabled = false;
+                        p.GetComponent<NavMeshAgent>().enabled = true;
+
+                        p.GetComponent<AllyAIBrain>().enabled = true;
+                        foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                        {
+                            a.enabled = true;
+                        }
+                        foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                        {
+                            a.enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        //Turns on aimer graphic for the party leader
+                        p.GetComponent<Controller>().aimerGraphic.SetActive(true);
+                    }
+                }
+
+                worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
+                currentCamera.Follow = partyLeader.transform;
+
+                /* Anthony: only this should be called here, we only want to keep things that require updates every frame
+                 * within Update functions, everything else should ideally be event-based instead */
+                currentController.inBattle = true;
+                currentController.HandleUpdate();
+
+                //Handles the update for the Ability holder as well
+                currentController.GetComponentInChildren<SkillHolder>().HandleUpdate();
+            }
+            else if (state == GameState.Dialogue)
+            {
+                foreach (GameObject p in partyMembers)
+                {
                     p.GetComponent<Controller>().enabled = false;
-                    p.GetComponent<NavMeshAgent>().enabled = true;
+                    p.GetComponent<NavMeshAgent>().enabled = false;
 
-                    p.GetComponent<AllyAIBrain>().enabled = true;
                     foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
                     {
-                        a.enabled = true;
+                        a.enabled = false;
                     }
                     foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
                     {
-                        a.enabled = true;
+                        a.enabled = false;
                     }
+
+                    p.GetComponent<AllyAIBrain>().enabled = false;
                 }
-                else
-                {
-                    //Turns on aimer graphic for the party leader
-                    p.GetComponent<Controller>().aimerGraphic.SetActive(true);
-                }
+                DialogueManager.Instance.HandleUpdate();
             }
-
-            worldCamera.GetComponent<DitherObjectsBetweenCamAndPlayer>().target = partyLeader.transform;
-            currentCamera.Follow = partyLeader.transform;
-
-            /* Anthony: only this should be called here, we only want to keep things that require updates every frame
-             * within Update functions, everything else should ideally be event-based instead */
-            currentController.inBattle = true;
-            currentController.HandleUpdate();
-
-            //Handles the update for the Ability holder as well
-            currentController.GetComponentInChildren<SkillHolder>().HandleUpdate();
-        }
-        else if (state == GameState.Dialogue)
-        {
-            foreach (GameObject p in partyMembers)
+            else if (state == GameState.Cutscene)
             {
-                p.GetComponent<Controller>().enabled = false;
-                p.GetComponent<NavMeshAgent>().enabled = false;
-
-                foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                currentCamera.Follow = null;
+                foreach (GameObject p in partyMembers)
                 {
-                    a.enabled = false;
-                }
-                foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
-                {
-                    a.enabled = false;
-                }
+                    p.GetComponent<Controller>().enabled = false;
+                    p.GetComponent<NavMeshAgent>().enabled = false;
 
-                p.GetComponent<AllyAIBrain>().enabled = false;
+                    foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
+                    {
+                        a.enabled = false;
+                    }
+                    foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
+                    {
+                        a.enabled = false;
+                    }
+
+                    p.GetComponent<AllyAIBrain>().enabled = false;
+                }
+                DialogueManager.Instance.HandleUpdate();
             }
-            DialogueManager.Instance.HandleUpdate();
+
+            // Debug/Test purposes
+
+            DebugUpdate(); 
+
         }
-        else if (state == GameState.Cutscene)
+        else
         {
-            currentCamera.Follow = null;
-            foreach (GameObject p in partyMembers)
+            if(state == GameState.Dialogue)
             {
-                p.GetComponent<Controller>().enabled = false;
-                p.GetComponent<NavMeshAgent>().enabled = false;
-
-                foreach (AIAction a in p.GetComponent<AllyAIBrain>().freeRoamActions)
-                {
-                    a.enabled = false;
-                }
-                foreach (AIAction a in p.GetComponent<AllyAIBrain>().combatActions)
-                {
-                    a.enabled = false;
-                }
-
-                p.GetComponent<AllyAIBrain>().enabled = false;
+                DialogueManager.Instance.HandleUpdate();
             }
-            DialogueManager.Instance.HandleUpdate();
         }
-
-        // Debug/Test purposes
-
-        DebugUpdate(); 
     }
 
     private void FixedUpdate()
     {
-        if(state == GameState.FreeRoam)
+        if(isGameplayScene)
         {
-            currentController.HandleFixedUpdate();
-        }
-        else if(state == GameState.Battle)
-        {
-            currentController.HandleFixedUpdate();
+            if(state == GameState.FreeRoam)
+            {
+                currentController.HandleFixedUpdate();
+            }
+            else if(state == GameState.Battle)
+            {
+                currentController.HandleFixedUpdate();
+            }
         }
     }
 
@@ -453,7 +475,7 @@ public class GameManager : MonoBehaviour
 
     void Enter_Dialogue()
     {
-        SetCurrentCamera(zoomedCamera);
+        //SetCurrentCamera(zoomedCamera);
     }
 
     void Enter_Cutscene()

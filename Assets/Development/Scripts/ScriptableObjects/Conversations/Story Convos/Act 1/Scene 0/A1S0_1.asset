@@ -16,4 +16,10 @@ MonoBehaviour:
   Dialogues:
   - nameID: Gabriel
     displayName: Gabriel
-    line: ...
+    line: ..
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: ......
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: Huh?

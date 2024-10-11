@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: A1S0_6
+  m_EditorClassIdentifier: 
+  convoTitle: 
+  Dialogues:
+  - nameID: Lucius
+    displayName: ???
+    line: ..
+  - nameID: Lucius
+    displayName: ???
+    line: "I expected nothing less from the academy\u2019s 2nd ranked student."
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: '!?'
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: How did you know that?
+  - nameID: Lucius
+    displayName: ???
+    line: I'm afraid this is where we must part ways.
+  - nameID: Lucius
+    displayName: ???
+    line: "I\u2019ve gathered what I needed."
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: "You\u2019re speaking as if I\u2019m going to let you leave."
+  - nameID: Lucius
+    displayName: ???
+    line: Continue to grow strong for me.
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: "I said we\u2019re not done here!"
+  - nameID: Lucius
+    displayName: ???
+    line: I would get some rest if I were you.

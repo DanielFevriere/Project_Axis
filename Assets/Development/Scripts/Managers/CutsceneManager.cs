@@ -5,12 +5,30 @@ using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
+    #region Global static reference
+    private static CutsceneManager instance;
+    public static CutsceneManager Instance
+    {
+        get
+        {
+            if (instance != null)
+            {
+                return instance;
+            }
+            else
+            {
+                instance = FindObjectOfType<CutsceneManager>();
+                return instance;
+            }
+        }
+    }
+    #endregion
+
     public bool inCutscene = false;
 
     public int currentCutsceneIndex = 0;
     public List<PlayableDirector> cutsceneHolder;
-
-    public static CutsceneManager Instance { get; private set; }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +39,12 @@ public class CutsceneManager : MonoBehaviour
             p.Stop();
         }
 
-        DialogueManager.Instance.OnCloseDialogue += () =>
-        {
-            if (GameManager.Instance.CurrentState == GameState.Cutscene)
-            {
-                EndCutscene();
-            }
-        };
+        DialogueManager.Instance.OnCloseDialogue += ResumeCutscene;
         
-        //StartCutscene();
+        StartCutscene();
     }
     private void Awake()
     {
-        Instance = this;
     }
 
     // Update is called once per frame
@@ -46,6 +57,17 @@ public class CutsceneManager : MonoBehaviour
     {
         GameManager.Instance.ChangeState(GameState.Cutscene);
         cutsceneHolder[currentCutsceneIndex].Play();
+    }
+
+    public void PauseCutscene()
+    {
+        cutsceneHolder[currentCutsceneIndex].Pause();
+    }
+
+    public void ResumeCutscene()
+    {
+        GameManager.Instance.ChangeState(GameState.Cutscene);
+        cutsceneHolder[currentCutsceneIndex].Resume();
     }
 
     void NextCutscene()

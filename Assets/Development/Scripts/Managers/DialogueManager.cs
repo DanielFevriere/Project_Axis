@@ -85,6 +85,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartConvo(Conversation convo)
     {
+        GameManager.Instance.ChangeState(GameState.Dialogue);
         StartCoroutine(ShowConversation(convo));
     }
 

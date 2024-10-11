@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: A1S0_2
+  m_Name: A1S0_7
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
   - nameID: Gabriel
     displayName: Gabriel
-    line: Could this be..
+    line: Hey!
   - nameID: Gabriel
     displayName: Gabriel
-    line: 'No. '
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: This feels too real to be a dream..
+    line: HEY!!!
