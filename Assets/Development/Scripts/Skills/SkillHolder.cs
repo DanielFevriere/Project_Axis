@@ -110,6 +110,24 @@ public class SkillHolder : MonoBehaviour
 
         }
     }
+
+    /// <summary>
+    /// Checks to see if any equipped skills are in use
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckIfSkillInUse()
+    {
+        for (int i = 0; i < skillList.Count; i++)
+        {
+            if (skillList[i].inUse)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void ActivateSkill(Skill a)
     {
         a.inUse = true;

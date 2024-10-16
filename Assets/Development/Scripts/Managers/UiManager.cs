@@ -113,14 +113,14 @@ public class UiManager : MonoBehaviour
         Debug.partyLeaderText.text = "Party Leader NOT FOUND!";
         Debug.partyLeaderText.color = Color.red;
     }
-    public void PlayBlackScreenEffect()
+    public void PlayBlackFadeInEffect()
     {
-        BlackScreenAnimator.SetTrigger("Fade");
+        BlackScreenAnimator.SetTrigger("FadeIn");
     }
 
     public void PlayRedFlashEffect()
     {
-        RedFlashAnimator.SetTrigger("Fade");    
+        RedFlashAnimator.SetTrigger("Flash");    
     }
 
     public void SwitchToTab(string tabName)

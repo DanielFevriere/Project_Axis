@@ -193,7 +193,11 @@ public class Controller : MonoBehaviour
         //Character Swap mechanic
         if (kb.eKey.wasReleasedThisFrame)
         {
-            GameManager.Instance.SwapCharacter();
+            //Only swaps if the skill is not in use
+            if(!GetComponentInChildren<SkillHolder>().CheckIfSkillInUse())
+            {
+                GameManager.Instance.SwapCharacter();
+            }
         }
 
         //Debug key, test features like resetting atlas and quotes

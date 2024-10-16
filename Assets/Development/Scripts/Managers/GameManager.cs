@@ -402,6 +402,7 @@ public class GameManager : MonoBehaviour
 
         SetPartyLeader();
         OnPartyLeaderChange?.Invoke();
+        partyLeader.GetComponent<Controller>().rb.WakeUp();
     }
 
     /// <summary>
