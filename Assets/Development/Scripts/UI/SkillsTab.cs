@@ -12,6 +12,11 @@ public class SkillsTab : GameTab
 
     public int characterIndex = 0;
     public int skillsPage = 0;
+    public int skillsPageAmount;
+    public int skillsTab = 0; //0 is solo skills tab, 1 is team skills tab
+
+    public GameObject previousPageButton;
+    public GameObject nextPageButton;
 
     public TMP_Text currentCharacterName;
     public Image currentCharacterImage;
@@ -135,6 +140,30 @@ public class SkillsTab : GameTab
             characterIndex--;
         }
         Refresh();
+    }
+
+    /// <summary>
+    /// Next Quests Page
+    /// </summary>
+    public void NextPage()
+    {
+        if (skillsPage != skillsPageAmount)
+        {
+            skillsPage++;
+        }
+        //UpdateItemDisplay();
+    }
+
+    /// <summary>
+    /// Previous Quests Page
+    /// </summary>
+    public void PreviousPage()
+    {
+        if (skillsPage != 1)
+        {
+            skillsPage--;
+        }
+        //UpdateItemDisplay();
     }
 
     public void Activate()
