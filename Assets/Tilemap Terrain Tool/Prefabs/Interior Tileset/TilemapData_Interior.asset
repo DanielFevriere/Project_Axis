@@ -25,4 +25,4 @@ MonoBehaviour:
     Corner: {fileID: 8599252851636045495, guid: a7c8f48453aba9049a4ba8be9ca62f68,
       type: 3}
   baseMaterial: {fileID: 2100000, guid: fd98cbac36e7ecb4193ebbb67c6a026f, type: 2}
-  blendMaterial: {fileID: 2100000, guid: f9a113e4b00e01c47ba3cbfbb9864d66, type: 2}
+  blendMaterial: {fileID: 2100000, guid: fed64e3213ca91d4f88da1f3794cd195, type: 2}
