@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: A1S1_5
+  m_EditorClassIdentifier: 
+  convoTitle: 
+  Dialogues:
+  - nameID: Intercom
+    displayName: INTERCOM
+    line: Gabriel Crona, Michael Valentine and Raphael Ghazi. It is time for your
+      trial against the I.A Bots. Please report to The Laboratory at once.
+  - nameID: Intercom
+    displayName: INTERCOM
+    line: Thank you.
