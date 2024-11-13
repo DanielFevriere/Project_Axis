@@ -36,7 +36,10 @@ public class Player : MonoBehaviour, IDamageable
     {
         Debug.Log(name + " took damage");
 
-        UiManager.Instance.PlayRedFlashEffect();
+        if(gameObject == GameManager.Instance.partyLeader)
+        {
+            UiManager.Instance.PlayRedFlashEffect();
+        }
         DamagePopup.Create(damagePopupPrefab, transform.position, (int)DamageTaken);
         hitEffect.Play();
 
