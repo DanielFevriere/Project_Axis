@@ -110,7 +110,7 @@ public class Knockback : MonoBehaviour
         rigidBody.velocity = Vector3.zero; 
 
         // Add force to rigid body for knockback
-        rigidBody.AddRelativeForce(source * knockbackStrength, ForceMode.Impulse);
+        rigidBody.AddForce(source * knockbackStrength, ForceMode.Impulse);
         //print(dir);
         // Start coroutine to reset force after x amount of time
         StartCoroutine(Reset());
