@@ -403,6 +403,15 @@ public class GameManager : MonoBehaviour
         SetPartyLeader();
         OnPartyLeaderChange?.Invoke();
         partyLeader.GetComponent<Controller>().rb.WakeUp();
+
+        //this will make every single skill that is "in use" no longer "in use" (because it shouldn't be in use to begin with if swapping to)
+        foreach(Skill s in partyLeader.GetComponentInChildren<SkillHolder>().skillList)
+        {
+            if(s.inUse == true)
+            {
+                s.inUse = false;
+            }
+        }
     }
 
     /// <summary>
