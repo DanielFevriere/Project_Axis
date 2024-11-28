@@ -90,6 +90,13 @@ public class AIAttackPlayer : AIAction
         WindupAttack();
     }
 
+    public override void DetermineWeight()
+    {
+        //Setup weight determination here
+        //Attack weight should be mega high if close
+        //Attack weight 0 if not in range
+    }
+
     public void WindupAttack()
     {
         //Automatically faces player
