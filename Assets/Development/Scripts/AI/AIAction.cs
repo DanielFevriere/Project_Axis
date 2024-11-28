@@ -8,6 +8,11 @@ public class AIAction : MonoBehaviour
 
     public virtual void PerformAction()
     {
+        //Override whatever AI Action here
+    }
 
+    public virtual void DetermineWeight()
+    {
+        //Override the weight determination here
     }
 }
