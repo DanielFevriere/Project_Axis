@@ -128,9 +128,38 @@ public class EnemyAIBrain : MonoBehaviour
 
     }
 
-    //Decides which action to do based on what the available actions are
+    //Decides which action to do based on weight of the available actions
     public void ChooseAction()
     {
+        //Add up the total weight of all actions 
+        int totalWeight = 0;
+
+        foreach(AIAction action in availableActions)
+        {
+            totalWeight += action.favorability;
+        }
+
+        //Generate a random value betwen 0 and the total weight
+        int randomValue = Random.Range(0, totalWeight);
+
+        // Select action based on weight
+        int cumulativeWeight = 0;
+        foreach (AIAction action in availableActions)
+        {
+            cumulativeWeight += action.favorability;
+            if (randomValue < cumulativeWeight)
+            {
+                action.PerformAction();
+            }
+        }
+
+        // Fallback (shouldn't happen if weights are set properly)
+        Debug.LogWarning("No action selected; check weights.");
+
+        /*
+
+        //uncomment if the previous logic stops working
+
         //If the enemy is in attack range,
         if (playerInAttackRange)
         {
@@ -149,6 +178,8 @@ public class EnemyAIBrain : MonoBehaviour
             availableActions[2].PerformAction();
             currentState = AIState.Idle;
         }
+        */
+        
     }
 
     //Manually called by an AI Action to start the thinking process again.
