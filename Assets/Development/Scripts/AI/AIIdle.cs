@@ -8,4 +8,9 @@ public class AIIdle : AIAction
     {
 
     }
+
+    public override void DetermineWeight()
+    {
+        weight = 50;
+    }
 }

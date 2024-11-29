@@ -11,6 +11,12 @@ public class AIChaseTarget : AIAction
     public float updateTime;
     public float updateTimer;
 
+    public LayerMask whatIsPlayer;
+    public bool playerInSightRange;
+    public bool playerInAttackRange;
+    public float sightRange;
+    public float attackRange;
+
     public bool chasing;
 
     private void Start()
@@ -22,7 +28,12 @@ public class AIChaseTarget : AIAction
 
     private void Update()
     {
-        if(brain.currentState == EnemyAIBrain.AIState.ChasingPlayer)
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+        DetermineWeight();
+
+        if (brain.currentState == EnemyAIBrain.AIState.ChasingPlayer)
         {
             updateTimer -= Time.deltaTime;
         }
@@ -50,9 +61,9 @@ public class AIChaseTarget : AIAction
             updateTimer = updateTime;
 
             //Will think again once the enemy is near the player
-            if (brain.currentState == EnemyAIBrain.AIState.ChasingPlayer)
+            if (brain.currentAction == this)
             {
-                if (brain.playerInAttackRange)
+                if (playerInAttackRange)
                 {
                     chasing = false;
                     brain.CompleteAction();
@@ -64,5 +75,22 @@ public class AIChaseTarget : AIAction
     public override void PerformAction()
     {
         chasing = true;
+    }
+
+    public override void DetermineWeight()
+    {
+        //If the enemy is in attack range the weight is 100
+        if (playerInAttackRange)
+        {
+            weight = 0;
+        }
+        else if (playerInSightRange)
+        {
+            weight = 100;
+        }
+        else if (!playerInSightRange)
+        {
+            weight = 0;
+        }
     }
 }

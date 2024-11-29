@@ -13,6 +13,14 @@ public class AIAttackPlayer : AIAction
     public GameObject warningBox;
     public ParticleSystem particle;
 
+    public bool playerInAttackRange;
+    public bool playerInSightRange;
+    public float sightRange;
+    public float attackRange;
+    public LayerMask whatIsPlayer;
+
+
+
     public bool onCooldown = false;
     public bool windingUpAttack;
     public bool attacking;
@@ -35,6 +43,11 @@ public class AIAttackPlayer : AIAction
 
     private void Update()
     {
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+        DetermineWeight();
+
         // Get the current rotation of the object
         Quaternion currentRotation = transform.rotation;
 
@@ -92,9 +105,20 @@ public class AIAttackPlayer : AIAction
 
     public override void DetermineWeight()
     {
-        //Setup weight determination here
-        //Attack weight should be mega high if close
-        //Attack weight 0 if not in range
+        //If the enemy is in attack range the weight is 100
+        if (playerInAttackRange)
+        {
+            weight = 100;
+        }
+        else if (playerInSightRange)
+        {
+            weight = 0;
+        }
+        else if (!playerInSightRange)
+        {
+            weight = 0;
+        }
+
     }
 
     public void WindupAttack()

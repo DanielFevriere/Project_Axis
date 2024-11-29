@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerThink: 0
+  currentAction: {fileID: 0}
   combatActions:
   - {fileID: 2199693262810796302}
   - {fileID: 8872758324503487961}
@@ -541,13 +542,6 @@ MonoBehaviour:
   availableActions: []
   target: {fileID: 0}
   targetTag: Player
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  playerInSightRange: 0
-  playerInAttackRange: 0
-  sightRange: 200
-  attackRange: 1
   speed: 5
   thinkTime: 0.5
   thinkTimer: 0.5
@@ -583,9 +577,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1431746bd750954d8a51011f461e4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  favorability: 0
+  weight: 0
   updateTime: 0.5
   updateTimer: 0.5
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  sightRange: 10
+  attackRange: 1.5
   chasing: 0
 --- !u!114 &6337935116045609497
 MonoBehaviour:
@@ -599,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13e2a44014937e44a363aa72f03fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  favorability: 0
+  weight: 0
 --- !u!114 &8872758324503487961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,10 +613,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8607d20b5c10684fb5d50b7408a059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  favorability: 0
+  weight: 0
   attackBox: {fileID: 218013169199962941}
   warningBox: {fileID: 7294562831906790219}
   particle: {fileID: 5093817709005199719}
+  playerInAttackRange: 0
+  playerInSightRange: 0
+  sightRange: 10
+  attackRange: 1.5
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
   onCooldown: 0
   windingUpAttack: 0
   attacking: 0

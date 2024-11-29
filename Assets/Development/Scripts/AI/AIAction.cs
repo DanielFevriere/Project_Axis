@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class AIAction : MonoBehaviour
 {
-    public float favorability = 0;
+    public float weight = 0;
 
+    private void Update()
+    {
+    }
     public virtual void PerformAction()
     {
         //Override whatever AI Action here
@@ -13,6 +16,6 @@ public class AIAction : MonoBehaviour
 
     public virtual void DetermineWeight()
     {
-        //Override the weight determination here
+
     }
 }

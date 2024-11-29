@@ -44118,6 +44118,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7362692036550986261, guid: f3dd57876aee48842848a00d1a37001a,
+        type: 3}
+      propertyPath: m_text
+      value: Ziggy
+      objectReference: {fileID: 0}
     - target: {fileID: 7362692036643650605, guid: f3dd57876aee48842848a00d1a37001a,
         type: 3}
       propertyPath: m_Name
@@ -52167,7 +52172,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151574
+  m_Name: pb_Mesh144864
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -9,6 +9,7 @@ public class EnemyAIBrain : MonoBehaviour
 
     public bool triggerThink = false;
 
+    public AIAction currentAction;
     public List<AIAction> combatActions;
     public List<AIAction> availableActions;
 
@@ -16,11 +17,6 @@ public class EnemyAIBrain : MonoBehaviour
     //Target Detection
     public Transform target;
     public string targetTag;
-    public LayerMask whatIsPlayer;
-    public bool playerInSightRange;
-    public bool playerInAttackRange;
-    public float sightRange;
-    public float attackRange;
 
     public float speed;
 
@@ -90,9 +86,6 @@ public class EnemyAIBrain : MonoBehaviour
 
         players = playerList.ToArray();
         target = FindClosestObject(players).transform;
-
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
     }
 
     public void DetermineState()
@@ -115,10 +108,12 @@ public class EnemyAIBrain : MonoBehaviour
     //Sets the list of available actions that the AI can do
     public void SetAvailableActions()
     {
-        //Add all the actions from the combat actions list
-        for (int i = 0; i < combatActions.Count; i++)
+        foreach(AIAction a in combatActions)
         {
-            availableActions.Add(combatActions[i]);
+            if(a.weight != 0)
+            {
+                availableActions.Add(a);
+            }
         }
     }
 
@@ -132,29 +127,31 @@ public class EnemyAIBrain : MonoBehaviour
     public void ChooseAction()
     {
         //Add up the total weight of all actions 
-        int totalWeight = 0;
+        float totalWeight = 0;
 
         foreach(AIAction action in availableActions)
         {
-            totalWeight += action.favorability;
+            totalWeight += action.weight;
         }
 
         //Generate a random value betwen 0 and the total weight
-        int randomValue = Random.Range(0, totalWeight);
+        float randomValue = Random.Range(0, totalWeight);
 
         // Select action based on weight
-        int cumulativeWeight = 0;
+        float cumulativeWeight = 0;
         foreach (AIAction action in availableActions)
         {
-            cumulativeWeight += action.favorability;
+            cumulativeWeight += action.weight;
             if (randomValue < cumulativeWeight)
             {
+                currentAction = action;
                 action.PerformAction();
             }
         }
 
         // Fallback (shouldn't happen if weights are set properly)
         Debug.LogWarning("No action selected; check weights.");
+
 
         /*
 
