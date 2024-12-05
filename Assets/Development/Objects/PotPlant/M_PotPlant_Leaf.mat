@@ -10,7 +10,8 @@ Material:
   m_Name: M_PotPlant_Leaf
   m_Shader: {fileID: -6465566751694194690, guid: 999c59e2e4c700c4a9734fb6ec963830,
     type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ADDITIONAL_LIGHTS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -99,10 +100,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ADDITIONAL_LIGHTS: 0
+    - _ADDITIONAL_LIGHTS: 1
     - _AlphaClip: 1
     - _AlphaCutoff: 0.789
-    - _AmbientOcclusion: 0.1
+    - _AmbientOcclusion: 0.063
     - _Blend: 0
     - _BlendOp: 0
     - _BumpScale: 1
@@ -132,7 +133,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Shininess: 0
-    - _Smoothness: 0.665
+    - _Smoothness: 0.18
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
