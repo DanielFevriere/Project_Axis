@@ -22,8 +22,8 @@ MonoBehaviour:
     line: I see.
   - nameID: Raphael
     displayName: Raphael
-    line: "I\u2019ll be honest Gabe, I\u2019m not sure how to interpret this\u2026
-      Uh, \u201Cdream\u201D of yours."
+    line: "I\u2019ll be honest Gabe, I\u2019m not sure how to interpret this.. Uh,
+      \u201Cdream\u201D of yours."
   - nameID: Michael
     displayName: Michael
     line: Sounds more like a nightmare if you ask me.
