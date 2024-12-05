@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: A1S1_3
+  m_Name: A1S2C5
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
   - nameID: Michael
     displayName: Michael
-    line: "\"I\u2019m Gabriel Crona. Some people call me Gabe tho.\""
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: ...
+    line: "(Holy shit\u2026)"
   - nameID: Michael
     displayName: Michael
-    line: "\"I\u2019ll make it happen\""
+    line: "*He might actually be dead\u2026*"

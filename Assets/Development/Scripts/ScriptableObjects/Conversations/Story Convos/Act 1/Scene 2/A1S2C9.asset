@@ -10,26 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: A1S1_1
+  m_Name: A1S2C9
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
   - nameID: Gabriel
     displayName: Gabriel
-    line: "That's everything I\u2019m able to recall."
+    line: "Looks like we\u2019ve got our objective. We\u2019ll save Cael and defeat
+      any robot that gets in our way."
   - nameID: Raphael
     displayName: Raphael
-    line: I see.
-  - nameID: Raphael
-    displayName: Raphael
-    line: "I\u2019ll be honest Gabe, I\u2019m not sure how to interpret this.. Uh,
-      \u201Cdream\u201D of yours."
+    line: Indeed.
   - nameID: Michael
     displayName: Michael
-    line: Sounds more like a nightmare if you ask me.
-  - nameID: Raphael
-    displayName: Raphael
-    line: You know, I think Mike is right for once.
-  - nameID: Michael
-    displayName: Michael
-    line: What do you mean for once???
+    line: Let's get moving already!

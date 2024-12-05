@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: A1S2C6
+  m_EditorClassIdentifier: 
+  convoTitle: 
+  Dialogues:
+  - nameID: Raphael
+    displayName: Raphael
+    line: You appear to be in an excellent mood Mrs. Signis.
+  - nameID: Raphael
+    displayName: Raphael
+    line: I assume the other trials have been successful?
+  - nameID: Clara
+    displayName: Clara
+    line: Successful INDEED Mr. Ghazi! The I.A Bots have far exceeded my expectations.
+  - nameID: Clara
+    displayName: Clara
+    line: "That\u2019s why I\u2019m very excited to observe how well Imperium Academy\u2019s
+      top ranking trio handles this\u2026"
+  - nameID: Clara
+    displayName: Clara
+    line: Gauntlet, if you will.
+  - nameID: Raphael
+    displayName: Raphael
+    line: Marvelous!
+  - nameID: Clara
+    displayName: Clara
+    line: That reminds me! Gabriel, let me see your LEIN device!

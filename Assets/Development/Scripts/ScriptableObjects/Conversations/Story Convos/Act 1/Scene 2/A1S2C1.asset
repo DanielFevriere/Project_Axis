@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: A1S1_5
+  m_Name: A1S2C1
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
-  - nameID: Intercom
-    displayName: INTERCOM
-    line: Gabriel Crona, Michael Valentine and Raphael Ghazi. It is time for your
-      trial against the I.A Bots. Please report to The Laboratory at once.
-  - nameID: Intercom
-    displayName: INTERCOM
-    line: Thank you.
+  - nameID: Student
+    displayName: Student
+    line: AIYYYYEEEEEEEEEEE!!!

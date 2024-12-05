@@ -10,28 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: A1S1_2
+  m_Name: A1S0C5
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
+  - nameID: Lucius
+    displayName: ???
+    line: I wonder how much anguish someone of your caliber can withstand.
   - nameID: Gabriel
     displayName: Gabriel
-    line: Yeah, it felt real.
+    line: Excuse me?
+  - nameID: Lucius
+    displayName: ???
+    line: I said how much suffering can you endure?
   - nameID: Gabriel
     displayName: Gabriel
-    line: ..Too real
-  - nameID: Raphael
-    displayName: Raphael
-    line: I feel it's in our best interest to inform Gaige about this.
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: ...
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: Yeah.
-  - nameID: Michael
-    displayName: Michael
-    line: Ha!
-  - nameID: Michael
-    displayName: Michael
-    line: "Glad to know that a little nightmare isn\u2019t enough to kill your vibe."
+    line: "Your intimidation tactics won\u2019t work against me."

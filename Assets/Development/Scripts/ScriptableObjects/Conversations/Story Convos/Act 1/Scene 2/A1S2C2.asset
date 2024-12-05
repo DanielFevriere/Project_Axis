@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: A1S2C2
+  m_EditorClassIdentifier: 
+  convoTitle: 
+  Dialogues:
+  - nameID: Michael
+    displayName: Michael
+    line: ..
+  - nameID: Michael
+    displayName: Michael
+    line: "I\u2019d be lying if I said I didn\u2019t find that funny as hell."
+  - nameID: Raphael
+    displayName: Raphael
+    line: Mike.
+  - nameID: Michael
+    displayName: Michael
+    line: What???
+  - nameID: Michael
+    displayName: Michael
+    line: "PLEASE find it in your heart to forgive me Saint Raphael\u2026 even though
+      I am an unworthy sinner\u2026"

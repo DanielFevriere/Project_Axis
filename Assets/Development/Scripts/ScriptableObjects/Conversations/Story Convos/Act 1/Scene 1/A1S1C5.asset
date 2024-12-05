@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
-  m_Name: A1S0_2
+  m_Name: A1S1C5
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: Could this be..
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: 'No. '
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: This feels too real to be a dream..
+  - nameID: Intercom
+    displayName: INTERCOM
+    line: Gabriel Crona, Michael Valentine and Raphael Ghazi. It is time for your
+      trial against the I.A Bots. Please report to The Laboratory at once.
+  - nameID: Intercom
+    displayName: INTERCOM
+    line: Thank you.
