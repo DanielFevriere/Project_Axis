@@ -118,6 +118,11 @@ public class UiManager : MonoBehaviour
         BlackScreenAnimator.SetTrigger("FadeIn");
     }
 
+    public void PlayBlackFadeOutEffect()
+    {
+        BlackScreenAnimator.SetTrigger("FadeOut");
+    }
+
     public void PlayRedFlashEffect()
     {
         RedFlashAnimator.SetTrigger("Flash");    
