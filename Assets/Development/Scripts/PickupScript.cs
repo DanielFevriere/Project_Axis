@@ -20,7 +20,9 @@ public class PickupScript : MonoBehaviour
     {
         if (other.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //Make sure to eventually add UI feedback
+            //Make sure to eventually add UI notif feedback
+            NotifManager.Instance.QueueNotif(itemPickup);
+
             itemPickup.GiveReward();
             Destroy(gameObject);
         }
