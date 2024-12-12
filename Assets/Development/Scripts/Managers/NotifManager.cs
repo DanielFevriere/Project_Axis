@@ -100,7 +100,7 @@ public class NotifManager : MonoBehaviour
         {
             foreach(Node n in reward.nodeRewards)
             {
-                notifQueue.Add("'" + n.nodeName + "'" + " Acquired!");
+                notifQueue.Add("'" + n.nodeName + "'" + " Unlocked!");
             }
         }
 
