@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera zoomedCamera;
     [SerializeField] CinemachineVirtualCamera bondsMenuCamera;
 
+    public float shakeTimer;
+    public float shakeIntensity;
+
 
     public GameObject partyLeader;
     public List<GameObject> partyMembers;
@@ -249,6 +252,18 @@ public class GameManager : MonoBehaviour
             if(state == GameState.Dialogue)
             {
                 DialogueManager.Instance.HandleUpdate();
+            }
+
+            if (shakeTimer > 0)
+            {
+                shakeTimer -= Time.deltaTime;
+
+                if (shakeTimer <= 0f)
+                {
+                    // Reset the shake effect
+                    var noise = currentCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    noise.m_AmplitudeGain = 0f;
+                }
             }
         }
     }
@@ -549,6 +564,26 @@ public class GameManager : MonoBehaviour
         currentCamera = camera;
     }
 
+    public void ShakeCamera(float intensity, float duration)
+    {
+        var noise = currentCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        noise.m_AmplitudeGain = intensity;
+        shakeIntensity = intensity;
+        shakeTimer = duration;
+    }
+
+    /// <summary>
+    /// The only difference is that it has a fixed intensity parameter so it's serializable
+    /// </summary>
+    /// <param name="intensity"></param>
+    /// <param name="duration"></param>
+    public void CutsceneCameraShake(int duration)
+    {
+        var noise = currentCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        noise.m_AmplitudeGain = 5;
+        shakeIntensity = 5;
+        shakeTimer = duration;
+    }
 
     #endregion Camera Controller
 

@@ -28,5 +28,8 @@ MonoBehaviour:
     line: What???
   - nameID: Michael
     displayName: Michael
+    line: "Look, I\u2019m trying my best to respect the recently departed."
+  - nameID: Michael
+    displayName: Michael
     line: "PLEASE find it in your heart to forgive me Saint Raphael\u2026 even though
       I am an unworthy sinner\u2026"

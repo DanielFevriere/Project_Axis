@@ -14,18 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
-  - nameID: Lucius
-    displayName: ???
-    line: "I\u2019ve been anticipating this moment."
   - nameID: Gabriel
     displayName: Gabriel
     line: ?!
   - nameID: Lucius
     displayName: ???
-    line: You are a very impressive person
+    line: "A dream\u2026 that\u2019s a funny way to describe it."
   - nameID: Lucius
     displayName: ???
-    line: A man of pure ambition.
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: "You\u2019re saying a whole lot of nothing"
+    line: You are a very impressive person Gabriel.

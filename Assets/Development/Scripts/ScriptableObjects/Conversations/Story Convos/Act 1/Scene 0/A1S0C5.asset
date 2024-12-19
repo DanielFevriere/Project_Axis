@@ -14,15 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
-  - nameID: Lucius
-    displayName: ???
-    line: I wonder how much anguish someone of your caliber can withstand.
   - nameID: Gabriel
     displayName: Gabriel
-    line: Excuse me?
-  - nameID: Lucius
-    displayName: ???
-    line: I said how much suffering can you endure?
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: "Your intimidation tactics won\u2019t work against me."
+    line: Who are you?

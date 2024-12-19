@@ -16,31 +16,11 @@ MonoBehaviour:
   Dialogues:
   - nameID: Lucius
     displayName: ???
-    line: ..
-  - nameID: Lucius
-    displayName: ???
-    line: "I expected nothing less from the academy\u2019s 2nd ranked student."
+    line: "I\u2019ve heard you do well in simulated battles. How would you fare in
+      an actual life or death situation?"
   - nameID: Gabriel
     displayName: Gabriel
-    line: '!?'
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: How did you know that?
+    line: Meaning what exactly?
   - nameID: Lucius
     displayName: ???
-    line: I'm afraid this is where we must part ways.
-  - nameID: Lucius
-    displayName: ???
-    line: "I\u2019ve gathered what I needed."
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: "You\u2019re speaking as if I\u2019m going to let you leave."
-  - nameID: Lucius
-    displayName: ???
-    line: Continue to grow strong for me.
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: "I said we\u2019re not done here!"
-  - nameID: Lucius
-    displayName: ???
-    line: I would get some rest if I were you.
+    line: Are you even capable of saving everyone you care about?

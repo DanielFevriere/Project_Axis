@@ -16,7 +16,4 @@ MonoBehaviour:
   Dialogues:
   - nameID: Gabriel
     displayName: Gabriel
-    line: Hey!
-  - nameID: Gabriel
-    displayName: Gabriel
-    line: HEY!!!
+    line: It sounds like you're trying to find out.

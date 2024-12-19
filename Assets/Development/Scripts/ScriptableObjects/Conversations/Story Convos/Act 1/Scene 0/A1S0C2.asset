@@ -16,10 +16,10 @@ MonoBehaviour:
   Dialogues:
   - nameID: Gabriel
     displayName: Gabriel
-    line: Could this be..
+    line: Could this be..?
   - nameID: Gabriel
     displayName: Gabriel
     line: 'No. '
   - nameID: Gabriel
     displayName: Gabriel
-    line: This feels too real to be a dream..
+    line: This feels too real to be a dream.

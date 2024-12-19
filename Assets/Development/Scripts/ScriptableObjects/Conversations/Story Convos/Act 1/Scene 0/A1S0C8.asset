@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794aac8abad16243a39114eed85ffb0, type: 3}
+  m_Name: A1S0C8
+  m_EditorClassIdentifier: 
+  convoTitle: 
+  Dialogues:
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: "I expected nothing less from the academy\u2019s 2nd ranked student."
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: '!?'
+  - nameID: Lucius
+    displayName: ???
+    line: I suppose fate will decide if we meet again.
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: You're speaking as if I'm going to let you leave.
+  - nameID: Gabriel
+    displayName: Gabriel
+    line: We are NOT done here!
+  - nameID: Lucius
+    displayName: ???
+    line: Goodbye, Gabriel.
