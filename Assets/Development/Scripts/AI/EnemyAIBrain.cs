@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAIBrain : MonoBehaviour
 {
-    public enum AIState { Idle, ChasingPlayer, Attacking }
+    public enum AIState { Idle, Patrol, Alert, Chase, Attack, Flee, Heal, Stun, Death }
 
     public bool triggerThink = false;
 
