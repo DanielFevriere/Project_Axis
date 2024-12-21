@@ -33,7 +33,7 @@ public class AIChaseTarget : AIAction
 
         DetermineWeight();
 
-        if (brain.currentState == EnemyAIBrain.AIState.ChasingPlayer)
+        if (brain.currentState == EnemyAIBrain.AIState.Chase)
         {
             updateTimer -= Time.deltaTime;
         }
