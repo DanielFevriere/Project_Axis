@@ -36,11 +36,11 @@ MonoBehaviour:
   - nameID: Clara
     displayName: Clara
     line: "Gosh, I hope Cael is alright\u2026"
-  - nameID: Mike
-    displayName: Mike
+  - nameID: Michael
+    displayName: Michael
     line: Cael is in there???
-  - nameID: Mike
-    displayName: Mike
+  - nameID: Michael
+    displayName: Michael
     line: By HIMSELF???
   - nameID: Clara
     displayName: Clara
@@ -48,8 +48,8 @@ MonoBehaviour:
   - nameID: Clara
     displayName: Clara
     line: What kind of mother would I be if I denied him this opportunity?
-  - nameID: Mike
-    displayName: Mike
+  - nameID: Michael
+    displayName: Michael
     line: A normal one! You would be a normal mother!
   - nameID: Raphael
     displayName: Raphael

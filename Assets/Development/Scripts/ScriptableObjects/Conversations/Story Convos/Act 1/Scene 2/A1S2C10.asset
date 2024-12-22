@@ -20,6 +20,6 @@ MonoBehaviour:
   - nameID: Clara
     displayName: Clara
     line: "Hi there! I see that you\u2019re awake."
-  - nameID: Student
-    displayName: Student
+  - nameID: Clara
+    displayName: Clara
     line: "Let\u2019s begin Phase 2 of the experiment."

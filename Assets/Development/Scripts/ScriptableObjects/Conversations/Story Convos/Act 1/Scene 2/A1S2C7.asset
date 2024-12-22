@@ -17,7 +17,7 @@ MonoBehaviour:
   - nameID: Clara
     displayName: Clara
     line: This installment records data from your battles.
-  - nameID: Raphael
-    displayName: Raphael
+  - nameID: Clara
+    displayName: Clara
     line: "Once I have enough data, I\u2019ll be able to provide you guys with unique
       items!"
