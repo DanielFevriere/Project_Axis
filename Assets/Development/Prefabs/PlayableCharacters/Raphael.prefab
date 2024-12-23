@@ -569,7 +569,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8b074d01a5b20e645bcb248403eba0e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   limitRotation: 0
 --- !u!95 &6467951413791876332
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -613,7 +613,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6467951413897563559
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9a560ea9339614fa4fd8d7458740ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  favorability: 100
+  weight: 0
   partyLeader: {fileID: 0}
   anim: {fileID: 6467951413791876332}
 --- !u!114 &3864291743591347878
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e0eae0c8a30a842a97e42247586db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  favorability: 100
+  weight: 0
   target: {fileID: 0}
   anim: {fileID: 6467951413791876332}
 --- !u!114 &4626496550026971824
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff9409e6b94f3d4f9e7ed31e69487ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  favorability: 100
+  weight: 0
   target: {fileID: 0}
   abilityHolder: {fileID: 6467951413196368502}
 --- !u!195 &6467951414501729072

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   convoTitle: 
   Dialogues:
-  - nameID: Gabriel
-    displayName: Gabriel
+  - nameID: Lucius
+    displayName: ???
     line: "I expected nothing less from the academy\u2019s 2nd ranked student."
   - nameID: Gabriel
     displayName: Gabriel
