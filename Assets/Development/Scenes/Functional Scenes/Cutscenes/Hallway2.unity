@@ -8672,6 +8672,7 @@ Transform:
   - {fileID: 622680514}
   - {fileID: 238668041}
   - {fileID: 567637754}
+  - {fileID: 1836819612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42548,6 +42549,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e69722bddf1ad784585e2ea92e246fd0, type: 2}
     - {fileID: 11400000, guid: f7d16e7a83b8ed34e93916906308c9d0, type: 2}
     - {fileID: 11400000, guid: 4dc735b3356b13e479c4be99dfd6d885, type: 2}
+    - {fileID: 11400000, guid: 4e3a891fc3123514cad60d4cc1cbecd4, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -42610,18 +42612,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: Raphael_o1_idle_right
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 622680513}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
@@ -42754,6 +42744,20 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: FadeOut
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1836819613}
+          m_TargetAssemblyTypeName: StartingMenuManager, Assembly-CSharp
+          m_MethodName: SwitchScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ClarasLab
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &622680516
@@ -52940,8 +52944,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798685923}
-  m_LocalRotation: {x: 0.3007058, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 4.02, z: -25.2}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: -5.68, y: 4.02, z: -25.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -108692,6 +108696,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833235404}
   m_Mesh: {fileID: 442200166}
+--- !u!1 &1836819611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836819612}
+  - component: {fileID: 1836819613}
+  m_Layer: 0
+  m_Name: SceneSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836819612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836819611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 144171219}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836819613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836819611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67dd7648a32ce74e828bfa5de8df821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1838156571
 GameObject:
   m_ObjectHideFlags: 0
