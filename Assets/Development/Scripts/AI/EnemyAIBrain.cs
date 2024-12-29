@@ -151,7 +151,9 @@ public class EnemyAIBrain : MonoBehaviour
 
         // Fallback (shouldn't happen if weights are set properly)
         Debug.LogWarning("No action selected; check weights.");
-
+        
+        //Resets time once another action starts
+        thinkTimer = thinkTime;
 
         /*
 
