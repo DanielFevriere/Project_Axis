@@ -115,6 +115,8 @@ public class Controller : MonoBehaviour
         anim.SetFloat("yAxis", facingVector.y);
         anim.SetBool("moving", moving);
         anim.SetBool("running", running);
+        //This specific anim makes sure the weapon anims are being used in battle
+        anim.SetFloat("weapon", inBattle ? 1 : 0);
 
         //Checks to see if on slope
         CheckSlope();
@@ -171,9 +173,10 @@ public class Controller : MonoBehaviour
         {
             verticalVel = terminalVel;
         }
-        
+
+
         //Automatic Sprinting in combat
-        if(inBattle)
+        if (inBattle)
         {
             running = true;
         }

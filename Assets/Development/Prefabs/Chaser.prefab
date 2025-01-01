@@ -543,8 +543,15 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTag: Player
   speed: 5
-  thinkTime: 0.5
-  thinkTimer: 0.5
+  thinkTime: 4
+  thinkTimer: 4
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  sightRange: 10
+  attackRange: 1.5
   currentState: 1
 --- !u!114 &8283982503405979801
 MonoBehaviour:
@@ -580,13 +587,6 @@ MonoBehaviour:
   weight: 0
   updateTime: 0.5
   updateTimer: 0.5
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  playerInSightRange: 0
-  playerInAttackRange: 0
-  sightRange: 10
-  attackRange: 1.5
   chasing: 0
 --- !u!114 &6337935116045609497
 MonoBehaviour:
@@ -617,13 +617,6 @@ MonoBehaviour:
   attackBox: {fileID: 218013169199962941}
   warningBox: {fileID: 7294562831906790219}
   particle: {fileID: 5093817709005199719}
-  playerInAttackRange: 0
-  playerInSightRange: 0
-  sightRange: 10
-  attackRange: 1.5
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
   onCooldown: 0
   windingUpAttack: 0
   attacking: 0

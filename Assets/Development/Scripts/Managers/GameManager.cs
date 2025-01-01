@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
             //Reloads scene if dead
             if (partyMembers[0].GetComponent<Player>().dead && partyMembers[1].GetComponent<Player>().dead && partyMembers[2].GetComponent<Player>().dead)
             {
-                SceneManager.LoadScene("DevPrototype");
+                SceneManager.LoadScene("DemoMenu");
             }
 
 
@@ -168,7 +168,6 @@ public class GameManager : MonoBehaviour
                     {
                         //Turns off the aimer graphic for all party members
                         p.GetComponent<Controller>().aimerGraphic.SetActive(false);
-
                         p.GetComponent<Controller>().enabled = false;
                         p.GetComponent<NavMeshAgent>().enabled = true;
 
@@ -622,6 +621,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Closed");
         Application.Quit();
+    }
+
+    public void SwitchScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     public CinemachineVirtualCamera HighCamera

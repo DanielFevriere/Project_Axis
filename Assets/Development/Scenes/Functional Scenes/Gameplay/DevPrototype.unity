@@ -52581,7 +52581,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh344900
+  m_Name: pb_Mesh36358
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -92926,6 +92926,8 @@ MonoBehaviour:
   lowCamera: {fileID: 1459653357}
   zoomedCamera: {fileID: 1130922042}
   bondsMenuCamera: {fileID: 1841421121}
+  shakeTimer: 0
+  shakeIntensity: 0
   partyLeader: {fileID: 0}
   partyMembers:
   - {fileID: 124267044}

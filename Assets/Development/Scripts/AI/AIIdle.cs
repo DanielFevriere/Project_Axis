@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class AIIdle : AIAction
 {
+    private void Start()
+    {
+        brain = GetComponent<EnemyAIBrain>();
+    }
+    private void Update()
+    {
+
+    }
     public override void PerformAction()
     {
 
@@ -11,6 +19,14 @@ public class AIIdle : AIAction
 
     public override void DetermineWeight()
     {
-        weight = 50;
+        if (brain.playerInSightRange)
+        {
+            weight = 0;
+        }
+        else if (!brain.playerInSightRange)
+        {
+            weight = 0;
+        }
+
     }
 }

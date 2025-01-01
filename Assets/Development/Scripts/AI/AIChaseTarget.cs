@@ -7,16 +7,8 @@ using UnityEngine.AI;
 public class AIChaseTarget : AIAction
 {
     NavMeshAgent agent;
-    EnemyAIBrain brain;
     public float updateTime;
     public float updateTimer;
-
-    public LayerMask whatIsPlayer;
-    public bool playerInSightRange;
-    public bool playerInAttackRange;
-    public float sightRange;
-    public float attackRange;
-
     public bool chasing;
 
     private void Start()
@@ -28,15 +20,9 @@ public class AIChaseTarget : AIAction
 
     private void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
         DetermineWeight();
 
-        if (brain.currentState == EnemyAIBrain.AIState.Chase)
-        {
-            updateTimer -= Time.deltaTime;
-        }
+        updateTimer -= Time.deltaTime;
 
         //Chases player
         if(chasing)
@@ -63,7 +49,7 @@ public class AIChaseTarget : AIAction
             //Will think again once the enemy is near the player
             if (brain.currentAction == this)
             {
-                if (playerInAttackRange)
+                if (brain.playerInAttackRange)
                 {
                     chasing = false;
                     brain.CompleteAction();
@@ -79,16 +65,15 @@ public class AIChaseTarget : AIAction
 
     public override void DetermineWeight()
     {
-        //If the enemy is in attack range the weight is 100
-        if (playerInAttackRange)
+        if (brain.playerInAttackRange)
         {
             weight = 0;
         }
-        else if (playerInSightRange)
+        else if (brain.playerInSightRange)
         {
             weight = 100;
         }
-        else if (!playerInSightRange)
+        else if (!brain.playerInSightRange)
         {
             weight = 0;
         }

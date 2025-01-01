@@ -5,6 +5,12 @@ using UnityEngine;
 public class AIAction : MonoBehaviour
 {
     public float weight = 0;
+    protected EnemyAIBrain brain;
+
+    private void Start()
+    {
+        brain = GetComponent<EnemyAIBrain>();
+    }
 
     private void Update()
     {

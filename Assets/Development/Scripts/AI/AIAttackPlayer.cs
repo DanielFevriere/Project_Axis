@@ -7,17 +7,10 @@ using UnityEngine.AI;
 public class AIAttackPlayer : AIAction
 {
     NavMeshAgent agent;
-    EnemyAIBrain brain;
 
     public GameObject attackBox;
     public GameObject warningBox;
     public ParticleSystem particle;
-
-    public bool playerInAttackRange;
-    public bool playerInSightRange;
-    public float sightRange;
-    public float attackRange;
-    public LayerMask whatIsPlayer;
 
 
 
@@ -36,16 +29,12 @@ public class AIAttackPlayer : AIAction
 
     private void Start()
     {
-        //Gets components
         brain = GetComponent<EnemyAIBrain>();
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
         DetermineWeight();
 
         // Get the current rotation of the object
@@ -106,15 +95,15 @@ public class AIAttackPlayer : AIAction
     public override void DetermineWeight()
     {
         //If the enemy is in attack range the weight is 100
-        if (playerInAttackRange)
+        if (brain.playerInAttackRange)
         {
             weight = 100;
         }
-        else if (playerInSightRange)
+        else if (brain.playerInSightRange)
         {
             weight = 0;
         }
-        else if (!playerInSightRange)
+        else if (!brain.playerInSightRange)
         {
             weight = 0;
         }

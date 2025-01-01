@@ -11810,13 +11810,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DontDestroyOnLoad: 0
-  MapBgm: 
+  MapBgm: Title
   MasterVolume: 1
   MusicVolume: 1
   SoundVolume: 1
-  AudioLibrary: {fileID: 0}
-  SoundsContainer: {fileID: 0}
-  MusicSource: {fileID: 0}
+  AudioLibrary: {fileID: 11400000, guid: b10cea2abe0b30142a807afe9829cc3c, type: 2}
+  SoundsContainer: {fileID: 798685928}
+  MusicSource: {fileID: 798685930}
 --- !u!1 &652642180
 GameObject:
   m_ObjectHideFlags: 0

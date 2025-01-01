@@ -23,6 +23,12 @@ public class EnemyAIBrain : MonoBehaviour
     public float thinkTime;
     public float thinkTimer;
 
+    public LayerMask whatIsPlayer;
+    public bool playerInSightRange;
+    public bool playerInAttackRange;
+    public float sightRange;
+    public float attackRange;
+
     public AIState currentState;
 
     void OnEnable()
@@ -33,6 +39,17 @@ public class EnemyAIBrain : MonoBehaviour
     private void Update()
     {
         CollectData();
+
+        if(thinkTimer > 0)
+        {
+            thinkTimer -= Time.deltaTime;
+        }
+
+        if(thinkTimer <= 0)
+        {
+            thinkTimer = thinkTime;
+            triggerThink = true;
+        }    
 
         //DEBUG ONLY
         if (triggerThink)
@@ -66,6 +83,7 @@ public class EnemyAIBrain : MonoBehaviour
 
     public void CollectData()
     {
+
         //Grabs a random nearby player for target
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         List<GameObject> playerList = new List<GameObject>();
@@ -86,6 +104,12 @@ public class EnemyAIBrain : MonoBehaviour
 
         players = playerList.ToArray();
         target = FindClosestObject(players).transform;
+
+        //player in sight if the distance between the sight and target is true
+        playerInSightRange = Vector3.Distance(transform.position, target.position) < sightRange ? true : false;
+        playerInAttackRange = Vector3.Distance(transform.position, target.position) < attackRange ? true : false;
+        //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer); this was the old way
+        //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
     }
 
     public void DetermineState()

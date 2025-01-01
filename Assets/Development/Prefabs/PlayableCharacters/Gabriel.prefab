@@ -1487,6 +1487,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3647407617571336001}
     m_Modifications:
+    - target: {fileID: 1092858574291266998, guid: e1047b9e1f832ed40955660758ad4150,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2276512356855773947, guid: e1047b9e1f832ed40955660758ad4150,
         type: 3}
       propertyPath: ShapeModule.angle
@@ -1583,6 +1588,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3647407617571336001}
     m_Modifications:
+    - target: {fileID: 1092858574291266998, guid: c02b63c01f9d2eb4faafc505b00c996e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2276512356855773947, guid: c02b63c01f9d2eb4faafc505b00c996e,
         type: 3}
       propertyPath: looping

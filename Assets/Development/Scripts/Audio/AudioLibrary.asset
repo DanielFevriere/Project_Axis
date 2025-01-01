@@ -19,20 +19,32 @@ MonoBehaviour:
     pitch: 0.05
     source: {fileID: 0}
   music:
-  - ID: rain
-    Track: {fileID: 8300000, guid: bb3bb6c606cd7994d81521aa35852235, type: 3}
+  - ID: Title
+    Track: {fileID: 8300000, guid: ee0bb496ff3a8e440916c3cdb6a1baa2, type: 3}
     Looping: 1
     UseLoopPoints: 0
     LoopStart: 0
     LoopEnd: 0
-  - ID: defiance
+  - ID: Unforgiven Nightmare
+    Track: {fileID: 8300000, guid: d2d031730b5790945a18c3daaf10d26d, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0
+  - ID: Noonday
+    Track: {fileID: 8300000, guid: a48d20cff5b760841b39c4feb68e3785, type: 3}
+    Looping: 1
+    UseLoopPoints: 0
+    LoopStart: 0
+    LoopEnd: 0
+  - ID: Earth's Defiance
     Track: {fileID: 8300000, guid: 014bac78b2973db4a84d3a5920aa3450, type: 3}
     Looping: 1
     UseLoopPoints: 0
     LoopStart: 0
     LoopEnd: 0
-  - ID: ghouls
-    Track: {fileID: 8300000, guid: c93c52c03924562438266a4318cad357, type: 3}
+  - ID: Spite
+    Track: {fileID: 8300000, guid: 2538f433d9ff25b43a124266528ba013, type: 3}
     Looping: 1
     UseLoopPoints: 0
     LoopStart: 0

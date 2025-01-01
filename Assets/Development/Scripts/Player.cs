@@ -28,7 +28,9 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        GetComponentInChildren<Animator>().SetBool("stunned", stunned);
+        Animator anim = GetComponentInChildren<Animator>();
+        anim.SetFloat("weapon", GameManager.Instance.CurrentState == GameState.Battle ? 1 : 0);
+        anim.SetBool("stunned", stunned);
     }
 
     #region Take Damage
