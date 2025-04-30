@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class SkillHolder : MonoBehaviour
     public Key signature1Key;
     public Key teamSkillKey;
     public Key healSkillKey;
-
+    
     public List<ButtonControl> buttonList = new List<ButtonControl>();
 
     ButtonControl attackControl;

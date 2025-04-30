@@ -9519,6 +9519,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &76566527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14623,6 +14624,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &125067334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7412081123174731240, guid: 286f50e4ab2cab04a9c888fb75e94e2e,
@@ -33768,6 +33770,7 @@ MonoBehaviour:
     RefIds:
     - rid: 7377929087290703881
       type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
 --- !u!114 &258208233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34112,6 +34115,7 @@ MonoBehaviour:
     RefIds:
     - rid: 7377929087290703881
       type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
 --- !u!114 &260017848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44780,6 +44784,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &317067003
 GameObject:
   m_ObjectHideFlags: 0
@@ -54735,6 +54740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 407673690}
   - component: {fileID: 407673691}
+  - component: {fileID: 407673692}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -54781,6 +54787,20 @@ MonoBehaviour:
   shownConversation: {fileID: 0}
   skippingDialogue: 0
   isTyping: 0
+--- !u!114 &407673692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407673689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fb72d6ef08880469bedc735e0f90de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogManager: {fileID: 407673691}
+  cutsceneManager: {fileID: 0}
 --- !u!1 &408195203
 GameObject:
   m_ObjectHideFlags: 0
@@ -66832,6 +66852,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &474654705
 Transform:
   m_ObjectHideFlags: 0
@@ -103608,8 +103629,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798685923}
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0.87, y: 4.02, z: -26.81}
+  m_LocalRotation: {x: -0.21643965, y: 0, z: 0, w: 0.976296}
+  m_LocalPosition: {x: 0.87, y: 4.019998, z: -27.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -126062,6 +126083,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1004374925
 GameObject:
   m_ObjectHideFlags: 0
@@ -176342,6 +176364,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1410784709
 GameObject:
   m_ObjectHideFlags: 0
@@ -181888,6 +181911,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1459653360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190134,6 +190158,7 @@ MonoBehaviour:
     RefIds:
     - rid: 7377929087290703881
       type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
 --- !u!114 &1540426963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210441,6 +210466,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1654424513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239755,6 +239781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931377562}
   - component: {fileID: 1931377563}
+  - component: {fileID: 1931377564}
   m_Layer: 0
   m_Name: CutsceneObject
   m_TagString: Untagged
@@ -239810,6 +239837,20 @@ PlayableDirector:
     value: {fileID: 622680515}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1931377564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931377561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fb72d6ef08880469bedc735e0f90de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogManager: {fileID: 407673691}
+  cutsceneManager: {fileID: 622680516}
 --- !u!1 &1931383727
 GameObject:
   m_ObjectHideFlags: 0
@@ -245859,6 +245900,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1989618952
 Transform:
   m_ObjectHideFlags: 0
