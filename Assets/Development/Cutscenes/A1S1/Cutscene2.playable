@@ -1020,6 +1020,7 @@ MonoBehaviour:
     - {fileID: 2469606169276827150}
     - {fileID: -3300880270742340657}
     - {fileID: 5259732530451632598}
+    - {fileID: 3616936611916171027}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,6 +1494,25 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &3616936611916171027
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6481d965c8c74bb5722c84fd39583, type: 3}
+  m_Name: Dialog Marker
+  m_EditorClassIdentifier: 
+  m_Time: 7.85
+  convo: {fileID: 11400000, guid: 76028a8403111634da698a515f4962a6, type: 2}
+  dialogActions:
+    m_PersistentCalls:
+      m_Calls: []
+  retroactive: 0
+  emitOnce: 0
 --- !u!114 &3755767667950740875
 MonoBehaviour:
   m_ObjectHideFlags: 1

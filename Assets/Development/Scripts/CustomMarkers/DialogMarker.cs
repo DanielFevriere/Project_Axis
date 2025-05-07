@@ -7,7 +7,7 @@ using UnityEngine.Timeline;
 
 public class DialogMarker : Marker, INotification
 {
-    [SerializeField] Conversation convo;
+    public Conversation convo;
     public UnityEvent dialogActions;
 
     public PropertyName id => new PropertyName();

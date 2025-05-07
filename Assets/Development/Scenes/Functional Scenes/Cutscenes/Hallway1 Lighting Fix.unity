@@ -53732,9 +53732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942ae62de6793364db3659a91ef1ec01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerIndex: 1
-  objectsContainer: {fileID: 250821521}
-  foliageContainer: {fileID: 394245193}
 --- !u!4 &397425260
 Transform:
   m_ObjectHideFlags: 0
@@ -86039,6 +86036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622680514}
   - component: {fileID: 622680516}
+  - component: {fileID: 622680517}
   - component: {fileID: 622680515}
   m_Layer: 0
   m_Name: CutsceneManager
@@ -86069,7 +86067,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622680513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
@@ -86492,6 +86490,425 @@ MonoBehaviour:
   currentCutsceneIndex: 0
   cutsceneHolder:
   - {fileID: 1931377563}
+--- !u!114 &622680517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622680513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2c7de924627a44d8b8684623a63aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalEvents:
+  - signal: {fileID: 11400000, guid: 6b591869ecc9069428f33dc3c0e1e5a5, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 407673691}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartConvo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 76028a8403111634da698a515f4962a6,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Conversation, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 622680516}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: PauseCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1410304676}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gabriel_o1_idle_front
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1654424512}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Michael_o1_idle_right
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 76566526}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Raphael_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: eaa9d0a9fd4867544bb0d44d5da15605, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 407673691}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartConvo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: ac976c271a254974c867e7142f3b36b1,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Conversation, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 622680516}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: PauseCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1410304676}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gabriel_o1_idle_front
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1654424512}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Michael_o1_idle_right
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 76566526}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Raphael_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: efcc3a6e59000f5499395b650760e755, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 407673691}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartConvo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: c3c10a091a2a594428fb2454f1faddf6,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Conversation, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 622680516}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: PauseCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1410304676}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gabriel_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1654424512}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Michael_o1_idle_front
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 76566526}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Raphael_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: 663b5be0e33f2d044975213c23036b36, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 407673691}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartConvo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 76028a8403111634da698a515f4962a6,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Conversation, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 622680516}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: PauseCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1410304676}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gabriel_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1654424512}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Michael_o1_idle_right
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 76566526}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Raphael_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: 6c4043d0e0fe5c94696da7e651567f7d, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 407673691}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartConvo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 76028a8403111634da698a515f4962a6,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Conversation, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 622680516}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: PauseCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1410304676}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gabriel_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1654424512}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Michael_o1_idle_right
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 76566526}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Raphael_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: a11661a5a72f510488f8c8294cedd2d9, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 407673691}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: StartConvo
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 76028a8403111634da698a515f4962a6,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Conversation, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 622680516}
+          m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
+          m_MethodName: PauseCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1410304676}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Gabriel_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1654424512}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Michael_o1_idle_right
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 76566526}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Raphael_o1_idle_left
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: 4e3a891fc3123514cad60d4cc1cbecd4, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 303787737}
+          m_TargetAssemblyTypeName: StartingMenuManager, Assembly-CSharp
+          m_MethodName: SwitchScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Hallway2
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &623212725
 GameObject:
   m_ObjectHideFlags: 0
@@ -103629,8 +104046,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798685923}
-  m_LocalRotation: {x: -0.21643965, y: 0, z: 0, w: 0.976296}
-  m_LocalPosition: {x: 0.87, y: 4.019998, z: -27.81}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: 0.87, y: 4.02, z: -26.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -129692,9 +130109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942ae62de6793364db3659a91ef1ec01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerIndex: 0
-  objectsContainer: {fileID: 1401409282}
-  foliageContainer: {fileID: 979411033}
 --- !u!1 &1029005446
 GameObject:
   m_ObjectHideFlags: 0
@@ -239781,7 +240195,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1931377562}
   - component: {fileID: 1931377563}
-  - component: {fileID: 1931377564}
   m_Layer: 0
   m_Name: CutsceneObject
   m_TagString: Untagged
@@ -239837,20 +240250,6 @@ PlayableDirector:
     value: {fileID: 622680515}
   m_ExposedReferences:
     m_References: []
---- !u!114 &1931377564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931377561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53fb72d6ef08880469bedc735e0f90de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogManager: {fileID: 407673691}
-  cutsceneManager: {fileID: 622680516}
 --- !u!1 &1931383727
 GameObject:
   m_ObjectHideFlags: 0
