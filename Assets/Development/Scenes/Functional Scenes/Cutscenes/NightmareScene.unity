@@ -4277,6 +4277,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &126458601
 GameObject:
   m_ObjectHideFlags: 0
@@ -15031,6 +15032,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &321631101
 GameObject:
   m_ObjectHideFlags: 0
@@ -29022,6 +29024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622680514}
   - component: {fileID: 622680516}
+  - component: {fileID: 622680517}
   - component: {fileID: 622680515}
   m_Layer: 0
   m_Name: CutsceneManager
@@ -29058,20 +29061,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 4e9c4cb94d5c203409dafba416e9b593, type: 2}
-    - {fileID: 11400000, guid: 2fb5c42d36d38db43b96f3b84acc3907, type: 2}
-    - {fileID: 11400000, guid: bcc1133108f50294ebaf4b92412f3001, type: 2}
-    - {fileID: 11400000, guid: c95bbc4abdaa16549a6f1d44337bd4e5, type: 2}
-    - {fileID: 11400000, guid: 8bc1f85b7b81739449b93108213e327a, type: 2}
-    - {fileID: 11400000, guid: 50877fd4ab033af40aff3ce9a8f43288, type: 2}
-    - {fileID: 11400000, guid: 6ee179e6740a0c348af4e183c1671936, type: 2}
-    - {fileID: 11400000, guid: 4dc735b3356b13e479c4be99dfd6d885, type: 2}
-    - {fileID: 11400000, guid: c709da912f356b441b593998557986bc, type: 2}
-    - {fileID: 11400000, guid: 303c5a99e9d4ec449b195a3cd05d89e7, type: 2}
-    - {fileID: 11400000, guid: 4e3a891fc3123514cad60d4cc1cbecd4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
+    m_Signals: []
+    m_Events: []
+--- !u!114 &622680516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622680513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d948c92fa90f884b86278fbfae71495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inCutscene: 0
+  currentCutsceneIndex: 0
+  cutsceneHolder:
+  - {fileID: 1931377563}
+--- !u!114 &622680517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622680513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2c7de924627a44d8b8684623a63aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalEvents:
+  - signal: {fileID: 11400000, guid: 4e3a891fc3123514cad60d4cc1cbecd4, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 645596591}
+          m_TargetAssemblyTypeName: StartingMenuManager, Assembly-CSharp
+          m_MethodName: SwitchScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Hallway1 Lighting Fix
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: 4dc735b3356b13e479c4be99dfd6d885, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 316477892}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: FadeOut
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: 4e9c4cb94d5c203409dafba416e9b593, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29098,7 +29153,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 2fb5c42d36d38db43b96f3b84acc3907, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29125,7 +29182,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: bcc1133108f50294ebaf4b92412f3001, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29152,7 +29211,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: c95bbc4abdaa16549a6f1d44337bd4e5, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29179,7 +29240,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 8bc1f85b7b81739449b93108213e327a, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29206,7 +29269,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 50877fd4ab033af40aff3ce9a8f43288, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29233,7 +29298,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 6ee179e6740a0c348af4e183c1671936, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29260,21 +29327,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 316477892}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: FadeOut
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: c709da912f356b441b593998557986bc, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29301,7 +29356,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 303c5a99e9d4ec449b195a3cd05d89e7, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -29328,36 +29385,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 645596591}
-          m_TargetAssemblyTypeName: StartingMenuManager, Assembly-CSharp
-          m_MethodName: SwitchScene
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Hallway1 Lighting Fix
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &622680516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622680513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d948c92fa90f884b86278fbfae71495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inCutscene: 0
-  currentCutsceneIndex: 0
-  cutsceneHolder:
-  - {fileID: 1931377563}
 --- !u!1 &630908175
 GameObject:
   m_ObjectHideFlags: 0
@@ -39757,6 +39784,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1004374925
 GameObject:
   m_ObjectHideFlags: 0
@@ -50576,6 +50604,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1341436462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51577,6 +51606,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1387456575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52551,6 +52581,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1411906008
 GameObject:
   m_ObjectHideFlags: 0
@@ -53941,6 +53972,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1459653360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58709,6 +58741,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1592626287
 GameObject:
   m_ObjectHideFlags: 0
