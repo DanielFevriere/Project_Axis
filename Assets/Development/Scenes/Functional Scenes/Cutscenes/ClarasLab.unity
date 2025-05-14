@@ -5668,6 +5668,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &76566527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8573,6 +8574,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &126687926
 GameObject:
   m_ObjectHideFlags: 0
@@ -25681,6 +25683,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &317948879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31059,9 +31062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942ae62de6793364db3659a91ef1ec01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerIndex: 1
-  objectsContainer: {fileID: 250821521}
-  foliageContainer: {fileID: 394245193}
 --- !u!4 &397425260
 Transform:
   m_ObjectHideFlags: 0
@@ -40559,6 +40559,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &474654705
 Transform:
   m_ObjectHideFlags: 0
@@ -49979,6 +49980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622680514}
   - component: {fileID: 622680516}
+  - component: {fileID: 622680517}
   - component: {fileID: 622680515}
   m_Layer: 0
   m_Name: CutsceneManager
@@ -50009,25 +50011,94 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622680513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: b82fba7afa582c74186114dd032f1e67, type: 2}
-    - {fileID: 11400000, guid: e69722bddf1ad784585e2ea92e246fd0, type: 2}
-    - {fileID: 11400000, guid: 03fdb7358954ef247818a2a65ddab9e6, type: 2}
-    - {fileID: 11400000, guid: 14bae24037581614da280774657d5a14, type: 2}
-    - {fileID: 11400000, guid: 7adc77fb8f56f13439ce20a9f1a8a782, type: 2}
-    - {fileID: 11400000, guid: 4494788196ed97a48b1d1a502a7d5716, type: 2}
-    - {fileID: 11400000, guid: 2995be9f9f06b5b44bb2299fc33c78f3, type: 2}
-    - {fileID: 11400000, guid: a4b6d2154257289439ab7445c9da838e, type: 2}
-    - {fileID: 11400000, guid: 4dc735b3356b13e479c4be99dfd6d885, type: 2}
-    - {fileID: 11400000, guid: 4e3a891fc3123514cad60d4cc1cbecd4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
+    m_Signals: []
+    m_Events: []
+--- !u!114 &622680516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622680513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d948c92fa90f884b86278fbfae71495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inCutscene: 0
+  currentCutsceneIndex: 0
+  cutsceneHolder:
+  - {fileID: 1931377563}
+--- !u!114 &622680517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622680513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2c7de924627a44d8b8684623a63aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signalEvents:
+  - signal: {fileID: 11400000, guid: 4e3a891fc3123514cad60d4cc1cbecd4, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 885597429}
+          m_TargetAssemblyTypeName: StartingMenuManager, Assembly-CSharp
+          m_MethodName: SwitchScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: DemoMenu
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: 4dc735b3356b13e479c4be99dfd6d885, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 316477892}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: FadeOut
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: e69722bddf1ad784585e2ea92e246fd0, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 316477892}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: FadeIn
+            m_BoolArgument: 0
+          m_CallState: 2
+  - signal: {fileID: 11400000, guid: b82fba7afa582c74186114dd032f1e67, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50090,21 +50161,9 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_back
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 316477892}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: FadeIn
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 03fdb7358954ef247818a2a65ddab9e6, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50167,7 +50226,9 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_left
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 14bae24037581614da280774657d5a14, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50230,7 +50291,9 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_back
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 7adc77fb8f56f13439ce20a9f1a8a782, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50293,7 +50356,9 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_back
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 4494788196ed97a48b1d1a502a7d5716, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50356,7 +50421,9 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_back
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: 2995be9f9f06b5b44bb2299fc33c78f3, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50419,7 +50486,9 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_back
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
+  - signal: {fileID: 11400000, guid: a4b6d2154257289439ab7445c9da838e, type: 2}
+    onSignalReceived:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 407673691}
           m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
@@ -50482,62 +50551,6 @@ MonoBehaviour:
             m_StringArgument: Raphael_o1_idle_back
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1161132512}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Student1IdleRight
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 316477892}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: FadeOut
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 885597429}
-          m_TargetAssemblyTypeName: StartingMenuManager, Assembly-CSharp
-          m_MethodName: SwitchScene
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: DemoMenu
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &622680516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622680513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d948c92fa90f884b86278fbfae71495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inCutscene: 0
-  currentCutsceneIndex: 0
-  cutsceneHolder:
-  - {fileID: 1931377563}
 --- !u!1 &624778682
 GameObject:
   m_ObjectHideFlags: 0
@@ -56132,6 +56145,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &726393997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62118,6 +62132,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &817947266
 Transform:
   m_ObjectHideFlags: 0
@@ -73099,6 +73114,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1004374127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75007,9 +75023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942ae62de6793364db3659a91ef1ec01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerIndex: 0
-  objectsContainer: {fileID: 1401409282}
-  foliageContainer: {fileID: 979411033}
 --- !u!1 &1028342071
 GameObject:
   m_ObjectHideFlags: 0
@@ -80707,6 +80720,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1105390676
 Transform:
   m_ObjectHideFlags: 0
@@ -83160,6 +83174,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1161132513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98300,6 +98315,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1411906008
 GameObject:
   m_ObjectHideFlags: 0
@@ -101709,6 +101725,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1459653360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119543,6 +119560,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1654424513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136165,6 +136183,8 @@ PlayableDirector:
     value: {fileID: 622680515}
   - key: {fileID: -1368822796725741888, guid: 0a95b43a40b61774cb1be7a98341515b, type: 2}
     value: {fileID: 1161132512}
+  - key: {fileID: -3029654669743406861, guid: 0a95b43a40b61774cb1be7a98341515b, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1931535117
@@ -140390,6 +140410,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1989618952
 Transform:
   m_ObjectHideFlags: 0
